@@ -5,4 +5,5 @@ Acid-humoured set of shell scripts, dotfiles and tweaks.
 
 J.A.R.V.I.S is my set of dotfiles, shell scripts, environment tweaks and related stuff.
 
-Despite it's size, J.A.R.V.I.S always sport the most handy tools that come to help in time of need.
+J.A.R.V.I.S is in an early stage of development, and in constant change, thus things here may be a
+litle chaotic and not granted to work right.
