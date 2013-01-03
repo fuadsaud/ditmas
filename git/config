@@ -1,0 +1,11 @@
+[user]
+	name = Fuad Saud
+	email = fuadksd@gmail.com
+[color]
+	ui = always
+[alias]
+	st = status
+	ci = commit
+	cm = commit
+	ck = checkout
+	co = checkout
