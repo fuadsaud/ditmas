@@ -7,3 +7,5 @@ J.A.R.V.I.S is my set of dotfiles, shell scripts, environment tweaks and related
 
 J.A.R.V.I.S is in an early stage of development, and in constant change, thus things here may be a
 litle chaotic and not granted to work right.
+
+Tested on OSX 10.8 only; some tool smay not work on Linux environments.
