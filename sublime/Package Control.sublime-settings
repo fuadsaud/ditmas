@@ -1,0 +1,19 @@
+{
+	"auto_upgrade_last_run": null,
+	"installed_packages":
+	[
+		"Alignment",
+		"Auto Encoding for Ruby",
+		"Color Highlighter",
+		"ColorPick",
+		"DetectSyntax",
+		"ERB Insert and Toggle Commands",
+		"HTML Mustache",
+		"Indent XML",
+		"Package Control",
+		"RubyToggleString",
+		"Smart Duplicate",
+		"Theme - Soda",
+		"TrailingSpaces"
+	]
+}
