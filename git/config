@@ -9,3 +9,5 @@
 	cm = commit
 	ck = checkout
 	co = checkout
+[push]
+	default = simple
