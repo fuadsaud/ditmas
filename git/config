@@ -8,6 +8,9 @@
 	ci = commit
 	cm = commit
 	ck = checkout
-	co = checkout
+  co = checkout
+  br = branch
 [push]
 	default = simple
+[core]
+	excludesfile = /Users/fuad/.jarvis/git/ignore
