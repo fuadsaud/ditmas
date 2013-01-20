@@ -5,8 +5,8 @@
 	ui = always
 [alias]
 	st = status
-	ci = commit
-	cm = commit
+	ci = commit -v
+	cm = commit -v
 	ck = checkout
   co = checkout
   br = branch
