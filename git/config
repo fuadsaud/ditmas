@@ -6,8 +6,6 @@
 [alias]
 	st = status
 	ci = commit -v
-	cm = commit -v
-	ck = checkout
   co = checkout
   br = branch
 	lp = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr by %cn)%Creset' --abbrev-commit --date=relative
