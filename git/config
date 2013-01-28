@@ -10,6 +10,7 @@
 	ck = checkout
   co = checkout
   br = branch
+	lp = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr by %cn)%Creset' --abbrev-commit --date=relative
 [push]
 	default = simple
 [core]
