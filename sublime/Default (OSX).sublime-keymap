@@ -1,2 +1,3 @@
 [
+  { "keys": ["super+k", "super+o"], "command": "title_case" }
 ]
