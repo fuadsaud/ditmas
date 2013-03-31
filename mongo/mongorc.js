@@ -1,6 +1,6 @@
 /*
 *
-* MongoDB Shell tricks and treats
+* MongoDB Shell tricks
 *
 *
 * Fuad Saud © 2013
