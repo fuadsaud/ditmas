@@ -7,11 +7,12 @@
 # you want to read a markdown file with a nice formatting.
 #
 
-content=$(redcarpet $1)
+content=$(redcarpet "$1")
 
 echo "
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Woot!</title>
 
   <style type=\"text/css\">
