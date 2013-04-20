@@ -1,0 +1,16 @@
+{
+  "lists": [
+    {
+      "urls": [
+        {
+          "poprock": "rtsp://ls.azioncdn.net/0041b/a/access_options/rtmp-live/poprock.sdp"
+        }
+      ]
+    },
+    {
+      "hepl": [
+
+      ]
+    }
+  ]
+}
