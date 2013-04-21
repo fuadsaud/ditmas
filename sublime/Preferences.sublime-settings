@@ -90,6 +90,7 @@
 	"hot_exit": true,
 	"ignored_packages":
 	[
+		"Auto Encoding for Ruby"
 	],
 	"indent_guide_options":
 	[
