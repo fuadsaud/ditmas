@@ -43,7 +43,7 @@
 	"draw_centered": false,
 	"draw_indent_guides": true,
 	"draw_minimap_border": false,
-	"draw_white_space": "selection",
+	"draw_white_space": "all",
 	"enable_hexadecimal_encoding": true,
 	"ensure_newline_at_eof_on_save": false,
 	"fade_fold_buttons": true,
