@@ -15,3 +15,5 @@
 	excludesfile = /Users/fuad/.jarvis/git/ignore
 [github]
 	user = fuadsaud
+[credential]
+	helper = osxkeychain
