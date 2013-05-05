@@ -1,0 +1,26 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+
+# Use video title as file name
+alias yt="youtube-dl -t"
+
+# cd to given rubygem directory
+function gemcd {
+  gemfile=$(gem which $@ 2>/dev/null)
+
+  if [ -n gemfile ]; then
+    cd $(dirname "$gemfile")
+  fi
+ }
+
