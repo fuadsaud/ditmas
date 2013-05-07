@@ -1,19 +1,19 @@
 [user]
-	name = Fuad Saud
-	email = fuadksd@gmail.com
+  name = Fuad Saud
+  email = fuadksd@gmail.com
 [color]
-	ui = always
+  ui = always
 [alias]
-	st = status
-	ci = commit -v
+  st = status
+  ci = commit -v
   co = checkout
   br = branch
-	l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr by %cn)%Creset' --abbrev-commit --date=relative
+  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr by %cn)%Creset' --abbrev-commit --date=relative
 [push]
-	default = simple
+  default = simple
 [core]
-	excludesfile = /Users/fuad/.jarvis/git/ignore
+  excludesfile = /Users/fuad/.jarvis/git/ignore
 [github]
-	user = fuadsaud
+  user = fuadsaud
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
