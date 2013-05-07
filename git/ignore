@@ -12,3 +12,5 @@ coverage
 *.swp
 .DS_Store
 tags
+.sass-cache/*
+
