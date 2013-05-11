@@ -26,7 +26,7 @@ abort "* Pass a gem name." unless name = ARGV[0]
 gemspec = <<-SPEC
 # encoding: utf-8
 $LOAD_PATH.unshift 'lib'
-require "#{name}/version"
+require '#{name}/version'
 
 Gem::Specification.new do |s|
   s.name              = '#{name}'
@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
   s.date              = Time.now.strftime('%Y-%m-%d')
   s.summary           = 'Feed me.'
   s.homepage          = 'http://github.com/#{login}/#{name}'
-  s.email             = "#{email}"
+  s.email             = '#{email}'
   s.authors           = ['#{fullname}']
   s.has_rdoc          = false
 
