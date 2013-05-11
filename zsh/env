@@ -74,3 +74,6 @@ if [[ -d "$TMPDIR" ]]; then
   fi
 fi
 
+# Sets brew-cask appdir to /Applications
+export HOMEBREW_CASK_OPTS='--appdir=/Applications'
+
