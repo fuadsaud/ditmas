@@ -1,3 +1,8 @@
 [
-  { "keys": ["super+k", "super+o"], "command": "title_case" }
+  { "keys": ["super+k", "super+o"], "command": "title_case" },
+  { "keys": ["super+control+enter"], "command": "max_pane" },
+  { "keys": ["super+shift+enter"], "command": "run_macro_file", "args": {
+      "file": "Packages/Default/Add Line Before.sublime-macro"
+    }
+  }
 ]
