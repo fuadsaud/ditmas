@@ -33,7 +33,7 @@
 	"bold_folder_labels": false,
 	"caret_style": "smooth",
 	"close_windows_when_empty": false,
-	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
+	"color_scheme": "Packages/Eggplant Parm Color Scheme/EggplantParm.tmTheme",
 	"create_window_at_startup": true,
 	"default_encoding": "UTF-8",
 	"default_line_ending": "system",
@@ -77,7 +77,8 @@
 		".svn",
 		".git",
 		".hg",
-		"CVS"
+		"CVS",
+		"vendor/bundle"
 	],
 	"font_face": "Menlo",
 	"font_options":
@@ -90,7 +91,9 @@
 	"hot_exit": true,
 	"ignored_packages":
 	[
-		"Auto Encoding for Ruby"
+		"Auto Encoding for Ruby",
+		"CursorRuler",
+		"knockdown"
 	],
 	"indent_guide_options":
 	[
