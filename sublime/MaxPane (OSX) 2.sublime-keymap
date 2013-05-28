@@ -1,5 +1,0 @@
-[
-    { "keys": ["super+shift+enter"], "command": "max_pane" },
-    { "keys": ["super+ctrl+right"], "command": "shift_pane" },
-    { "keys": ["super+ctrl+left"], "command": "unshift_pane" }
-]
