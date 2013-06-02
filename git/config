@@ -6,8 +6,9 @@
 [branch]
   autosetupmerge = always
 [alias]
+  s  = status --short --branch
   st = status
-  ci = commit -v
+  ci = commit --verbose
   co = checkout
   br = branch
   cd = !cd $(git rev-parse --show-toplevel)
