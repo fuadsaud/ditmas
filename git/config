@@ -8,6 +8,7 @@
   ci = commit -v
   co = checkout
   br = branch
+  gh-pages = !git checkout --orphan gh-pages && git rm $(git ls-files) -f
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr by %cn)%Creset' --abbrev-commit --date=relative
 [push]
   default = simple
