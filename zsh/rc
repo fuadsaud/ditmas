@@ -15,6 +15,11 @@ fi
 # Use video title as file name
 alias yt="youtube-dl -t"
 
+alias cp="${aliases[cp]:-cp} -v"
+alias ln="${aliases[ln]:-ln} -v"
+alias mv="${aliases[mv]:-mv} -v"
+alias rm="${aliases[rm]:-rm} -v"
+
 # cd to given rubygem directory
 function gemcd {
   if [ -n "$(gem which $1)" ]; then
