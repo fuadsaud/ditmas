@@ -3,6 +3,8 @@
   email = fuadksd@gmail.com
 [color]
   ui = always
+[branch]
+  autosetupmerge = always
 [alias]
   st = status
   ci = commit -v
