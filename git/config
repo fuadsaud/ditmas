@@ -6,6 +6,8 @@
 [branch]
   autosetupmerge = always
 [alias]
+  d  = diff
+  dc = diff --cached
   s  = status --short --branch
   st = status
   ci = commit --verbose
