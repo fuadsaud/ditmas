@@ -17,10 +17,8 @@ alias yt="youtube-dl -t"
 
 # cd to given rubygem directory
 function gemcd {
-  gemfile=$(gem which $@)
-
-  if [ -n gemfile ]; then
-    cd $(dirname "$gemfile")
+  if [ -n "$(gem which $1)" ]; then
+    cd $(dirname "$(gem which $1)")
   fi
  }
 
