@@ -3,34 +3,35 @@
   email = fuadksd@gmail.com
 [color]
   ui = always
-[branch]
-  autosetupmerge = always
 [alias]
+  a  = add --verbose
   br = branch --verbose
   ci = commit --verbose
   co = checkout
   d  = diff
-  dc = d --cached
+  dc = diff --cached
   f  = fetch --verbose --tags --progress
   fm = pull --verbose --tags
-  fr = fm --rebase
+  fr = pull --rebase --verbose --tags
   g  = grep
+  l  = log --graph --abbrev-commit
   p  = push --verbose --tags --progress
   r  = rebase
-  ri = rebase -i HEAD
-  rc = r --continue
-  ra = r --verbose --abort
+  ri = rebase --verbose -i HEAD
+  rc = rebase --verbose --continue
+  ra = rebase --verbose --abort
   s  = status --short --branch
   st = status
+  wc = whatchanged --graph --abbrev-commit
 
   cd = !cd $(git rev-parse --show-toplevel)
   root = rev-parse --show-toplevel
 
   gh-pages = !git checkout --orphan gh-pages && git rm $(git ls-files) -f
-
-  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr by %cn)%Creset' --abbrev-commit --date=relative
 [push]
   default = simple
+[format]
+  pretty = %C(yellow)%h •%Creset%C(red)%d%Creset %s %Cgreen• %cr by %cn%Creset
 [core]
   excludesfile = /Users/fuad/.jarvis/git/ignore
 [github]
