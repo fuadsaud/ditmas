@@ -10,13 +10,15 @@
   co = checkout
   d  = diff
   dc = diff --cached
-  f  = fetch --verbose --tags --progress
-  fm = pull --verbose --tags
-  fr = pull --rebase --verbose --tags
+  f  = fetch --verbose --progress
+  ft = fetch --verbose --tags
+  fm = pull --verbose
+  fr = pull --rebase --verbose
   g  = grep
   l  = log --graph --abbrev-commit
-  p  = push --verbose --tags --progress
-  r  = rebase
+  p  = push --verbose --progress
+  r  = rebase --verbose
+
   ri = rebase --verbose -i HEAD
   rc = rebase --verbose --continue
   ra = rebase --verbose --abort
