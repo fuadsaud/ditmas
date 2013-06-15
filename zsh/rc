@@ -28,7 +28,7 @@ function gemcd {
  }
 
 function path {
-  echo $PATH | awk 'BEGIN { RS = ":" } { print "$1" }'
+  echo $PATH | awk 'BEGIN { RS = ":" } { print $1 }'
 }
 
 # Disable autocorrect
