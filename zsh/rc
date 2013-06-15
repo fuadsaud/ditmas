@@ -23,7 +23,7 @@ alias rm="${aliases[rm]:-rm} -v"
 # cd to given rubygem directory
 function gemcd {
   if [ -n "$(gem which $1)" ]; then
-    cd $(dirname "$(gem which $1)")
+    cd $(dirname $(dirname "$(gem which $1)"))
   fi
  }
 
