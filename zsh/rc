@@ -12,7 +12,7 @@ fi
 
 # Customize to your needs...
 
-# Use video title as file name
+# Use video title as file name.
 alias yt="youtube-dl -t"
 
 alias cp="${aliases[cp]:-cp} -v"
@@ -20,7 +20,7 @@ alias ln="${aliases[ln]:-ln} -v"
 alias mv="${aliases[mv]:-mv} -v"
 alias rm="${aliases[rm]:-rm} -v"
 
-# cd to given rubygem directory
+# cd to given rubygem directory.
 function gemcd {
   if [ -n "$(gem which $1)" ]; then
     cd $(dirname $(dirname "$(gem which $1)"))
@@ -31,5 +31,10 @@ function path {
   echo $PATH | awk 'BEGIN { RS = ":" } { print $1 }'
 }
 
-# Disable autocorrect
+# Disable autocorrect.
 unsetopt correct
+
+# Goodbye bundle exec.
+# This is being set here instead of zshenv because it needs to be
+# set after rbenv is loaded.
+export PATH="./bin:$PATH"
