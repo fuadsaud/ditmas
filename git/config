@@ -8,6 +8,7 @@
   br = branch
   ci = commit --verbose
   co = checkout
+  cp = cherry-pick
   d  = diff
   dc = diff --cached
   f  = fetch --verbose --progress
