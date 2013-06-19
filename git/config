@@ -37,7 +37,7 @@
 [merge]
   defaultToUpstream = true
 [push]
-  default = simple
+  default = tracking
 [format]
   pretty = %C(yellow)%h •%Creset%C(red)%d%Creset %s %Cgreen• %cr by %cn%Creset
 [core]
