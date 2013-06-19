@@ -1,0 +1,32 @@
+{
+	"color_scheme": "Packages/Solarized Color Scheme/Solarized (light).tmTheme",
+	"draw_white_space": "all",
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		"vendor/bundle"
+	],
+	"font_face": "Inconsolata",
+	"font_size": 24.0,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"RubyTest",
+		"VintageLines"
+	],
+	"phoenix_dirty_bottom_bar": true,
+	"phoenix_dirty_bottom_bar_red": true,
+	"phoenix_highlight_current_tab": true,
+	"rulers":
+	[
+		80
+	],
+	"soda_folder_icons": true,
+	"theme": "Phoenix Light.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"word_wrap": false
+}
