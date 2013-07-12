@@ -9,9 +9,11 @@
   ci = commit --verbose
   co = checkout
   cp = cherry-pick
+  cry = cherry -v
   d  = diff
   dc = diff --cached
   f  = fetch --verbose --progress
+  fuck = "!git ci -am 'Fuck this shit'; git p;"
   ft = fetch --verbose --tags
   fm = pull --verbose
   fr = pull --rebase --verbose
@@ -26,6 +28,7 @@
   ri = rebase -i
   redo = commit --amend --no-edit
   st  = status --short --branch
+  t = tag
   undo = reset HEAD~1
   unstage = reset HEAD
   wc = whatchanged --graph --abbrev-commit
