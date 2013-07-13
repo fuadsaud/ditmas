@@ -27,6 +27,7 @@
   rc = rebase --continue
   ri = rebase -i
   redo = commit --amend --no-edit
+  snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
   st  = status --short --branch
   t = tag
   undo = reset HEAD~1
