@@ -19,6 +19,7 @@
   fr = pull --rebase --verbose
   g  = grep
   l  = log --graph --abbrev-commit
+  la = log --graph --abbrev-commit --all
   m  = merge --verbose
   p  = push --verbose --progress
   pr = pull-request
