@@ -1,0 +1,72 @@
+#!/usr/bin/env macruby
+# encoding: utf-8
+
+framework 'Cocoa'
+
+require 'date'
+
+#
+# Simple Pomodoro counter for Cocoa.
+#
+class Pomodoro
+  def applicationDidFinishLaunching(notification)
+    initMenu!
+    scheduleTimer!
+  end
+
+  def quit(sender)
+    exit false
+  end
+
+  def updateTime(sender = nil)
+    remainingTime = (finish - DateTime.now).*(86400).to_i
+
+    exit true if remainingTime < 0
+
+    @item.title = sprintf '%d:%02d', remainingTime / 60, remainingTime % 60
+  end
+
+  private
+
+  def finish
+    @finish ||= DateTime.now + Rational(time, 86400)
+  end
+
+  def initMenu!
+    @item ||=
+      statusBar._statusItemWithLength(0, withPriority: 213_748_3647).tap do |i|
+        i.length = 0
+        i.menu = menu
+        i.highlightMode = true
+        i.length = NSVariableStatusItemLength
+      end
+  end
+
+  def menu
+    NSMenu.new.tap do |m|
+      m.addItemWithTitle('Quit Pomodoro', action: :'quit:', keyEquivalent: '')
+    end
+  end
+
+  def statusBar
+    NSStatusBar.systemStatusBar
+  end
+
+  def time
+    minutes = ARGV.length.zero? ? 25 : ARGV.first.to_i
+    seconds = ARGV.length == 2  ? ARGV.last.to_i : 0
+
+    @time ||= minutes * 60 + seconds
+  end
+
+  def scheduleTimer!
+    NSTimer.scheduledTimerWithTimeInterval(1.0, target: self,
+                                                selector: :'updateTime:',
+                                                userInfo: nil,
+                                                repeats: true)
+  end
+end
+
+NSApplication.sharedApplication.tap { |app|
+  app.delegate = Pomodoro.new
+}.run
