@@ -1,0 +1,7 @@
+""
+" vimrc by fs
+"
+set guifont=Inconsolata\ for\ Powerline:h24
+set guioptions-=T guioptions-=e guioptions-=L guioptions-=r
+set background=dark
+colorscheme solarized

@@ -1,0 +1,106 @@
+""
+" vimrc by fs
+"
+set nocompatible
+set encoding=utf-8
+set showcmd                " display incomplete commands
+set relativenumber         " let's go relative!
+set cursorline             " highlight current line
+set hidden                 " automatically hide modified buffers
+set title
+set showmatch
+set nobackup
+set noswapfile
+
+syntax on
+filetype plugin indent on
+
+"" Whitespace
+set autoindent                 " always set autoindenting on
+set copyindent                 " copy the previous indentation on autoindenting
+set nowrap                     " no line wrapping
+set tabstop=2                  " no tabs, only 2 spaces
+set softtabstop=2
+set shiftwidth=2
+set shiftround
+set smarttab
+set expandtab                  " use soft tabs (spaces)
+set backspace=indent,eol,start " backspace through everythong in insert mode
+
+ set listchars+=eol:¬
+
+"" Searching
+set hlsearch   " highlight matches
+set incsearch  " incremental search
+set ignorecase " searches are case insensitive...
+set smartcase  " ... unless they contain at least one capital letter
+
+set omnifunc=syntaxcomplete#Complete " completion stuff
+
+"" Initialize Vundle
+set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+Bundle 'tpope/vim-sensible'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-speeddating'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-rbenv'
+Bundle 'mattn/zencoding-vim'
+
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'pangloss/vim-javascript'
+Bundle 'cakebaker/scss-syntax.vim'
+
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+
+Bundle 'jpo/vim-railscasts-theme'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'Lokaltog/powerline'
+
+" Enhance Netrw usability
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+
+if has('autocmd')
+  " Automatically refresh vimrc
+  autocmd BufWritePost .vimrc source $MYVIMRC
+
+  if has('gui_running')
+    autocmd BufWritePost .gvimrc source $MYGVIMRC
+  endif
+
+  " NERDTree
+  autocmd vimenter * if !argc() | NERDTree | endif
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+endif
+
+" Keymaps
+
+" disable arrows
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+" easier navigation between split windows
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-+> <c-w>+
+nnoremap <c--> <c-w>-
+nnoremap <c-<> <c-w><
+nnoremap <c->> <c-w>>
+
+map <leader>n :NERDTreeToggle<CR>
+map <leader>, :tabedit $MYVIMRC<CR>
