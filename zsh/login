@@ -16,7 +16,7 @@
 
 # Print a random, hopefully interesting, adage.
 if (( $+commands[fortune] )); then
-  msg=$(fortune -a | cowsay)
+  msg=$(fortune -a | cowsay -f milk)
 
   # Checks for lolcat availability
   if lolcat -v > /dev/null 2> /dev/null; then
