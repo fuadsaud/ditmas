@@ -42,7 +42,7 @@
 [merge]
   defaultToUpstream = true
 [push]
-  default = tracking
+  default = current
 [format]
   pretty = %C(yellow)%h •%Creset%C(red)%d%Creset %s %Cgreen• %cr by %cn%Creset
 [core]
@@ -53,3 +53,5 @@
   helper = osxkeychain
 [ghi]
 	token = e151086d6f6bf7748a9ddfbd0607d7115e2f55d9
+[hub]
+	protocol = https
