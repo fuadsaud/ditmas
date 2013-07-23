@@ -49,19 +49,28 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-rbenv'
+Bundle "tpope/vim-unimpaired"
 Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/gist-vim'
 
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-rbenv'
+Bundle 'tpope/vim-bundler'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'pangloss/vim-javascript'
+Bundle 'itspriddle/vim-jquery.git'
 Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'jtratner/vim-flavored-markdown.git'
 
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
 
 Bundle 'jpo/vim-railscasts-theme'
 Bundle 'altercation/vim-colors-solarized'
