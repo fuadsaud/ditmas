@@ -9,6 +9,7 @@ set cursorline             " highlight current line
 set hidden                 " automatically hide modified buffers
 set title
 set showmatch
+set list
 set nobackup
 set noswapfile
 
@@ -26,8 +27,6 @@ set shiftround
 set smarttab
 set expandtab                  " use soft tabs (spaces)
 set backspace=indent,eol,start " backspace through everythong in insert mode
-
- set listchars+=eol:¬
 
 "" Searching
 set hlsearch   " highlight matches
