@@ -3,24 +3,30 @@
 "
 set nocompatible
 set encoding=utf-8
-set showcmd                " display incomplete commands
-set relativenumber         " let's go relative!
-set cursorline             " highlight current line
-set hidden                 " automatically hide modified buffers
+set modelines=0
+set noshowmode
+set showcmd
+set relativenumber
+set cursorline
+set hidden
 set title
 set showmatch
 set list
+set listchars+=eol:$
 set nobackup
 set noswapfile
+set undofile
+set wildmenu
+set wildmode=longest,full
 
 syntax on
 filetype plugin indent on
 
 "" Whitespace
-set autoindent                 " always set autoindenting on
-set copyindent                 " copy the previous indentation on autoindenting
-set nowrap                     " no line wrapping
-set tabstop=2                  " no tabs, only 2 spaces
+set autoindent
+set copyindent
+set nowrap
+set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set shiftround
@@ -29,10 +35,11 @@ set expandtab                  " use soft tabs (spaces)
 set backspace=indent,eol,start " backspace through everythong in insert mode
 
 "" Searching
-set hlsearch   " highlight matches
-set incsearch  " incremental search
-set ignorecase " searches are case insensitive...
-set smartcase  " ... unless they contain at least one capital letter
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set gdefault
 
 set omnifunc=syntaxcomplete#Complete " completion stuff
 
@@ -78,19 +85,24 @@ Bundle 'godlygeek/tabular'
 
 Bundle 'jpo/vim-railscasts-theme'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'Lokaltog/powerline'
+Bundle 'bling/vim-airline'
+
+" enable powerline for airline
+let g:airline_powerline_fonts=1
 
 " Enhance Netrw usability
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
+let g:netrw_browse_split=4
+let g:netrw_altv=1
 
 if has('autocmd')
   " Automatically refresh vimrc
-  autocmd BufWritePost .vimrc source $MYVIMRC
+  " autocmd BufWritePost .vimrc source $MYVIMRC
 
-  if has('gui_running')
-    autocmd BufWritePost .gvimrc source $MYGVIMRC
-  endif
+  " if has('gui_running')
+    " autocmd BufWritePost .gvimrc source $MYGVIMRC
+  " endif
+
+  autocmd FocusLost * :wall
 
   " NERDTree
   autocmd vimenter * if !argc() | NERDTree | endif
@@ -99,21 +111,45 @@ endif
 
 " Keymaps
 
+let mapleader=','
+
+" default / to perl-style regexp's
+nnoremap / /\v
+vnoremap / /\v
+
+" remove highligted terms
+nnoremap <Leader><Space> :noh<CR>
+
+" use tab to jump between matching brackets
+nnoremap <Tab> %
+
+" delete trailing whitespace
+nnoremap <Leader>W :%s/\s\+$//<CR>:let @/=''<CR>
+
+" re-hardwrap text
+nnoremap <Leader>q gqip
+
+" reselect last pasted text
+nnoremap <Leader>v V`]
+
+" go from insert to normal mode
+inoremap jj <ESC>
+
 " disable arrows
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
+noremap <Up>    <NOP>
+noremap <Down>  <NOP>
+noremap <Left>  <NOP>
 noremap <Right> <NOP>
+inoremap <Up>    <NOP>
+inoremap <Down>  <NOP>
+inoremap <Left>  <NOP>
+inoremap <Right> <NOP>
 
 " easier navigation between split windows
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-nnoremap <c-+> <c-w>+
-nnoremap <c--> <c-w>-
-nnoremap <c-<> <c-w><
-nnoremap <c->> <c-w>>
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
-map <leader>n :NERDTreeToggle<CR>
-map <leader>, :tabedit $MYVIMRC<CR>
+map <Leader>n :NERDTreeToggle<CR>
+map <Leader>, :tabedit $MYVIMRC<CR>
