@@ -42,3 +42,5 @@ unsetopt correct
 # set after rbenv is loaded.
 export PATH="./bin:$PATH"
 
+export LOLCOMMITS_FORK=1
+
