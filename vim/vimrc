@@ -12,7 +12,7 @@ set hidden
 set title
 set showmatch
 set list
-set listchars+=eol:$
+" set listchars+=eol:$
 set nobackup
 set noswapfile
 set undofile
@@ -54,34 +54,37 @@ Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
 Bundle "tpope/vim-unimpaired"
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'mattn/gist-vim'
 Bundle 'mattn/zencoding-vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'sjl/gundo.vim'
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'gregsexton/MatchTag'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'yurifury/hexHighlight'
+Bundle 'godlygeek/tabular'
 
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-rbenv'
 Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-liquid'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'pangloss/vim-javascript'
 Bundle 'itspriddle/vim-jquery.git'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'jtratner/vim-flavored-markdown.git'
-
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
-Bundle 'gregsexton/MatchTag'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'yurifury/hexHighlight'
-Bundle 'godlygeek/tabular'
 
 Bundle 'jpo/vim-railscasts-theme'
 Bundle 'altercation/vim-colors-solarized'
@@ -133,17 +136,13 @@ nnoremap <Leader>q gqip
 nnoremap <Leader>v V`]
 
 " go from insert to normal mode
-inoremap jj <ESC>
+inoremap jj <Esc>
 
 " disable arrows
-noremap <Up>    <NOP>
-noremap <Down>  <NOP>
-noremap <Left>  <NOP>
-noremap <Right> <NOP>
-inoremap <Up>    <NOP>
-inoremap <Down>  <NOP>
-inoremap <Left>  <NOP>
-inoremap <Right> <NOP>
+noremap  <Up>    <Nop>
+noremap  <Down>  <Nop>
+noremap  <Left>  <Nop>
+noremap  <Right> <Nop>
 
 " easier navigation between split windows
 nnoremap <C-j> <C-w>j
@@ -153,3 +152,5 @@ nnoremap <C-l> <C-w>l
 
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>, :tabedit $MYVIMRC<CR>
+
+nnoremap <Leader>u :GundoToggle<CR>
