@@ -113,9 +113,13 @@ if has('autocmd')
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 endif
 
+" Vertical ruler
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%79v.\+/
+
 " Keymaps
 
-let mapleader=','
+let mapleader = ','
 
 " default / to perl-style regexp's
 nnoremap / /\v
