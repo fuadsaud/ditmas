@@ -4,6 +4,7 @@
 set nocompatible
 set encoding=utf-8
 set modelines=0
+set visualbell
 set noshowmode
 set showcmd
 set relativenumber
@@ -55,7 +56,7 @@ Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
-Bundle "tpope/vim-unimpaired"
+Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'mattn/gist-vim'
@@ -63,8 +64,8 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'sjl/gundo.vim'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 Bundle 'terryma/vim-multiple-cursors'
