@@ -1,0 +1,12 @@
+# Clear screen after exiting vim/less/etc.
+altscreen on
+
+# Mouse support.
+termcapinfo xterm* ti@:te@
+
+# Set xterm title.
+termcapinfo xterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
+defhstatus "screen ^E (^Et) | $USER@^EH"
+hardstatus off
+
+term xterm-256color
