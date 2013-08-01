@@ -92,11 +92,15 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
 
 " enable powerline for airline
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts = 1
 
 " Enhance Netrw usability
-let g:netrw_browse_split=4
-let g:netrw_altv=1
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+
+let g:snipMate = {}
+let g:snipMate.scope_aliases = {}
+let g:snipMate.scope_aliases['scss'] = 'scss,css'
 
 if has('autocmd')
   " Automatically refresh vimrc
