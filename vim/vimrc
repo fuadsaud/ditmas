@@ -162,5 +162,6 @@ nnoremap <C-l> <C-w>l
 
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>, :tabedit $MYVIMRC<CR>
+map <Leader>< :tabedit $MYGVIMRC<CR>
 
 nnoremap <Leader>u :GundoToggle<CR>
