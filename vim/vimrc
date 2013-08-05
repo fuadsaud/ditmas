@@ -88,8 +88,11 @@ Bundle 'itspriddle/vim-jquery.git'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'jtratner/vim-flavored-markdown.git'
 
-Bundle 'jpo/vim-railscasts-theme'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'jaromero/vim-monokai-refined'
+Bundle 'jpo/vim-railscasts-theme'
+Bundle 'croaker/mustang-vim'
+Bundle 'noahfrederick/Hemisu'
 Bundle 'bling/vim-airline'
 
 " enable powerline for airline
