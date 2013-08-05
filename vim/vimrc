@@ -11,6 +11,8 @@ set relativenumber
 set cursorline
 set colorcolumn=80
 set hidden
+set splitbelow
+set splitright
 set title
 set showmatch
 set list
@@ -45,56 +47,9 @@ set gdefault
 
 set omnifunc=syntaxcomplete#Complete " completion stuff
 
-"" Initialize Vundle
-set rtp+=~/.vim/bundle/vundle/
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-call vundle#rc()
-
-Bundle 'gmarik/vundle'
-
-Bundle 'tpope/vim-sensible'
-Bundle 'tpope/vim-speeddating'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-git'
-Bundle 'mattn/gist-vim'
-Bundle 'mattn/zencoding-vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'sjl/gundo.vim'
-Bundle 'maxbrunsfeld/vim-yankstack'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'gregsexton/MatchTag'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'yurifury/hexHighlight'
-Bundle 'godlygeek/tabular'
-
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-rbenv'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-liquid'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'pangloss/vim-javascript'
-Bundle 'itspriddle/vim-jquery.git'
-Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'jtratner/vim-flavored-markdown.git'
-
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'jaromero/vim-monokai-refined'
-Bundle 'jpo/vim-railscasts-theme'
-Bundle 'croaker/mustang-vim'
-Bundle 'noahfrederick/Hemisu'
-Bundle 'bling/vim-airline'
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
 
 " enable powerline for airline
 let g:airline_powerline_fonts = 1
@@ -112,7 +67,7 @@ if has('autocmd')
   " autocmd BufWritePost .vimrc source $MYVIMRC
 
   " if has('gui_running')
-    " autocmd BufWritePost .gvimrc source $MYGVIMRC
+  " autocmd BufWritePost .gvimrc source $MYGVIMRC
   " endif
 
   " autocmd FocusLost * :wall
@@ -160,8 +115,15 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" Switch between the last two files
+nnoremap <Leader>m <C-^>
+
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>, :tabedit $MYVIMRC<CR>
 map <Leader>< :tabedit $MYGVIMRC<CR>
 
 nnoremap <Leader>u :GundoToggle<CR>
+
+nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
+nnoremap <Leader>s :call RunNearestSpec()<CR>
+nnoremap <Leader>l :call RunLastSpec()<CR>
