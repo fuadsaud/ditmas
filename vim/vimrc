@@ -9,6 +9,7 @@ set noshowmode
 set showcmd
 set relativenumber
 set cursorline
+set colorcolumn=80
 set hidden
 set title
 set showmatch
@@ -114,16 +115,12 @@ if has('autocmd')
     " autocmd BufWritePost .gvimrc source $MYGVIMRC
   " endif
 
-  autocmd FocusLost * :wall
+  " autocmd FocusLost * :wall
 
   " NERDTree
   autocmd vimenter * if !argc() | NERDTree | endif
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 endif
-
-" Vertical ruler
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%79v.\+/
 
 " Keymaps
 
