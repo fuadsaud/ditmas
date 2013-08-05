@@ -25,7 +25,9 @@ abort "* Pass a gem name." unless name = ARGV[0]
 
 gemspec = <<-SPEC
 # encoding: utf-8
+
 $LOAD_PATH.unshift 'lib'
+
 require '#{name}/version'
 
 Gem::Specification.new do |s|
