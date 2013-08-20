@@ -5,6 +5,7 @@
   ui = auto
 [alias]
   a  = add --verbose
+  au = update-index --assume-unchanged
   br = branch
   ci = commit --verbose
   co = checkout
@@ -21,6 +22,7 @@
   l  = log --graph --abbrev-commit
   la = log --graph --abbrev-commit --all
   m  = merge --verbose
+  nau = update-index --no-assume-unchanged
   p  = push --verbose --progress
   pr = pull-request
   r  = rebase
