@@ -37,6 +37,7 @@ set shiftround
 set smarttab
 set expandtab                  " use soft tabs (spaces)
 set backspace=indent,eol,start " backspace through everythong in insert mode
+set textwidth=79
 
 "" Searching
 set hlsearch
@@ -45,11 +46,11 @@ set ignorecase
 set smartcase
 set gdefault
 
-set omnifunc=syntaxcomplete#Complete " completion stuff
-
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
+
+set omnifunc=syntaxcomplete#Complete " completion stuff
 
 " enable powerline for airline
 let g:airline_powerline_fonts = 1
@@ -62,16 +63,9 @@ let g:snipMate = {}
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['scss'] = 'scss,css'
 
+let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+
 if has('autocmd')
-  " Automatically refresh vimrc
-  " autocmd BufWritePost .vimrc source $MYVIMRC
-
-  " if has('gui_running')
-  " autocmd BufWritePost .gvimrc source $MYGVIMRC
-  " endif
-
-  " autocmd FocusLost * :wall
-
   " NERDTree
   autocmd vimenter * if !argc() | NERDTree | endif
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -127,3 +121,5 @@ nnoremap <Leader>u :GundoToggle<CR>
 nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
 nnoremap <Leader>s :call RunNearestSpec()<CR>
 nnoremap <Leader>l :call RunLastSpec()<CR>
+
+call togglebg#map('<F5>')
