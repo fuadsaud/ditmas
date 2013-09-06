@@ -53,7 +53,5 @@
   user = fuadsaud
 [credential]
   helper = osxkeychain
-[ghi]
-	token = e151086d6f6bf7748a9ddfbd0607d7115e2f55d9
 [hub]
 	protocol = https
