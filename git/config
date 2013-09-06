@@ -14,7 +14,7 @@
   d  = diff
   dc = diff --cached
   f  = fetch --verbose --progress
-  fuck = "!git ci -am 'Fuck this shit'; git p;"
+  fuck-this-shit = "!git ci -am 'Fuck this shit, I am done for today!'; git p;"
   ft = fetch --verbose --tags
   fm = pull --verbose
   fr = pull --rebase --verbose
