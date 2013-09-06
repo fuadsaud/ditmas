@@ -95,7 +95,7 @@ nnoremap <Leader>q gqip
 nnoremap <Leader>v V`]
 
 " go from insert to normal mode
-inoremap jj <Esc>
+inoremap jj <Esc>:w<CR>
 
 " disable arrows
 noremap  <Up>    <Nop>
