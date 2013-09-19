@@ -4,9 +4,12 @@
 set nocompatible
 set encoding=utf-8
 set modelines=0
+set autoread
 set visualbell
 set noshowmode
 set showcmd
+set clipboard=unnamed
+set number
 set relativenumber
 set cursorline
 set colorcolumn=80
@@ -46,11 +49,34 @@ set ignorecase
 set smartcase
 set gdefault
 
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
+if filereadable(expand("~/.vim/bundles.vim"))
+  source ~/.vim/bundles.vim
 endif
 
 set omnifunc=syntaxcomplete#Complete " completion stuff
+
+if has("autocmd")
+  " Enable file type detection
+  filetype on
+
+  " Syntax of these languages is fussy over tabs Vs spaces
+  autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+  " Customisations based on house-style (arbitrary)
+  autocmd FileType html       setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType css        setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab
+
+  " Treat .rss files as XML
+  autocmd BufNewFile,BufRead *.rss setfiletype xml
+
+  " NERDTree
+  autocmd vimenter * if !argc() | NERDTree | endif
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+endif
 
 " enable powerline for airline
 let g:airline_powerline_fonts = 1
@@ -65,11 +91,18 @@ let g:snipMate.scope_aliases['scss'] = 'scss,css'
 
 let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 
-if has('autocmd')
-  " NERDTree
-  autocmd vimenter * if !argc() | NERDTree | endif
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
 endif
+
 
 " Keymaps
 
@@ -96,6 +129,7 @@ nnoremap <Leader>v V`]
 
 " go from insert to normal mode
 inoremap jj <Esc>:w<CR>
+inoremap kk <Esc>:w<CR>
 
 " disable arrows
 noremap  <Up>    <Nop>
@@ -123,3 +157,31 @@ nnoremap <Leader>s :call RunNearestSpec()<CR>
 nnoremap <Leader>l :call RunLastSpec()<CR>
 
 call togglebg#map('<F5>')
+
+" Set tabstop, softtabstop and shiftwidth to the same value
+command! -nargs=* Stab call Stab()
+function! Stab()
+  let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
+  if l:tabstop > 0
+    let &l:sts = l:tabstop
+    let &l:ts = l:tabstop
+    let &l:sw = l:tabstop
+  endif
+  call SummarizeTabs()
+endfunction
+
+function! SummarizeTabs()
+  try
+    echohl ModeMsg
+    echon ' tabstop='.&l:ts
+    echon ' shiftwidth='.&l:sw
+    echon ' softtabstop='.&l:sts
+    if &l:et
+      echon ' expandtab'
+    else
+      echon ' noexpandtab'
+    endif
+  finally
+    echohl None
+  endtry
+endfunction
