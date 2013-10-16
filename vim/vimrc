@@ -56,6 +56,9 @@ endif
 
 set omnifunc=syntaxcomplete#Complete " completion stuff
 
+set background=light
+colorscheme hemisu
+
 if has("autocmd")
   " Enable file type detection
   filetype on
