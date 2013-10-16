@@ -1,4 +1,4 @@
-""
+"
 " vimrc by fs
 "
 set nocompatible
@@ -9,6 +9,7 @@ set visualbell
 set noshowmode
 set showcmd
 set clipboard=unnamed
+set mouse=a
 set number
 set relativenumber
 set cursorline
