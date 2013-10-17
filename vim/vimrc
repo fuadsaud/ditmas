@@ -74,12 +74,26 @@ if has("autocmd")
   autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab
 
-  " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss setfiletype xml
 
   " NERDTree
   autocmd vimenter * if !argc() | NERDTree | endif
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+  " Seeing is Believing
+  let g:xmpfilter_cmd = 'seeing_is_believing'
+
+  autocmd FileType ruby nmap <buffer> <Leader>m <Plug>(seeing_is_believing-mark)
+  autocmd FileType ruby xmap <buffer> <Leader>m <Plug>(seeing_is_believing-mark)
+  autocmd FileType ruby imap <buffer> <Leader>m <Plug>(seeing_is_believing-mark)
+
+  autocmd FileType ruby nmap <buffer> <Leader>M <Plug>(seeing_is_believing-clean)
+  autocmd FileType ruby xmap <buffer> <Leader>M <Plug>(seeing_is_believing-clean)
+  autocmd FileType ruby imap <buffer> <Leader>M <Plug>(seeing_is_believing-clean)
+
+  autocmd FileType ruby nmap <buffer> <Leader>S <Plug>(seeing_is_believing-run_-x)
+  autocmd FileType ruby xmap <buffer> <Leader>S <Plug>(seeing_is_believing-run_-x)
+  autocmd FileType ruby imap <buffer> <Leader>S <Plug>(seeing_is_believing-run_-x)
 endif
 
 " enable powerline for airline
@@ -154,8 +168,10 @@ map <Leader>n :NERDTreeToggle<CR>
 map <Leader>, :tabedit $MYVIMRC<CR>
 map <Leader>< :tabedit $MYGVIMRC<CR>
 
+" Gundo
 nnoremap <Leader>u :GundoToggle<CR>
 
+" Vim RSpec
 nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
 nnoremap <Leader>s :call RunNearestSpec()<CR>
 nnoremap <Leader>l :call RunLastSpec()<CR>
