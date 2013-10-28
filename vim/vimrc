@@ -27,8 +27,6 @@ set undofile
 set wildmenu
 set wildmode=longest,full
 
-syntax on
-filetype plugin indent on
 
 "" Whitespace
 set autoindent
@@ -51,17 +49,21 @@ set smartcase
 set gdefault
 
 if filereadable(expand("~/.vim/bundles.vim"))
+  filetype off
+
   source ~/.vim/bundles.vim
 endif
 
 set omnifunc=syntaxcomplete#Complete " completion stuff
 
-set background=light
-colorscheme hemisu
+" set background=dark
+" colorscheme solarized
+
+filetype plugin indent on
+syntax on
 
 if has("autocmd")
   " Enable file type detection
-  filetype on
 
   " Syntax of these languages is fussy over tabs Vs spaces
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
