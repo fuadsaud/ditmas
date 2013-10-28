@@ -9,6 +9,7 @@
   br = branch
   ci = commit --verbose
   co = checkout
+  conflicts = diff --name-only --diff-filter=U
   cp = cherry-pick
   cry = cherry -v
   d  = diff
