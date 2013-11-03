@@ -38,7 +38,7 @@ set shiftwidth=2
 set shiftround
 set smarttab
 set expandtab                  " use soft tabs (spaces)
-set backspace=indent,eol,start " backspace through everythong in insert mode
+set backspace=indent,eol,start " backspace through everything in insert mode
 set textwidth=79
 
 "" Searching
@@ -48,7 +48,7 @@ set ignorecase
 set smartcase
 set gdefault
 
-if filereadable(expand("~/.vim/bundles.vim"))
+if filereadable(expand('~/.vim/bundles.vim'))
   filetype off
 
   source ~/.vim/bundles.vim
@@ -78,9 +78,9 @@ if has("autocmd")
 
   autocmd BufNewFile,BufRead *.rss setfiletype xml
 
-  " NERDTree
-  autocmd vimenter * if !argc() | NERDTree | endif
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+  " " NERDTree
+  " autocmd vimenter * if !argc() | NERDTree | endif
+  " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
   " Seeing is Believing
   let g:xmpfilter_cmd = 'seeing_is_believing'
@@ -132,20 +132,8 @@ let mapleader = ','
 nnoremap / /\v
 vnoremap / /\v
 
-" remove highligted terms
-nnoremap <Leader><Space> :noh<CR>
-
 " use tab to jump between matching brackets
 nnoremap <Tab> %
-
-" delete trailing whitespace
-nnoremap <Leader>W :%s/\s\+$//<CR>:let @/=''<CR>
-
-" re-hardwrap text
-nnoremap <Leader>q gqip
-
-" reselect last pasted text
-nnoremap <Leader>v V`]
 
 " go from insert to normal mode
 inoremap jj <Esc>:w<CR>
@@ -157,53 +145,48 @@ noremap  <Down>  <Nop>
 noremap  <Left>  <Nop>
 noremap  <Right> <Nop>
 
+" disable ex mode mapping
+map Q <Nop>
+
+" ahw, what the hell!
+cnoreabbrev W w
+cnoreabbrev Q q
+
 " easier navigation between split windows
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-" Switch between the last two files
+" C-s will save us all!
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>
+
+" remove highligted terms
+nnoremap <Leader><Space> :noh<CR>
+
+" delete trailing whitespace
+nnoremap <Leader>W :%s/\s\+$//<CR>:let @/=''<CR>
+
+" re-hardwrap text
+nnoremap <Leader>q gqip
+
+" reselect last pasted text
+nnoremap <Leader>v V`]
+
+" switch between the last two files
 nnoremap <Leader>c <C-^>
 
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>, :tabedit $MYVIMRC<CR>
 map <Leader>< :tabedit $MYGVIMRC<CR>
 
-" Gundo
+" gundo
 nnoremap <Leader>u :GundoToggle<CR>
 
-" Vim RSpec
+" vim rspec
 nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
 nnoremap <Leader>s :call RunNearestSpec()<CR>
 nnoremap <Leader>l :call RunLastSpec()<CR>
 
 call togglebg#map('<F5>')
-
-" Set tabstop, softtabstop and shiftwidth to the same value
-command! -nargs=* Stab call Stab()
-function! Stab()
-  let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
-  if l:tabstop > 0
-    let &l:sts = l:tabstop
-    let &l:ts = l:tabstop
-    let &l:sw = l:tabstop
-  endif
-  call SummarizeTabs()
-endfunction
-
-function! SummarizeTabs()
-  try
-    echohl ModeMsg
-    echon ' tabstop='.&l:ts
-    echon ' shiftwidth='.&l:sw
-    echon ' softtabstop='.&l:sts
-    if &l:et
-      echon ' expandtab'
-    else
-      echon ' noexpandtab'
-    endif
-  finally
-    echohl None
-  endtry
-endfunction
