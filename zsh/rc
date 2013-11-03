@@ -18,6 +18,9 @@ alias yt="youtube-dl -t"
 alias vundle="vim +BundleInstall +qall"
 alias pryr="pry -r ./config/environment.rb"
 
+alias m="make"
+alias mk="make"
+
 alias cp="${aliases[cp]:-cp} -v"
 alias ln="${aliases[ln]:-ln} -v"
 alias mv="${aliases[mv]:-mv} -v"
