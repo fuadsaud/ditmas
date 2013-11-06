@@ -1,7 +1,8 @@
 ""
 " vimrc by fs
 "
-set guifont=Inconsolata\ for\ Powerline:h24
+"
+set guifont=Sauce\ Code\ Powerline\ ExtraLight:h20
 set guioptions-=T guioptions-=L guioptions-=r
 
 set macmeta
