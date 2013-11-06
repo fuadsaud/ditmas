@@ -12,6 +12,8 @@ fi
 
 # Customize to your needs...
 
+stty -ixon # disable C-s
+
 # Use video title as file name.
 alias yt="youtube-dl -t"
 
