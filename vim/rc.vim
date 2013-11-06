@@ -133,7 +133,7 @@ nnoremap / /\v
 vnoremap / /\v
 
 " use tab to jump between matching brackets
-nnoremap <Tab> %
+map <Tab> %
 
 " go from insert to normal mode
 inoremap jj <Esc>:w<CR>
