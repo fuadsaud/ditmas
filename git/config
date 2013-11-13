@@ -49,10 +49,10 @@
 [format]
   pretty = %C(yellow)%h •%Creset%C(red)%d%Creset %s %Cgreen• %cr by %cn%Creset
 [core]
-	excludesfile = /Users/fuad/.jarvis/git/ignore
+  excludesfile = /Users/fuad/.jarvis/git/ignore
 [github]
   user = fuadsaud
 [credential]
   helper = osxkeychain
 [hub]
-	protocol = https
+  protocol = https
