@@ -78,10 +78,6 @@ if has("autocmd")
 
   autocmd BufNewFile,BufRead *.rss setfiletype xml
 
-  " " NERDTree
-  " autocmd vimenter * if !argc() | NERDTree | endif
-  " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
   " Seeing is Believing
   let g:xmpfilter_cmd = 'seeing_is_believing'
 
@@ -100,6 +96,7 @@ endif
 
 " enable powerline for airline
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " Enhance Netrw usability
 let g:netrw_browse_split = 4
@@ -177,7 +174,7 @@ nnoremap <Leader>v V`]
 " switch between the last two files
 nnoremap <Leader>c <C-^>
 
-map <Leader>n :NERDTreeToggle<CR>
+map <Leader>m :TagbarToggle<CR>
 map <Leader>, :tabedit $MYVIMRC<CR>
 map <Leader>< :tabedit $MYGVIMRC<CR>
 
