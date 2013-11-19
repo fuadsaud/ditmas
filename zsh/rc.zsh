@@ -39,8 +39,9 @@ function path {
   echo $PATH | awk 'BEGIN { RS = ":" } { print $1 }'
 }
 
-# Disable autocorrect.
 unsetopt correct
+
+autoload zmv
 
 # Goodbye bundle exec.
 # This is being set here instead of zshenv because it needs to be
