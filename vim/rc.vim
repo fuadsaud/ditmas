@@ -56,8 +56,7 @@ endif
 
 set omnifunc=syntaxcomplete#Complete " completion stuff
 
-" set background=dark
-" colorscheme solarized
+colorscheme hemisu
 
 filetype plugin indent on
 syntax on
@@ -72,7 +71,8 @@ if has("autocmd")
   " Customisations based on house-style (arbitrary)
   autocmd FileType html       setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType css        setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType java       setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab
 
@@ -81,13 +81,13 @@ if has("autocmd")
   " Seeing is Believing
   let g:xmpfilter_cmd = 'seeing_is_believing'
 
-  autocmd FileType ruby nmap <buffer> <Leader>m <Plug>(seeing_is_believing-mark)
-  autocmd FileType ruby xmap <buffer> <Leader>m <Plug>(seeing_is_believing-mark)
-  autocmd FileType ruby imap <buffer> <Leader>m <Plug>(seeing_is_believing-mark)
+  autocmd FileType ruby nmap <buffer> <Leader>h <Plug>(seeing_is_believing-mark)
+  autocmd FileType ruby xmap <buffer> <Leader>h <Plug>(seeing_is_believing-mark)
+  autocmd FileType ruby imap <buffer> <Leader>h <Plug>(seeing_is_believing-mark)
 
-  autocmd FileType ruby nmap <buffer> <Leader>M <Plug>(seeing_is_believing-clean)
-  autocmd FileType ruby xmap <buffer> <Leader>M <Plug>(seeing_is_believing-clean)
-  autocmd FileType ruby imap <buffer> <Leader>M <Plug>(seeing_is_believing-clean)
+  autocmd FileType ruby nmap <buffer> <Leader>H <Plug>(seeing_is_believing-clean)
+  autocmd FileType ruby xmap <buffer> <Leader>H <Plug>(seeing_is_believing-clean)
+  autocmd FileType ruby imap <buffer> <Leader>H <Plug>(seeing_is_believing-clean)
 
   autocmd FileType ruby nmap <buffer> <Leader>S <Plug>(seeing_is_believing-run_-x)
   autocmd FileType ruby xmap <buffer> <Leader>S <Plug>(seeing_is_believing-run_-x)
