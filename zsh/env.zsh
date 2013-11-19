@@ -74,6 +74,7 @@ if [[ -d "$TMPDIR" ]]; then
   fi
 fi
 
-# Sets brew-cask appdir to /Applications
 export HOMEBREW_CASK_OPTS='--appdir=/Applications'
+
+export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 
