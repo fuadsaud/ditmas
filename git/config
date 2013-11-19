@@ -15,6 +15,7 @@
   d  = diff
   dc = diff --cached
   f  = fetch --verbose --progress
+  fix = commit --fixup HEAD
   fuck-this-shit = "!git ci -am 'Fuck this shit, I am done for today!'; git p;"
   ft = fetch --verbose --tags
   fm = pull --verbose
@@ -32,6 +33,7 @@
   ri = rebase -i
   redo = commit --amend --no-edit
   snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
+  sp = stash pop
   st  = status --short --branch
   t = tag
   undo = reset HEAD~1
