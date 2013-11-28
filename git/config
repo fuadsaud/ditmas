@@ -25,7 +25,7 @@
   la = log --graph --abbrev-commit --all
   m  = merge --verbose
   nau = update-index --no-assume-unchanged
-  p  = push --verbose --progress
+  p  = push --verbose --progress --set-upstream
   pr = pull-request
   r  = rebase
   ra = rebase --abort
