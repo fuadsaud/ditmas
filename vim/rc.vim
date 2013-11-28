@@ -75,6 +75,7 @@ if has("autocmd")
   autocmd FileType java       setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType go         setlocal ts=4 sts=4 sw=4 noexpandtab
 
   autocmd BufNewFile,BufRead *.rss setfiletype xml
 
@@ -92,6 +93,8 @@ if has("autocmd")
   autocmd FileType ruby nmap <buffer> <Leader>S <Plug>(seeing_is_believing-run_-x)
   autocmd FileType ruby xmap <buffer> <Leader>S <Plug>(seeing_is_believing-run_-x)
   autocmd FileType ruby imap <buffer> <Leader>S <Plug>(seeing_is_believing-run_-x)
+
+  autocmd FileType go nmap <buffer> = <Esc>:Fmt<CR>
 endif
 
 " enable powerline for airline

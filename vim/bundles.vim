@@ -53,6 +53,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'jtratner/vim-flavored-markdown.git'
 Bundle 'othree/html5.vim'
 Bundle 'derekwyatt/vim-scala'
+Bundle 'jnwhiteh/vim-golang'
 
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-scripts/summerfruit256.vim'
