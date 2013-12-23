@@ -28,7 +28,7 @@ set wildmenu
 set wildmode=longest,full
 
 
-"" Whitespace
+"" whitespace
 set autoindent
 set copyindent
 set nowrap
@@ -37,11 +37,11 @@ set softtabstop=2
 set shiftwidth=2
 set shiftround
 set smarttab
-set expandtab                  " use soft tabs (spaces)
-set backspace=indent,eol,start " backspace through everything in insert mode
+set expandtab
+set backspace=indent,eol,start
 set textwidth=79
 
-"" Searching
+"" searching
 set hlsearch
 set incsearch
 set ignorecase
@@ -54,24 +54,26 @@ if filereadable(expand('~/.vim/bundles.vim'))
   source ~/.vim/bundles.vim
 endif
 
-set omnifunc=syntaxcomplete#Complete " completion stuff
-
-colorscheme hemisu
-
 filetype plugin indent on
 syntax on
 
-if has("autocmd")
-  autocmd FileType yaml       setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType html       setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType css        setlocal ts=4 sts=4 sw=4 expandtab
-  autocmd FileType scss.css   setlocal ts=4 sts=4 sw=4 expandtab
-  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType java       setlocal ts=4 sts=4 sw=4 expandtab
-  autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab
+set omnifunc=syntaxcomplete#Complete
+
+" set background=dark
+" colorscheme solarized
+colorscheme hemisu
+
+if has('autocmd')
   autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType css        setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType go         setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd FileType html       setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType java       setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType make       setlocal ts=8 sts=8 sw=8 noexpandtab
+  autocmd FileType scss.css   setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType yaml       setlocal ts=2 sts=2 sw=2 expandtab
 
   autocmd BufNewFile,BufRead *.rss setfiletype xml
 
@@ -93,32 +95,23 @@ if has("autocmd")
   autocmd FileType go nmap <buffer> = <Esc>:Fmt<CR>
 endif
 
-" enable powerline for airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-" Enhance Netrw usability
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 
 let g:snipMate = {}
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['scss'] = 'scss,css'
+let g:snipMate.scope_aliases['liquid'] = 'liquid,html'
 
-let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+let g:rspec_command = 'call Send_to_Tmux("zeus rspec {spec}\n")'
 
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
+let g:loremipsum_files = { 'en': expand('~/.vim/mussumipsum.txt') }
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
-
+let g:gist_clip_command = 'pbcopy'
+let g:gist_detect_filetype = 1
 
 " Keymaps
 
@@ -175,7 +168,7 @@ nnoremap <Leader>c <C-^>
 
 map <Leader>m :TagbarToggle<CR>
 map <Leader>, :tabedit $MYVIMRC<CR>
-map <Leader>< :tabedit $MYGVIMRC<CR>
+map <Leader>< :tabedit ~/.vim/bundles.vim<CR>
 
 " gundo
 nnoremap <Leader>u :GundoToggle<CR>
