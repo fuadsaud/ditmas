@@ -1,8 +1,6 @@
 [user]
   name = Fuad Saud
   email = fuadksd@gmail.com
-[color]
-  ui = auto
 [alias]
   a  = add --verbose
   au = update-index --assume-unchanged
@@ -11,11 +9,15 @@
   co = checkout
   conflicts = diff --name-only --diff-filter=U
   cp = cherry-pick
+  cpa = cherry-pick --abort
+  cpc = cherry-pick --continue
   cry = cherry -v
   d  = diff
   dc = diff --cached
+  dw = diff --word-diff
   f  = fetch --verbose --progress
   fix = commit --fixup HEAD
+  fixup = commit --fixup
   fuck-this-shit = "!git ci -am 'Fuck this shit, I am done for today!'; git p;"
   ft = fetch --verbose --tags
   fm = pull --verbose
@@ -27,10 +29,12 @@
   nau = update-index --no-assume-unchanged
   p  = push --verbose --progress --set-upstream
   pr = pull-request
+  prune-local = "!git branch --merged | grep -v \\* | xargs -n 1 git branch -d"
   r  = rebase
   ra = rebase --abort
   rc = rebase --continue
   ri = rebase -i
+  rias = rebase -i --autosquash
   redo = commit --amend --no-edit
   snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
   sp = stash pop
@@ -44,17 +48,23 @@
   root = rev-parse --show-toplevel
 
   gh-pages = !git checkout --orphan gh-pages && git rm $(git ls-files) -f
+[color]
+  ui = auto
+[credential]
+  helper = osxkeychain
+[core]
+  excludesfile = /Users/fuad/.jarvis/git/ignore
+[diff]
+  alogirthm = patience
+[format]
+  pretty = %C(yellow)%h •%Creset%C(red)%d%Creset %s %Cgreen• %cr by %cn%Creset
+[github]
+  user = fuadsaud
+[hub]
+  protocol = https
 [merge]
   defaultToUpstream = true
 [push]
   default = current
-[format]
-  pretty = %C(yellow)%h •%Creset%C(red)%d%Creset %s %Cgreen• %cr by %cn%Creset
-[core]
-  excludesfile = /Users/fuad/.jarvis/git/ignore
-[github]
-  user = fuadsaud
-[credential]
-  helper = osxkeychain
-[hub]
-  protocol = https
+[url "https://"]
+  insteadOf = git://
