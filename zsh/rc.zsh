@@ -38,6 +38,7 @@ function gemcd {
 function path {
   echo $PATH | awk 'BEGIN { RS = ":" } { print $1 }'
 }
+function rot13 { tr '[A-Za-z]' '[N-ZA-Mn-za-m]' }
 
 unsetopt correct
 
