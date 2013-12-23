@@ -27,8 +27,7 @@ set undofile
 set wildmenu
 set wildmode=longest,full
 
-
-"" whitespace
+" whitespace
 set autoindent
 set copyindent
 set nowrap
@@ -41,7 +40,7 @@ set expandtab
 set backspace=indent,eol,start
 set textwidth=79
 
-"" searching
+" searching
 set hlsearch
 set incsearch
 set ignorecase
@@ -113,8 +112,7 @@ let g:loremipsum_files = { 'en': expand('~/.vim/mussumipsum.txt') }
 let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
 
-" Keymaps
-
+" keymaps
 let mapleader = ','
 
 " default / to perl-style regexp's
