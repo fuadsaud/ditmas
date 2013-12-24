@@ -50,8 +50,9 @@ Bundle 'christoomey/vim-tmux-navigator'
 " seeing is believing
 Bundle 't9md/vim-ruby-xmpfilter'
 
-" languages
+" ruby
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rbenv'
 Bundle 'tpope/vim-rails'
   Bundle 'stefanoverna/vim-i18n'
 Bundle 'tpope/vim-rake'
