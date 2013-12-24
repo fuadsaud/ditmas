@@ -18,11 +18,10 @@
 if (( $+commands[fortune] )); then
   msg=$(fortune -a | cowsay -f milk)
 
-  # Checks for lolcat availability
-  # if lolcat -v > /dev/null 2> /dev/null; then
-  #   echo $msg | lolcat
-  if doge -v > /dev/null 2> /dev/null; then
+  if doge > /dev/null 2> /dev/null; then
     doge
+  elif lolcat -v > /dev/null 2> /dev/null; then
+    echo $msg | lolcat
   else
     echo $msg
   fi
