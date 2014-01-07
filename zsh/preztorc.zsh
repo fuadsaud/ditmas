@@ -19,7 +19,7 @@ zstyle ':prezto:*:*' color 'yes'
 # zstyle ':prezto:load' zmodule 'attr' 'stat'
 
 # Set the Zsh functions to load (man zshcontrib).
-# zstyle ':prezto:load' zfunction 'zargs' 'zmv'
+zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 
 # Set the Prezto modules to load (browse modules).
 # The order matters.
@@ -48,7 +48,7 @@ zstyle ':prezto:load' pmodule \
 #
 
 # Set the key mapping style to 'emacs' or 'vi'.
-zstyle ':prezto:module:editor' keymap 'vi'
+zstyle ':prezto:module:editor' key-bindings 'vi'
 
 # Auto convert .... to ../..
 # zstyle ':prezto:module:editor' dot-expansion 'yes'
@@ -66,6 +66,19 @@ zstyle ':prezto:module:editor' keymap 'vi'
 
 # Set the command prefix on non-GNU systems.
 # zstyle ':prezto:module:gnu-utility' prefix 'g'
+
+#
+# History Substring Search
+#
+
+# Set the query found color.
+# zstyle ':prezto:module:history-substring-search:color' found ''
+
+# Set the query not found color.
+# zstyle ':prezto:module:history-substring-search:color' not-found ''
+
+# Set the search globbing flags.
+# zstyle ':prezto:module:history-substring-search' globbing-flags ''
 
 #
 # Pacman
@@ -119,6 +132,12 @@ zstyle ':prezto:module:prompt' theme 'sorin'
     'pattern' \
     'cursor' \
 #   'root'
+#
+# Set syntax highlighting styles.
+# zstyle ':prezto:module:syntax-highlighting' styles \
+#   'builtin' 'bg=blue' \
+#   'command' 'bg=blue' \
+#   'function' 'bg=blue'
 
 #
 # Terminal
@@ -127,10 +146,18 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 # Auto set the tab and window titles.
 zstyle ':prezto:module:terminal' auto-title 'yes'
 
+# Set the window title format.
+# zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
+
+# Set the tab title format.
+# zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
+
 #
 # Tmux
 #
 
 # Auto start a session when Zsh is launched.
-zstyle ':prezto:module:tmux' auto-start 'yes'
+zstyle ':prezto:module:tmux:auto-start' local 'yes'
 
+# Auto start a session when Zsh is launched in a SSH connection.
+# zstyle ':prezto:module:tmux:auto-start' remote 'yes'
