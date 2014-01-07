@@ -20,6 +20,7 @@ Bundle 'mattn/gist-vim'
   Bundle 'mattn/webapi-vim'
 
 " general utilities
+Bundle 'tpope/vim-vinegar'
 Bundle 'bling/vim-airline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'sjl/gundo.vim'
