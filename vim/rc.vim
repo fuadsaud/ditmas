@@ -56,11 +56,11 @@ endif
 filetype plugin indent on
 syntax on
 
-set omnifunc=syntaxcomplete#Complete
+if filereadable(expand('~/.vim/colors.vim'))
+  source ~/.vim/colors.vim
+endif
 
-set background=dark
-colorscheme solarized
-" colorscheme hemisu
+set omnifunc=syntaxcomplete#Complete
 
 if has('autocmd')
   autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab
