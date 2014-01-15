@@ -107,7 +107,7 @@ let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['scss'] = 'scss,css'
 let g:snipMate.scope_aliases['liquid'] = 'liquid,html'
 
-let g:rspec_command = 'call Send_to_Tmux("zeus rspec {spec}\n")'
+let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 
 let g:loremipsum_files = { 'en': expand('~/.vim/mussumipsum.txt') }
 
