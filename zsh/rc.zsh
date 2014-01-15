@@ -23,6 +23,10 @@ alias pryr="pry -r ./config/environment.rb"
 alias m="make"
 alias mk="make"
 
+alias such=git
+alias very=git
+alias wow='git status'
+
 alias cp="${aliases[cp]:-cp} -v"
 alias ln="${aliases[ln]:-ln} -v"
 alias mv="${aliases[mv]:-mv} -v"
@@ -36,13 +40,11 @@ function gemcd {
  }
 
 function path {
-  echo $PATH | awk 'BEGIN { RS = ":" } { print $1 }'
+  print  -l $path
 }
 function rot13 { tr '[A-Za-z]' '[N-ZA-Mn-za-m]' }
 
 unsetopt correct
-
-autoload zmv
 
 # Goodbye bundle exec.
 # This is being set here instead of zshenv because it needs to be
@@ -52,4 +54,4 @@ export PATH="./bin:$PATH"
 export LOLCOMMITS_FORK=1
 
 export RUBY_GC_MALLOC_LIMIT=90000000
-export RUBY_FREE_MIN=200000
+export RUBY_GC_HEAP_FREE_SLOTS=200000
