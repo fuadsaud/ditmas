@@ -12,6 +12,7 @@
   cpa = cherry-pick --abort
   cpc = cherry-pick --continue
   cry = cherry -v
+  current-branch = symbolic-ref HEAD --short
   d  = diff
   dc = diff --cached
   dw = diff --word-diff
