@@ -63,6 +63,13 @@ Bundle 'tpope/vim-rbenv'
 Bundle 'tpope/vim-bundler'
 Bundle 'thoughtbot/vim-rspec'
 
+" clojure
+Bundle 'guns/vim-clojure-static'
+Bundle 'tpope/vim-fireplace'
+
+Bundle 'elixir-lang/vim-elixir'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'jnwhiteh/vim-golang'
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'itspriddle/vim-jquery.git'
