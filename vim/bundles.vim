@@ -12,7 +12,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-unimpaired'
 
-" git related
+" git
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
@@ -28,6 +28,7 @@ Bundle 'rking/ag.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'maxbrunsfeld/vim-yankstack'
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'gregsexton/MatchTag'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'yurifury/hexHighlight'
@@ -72,10 +73,6 @@ Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'groenewege/vim-less'
 
 Bundle 'jtratner/vim-flavored-markdown.git'
-
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'jnwhiteh/vim-golang'
 
 " colorschemes
 Bundle 'altercation/vim-colors-solarized'

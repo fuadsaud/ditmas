@@ -94,6 +94,11 @@ if has('autocmd')
   autocmd FileType ruby imap <buffer> <Leader>S <Plug>(seeing_is_believing-run_-x)
 
   autocmd FileType go nmap <buffer> = <Esc>:Fmt<CR>
+
+  au VimEnter * RainbowParenthesesToggle
+  au Syntax * RainbowParenthesesLoadRound
+  au Syntax * RainbowParenthesesLoadSquare
+  au Syntax * RainbowParenthesesLoadBraces
 endif
 
 let g:airline_powerline_fonts = 1
@@ -132,7 +137,6 @@ let mapleader = ','
 " default / to perl-style regexp's
 nnoremap / /\v
 vnoremap / /\v
-
 " use tab to jump between matching brackets
 map <Tab> %
 
