@@ -182,6 +182,9 @@ nnoremap <Leader>v V`]
 " switch between the last two files
 nnoremap <Leader>c <C-^>
 
+" single to double quotes
+nnoremap <Leader>f cs"'
+
 map <Leader>m :TagbarToggle<CR>
 map <Leader>, :tabedit $MYVIMRC<CR>
 map <Leader>< :tabedit ~/.vim/bundles.vim<CR>
