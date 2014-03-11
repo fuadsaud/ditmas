@@ -10,8 +10,8 @@ set noshowmode
 set showcmd
 set clipboard=unnamed
 set mouse=a
-set number
 set relativenumber
+set number
 set cursorline
 set colorcolumn=80,100
 set hidden
@@ -24,6 +24,7 @@ set list
 set nobackup
 set noswapfile
 set undofile
+set lazyredraw
 set wildmenu
 set wildmode=longest,full
 
@@ -46,6 +47,12 @@ set incsearch
 set ignorecase
 set smartcase
 set gdefault
+
+" folding
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+set foldmethod=indent
 
 if filereadable(expand('~/.vim/bundles.vim'))
   filetype off
@@ -137,6 +144,7 @@ let mapleader = ','
 " default / to perl-style regexp's
 nnoremap / /\v
 vnoremap / /\v
+
 " use tab to jump between matching brackets
 map <Tab> %
 
@@ -144,18 +152,30 @@ map <Tab> %
 inoremap jj <Esc>:w<CR>
 inoremap kk <Esc>:w<CR>
 
-" disable arrows
-noremap  <Up>    <Nop>
-noremap  <Down>  <Nop>
-noremap  <Left>  <Nop>
-noremap  <Right> <Nop>
-
 " disable ex mode mapping
 map Q <Nop>
 
 " ahw, what the hell!
 cnoreabbrev W w
 cnoreabbrev Q q
+"
+
+" move to beginning/end of line
+nnoremap B ^
+nnoremap E $
+
+" $/^ doesn't do anything
+nnoremap $ <nop>
+nnoremap ^ <nop>
+
+" disable arrows
+noremap  <Up>    <Nop>
+noremap  <Down>  <Nop>
+noremap  <Left>  <Nop>
+noremap  <Right> <Nop>
+
+nnoremap j gj
+nnoremap k gk
 
 " easier navigation between split windows
 nnoremap <C-j> <C-w>j
@@ -169,6 +189,9 @@ inoremap <C-s> <Esc>:w<CR>
 
 " remove highligted terms
 nnoremap <Leader><Space> :noh<CR>
+
+" opens/closes folds
+nnoremap <Space> za
 
 " delete trailing whitespace
 nnoremap <Leader>W :%s/\s\+$//<CR>:let @/=''<CR>
@@ -186,11 +209,17 @@ nnoremap <Leader>c <C-^>
 nnoremap <Leader>f cs"'
 
 map <Leader>m :TagbarToggle<CR>
+
 map <Leader>, :tabedit $MYVIMRC<CR>
 map <Leader>< :tabedit ~/.vim/bundles.vim<CR>
+map <Leader>z :tabedit ~/.zshrc<CR>
 
 " gundo
 nnoremap <Leader>u :GundoToggle<CR>
+
+" yankstack
+nmap <leader>p <Plug>yankstack_substitute_older_paste
+nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
 " vim rspec
 nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
