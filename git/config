@@ -68,3 +68,5 @@
   default = current
 [url "https://"]
   insteadOf = git://
+[gitsh]
+  defaultCommand = status -sb
