@@ -40,6 +40,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'vim-scripts/OmniCppComplete'
 Bundle 'lmeijvogel/vim-yaml-helper'
 Bundle 'vim-scripts/loremipsum'
+Bundle 'vim-scripts/a.vim'
 
 " text objects
 Bundle 'kana/vim-textobj-user'
@@ -79,6 +80,7 @@ Bundle 'nono/vim-handlebars'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'groenewege/vim-less'
 
+Bundle 'tpope/vim-markdown'
 Bundle 'jtratner/vim-flavored-markdown.git'
 
 " colorschemes
