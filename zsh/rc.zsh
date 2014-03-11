@@ -22,10 +22,8 @@ alias pryr="pry -r ./config/environment.rb"
 
 alias m="make"
 alias mk="make"
-
-alias such=git
-alias very=git
-alias wow='git status'
+alias git="hub"
+alias gitsh="gitsh --git $(which hub)"
 
 alias cp="${aliases[cp]:-cp} -v"
 alias ln="${aliases[ln]:-ln} -v"
@@ -39,19 +37,18 @@ function gemcd {
   fi
  }
 
-function path {
-  print  -l $path
-}
+function path { print -l $path }
 function rot13 { tr '[A-Za-z]' '[N-ZA-Mn-za-m]' }
 
 unsetopt correct
+
+# source teamocil completion
+compctl -g '~/.teamocil/*(:t:r)' teamocil
 
 # Goodbye bundle exec.
 # This is being set here instead of zshenv because it needs to be
 # set after rbenv is loaded.
 export PATH="./bin:$PATH"
-
-export LOLCOMMITS_FORK=1
 
 export RUBY_GC_MALLOC_LIMIT=90000000
 export RUBY_GC_HEAP_FREE_SLOTS=200000
