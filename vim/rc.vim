@@ -158,15 +158,6 @@ map Q <Nop>
 " ahw, what the hell!
 cnoreabbrev W w
 cnoreabbrev Q q
-"
-
-" move to beginning/end of line
-nnoremap B ^
-nnoremap E $
-
-" $/^ doesn't do anything
-nnoremap $ <nop>
-nnoremap ^ <nop>
 
 " disable arrows
 noremap  <Up>    <Nop>
