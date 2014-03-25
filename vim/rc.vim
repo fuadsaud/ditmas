@@ -197,7 +197,7 @@ nnoremap <Leader>v V`]
 nnoremap <Leader>c <C-^>
 
 " single to double quotes
-nnoremap <Leader>f cs"'
+nnoremap <Leader>Q cs"'
 
 map <Leader>m :TagbarToggle<CR>
 
