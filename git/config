@@ -29,7 +29,7 @@
   nau = update-index --no-assume-unchanged
   p  = push --verbose --progress --set-upstream
   pr = pull-request
-  prune-local = "!git branch --merged | grep -v \\* | xargs -n 1 git branch -d"
+  prune-merged = "!git branch --merged | grep -v \\* | xargs -n 1 git branch -d"
   r  = rebase
   ra = rebase --abort
   rc = rebase --continue
