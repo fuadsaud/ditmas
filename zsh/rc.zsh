@@ -22,7 +22,6 @@ alias pryr="pry -r ./config/environment.rb"
 
 alias m="make"
 alias mk="make"
-alias git="hub"
 alias gitsh="gitsh --git $(which hub)"
 
 alias cp="${aliases[cp]:-cp} -v"
