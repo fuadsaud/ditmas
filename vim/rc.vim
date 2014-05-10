@@ -1,6 +1,9 @@
 "
 " vimrc by fs
 "
+
+set shell=/bin/sh
+
 set nocompatible
 set encoding=utf-8
 set modelines=0
