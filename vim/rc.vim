@@ -117,10 +117,10 @@ let g:airline#extensions#tabline#enabled = 1
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 
-let g:snipMate = {}
-let g:snipMate.scope_aliases = {}
-let g:snipMate.scope_aliases['scss'] = 'scss,css'
-let g:snipMate.scope_aliases['liquid'] = 'liquid,html'
+let g:UltiSnipsExpandTrigger       = '<tab>'
+let g:UltiSnipsJumpForwardTrigger  = '<c-b>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-z>'
+let g:UltiSnipsEditSplit           = 'vertical'
 
 let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 

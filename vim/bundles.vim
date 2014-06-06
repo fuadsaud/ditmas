@@ -1,92 +1,101 @@
-"" Initialize Vundle
-set rtp+=~/.vim/bundle/vundle/
+set nocompatible
+filetype off
 
-call vundle#rc()
+" Initialize Vundle
 
-Bundle 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim/
 
-Bundle 'tpope/vim-sensible'
-Bundle 'tpope/vim-speeddating'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-unimpaired'
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-unimpaired'
 
 " git
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-fugitive'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'mattn/gist-vim'
-  Bundle 'mattn/webapi-vim'
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'mattn/gist-vim'
+  Plugin 'mattn/webapi-vim'
 
 " general utilities
-Bundle 'tpope/vim-vinegar'
-Bundle 'bling/vim-airline'
-Bundle 'kien/ctrlp.vim'
-Bundle 'sjl/gundo.vim'
-Bundle 'rking/ag.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'maxbrunsfeld/vim-yankstack'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'gregsexton/MatchTag'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'yurifury/hexHighlight'
-Bundle 'godlygeek/tabular'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
-Bundle 'vim-scripts/OmniCppComplete'
-Bundle 'lmeijvogel/vim-yaml-helper'
-Bundle 'vim-scripts/loremipsum'
-Bundle 'vim-scripts/a.vim'
+Plugin 'tpope/vim-vinegar'
+Plugin 'bling/vim-airline'
+Plugin 'kien/ctrlp.vim'
+Plugin 'sjl/gundo.vim'
+Plugin 'rking/ag.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'maxbrunsfeld/vim-yankstack'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'gregsexton/MatchTag'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'yurifury/hexHighlight'
+Plugin 'godlygeek/tabular'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'vim-scripts/OmniCppComplete'
+Plugin 'lmeijvogel/vim-yaml-helper'
+Plugin 'loremipsum'
+Plugin 'a.vim'
 
 " text objects
-Bundle 'kana/vim-textobj-user'
-Bundle 'Julian/vim-textobj-variable-segment'
-Bundle 'tommcdo/vim-exchange'
+Plugin 'kana/vim-textobj-user'
+Plugin 'Julian/vim-textobj-variable-segment'
+Plugin 'tommcdo/vim-exchange'
 
 " tmux integration
-Bundle 'LnL7/vim-tslime'
-Bundle 'christoomey/vim-tmux-navigator'
+Plugin 'LnL7/vim-tslime'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " seeing is believing
-Bundle 't9md/vim-ruby-xmpfilter'
+Plugin 't9md/vim-ruby-xmpfilter'
 
 " ruby
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rbenv'
-Bundle 'tpope/vim-rails'
-  Bundle 'stefanoverna/vim-i18n'
-Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-rbenv'
-Bundle 'tpope/vim-bundler'
-Bundle 'thoughtbot/vim-rspec'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rbenv'
+Plugin 'tpope/vim-rails'
+  Plugin 'stefanoverna/vim-i18n'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-bundler'
+Plugin 'thoughtbot/vim-rspec'
 
 " clojure
-Bundle 'guns/vim-clojure-static'
-Bundle 'tpope/vim-fireplace'
+Plugin 'guns/vim-clojure-static'
+Plugin 'tpope/vim-fireplace'
 
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'pangloss/vim-javascript'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'itspriddle/vim-jquery.git'
-Bundle 'othree/html5.vim'
-Bundle 'tpope/vim-liquid'
-Bundle 'nono/vim-handlebars'
-Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'groenewege/vim-less'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'itspriddle/vim-jquery.git'
+Plugin 'othree/html5.vim'
+Plugin 'tpope/vim-liquid'
+Plugin 'nono/vim-handlebars'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'groenewege/vim-less'
+Plugin 'tpope/vim-cucumber'
 
-Bundle 'tpope/vim-markdown'
-Bundle 'jtratner/vim-flavored-markdown.git'
+Plugin 'tpope/vim-markdown'
+Plugin 'jtratner/vim-flavored-markdown.git'
 
 " colorschemes
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'vim-scripts/summerfruit256.vim'
-Bundle 'jaromero/vim-monokai-refined'
-Bundle 'jpo/vim-railscasts-theme'
-Bundle 'croaker/mustang-vim'
-Bundle 'noahfrederick/Hemisu'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'summerfruit256.vim'
+Plugin 'jaromero/vim-monokai-refined'
+Plugin 'jpo/vim-railscasts-theme'
+Plugin 'croaker/mustang-vim'
+Plugin 'noahfrederick/Hemisu'
+Plugin 'flazz/vim-colorschemes'
+
+call vundle#end()
+
+filetype plugin indent on
