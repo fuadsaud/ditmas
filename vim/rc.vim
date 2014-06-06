@@ -217,4 +217,6 @@ nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
 nnoremap <Leader>s :call RunNearestSpec()<CR>
 nnoremap <Leader>l :call RunLastSpec()<CR>
 
+vnoremap <Leader>a :Tab/\w:\zs/l0l1<CR>
+
 call togglebg#map('<F5>')
