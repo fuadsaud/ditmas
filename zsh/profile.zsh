@@ -81,5 +81,5 @@ fi
 
 export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+export JAVA_HOME=`/usr/libexec/java_home`
 export GOPATH="$HOME/.go"
