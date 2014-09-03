@@ -49,5 +49,6 @@ compctl -g '~/.teamocil/*(:t:r)' teamocil
 # set after rbenv is loaded.
 export PATH="./bin:$PATH"
 
-export RUBY_GC_MALLOC_LIMIT=90000000
-export RUBY_GC_HEAP_FREE_SLOTS=200000
+chruby ruby-2.1.2
+
+compctl -g '~/.rubies/*(:t)' chruby
