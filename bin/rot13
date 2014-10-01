@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+# Simulates rot13 program function using tr.
+
+tr '[A-Za-z]' '[N-ZA-Mn-za-m]'
+

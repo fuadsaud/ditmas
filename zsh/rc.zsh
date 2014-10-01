@@ -29,16 +29,6 @@ alias ln="${aliases[ln]:-ln} -v"
 alias mv="${aliases[mv]:-mv} -v"
 alias rm="${aliases[rm]:-rm} -v"
 
-# cd to given rubygem directory.
-function gemcd {
-  if [ -n "$(gem which $1)" ]; then
-    cd $(dirname $(dirname "$(gem which $1)"))
-  fi
- }
-
-function path { print -l $path }
-function rot13 { tr '[A-Za-z]' '[N-ZA-Mn-za-m]' }
-
 unsetopt correct
 
 # source teamocil completion
