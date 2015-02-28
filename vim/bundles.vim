@@ -33,6 +33,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'maxbrunsfeld/vim-yankstack'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'vim-scripts/Auto-Pairs'
 Plugin 'gregsexton/MatchTag'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'yurifury/hexHighlight'
@@ -50,6 +51,7 @@ Plugin 'a.vim'
 Plugin 'kana/vim-textobj-user'
 Plugin 'Julian/vim-textobj-variable-segment'
 Plugin 'tommcdo/vim-exchange'
+Plugin 'michaeljsmith/vim-indent-object'
 
 " tmux integration
 Plugin 'LnL7/vim-tslime'
@@ -71,8 +73,12 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
 
+" python
+Plugin 'hynek/vim-python-pep8-indent'
+
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'dag/vim2hs'
 Plugin 'jnwhiteh/vim-golang'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
@@ -83,7 +89,7 @@ Plugin 'nono/vim-handlebars'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'groenewege/vim-less'
 Plugin 'tpope/vim-cucumber'
-
+Plugin 'Keithbsmiley/tmux.vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'jtratner/vim-flavored-markdown.git'
 
