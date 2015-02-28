@@ -44,6 +44,7 @@ typeset -gU cdpath fpath mailpath path
 # Set the list of directories that Zsh searches for programs.
 path=(
   ~/.jarvis/bin
+  ~/.cabal/bin
   ~/.go/bin
   /usr/local/share/npm/bin
   /usr/local/heroku/bin
