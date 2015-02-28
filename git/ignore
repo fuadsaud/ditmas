@@ -18,4 +18,6 @@ tags
 
 a.out
 *.o
+*.pyc
 
+.env
