@@ -177,6 +177,9 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+nnoremap + <C-w>+
+nnoremap _ <C-w>-
+
 " C-s will save us all!
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>
