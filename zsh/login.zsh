@@ -15,12 +15,12 @@
 } &!
 
 # Print a random, hopefully interesting, adage.
-if (( $+commands[fortune] )); then
+if (( $+commands[doge] )); then
+  doge
+elif (( $+commands[fortune] )); then
   msg=$(fortune -a | cowsay -f milk)
 
-  if doge > /dev/null 2> /dev/null; then
-    doge
-  elif lolcat -v > /dev/null 2> /dev/null; then
+  if (( $+commands[lolcat] )); then
     echo $msg | lolcat
   else
     echo $msg
