@@ -1,6 +1,6 @@
 [user]
   name = Fuad Saud
-  email = fuadksd@gmail.com
+  email = fuadfsaud@gmail.com
 [alias]
   a  = add --verbose
   au = update-index --assume-unchanged
