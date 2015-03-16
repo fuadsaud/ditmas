@@ -57,10 +57,10 @@ set foldlevelstart=10
 set foldnestmax=10
 set foldmethod=indent
 
-if filereadable(expand('~/.vim/bundles.vim'))
+if filereadable(expand('~/.vim/plugins.vim '))
   filetype off
 
-  source ~/.vim/bundles.vim
+  source ~/.vim/plugins.vim
 endif
 
 filetype plugin indent on
@@ -79,7 +79,7 @@ if has('autocmd')
   autocmd FileType go         setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType html       setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType java       setlocal ts=4 sts=4 sw=4 expandtab textwidth=99
-  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType make       setlocal ts=8 sts=8 sw=8 noexpandtab
   autocmd FileType objc       setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab textwidth=99
@@ -205,7 +205,7 @@ nnoremap <Leader>c <C-^>
 map <Leader>m :TagbarToggle<CR>
 
 map <Leader>, :tabedit $MYVIMRC<CR>
-map <Leader>< :tabedit ~/.vim/bundles.vim<CR>
+map <Leader>< :tabedit ~/.vim/plugins.vim<CR>
 map <Leader>z :tabedit ~/.zshrc<CR>
 
 " gundo
