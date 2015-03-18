@@ -43,6 +43,7 @@
   t = tag
   undo = reset HEAD~1
   unstage = reset HEAD
+  untracked = ls-files --others --exclude-standard
   wc = whatchanged --graph --abbrev-commit
 
   cd = !cd $(git rev-parse --show-toplevel)
