@@ -27,7 +27,7 @@
   la = log --graph --abbrev-commit --all
   m  = merge --verbose
   nau = update-index --no-assume-unchanged
-  p  = push --verbose --progress --set-upstream
+  p  = push --verbose --progress
   pr = pull-request
   prune-merged = "!git branch --merged | grep -v \\* | xargs -n 1 git branch -d"
   r  = rebase
