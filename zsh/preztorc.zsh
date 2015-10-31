@@ -163,5 +163,7 @@ zstyle ':prezto:module:tmux:auto-start' local 'yes'
 # Auto start a session when Zsh is launched in a SSH connection.
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
+# chruby
+
 # Enable chruby's ruby version auto-switching.
 zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
