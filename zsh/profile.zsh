@@ -8,6 +8,14 @@
 #
 # Browser
 #
+#
+#
+
+export HOMEBREW_CASK_OPTS='--appdir=/Applications'
+
+export JAVA_HOME=`/usr/libexec/java_home`
+export GOPATH="$HOME/.go"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
 
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
@@ -43,6 +51,8 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  $ANDROID_HOME/tools
+  $ANDROID_HOME/platform-tools
   ~/.jarvis/bin
   ~/.cabal/bin
   ~/.go/bin
@@ -79,8 +89,3 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
-
-export HOMEBREW_CASK_OPTS='--appdir=/Applications'
-
-export JAVA_HOME=`/usr/libexec/java_home`
-export GOPATH="$HOME/.go"
