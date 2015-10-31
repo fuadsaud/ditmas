@@ -72,6 +72,8 @@ endif
 
 set omnifunc=syntaxcomplete#Complete
 
+let g:loremipsum_file = expand('~/.vim/mussumipsum.txt')
+
 if has('autocmd')
   autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab
@@ -121,6 +123,9 @@ highlight link hspecDescription Comment
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
+let g:AutoPairsMultilineClose = 0
+let g:AutoPairsFlyMode = 0
+
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 
@@ -130,8 +135,6 @@ let g:UltiSnipsJumpBackwardTrigger = '<c-z>'
 let g:UltiSnipsEditSplit           = 'vertical'
 
 let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
-
-let g:loremipsum_files = { 'en': expand('~/.vim/mussumipsum.txt') }
 
 let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
