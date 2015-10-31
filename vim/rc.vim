@@ -72,8 +72,6 @@ endif
 
 set omnifunc=syntaxcomplete#Complete
 
-let g:loremipsum_file = expand('~/.vim/mussumipsum.txt')
-
 if has('autocmd')
   autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab
@@ -92,21 +90,6 @@ if has('autocmd')
   autocmd FileType yaml       setlocal ts=2 sts=2 sw=2 expandtab
 
   autocmd BufNewFile,BufRead *.rss setfiletype xml
-
-  " Seeing is Believing
-  let g:xmpfilter_cmd = 'seeing_is_believing'
-
-  autocmd FileType ruby nmap <buffer> <Leader>h <Plug>(seeing_is_believing-mark)
-  autocmd FileType ruby xmap <buffer> <Leader>h <Plug>(seeing_is_believing-mark)
-  autocmd FileType ruby imap <buffer> <Leader>h <Plug>(seeing_is_believing-mark)
-
-  autocmd FileType ruby nmap <buffer> <Leader>H <Plug>(seeing_is_believing-clean)
-  autocmd FileType ruby xmap <buffer> <Leader>H <Plug>(seeing_is_believing-clean)
-  autocmd FileType ruby imap <buffer> <Leader>H <Plug>(seeing_is_believing-clean)
-
-  autocmd FileType ruby nmap <buffer> <Leader>S <Plug>(seeing_is_believing-run_-x)
-  autocmd FileType ruby xmap <buffer> <Leader>S <Plug>(seeing_is_believing-run_-x)
-  autocmd FileType ruby imap <buffer> <Leader>S <Plug>(seeing_is_believing-run_-x)
 
   autocmd FileType go nmap <buffer> = <Esc>:Fmt<CR>
 
