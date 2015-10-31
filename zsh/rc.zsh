@@ -19,8 +19,8 @@ alias yt="youtube-dl -t"
 
 alias vundle="vim +BundleInstall +qall"
 alias pryr="pry -r ./config/environment.rb"
+alias b="bundle exec"
 
-alias m="make"
 alias mk="make"
 alias gitsh="gitsh --git $(which hub)"
 
@@ -39,6 +39,6 @@ compctl -g '~/.teamocil/*(:t:r)' teamocil
 # set after rbenv is loaded.
 export PATH="./bin:$PATH"
 
-chruby ruby-2.1.2
+chruby ruby-2.2.3
 
 compctl -g '~/.rubies/*(:t)' chruby
