@@ -20,9 +20,8 @@ alias yt="youtube-dl -t"
 alias vundle="vim +BundleInstall +qall"
 alias pryr="pry -r ./config/environment.rb"
 alias b="bundle exec"
-
+alias git="hub"
 alias mk="make"
-alias gitsh="gitsh --git $(which hub)"
 
 alias cp="${aliases[cp]:-cp} -v"
 alias ln="${aliases[ln]:-ln} -v"
