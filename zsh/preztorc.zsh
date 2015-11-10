@@ -158,7 +158,7 @@ zstyle ':prezto:module:terminal' auto-title 'yes'
 #
 
 # Auto start a session when Zsh is launched.
-zstyle ':prezto:module:tmux:auto-start' local 'yes'
+zstyle ':prezto:module:tmux:auto-start' local 'no'
 
 # Auto start a session when Zsh is launched in a SSH connection.
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'
