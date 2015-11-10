@@ -55,7 +55,7 @@
 [credential]
   helper = osxkeychain
 [core]
-  excludesfile = /Users/fuad/.jarvis/git/ignore
+  excludesfile = ~/.git/ignore
 [diff]
   alogirthm = patience
 [format]
