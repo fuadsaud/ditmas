@@ -36,9 +36,12 @@
   ri = rebase -i
   rias = rebase -i --autosquash
   redo = commit --amend --no-edit
+  sd = stash drop
   sed  = "!git ls-files | xargs sed -i"
+  sl = stash list
   snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
   sp = stash pop
+  ss = stash show -p
   st  = status --short --branch
   t = tag
   undo = reset HEAD~1
