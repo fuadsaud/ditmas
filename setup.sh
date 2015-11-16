@@ -25,6 +25,8 @@ brew install zsh \
   fasd \
   tree \
   trash \
+  ctags \
+  unrar \
   caskroom/cask/brew-cask
 
 brew install --HEAD \
@@ -37,13 +39,16 @@ brew cask install \
   spotify \
   virtualbox \
   google-chrome \
-  google-drive
+  google-drive \
+  vlc \
   atom \
   clipmenu \
   dropbox \
   vagrant \
   otto \
-  go
+  go \
+  transmission \
+  handbrake
 
 # fonts
 
@@ -103,7 +108,8 @@ pip install \
   powerline-status \
   psutil \
   Pygments \
-  speedtest-cli
+  speedtest-cli \
+  doge
 
 # ruby
 
