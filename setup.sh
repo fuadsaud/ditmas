@@ -28,6 +28,7 @@ brew install zsh \
   ctags \
   unrar \
   p7zip \
+  jq \
   caskroom/cask/brew-cask
 
 brew install --HEAD \
