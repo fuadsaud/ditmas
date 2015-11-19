@@ -187,7 +187,7 @@ nnoremap <Space> za
 nnoremap <Leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 
 " re-hardwrap text
-nnoremap <Leader>q gqip
+nnoremap <Leader>Q gqip
 
 " reselect last pasted text
 nnoremap <Leader>v V`]
