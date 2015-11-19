@@ -11,12 +11,6 @@
 #
 #
 
-export HOMEBREW_CASK_OPTS='--appdir=/Applications'
-
-export JAVA_HOME=`/usr/libexec/java_home`
-export GOPATH="$HOME/.go"
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
@@ -89,3 +83,12 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
+
+export HOMEBREW_CASK_OPTS='--appdir=/Applications'
+export JAVA_HOME=`/usr/libexec/java_home`
+export GOPATH="$HOME/.go"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+
+export PUNCH_EMAIL='fuad.saud@codeminer42.com'
+export PUNCH_PASSWORD='abcd1234'
+export PUNCH_PROJECT='Cyanna'
