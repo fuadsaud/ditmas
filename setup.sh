@@ -107,6 +107,7 @@ ln -s $GIT_DIR/config ~/.gitconfig
 pip install --upgrade pip setuptools
 pip install \
   virtualenv \
+  virtualenvwrapper \
   powerline-status \
   psutil \
   Pygments \
