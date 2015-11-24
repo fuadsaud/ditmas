@@ -61,6 +61,9 @@ brew cask install \
   font-fira-mono-for-powerline \
   font-fira-sans
 
+brew tap brona/iproute2mac
+brew install iproute2mac
+
 mkdir -p $PROJECTS_DIR
 
 hub clone --recursive fuadsaud/J.A.R.V.I.S "$PROJECTS_DIR/J.A.R.V.I.S"
