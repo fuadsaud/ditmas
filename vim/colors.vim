@@ -1,3 +1,3 @@
 " set background=dark
 " colorscheme solarized
-colorscheme hemisu
+" colorscheme hemisu

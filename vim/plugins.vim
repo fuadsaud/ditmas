@@ -111,6 +111,7 @@ Plugin 'gorodinskiy/vim-coloresque'
 " colorschemes
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'noahfrederick/Hemisu'
+Plugin 'nanotech/jellybeans.vim'
 
 call vundle#end()
 
