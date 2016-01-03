@@ -36,6 +36,7 @@ zstyle ':prezto:load' pmodule \
   'tmux' \
   'git' \
   'osx' \
+  'homebrew' \
   'python' \
   'ruby' \
   'rails' \
