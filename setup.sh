@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
 
-CODE_DIR     = ~/Code
-PROJECTS_DIR = "$CODE_DIR/fuadsaud/"
-JARVIS_DIR   = ~/.jarvis
-VIM_DIR      = ~/.vim
-GIT_DIR      = ~/.git
+CODE_DIR=~/Code
+PROJECTS_DIR="$CODE_DIR/fuadsaud/"
+JARVIS_DIR=~/.jarvis
+VIM_DIR=~/.vim
+GIT_DIR=~/.git
 
-HOMEBREW_ZSH_BIN = /usr/local/bin/zsh
+HOMEBREW_ZSH_BIN=/usr/local/bin/zsh
 
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
@@ -50,7 +50,8 @@ brew cask install \
   otto \
   go \
   transmission \
-  handbrake
+  handbrake \
+  heroku-toolbelt
 
 # fonts
 
@@ -63,6 +64,9 @@ brew cask install \
 
 brew tap brona/iproute2mac
 brew install iproute2mac
+
+brew tap nviennot/tmate
+brew install tmate
 
 mkdir -p $PROJECTS_DIR
 
