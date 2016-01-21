@@ -91,4 +91,4 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 
 export PUNCH_EMAIL='fuad.saud@codeminer42.com'
 export PUNCH_PASSWORD='abcd1234'
-export PUNCH_PROJECT='Cyanna'
+export PUNCH_PROJECT='VTS'
