@@ -89,6 +89,4 @@ export JAVA_HOME=`/usr/libexec/java_home`
 export GOPATH="$HOME/.go"
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 
-export PUNCH_EMAIL='fuad.saud@codeminer42.com'
-export PUNCH_PASSWORD='abcd1234'
-export PUNCH_PROJECT='VTS'
+source "$HOME/.env.sh"
