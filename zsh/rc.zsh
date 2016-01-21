@@ -18,7 +18,10 @@ stty -ixon # disable C-s
 alias yt="youtube-dl -t"
 
 alias vundle="vim +PluginInstall +qall"
-alias b="bundle exec"
+alias bx="bundle exec"
+alias rake="bundle exec rake"
+alias rspec="bundle exec rspec"
+alias rk="rake"
 alias git="hub"
 alias mk="make"
 alias vhalt="vagrant halt"
@@ -32,14 +35,8 @@ alias rm="${aliases[rm]:-rm} -v"
 
 unsetopt correct
 
-# source teamocil completion
+# source completions
 compctl -g '~/.teamocil/*(:t:r)' teamocil
-
-# Goodbye bundle exec.
-# This is being set here instead of zshenv because it needs to be
-# set after rbenv is loaded.
-export PATH="./bin:$PATH"
-
-chruby ruby-2.2.3
-
 compctl -g '~/.rubies/*(:t)' chruby
+
+chruby 2
