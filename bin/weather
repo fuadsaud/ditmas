@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+domain='wttr.in'
+
+if [ -z "$1" ]; then
+  city=""
+else
+  city=$(printf "%s\n" "$1" | sed 's/ /%20/g')
+fi
+
+curl http://$domain/$city | less
