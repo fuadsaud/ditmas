@@ -49,6 +49,7 @@ brew cask install \
   vagrant \
   otto \
   go \
+  leiningen \
   transmission \
   handbrake \
   heroku-toolbelt
