@@ -118,7 +118,6 @@ pip install \
   virtualenvwrapper \
   powerline-status \
   psutil \
-  Pygments \
   speedtest-cli \
   doge
 
