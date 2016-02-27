@@ -42,7 +42,7 @@ set shiftround
 set smarttab
 set expandtab
 set backspace=indent,eol,start
-set textwidth=79
+set textwidth=100
 
 " searching
 set hlsearch
