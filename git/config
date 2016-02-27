@@ -5,6 +5,7 @@
   a  = add --verbose
   au = update-index --assume-unchanged
   br = branch
+  cd = !cd $(git rev-parse --show-toplevel)
   ci = commit --verbose
   co = checkout
   conflicts = diff --name-only --diff-filter=U
@@ -36,8 +37,10 @@
   ri = rebase -i
   rias = rebase -i --autosquash
   redo = commit --amend --no-edit
+  root = rev-parse --show-toplevel
   sd = stash drop
   sed  = "!git ls-files | xargs sed -i"
+  sha = rev-parse
   sl = stash list
   snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
   sp = stash pop
@@ -49,10 +52,6 @@
   untracked = ls-files --others --exclude-standard
   wc = whatchanged --graph --abbrev-commit
   wip = ci -m '•••••<[WIP]>•••••'
-
-  cd = !cd $(git rev-parse --show-toplevel)
-  root = rev-parse --show-toplevel
-
   gh-pages = !git checkout --orphan gh-pages && git rm $(git ls-files) -f
 [color]
   ui = auto
@@ -61,7 +60,7 @@
 [core]
   excludesfile = ~/.git/ignore
 [diff]
-  alogirthm = patience
+  algorithm = patience
 [format]
   pretty = %C(yellow)%h •%Creset%C(red)%d%Creset %s %Cgreen• %cr by %cn%Creset
 [github]
