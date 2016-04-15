@@ -29,7 +29,6 @@ brew install zsh \
   unrar \
   p7zip \
   jq \
-  caskroom/cask/brew-cask
 
 brew install --HEAD \
   vim \
