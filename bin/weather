@@ -2,10 +2,14 @@
 
 domain='wttr.in'
 
-if [ -z "$1" ]; then
-  city=""
+if [ -n "$1" ]; then
+  city="$1"
+elif [ -n "$CITY" ]; then
+  city="$CITY"
 else
-  city=$(printf "%s\n" "$1" | sed 's/ /%20/g')
+  city=""
 fi
 
-curl http://$domain/$city | less
+city=$(printf "%s\n" "$city" | sed 's/ /%20/g')
+
+curl -s http://$domain/$city | less
