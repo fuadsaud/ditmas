@@ -17,13 +17,15 @@ stty -ixon # disable C-s
 # Use video title as file name.
 alias yt="youtube-dl -t"
 
+alias vi="vim"
 alias vundle="vim +PluginInstall +qall"
 alias bx="bundle exec"
-alias rake="bundle exec rake"
-alias rspec="bundle exec rspec"
-alias rk="rake"
+alias cdgr="cd `git root`"
 alias git="hub"
 alias mk="make"
+alias rake="bundle exec rake"
+alias rk="rake"
+alias rspec="bundle exec rspec"
 alias vhalt="vagrant halt"
 alias vssh="vagrant ssh"
 alias vup="vagrant up"
@@ -39,4 +41,4 @@ unsetopt correct
 compctl -g '~/.teamocil/*(:t:r)' teamocil
 compctl -g '~/.rubies/*(:t)' chruby
 
-chruby 2
+chruby 2.2
