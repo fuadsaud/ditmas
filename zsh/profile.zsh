@@ -114,5 +114,7 @@ export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 export JAVA_HOME=`/usr/libexec/java_home`
 export GOPATH="$HOME/.go"
 export ANDROID_HOME="$HOME/Library/Android/sdk"
+export NVM_DIR="$HOME/.nvm"
 
+# source "$(brew --prefix nvm)/nvm.sh"
 source "$HOME/.env.sh"
