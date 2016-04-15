@@ -103,6 +103,14 @@ chsh -s $HOMEBREW_ZSH_BIN
 
 ln -s $JARVIS_DIR/tmux.conf ~/.tmux.conf
 
+# rubocop
+
+ln -s $JARVIS_DIR/rubocop.yml ~/.rubocop.yml
+
+# gem
+
+ln -s $JARVIS_DIR/gemrc ~/.gemrc
+
 # git
 
 ln -s $JARVIS_DIR/git $GIT_DIR
