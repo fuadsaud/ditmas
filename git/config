@@ -1,11 +1,11 @@
 [user]
   name = Fuad Saud
   email = fuadfsaud@gmail.com
+  signingkey = C89D3162
 [alias]
   a  = add --verbose
   au = update-index --assume-unchanged
   br = branch
-  cd = !cd $(git rev-parse --show-toplevel)
   ci = commit --verbose
   co = checkout
   conflicts = diff --name-only --diff-filter=U
@@ -18,12 +18,13 @@
   dc = diff --cached
   dw = diff --word-diff
   f  = fetch --verbose --progress
-  fix = commit --fixup HEAD
-  fixup = commit --fixup
-  fuck-this-shit = "!git ci -am 'Fuck this shit, I am done for today!'; git p;"
+  fix = ci --fixup HEAD
+  fixup = ci --fixup
+  fuck = "!git add .; git ci -m 'Fuck this shit, I am done for today!'; git p;"
   ft = fetch --verbose --tags
   fm = pull --verbose
   fr = pull --rebase --verbose
+  frm = fr origin master
   l  = log --graph --abbrev-commit
   la = log --graph --abbrev-commit --all
   m  = merge --verbose
@@ -36,7 +37,7 @@
   rc = rebase --continue
   ri = rebase -i
   rias = rebase -i --autosquash
-  redo = commit --amend --no-edit
+  redo = ci --amend --no-edit
   root = rev-parse --show-toplevel
   sd = stash drop
   sed  = "!git ls-files | xargs sed -i"
@@ -75,3 +76,5 @@
   insteadOf = git://
 [gitsh]
   defaultCommand = status -sb
+[gpg]
+  program = gpg2
