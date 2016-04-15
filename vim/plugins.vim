@@ -15,6 +15,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-ragtag'
+Plugin 'tpope/vim-abolish'
 
 " git
 Plugin 'tpope/vim-git'
@@ -34,7 +36,8 @@ Plugin 'maxbrunsfeld/vim-yankstack'
 Plugin 'milkypostman/vim-togglelist'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'Auto-Pairs'
+Plugin 'jaxbot/semantic-highlight.vim'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'gregsexton/MatchTag'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -84,6 +87,8 @@ Plugin 'hynek/vim-python-pep8-indent'
 
 " javascript
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'fuadsaud/vim-react-snippets'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'itspriddle/vim-jquery'
 
@@ -112,6 +117,7 @@ Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'noahfrederick/Hemisu'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'joshdick/onedark.vim'
 
 call vundle#end()
 

@@ -75,14 +75,14 @@ set omnifunc=syntaxcomplete#Complete
 if has('autocmd')
   autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab
-  autocmd FileType css        setlocal ts=4 sts=4 sw=4 expandtab
-  autocmd FileType scss       setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType css        setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType scss       setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType go         setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType haskell    setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType html       setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType html       setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType java       setlocal ts=4 sts=4 sw=4 expandtab textwidth=99
   autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType json       setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType json       setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType make       setlocal ts=8 sts=8 sw=8 noexpandtab
   autocmd FileType objc       setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab textwidth=99
@@ -109,8 +109,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:AutoPairsMultilineClose = 0
 let g:AutoPairsFlyMode = 0
 
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
+let g:netrw_browse_split = 0
+let g:netrw_liststyle=3
+let g:netrw_preview=1
 
 let g:UltiSnipsExpandTrigger       = '<tab>'
 let g:UltiSnipsJumpForwardTrigger  = '<c-b>'
@@ -121,6 +122,10 @@ let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 
 let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
+
+let g:splitjoin_ruby_do_block_split = 0
+
+let g:jsx_ext_required = 0
 
 " The Silver Searcher
 if executable('ag')
