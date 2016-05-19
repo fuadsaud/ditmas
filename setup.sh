@@ -29,7 +29,7 @@ brew install zsh \
   unrar \
   p7zip \
   jq \
-  asciinema \
+  asciinema
 
 brew install --HEAD \
   vim \
