@@ -38,4 +38,4 @@ unsetopt correct
 compctl -g '~/.teamocil/*(:t:r)' teamocil
 compctl -g '~/.rubies/*(:t)' chruby
 
-chruby 2.2
+chruby 2.3
