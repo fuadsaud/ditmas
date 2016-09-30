@@ -14,21 +14,18 @@ fi
 
 stty -ixon # disable C-s
 
-# Use video title as file name.
-alias yt="youtube-dl -t"
-
-alias vi="vim"
-alias vundle="vim +PluginInstall +qall"
 alias bx="bundle exec"
 alias cdgr="cd \`git root\`"
 alias git="hub"
 alias mk="make"
-alias rake="bundle exec rake"
 alias rk="rake"
-alias rspec="bundle exec rspec"
+alias teamocil="teamocil --here"
 alias vhalt="vagrant halt"
 alias vssh="vagrant ssh"
 alias vup="vagrant up"
+alias vi="vim"
+alias vundle="vim +PluginInstall +qall"
+alias yt="youtube-dl -t"
 
 alias cp="${aliases[cp]:-cp} -v"
 alias ln="${aliases[ln]:-ln} -v"
