@@ -4,10 +4,12 @@
   signingkey = C89D3162
 [alias]
   a  = add --verbose
+  ap = add-pattern
   au = update-index --assume-unchanged
   br = branch
   ci = commit --verbose
   co = checkout
+  cos = "!git br | fzf-tmux | xargs git co"
   conflicts = diff --name-only --diff-filter=U
   cp = cherry-pick
   cpa = cherry-pick --abort
@@ -36,6 +38,8 @@
   ra = rebase --abort
   rc = rebase --continue
   ri = rebase -i
+  rm = rebase master
+  rom = rebase origin/master
   rias = rebase -i --autosquash
   redo = ci --amend --no-edit
   root = rev-parse --show-toplevel
