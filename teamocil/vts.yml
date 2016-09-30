@@ -1,0 +1,26 @@
+name: vts
+windows:
+  - name: nvim
+    root: ~/Code/viewthespace/viewthespace
+    panes:
+      - commands:
+        - chruby 2.2.4
+        - vim
+    focus: true
+  - root: ~/Code/viewthespace/viewthespace
+    layout: even-vertical
+    panes:
+      - commands:
+        - chruby 2.2.4
+      - commands:
+        - chruby 2.2.4
+  - name: foreman
+    root: ~/Code/viewthespace/viewthespace
+    panes:
+      - commands:
+        - chruby 2.2.4
+        - 'foreman start -f Procfile.dev'
+  - root: ~/Code/viewthespace/viewthespace
+    panes:
+      - commands:
+        - chruby 2.2.4
