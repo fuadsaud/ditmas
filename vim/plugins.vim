@@ -23,7 +23,7 @@ Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'mattn/gist-vim'
-  Plugin 'mattn/webapi-vim'
+Plugin 'mattn/webapi-vim'
 
 " general utilities
 Plugin 'tpope/vim-vinegar'
@@ -35,9 +35,13 @@ Plugin 'majutsushi/tagbar'
 Plugin 'maxbrunsfeld/vim-yankstack'
 Plugin 'milkypostman/vim-togglelist'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'jszakmeister/vim-togglecursor'
 Plugin 'kien/rainbow_parentheses.vim'
+" Plugin 'guns/vim-sexp'
+" Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 Plugin 'jaxbot/semantic-highlight.vim'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'tpope/vim-endwise'
 Plugin 'gregsexton/MatchTag'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -76,6 +80,7 @@ Plugin 'ngmy/vim-rubocop'
 " clojure
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
+Plugin 'guns/vim-clojure-highlight'
 
 " haskell
 Plugin 'dag/vim2hs'
@@ -91,6 +96,9 @@ Plugin 'mxw/vim-jsx'
 Plugin 'fuadsaud/vim-react-snippets'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'itspriddle/vim-jquery'
+
+"typescript
+Plugin 'HerringtonDarkholme/yats.vim'
 
 "java
 Plugin 'tfnico/vim-gradle'
@@ -118,6 +126,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'noahfrederick/Hemisu'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'joshdick/onedark.vim'
+Plugin 'trusktr/seti.vim'
 
 call vundle#end()
 
