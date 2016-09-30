@@ -1,4 +1,4 @@
-  "
+"
 " vimrc by fs
 "
 
@@ -74,6 +74,7 @@ set omnifunc=syntaxcomplete#Complete
 
 if has('autocmd')
   autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType cpp        setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType css        setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType scss       setlocal ts=2 sts=2 sw=2 expandtab
@@ -90,6 +91,7 @@ if has('autocmd')
   autocmd FileType yaml       setlocal ts=2 sts=2 sw=2 expandtab
 
   autocmd BufNewFile,BufRead *.rss setfiletype xml
+  autocmd BufNewFile,BufRead *.skim setfiletype slim
 
   autocmd FileType go nmap <buffer> = <Esc>:Fmt<CR>
 
@@ -118,7 +120,7 @@ let g:UltiSnipsJumpForwardTrigger  = '<c-b>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-z>'
 let g:UltiSnipsEditSplit           = 'vertical'
 
-let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec {spec}\n")'
 
 let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
@@ -170,10 +172,10 @@ nnoremap j gj
 nnoremap k gk
 
 " easier navigation between split windows
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-l> <C-w>l
 
 nnoremap + <C-w>+
 nnoremap _ <C-w>-
@@ -216,7 +218,7 @@ nmap <leader>P <Plug>yankstack_substitute_newer_paste
 " vim rspec
 nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
 nnoremap <Leader>s :call RunNearestSpec()<CR>
-nnoremap <Leader>l :call RunLastSpec()<CR>
+nnoremap <Leader>S :call RunLastSpec()<CR>
 
 vnoremap <Leader>a :Tab/\w:\zs/l0l1<CR>
 
