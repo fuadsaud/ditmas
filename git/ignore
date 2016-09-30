@@ -20,6 +20,6 @@ a.out
 *.o
 *.pyc
 
-.env
+.env.local
 
 Procfile.dev
