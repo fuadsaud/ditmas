@@ -142,3 +142,7 @@ gem install \
   bundler
 
 ./.jarvis/osx
+
+# heroku
+
+heroku plugins:install heroku-repo
