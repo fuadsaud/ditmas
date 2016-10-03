@@ -9,7 +9,7 @@
   br = branch
   ci = commit --verbose
   co = checkout
-  cos = "!git br | fzf-tmux | xargs git co"
+  cof = fz-checkout
   conflicts = diff --name-only --diff-filter=U
   cp = cherry-pick
   cpa = cherry-pick --abort
@@ -22,6 +22,8 @@
   f  = fetch --verbose --progress
   fix = ci --fixup HEAD
   fixup = ci --fixup
+  fixupf = fz-fixup
+  showf = fz-show
   fuck = "!git add .; git ci -m 'Fuck this shit, I am done for today!'; git p;"
   ft = fetch --verbose --tags
   fm = pull --verbose
