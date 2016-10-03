@@ -14,12 +14,15 @@ windows:
         - chruby 2.2.4
       - commands:
         - chruby 2.2.4
-  - name: foreman
+  - name: services
     root: ~/Code/viewthespace/viewthespace
     panes:
       - commands:
         - chruby 2.2.4
         - 'foreman start -f Procfile.dev'
+      - commands:
+        - chruby 2.2.4
+        - 'npm start'
   - root: ~/Code/viewthespace/viewthespace
     panes:
       - commands:
