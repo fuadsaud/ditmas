@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+function {
+  local commits commit
+  commits=$(git log $1 --color=always --pretty=oneline --abbrev-commit --reverse -n 100) &&
+  commit=$(echo "$commits" | fzf --tac +s +m -e --ansi --reverse) &&
+  echo -n $(echo "$commit" | sed "s/ .*//")
+}
