@@ -39,3 +39,5 @@ compctl -g '~/.teamocil/*(:t:r)' teamocil
 compctl -g '~/.rubies/*(:t)' chruby
 
 chruby 2.3
+
+source ~/.zsh/fzf.zsh
