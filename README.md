@@ -1,7 +1,6 @@
 J.A.R.V.I.S
 ===========
 
-This is my set of dotfiles, shell scripts, environment tweaks and related
-stuff.
+This is my set of dotfiles, shell scripts, environment tweaks and other goodies.
 
-Use it and improve it at will.
+It's built on and for the Mac, but should work, mostly, for other *nix fdfsdf
