@@ -202,10 +202,10 @@ nnoremap j gj
 nnoremap k gk
 
 " easier navigation between split windows
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
 nnoremap + <C-w>+
 nnoremap _ <C-w>-
