@@ -21,8 +21,8 @@ brew install zsh \
   python \
   youtube-dl \
   chruby \
-  ruby-install \
   fasd \
+  fzf \
   tree \
   trash \
   ctags \
@@ -30,7 +30,8 @@ brew install zsh \
   p7zip \
   jq \
   asciinema \
-  cowsay
+  cowsay \
+  leiningen \
 
 brew install --HEAD \
   vim \
@@ -48,12 +49,10 @@ brew cask install \
   clipmenu \
   dropbox \
   vagrant \
-  otto \
   go \
-  leiningen \
-  transmission \
-  handbrake \
-  heroku-toolbelt
+  heroku-toolbelt \
+  docker \
+  whatsapp
 
 # fonts
 
@@ -88,7 +87,7 @@ vim +PluginInstall +qall
 
 # zsh
 
-ln -s $JARVIS_SYNLINK/zsh ~/.zsh
+ln -s $JARVIS_DIR/zsh ~/.zsh
 ln -s ~/.zsh/prezto ~/.zprezto
 ln -s ~/.zsh/rc.zsh ~/.zshrc
 ln -s ~/.zsh/env.zsh ~/.zshenv
@@ -115,9 +114,8 @@ ln -s $JARVIS_DIR/gemrc ~/.gemrc
 
 # git
 
-ln -s $JARVIS_DIR/git $GIT_DIR
-ln -s $GIT_DIR/ignore ~/.gitignore
-ln -s $GIT_DIR/config ~/.gitconfig
+ln -s $JARVIS_DIR/git/ignore ~/.gitignore
+ln -s $JARVIS_DIR/git/config ~/.gitconfig
 
 # python
 
@@ -139,7 +137,8 @@ gem install \
   pry \
   rubocop \
   m \
-  bundler
+  bundler \
+  teamocil
 
 ./.jarvis/osx
 
