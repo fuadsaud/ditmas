@@ -47,7 +47,7 @@
   root = rev-parse --show-toplevel
   sd = stash drop
   sed  = "!git ls-files | xargs sed -i"
-  sha = rev-parse
+  sha = rev-parse --short
   shaf = fz-sha
   sl = stash list
   snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
