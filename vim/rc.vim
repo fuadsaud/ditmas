@@ -16,7 +16,7 @@ set mouse=a
 set relativenumber
 set number
 set cursorline
-set colorcolumn=80,100
+set colorcolumn=80,100,120
 set hidden
 set splitbelow
 set splitright
