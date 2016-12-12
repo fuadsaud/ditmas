@@ -20,7 +20,11 @@ source "${ZDOTDIR:-$HOME}/.zsh/aliases.zsh"
 source "${ZDOTDIR:-$HOME}/.zsh/fzf.zsh"
 
 # source completions
-compctl -g '~/.teamocil/*(:t:r)' teamocil
-compctl -g '~/.rubies/*(:t)' chruby
+compctl -g "${HOME}/.teamocil/*(:t:r)" teamocil
+compctl -g "${HOME}/.rubies/*(:t)" chruby
+
+if [[ -s "${HOME}/.nurc" ]]; then
+  source ~/.nurc
+fi
 
 chruby 2.3
