@@ -32,6 +32,7 @@ brew install zsh \
   asciinema \
   cowsay \
   leiningen \
+  neovim/neovim/neovim
 
 brew install --HEAD \
   vim \
@@ -77,9 +78,12 @@ ln -s ~/Code/fuadsaud/J.A.R.V.I.S $JARVIS_DIR
 
 # vim
 
-ln -s $JARVIS_DIR/.vim $VIM_DIR
+ln -s $JARVIS_DIR/vim $VIM_DIR
 ln -s $VIM_DIR/rc.vim ~/.vimrc
 ln -s $VIM_DIR/grc.vim ~/.gvimrc
+
+mkdir -p ~/.config/nvim
+ln -s $VIM_DIR/rc.vim ~/.config/nvim/init.vim
 
 hub clone VundleVim/Vundle.vim $VIM_DIR/bundle/Vundle.vim
 
@@ -126,7 +130,8 @@ pip install \
   powerline-status \
   psutil \
   speedtest-cli \
-  doge
+  doge \
+  neovim
 
 # ruby
 
