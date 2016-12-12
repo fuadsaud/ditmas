@@ -48,6 +48,7 @@ path=(
   $ANDROID_HOME/tools
   $ANDROID_HOME/platform-tools
   ~/.jarvis/bin
+  ~/anaconda3/bin
   ~/.cabal/bin
   ~/.go/bin
   /usr/local/share/npm/bin
