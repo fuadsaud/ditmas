@@ -118,4 +118,9 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 export NVM_DIR="$HOME/.nvm"
 
 # source "$(brew --prefix nvm)/nvm.sh"
-source "$HOME/.env.sh"
+if [[ -s "${HOME}/.env.sh" ]]; then
+  source "$HOME/.env.sh"
+fi
+
+# Fixes python locale crash. I believe prezto should be setting this, but it's not the case.
+export LC_ALL=$LANG
