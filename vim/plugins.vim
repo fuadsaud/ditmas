@@ -27,7 +27,9 @@ Plugin 'mattn/webapi-vim'
 
 " general utilities
 Plugin 'tpope/vim-vinegar'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'edkolev/tmuxline.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'burke/matcher'
 Plugin 'sjl/gundo.vim'
@@ -128,6 +130,7 @@ Plugin 'noahfrederick/Hemisu'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'trusktr/seti.vim'
+Plugin 'flazz/vim-colorschemes'
 
 call vundle#end()
 
