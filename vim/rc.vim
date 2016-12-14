@@ -109,7 +109,7 @@ highlight link hspecDescription Comment
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_section_c = airline#section#create(['%t'])
+let g:airline#extensions#tabline#fnamemod = ':p:h:t'
 
 let g:AutoPairsMultilineClose = 0
 let g:AutoPairsFlyMode = 0
@@ -256,3 +256,16 @@ nnoremap <Leader>S :call RunLastSpec()<CR>
 vnoremap <Leader>a :Tab/\w:\zs/l0l1<CR>
 
 call togglebg#map('<F5>')
+"
+" Change local working dir upon tab creation
+function! TabNewWithCwD(newpath)
+  :execute "tabnew " . a:newpath
+  if isdirectory(a:newpath)
+    :execute "lcd " . a:newpath
+  else
+    let dirname = fnamemodify(a:newpath, ":h")
+    :execute "lcd " . dirname
+  endif
+endfunction
+
+command! -nargs=1 -complete=file TabNew :call TabNewWithCwD("<args>")
