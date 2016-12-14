@@ -100,6 +100,12 @@ ln -s ~/.zsh/login.zsh ~/.zlogin
 ln -s ~/.zsh/logout.zsh ~/.zlogout
 ln -s ~/.zsh/preztorc.zsh ~/.zpreztorc
 
+# bash
+
+ln -s $JARVIS_DIR/bash ~/.bash
+ln -s ~/.bash/profile.bash ~/.bash_profile
+ln -s ~/.bash/rc.bash ~/.bashrc
+
 sudo echo $HOMEBREW_ZSH_BIN >> /etc/shells
 
 chsh -s $HOMEBREW_ZSH_BIN

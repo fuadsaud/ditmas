@@ -109,6 +109,7 @@ highlight link hspecDescription Comment
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_section_c = airline#section#create(['%t'])
 
 let g:AutoPairsMultilineClose = 0
 let g:AutoPairsFlyMode = 0
@@ -180,6 +181,8 @@ vnoremap / /\v
 
 " use tab to jump between matching brackets
 map <Tab> %
+
+nnoremap <C-;> <C-i>
 
 " go from insert to normal mode
 inoremap jj <Esc>:w<CR>
