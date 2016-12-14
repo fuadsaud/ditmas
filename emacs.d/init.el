@@ -10,19 +10,21 @@
 (require 'evil)
 (evil-mode t)
 
-(load-theme 'solarized-dark t)
 (set-frame-font "Fira Code 18")
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(setq ring-bell-function 'ignore)
 
-(sml/setup)
-(setq sml/theme 'dark)
+(load-theme 'monokai t)
+; (load-theme 'solarized-dark t)
+
+; (sml/setup)
+; (setq sml/theme 'dark)
 
 ; (require 'powerline)
 ; (powerline-default-theme)
 
 ; (setq-default custom-safe-themes t)
-
 ; (require 'airline-themes)
 ; (load-theme 'airline-dark)
 
