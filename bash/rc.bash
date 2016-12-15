@@ -1,5 +1,7 @@
 echo "LOADING BASH RC"
 
+export PS1="\[\e[32m\]\u\[\e[m\]@\[\e[33m\]\h\[\e[m\]:\[\e[36m\]\w\[\e[m\] \[\e[33m\]\\$\[\e[m\] "
+
 if [[ -s "${HOME}/.nurc" ]]; then
   source ~/.nurc
 fi
