@@ -33,7 +33,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-<<<<<<< HEAD
  '(custom-safe-themes
    (quote
     ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "962dacd99e5a99801ca7257f25be7be0cebc333ad07be97efd6ff59755e6148f" "28130127bbf3072c1bbc7652fca7245f186bb417b3b385a5e4da57b895ffe9d8" default)))
@@ -41,18 +40,9 @@
    (quote
     (solarized-theme smart-mode-line-powerline-theme smart-mode-line airline-themes powerline monokai-theme cider evil-visual-mark-mode))))
 
-=======
- '(package-selected-packages (quote (evil-visual-mark-mode))))
->>>>>>> Add emacs config
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
-<<<<<<< HEAD
-=======
-
-(require 'evil)
-(evil-mode t)
->>>>>>> Add emacs config
+)
