@@ -3,20 +3,22 @@
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
-
-(setq package-enable-at-startup nil)
-(package-initialize)
-
-(require 'evil)
-(evil-mode t)
+(global-linum-mode t)
+(hl-line-mode t)
 
 (set-frame-font "Fira Code 18")
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (setq ring-bell-function 'ignore)
 
-(load-theme 'monokai t)
-; (load-theme 'solarized-dark t)
+(require 'evil)
+(evil-mode t)
+
+(setq package-enable-at-startup nil)
+(package-initialize)
+
+; (load-theme 'monokai t)
+(load-theme 'solarized-dark t)
 
 ; (sml/setup)
 ; (setq sml/theme 'dark)
