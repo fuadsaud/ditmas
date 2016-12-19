@@ -33,6 +33,7 @@
   la = log --graph --abbrev-commit --all
   m  = merge --verbose
   nau = update-index --no-assume-unchanged
+  nu-docker-sha = "!git sha @ | cut -c -7 | tr -d '\n'"
   p  = push --verbose --progress
   pr = pull-request
   prune-merged = "!git branch --merged | grep -v \\* | grep -v master | xargs -n 1 git branch -d"
