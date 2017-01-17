@@ -32,11 +32,14 @@ brew install zsh \
   asciinema \
   cowsay \
   leiningen \
-  neovim/neovim/neovim
+  htop
+
+brew tap neovim/neovim
 
 brew install --HEAD \
   vim \
   tmux \
+  neovim \
   ruby-install
 
 brew cask install \
@@ -149,7 +152,8 @@ gem install \
   rubocop \
   m \
   bundler \
-  teamocil
+  teamocil \
+  neovim
 
 ./.jarvis/osx
 
