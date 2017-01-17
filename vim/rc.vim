@@ -31,6 +31,8 @@ set lazyredraw
 set wildmenu
 set wildmode=longest,full
 
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
 " whitespace
 set autoindent
 set copyindent
@@ -109,7 +111,8 @@ highlight link hspecDescription Comment
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':p:h:t'
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#tabs_label = fnamemodify(getcwd(), ':t')
 
 let g:AutoPairsMultilineClose = 0
 let g:AutoPairsFlyMode = 0
@@ -174,19 +177,22 @@ end
 
 " keymaps
 let mapleader = ','
+let maplocalleader = '\'
 
 " default / to perl-style regexp's
 nnoremap / /\v
 vnoremap / /\v
 
 " use tab to jump between matching brackets
-map <Tab> %
+" map <Tab> %
 
 nnoremap <C-;> <C-i>
 
 " go from insert to normal mode
-inoremap jj <Esc>:w<CR>
-inoremap kk <Esc>:w<CR>
+inoremap jj <Esc>
+inoremap kk <Esc>
+inoremap jk <Esc>
+inoremap kj <Esc>
 
 " disable ex mode mapping
 map Q <Nop>
@@ -213,6 +219,8 @@ nnoremap <C-l> <C-w>l
 nnoremap + <C-w>+
 nnoremap _ <C-w>-
 
+nnoremap <Leader>- <Plug>VinegarTabUp
+
 " C-s will save us all!
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>
@@ -236,6 +244,7 @@ nnoremap <Leader>v V`]
 nnoremap <Leader>c <C-^>
 
 map <Leader>m :TagbarToggle<CR>
+map <Leader>a :Ag<Space>
 
 map <Leader>, :tabedit $MYVIMRC<CR>
 map <Leader>< :tabedit ~/.vim/plugins.vim<CR>
