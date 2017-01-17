@@ -9,8 +9,10 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'tpope/vim-sensible'
-" Plugin 'tpope/vim-speeddating'
+if !has('nvim')
+  Plugin 'tpope/vim-sensible'
+endif
+
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
@@ -30,6 +32,7 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
+" Plugin 'vim-ctrlspace/vim-ctrlspace'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'burke/matcher'
 Plugin 'tpope/vim-projectionist'
@@ -58,6 +61,7 @@ Plugin 'lmeijvogel/vim-yaml-helper'
 Plugin 'loremipsum'
 Plugin 'a.vim'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'junegunn/goyo.vim'
 
 " text objects
 Plugin 'kana/vim-textobj-user'
@@ -82,10 +86,11 @@ Plugin 'sunaku/vim-ruby-minitest'
 Plugin 'ngmy/vim-rubocop'
 
 " clojure
-Plugin 'guns/vim-clojure-static'
+" Plugin 'guns/vim-clojure-static'
 Plugin 'guns/vim-clojure-highlight'
+Plugin 'tpope/vim-salve'
+Plugin 'tpope/vim-classpath'
 Plugin 'tpope/vim-fireplace'
-" Plugin 'tpope/vim-salve'
 Plugin 'gregspurrier/vim-midje'
 Plugin 'guns/vim-sexp'
 Plugin 'tpope/vim-sexp-mappings-for-regular-people'
@@ -130,6 +135,8 @@ Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'gorodinskiy/vim-coloresque'
 
 " colorschemes
+Plugin 'taecilla/fairyfloss.vim'
+Plugin 'zanglg/nova.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'noahfrederick/Hemisu'
 Plugin 'nanotech/jellybeans.vim'
