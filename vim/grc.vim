@@ -8,3 +8,6 @@ set guioptions-=T guioptions-=L guioptions-=r
 set macmeta
 
 set transparency=10
+
+colorscheme material-theme
+let g:airline_theme="papercolor"
