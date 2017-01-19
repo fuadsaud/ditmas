@@ -130,6 +130,10 @@ ln -s $JARVIS_DIR/gemrc ~/.gemrc
 ln -s $JARVIS_DIR/git/ignore ~/.gitignore
 ln -s $JARVIS_DIR/git/config ~/.gitconfig
 
+# ctags
+
+ln -s $JARVIS_DIR/ctags ~/.ctags
+
 # python
 
 pip install --upgrade pip setuptools
