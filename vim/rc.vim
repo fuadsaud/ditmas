@@ -30,8 +30,7 @@ set undofile
 set lazyredraw
 set wildmenu
 set wildmode=longest,full
-
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors
 
 " whitespace
 set autoindent
@@ -98,12 +97,31 @@ if has('autocmd')
   autocmd BufNewFile,BufRead *.skim setfiletype slim
 
   autocmd FileType go nmap <buffer> = <Esc>:Fmt<CR>
-
-  au VimEnter * RainbowParenthesesToggle
-  au Syntax * RainbowParenthesesLoadRound
-  au Syntax * RainbowParenthesesLoadSquare
-  au Syntax * RainbowParenthesesLoadBraces
 endif
+
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+\   'guifgs': ['Orange4', 'teal', 'DeepPink4', 'DeepSkyBlue4'],
+\   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+\   'operators': '_,_',
+\   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+\   'separately': {
+\       '*': {},
+\       'tex': {
+\           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+\       },
+\       'lisp': {
+\           'guifgs': ['Orange4', 'teal', 'DeepPink4', 'DeepSkyBlue4', 'olive'],
+\       },
+\       'vim': {
+\           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+\       },
+\       'html': {
+\           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+\       },
+\       'css': 0,
+\   }
+\}
 
 highlight link hspecDescribe Type
 highlight link hspecIt Identifier
@@ -245,6 +263,7 @@ nnoremap <Leader>c <C-^>
 
 map <Leader>m :TagbarToggle<CR>
 map <Leader>a :Ag<Space>
+map <Leader>A :Ag<Space><C-r><C-w><CR>
 
 map <Leader>, :tabedit $MYVIMRC<CR>
 map <Leader>< :tabedit ~/.vim/plugins.vim<CR>
