@@ -261,9 +261,10 @@ nnoremap <Leader>v V`]
 " switch between the last two files
 nnoremap <Leader>c <C-^>
 
-map <Leader>m :TagbarToggle<CR>
+map <Leader>M :TagbarToggle<CR>
 map <Leader>a :Ag<Space>
 map <Leader>A :Ag<Space><C-r><C-w><CR>
+map <Leader>m :tabnew<CR>:lcd ../
 
 map <Leader>, :tabedit $MYVIMRC<CR>
 map <Leader>< :tabedit ~/.vim/plugins.vim<CR>

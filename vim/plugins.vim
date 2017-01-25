@@ -135,6 +135,7 @@ Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'gorodinskiy/vim-coloresque'
 
 " colorschemes
+Plugin 'endel/vim-github-colorscheme'
 Plugin 'AlessandroYorba/Sidonia'
 Plugin 'AlessandroYorba/Monrovia'
 Plugin 'taecilla/fairyfloss.vim'
