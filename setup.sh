@@ -56,7 +56,8 @@ brew cask install \
   go \
   heroku-toolbelt \
   docker \
-  whatsapp
+  whatsapp \
+  transmission
 
 # fonts
 
@@ -133,6 +134,10 @@ ln -s $JARVIS_DIR/git/config ~/.gitconfig
 # ctags
 
 ln -s $JARVIS_DIR/ctags ~/.ctags
+
+# leiningen
+
+ln -s $JARVIS_DIR/lein ~/.lein
 
 # python
 
