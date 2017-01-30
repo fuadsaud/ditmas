@@ -30,7 +30,10 @@ set undofile
 set lazyredraw
 set wildmenu
 set wildmode=longest,full
-set termguicolors
+
+if has("nvim")
+  set termguicolors
+endif
 
 " whitespace
 set autoindent
@@ -82,12 +85,12 @@ if has('autocmd')
   autocmd FileType go         setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType haskell    setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType html       setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType java       setlocal ts=4 sts=4 sw=4 expandtab textwidth=99
+  autocmd FileType java       setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType json       setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType make       setlocal ts=8 sts=8 sw=8 noexpandtab
   autocmd FileType objc       setlocal ts=4 sts=4 sw=4 expandtab
-  autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab textwidth=99
+  autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType scss.css   setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType yaml       setlocal ts=2 sts=2 sw=2 expandtab
 
