@@ -23,7 +23,6 @@ set splitright
 set title
 set showmatch
 set list
-" set listchars+=eol:$
 set nobackup
 set noswapfile
 set undofile
