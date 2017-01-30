@@ -9,10 +9,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
-if !has('nvim')
-  Plugin 'tpope/vim-sensible'
-endif
-
+Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
