@@ -87,6 +87,7 @@ Plugin 'ngmy/vim-rubocop'
 
 " clojure
 " Plugin 'guns/vim-clojure-static'
+Plugin 'guns/vim-clojure-static'
 Plugin 'guns/vim-clojure-highlight'
 Plugin 'tpope/vim-salve'
 Plugin 'tpope/vim-classpath'
