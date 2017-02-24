@@ -4,3 +4,5 @@ nvim/.netrwhist
 
 env.sh
 emacs.d/elpa
+
+lein/repl-history
