@@ -1,9 +1,9 @@
 {:user
- {:dependencies [[cljdev "0.4.0-SNAPSHOT"]]
+ {:dependencies [[cljdev "0.5.0-SNAPSHOT"]]
   :injections   [(require 'nu)]
   :repositories [["nu-maven" {:url "s3p://nu-maven/releases/"
-                               :username [:gpg :env/artifacts_aws_access_key_id]
-                               :passphrase [:gpg :env/artifacts_aws_secret_access_key]}]]
+                              :username [:gpg :env/artifacts_aws_access_key_id]
+                              :passphrase [:gpg :env/artifacts_aws_secret_access_key]}]]
 
   :plugins [[s3-wagon-private "1.2.0"]]}
   :repl {:plugins [[cider/cider-nrepl "0.11.0-SNAPSHOT"]
