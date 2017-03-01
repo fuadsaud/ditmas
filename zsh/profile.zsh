@@ -47,7 +47,7 @@ typeset -gU cdpath fpath mailpath path
 path=(
   $ANDROID_HOME/tools
   $ANDROID_HOME/platform-tools
-  ~/.jarvis/bin
+  ~/.houdini/bin
   ~/anaconda3/bin
   ~/.cabal/bin
   ~/.go/bin

@@ -68,7 +68,7 @@
 [credential]
   helper = osxkeychain
 [core]
-  excludesfile = ~/.jarvis/git/ignore
+  excludesfile = ~/.houdini/git/ignore
 [diff]
   algorithm = patience
 [format]

@@ -1,8 +1,9 @@
 #!/usr/bin/env sh
 
 CODE_DIR=~/Code
+REPO=fuadsaud/houdini
 PROJECTS_DIR="$CODE_DIR/fuadsaud/"
-JARVIS_DIR=~/.jarvis
+HOUDINI_DIR=~/.houdini
 VIM_DIR=~/.vim
 GIT_DIR=~/.git
 
@@ -76,13 +77,13 @@ brew install tmate
 
 mkdir -p $PROJECTS_DIR
 
-hub clone --recursive fuadsaud/J.A.R.V.I.S "$PROJECTS_DIR/J.A.R.V.I.S"
+hub clone --recursive $REPO "$PROJECTS_DIR/houdini"
 
-ln -s ~/Code/fuadsaud/J.A.R.V.I.S $JARVIS_DIR
+ln -s $PROJECTS_DIR/houdini $HOUDINI_DIR
 
 # vim
 
-ln -s $JARVIS_DIR/vim $VIM_DIR
+ln -s $HOUDINI_DIR/vim $VIM_DIR
 ln -s $VIM_DIR/rc.vim ~/.vimrc
 ln -s $VIM_DIR/grc.vim ~/.gvimrc
 
@@ -95,7 +96,7 @@ vim +PluginInstall +qall
 
 # zsh
 
-ln -s $JARVIS_DIR/zsh ~/.zsh
+ln -s $HOUDINI_DIR/zsh ~/.zsh
 ln -s ~/.zsh/prezto ~/.zprezto
 ln -s ~/.zsh/rc.zsh ~/.zshrc
 ln -s ~/.zsh/env.zsh ~/.zshenv
@@ -106,7 +107,7 @@ ln -s ~/.zsh/preztorc.zsh ~/.zpreztorc
 
 # bash
 
-ln -s $JARVIS_DIR/bash ~/.bash
+ln -s $HOUDINI_DIR/bash ~/.bash
 ln -s ~/.bash/profile.bash ~/.bash_profile
 ln -s ~/.bash/rc.bash ~/.bashrc
 
@@ -116,28 +117,28 @@ chsh -s $HOMEBREW_ZSH_BIN
 
 # tmux
 
-ln -s $JARVIS_DIR/tmux.conf ~/.tmux.conf
+ln -s $HOUDINI_DIR/tmux.conf ~/.tmux.conf
 
 # rubocop
 
-ln -s $JARVIS_DIR/rubocop.yml ~/.rubocop.yml
+ln -s $HOUDINI_DIR/rubocop.yml ~/.rubocop.yml
 
 # gem
 
-ln -s $JARVIS_DIR/gemrc ~/.gemrc
+ln -s $HOUDINI_DIR/gemrc ~/.gemrc
 
 # git
 
-ln -s $JARVIS_DIR/git/ignore ~/.gitignore
-ln -s $JARVIS_DIR/git/config ~/.gitconfig
+ln -s $HOUDINI_DIR/git/ignore ~/.gitignore
+ln -s $HOUDINI_DIR/git/config ~/.gitconfig
 
 # ctags
 
-ln -s $JARVIS_DIR/ctags ~/.ctags
+ln -s $HOUDINI_DIR/ctags ~/.ctags
 
 # leiningen
 
-ln -s $JARVIS_DIR/lein ~/.lein
+ln -s $HOUDINI_DIR/lein ~/.lein
 
 # python
 
@@ -164,7 +165,7 @@ gem install \
   teamocil \
   neovim
 
-./.jarvis/osx
+$HOUDINI_DIR/osx
 
 # heroku
 
