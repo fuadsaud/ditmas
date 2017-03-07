@@ -87,12 +87,12 @@ ln -s $HOUDINI_DIR/vim $VIM_DIR
 ln -s $VIM_DIR/rc.vim ~/.vimrc
 ln -s $VIM_DIR/grc.vim ~/.gvimrc
 
-mkdir -p ~/.config/nvim
-ln -s $VIM_DIR/rc.vim ~/.config/nvim/init.vim
+ln -s $HOUDINI_DIR/nvim ~/.config/
 
-hub clone VundleVim/Vundle.vim $VIM_DIR/bundle/Vundle.vim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-vim +PluginInstall +qall
+vim +PlugInstall +qall
 
 # zsh
 

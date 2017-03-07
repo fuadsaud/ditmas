@@ -10,7 +10,7 @@ alias vssh="vagrant ssh"
 alias vup="vagrant up"
 alias vi="vim"
 alias v="vim"
-alias vundle="vim +PluginInstall +qall"
+alias vplug="vim +PlugInstall +qall"
 alias yt="youtube-dl -t"
 
 alias cp="${aliases[cp]:-cp} -v"
