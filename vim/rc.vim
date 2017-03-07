@@ -140,7 +140,7 @@ let g:splitjoin_ruby_do_block_split = 0
 
 let g:jsx_ext_required = 0
 
-let g:clojure_align_subforms = 0
+let g:clojure_align_subforms = 1
 
 let g:sexp_enable_insert_mode_mappings = 0
 
