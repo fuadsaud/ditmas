@@ -17,6 +17,9 @@ inoremap kk <Esc>
 inoremap jk <Esc>
 inoremap kj <Esc>
 
+nmap oo o<Esc>
+nmap OO O<Esc>
+
 " disable ex mode mapping
 map Q <Nop>
 
@@ -69,10 +72,10 @@ nnoremap <Leader>c <C-^>
 map <Leader>M :TagbarToggle<CR>
 map <Leader>a :Ag<Space>
 map <Leader>A :Ag<Space><C-r><C-w><CR>
-map <Leader>m :tabnew<CR>:lcd ../
+map <Leader>m :tabnew<CR>:tcd ../
 
-map <Leader>, :tabedit $MYVIMRC<CR>
-map <Leader>< :tabedit ~/.vim/plugins.vim<CR>
+map <Leader>, :tabedit ~/.vimrc<CR>
+map <Leader>< :tabedit ~/.vim<CR>
 map <Leader>z :tabedit ~/.zshrc<CR>
 
 " gundo
@@ -88,5 +91,8 @@ nnoremap <Leader>s :call RunNearestSpec()<CR>
 nnoremap <Leader>S :call RunLastSpec()<CR>
 
 vnoremap <Leader>a :Tab/\w:\zs/l0l1<CR>
+
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 call togglebg#map('<F5>')
