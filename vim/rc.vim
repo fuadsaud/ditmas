@@ -64,10 +64,10 @@ set foldlevelstart=10
 set foldnestmax=10
 set foldmethod=indent
 
-if filereadable(expand('~/.vim/plugins.vim'))
+if filereadable(expand('~/.vim/plug.vim'))
   filetype off
 
-  source ~/.vim/plugins.vim
+  source ~/.vim/plug.vim
 endif
 
 filetype plugin indent on
