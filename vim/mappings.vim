@@ -33,6 +33,12 @@ noremap  <Down>  <Nop>
 noremap  <Left>  <Nop>
 noremap  <Right> <Nop>
 
+" emacs motion bindings
+inoremap <C-A> <Home>
+inoremap <C-B> <Left>
+inoremap <C-E> <End>
+inoremap <C-F> <Right>
+
 nnoremap j gj
 nnoremap k gk
 
