@@ -22,7 +22,6 @@ Plug 'ctrlpvim/ctrlp.vim' | Plug 'burke/matcher'
 Plug 'junegunn/fzf', { 'dir': '/usr/local/opt/fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-projectionist'
-Plug 'amiorin/vim-project'
 Plug 'sjl/gundo.vim'
 Plug 'rking/ag.vim'
 Plug 'milkypostman/vim-togglelist'
