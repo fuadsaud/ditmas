@@ -101,4 +101,7 @@ vnoremap <Leader>a :Tab/\w:\zs/l0l1<CR>
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
+let g:acid_goto_shorthand_mapping = 'gd'
+let g:acid_find_usage_command_mapping = 'gu'
+
 call togglebg#map('<F5>')

@@ -204,3 +204,7 @@ endif
 if filereadable(expand('~/.vim/mappings.vim'))
   source ~/.vim/mappings.vim
 endif
+
+let g:acid_lein_host='192.168.99.100'
+let g:acid_log_messages=1
+let g:acid_eval_command_handler = ['MetaRepl']
