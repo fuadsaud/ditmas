@@ -81,7 +81,7 @@ map <Leader>A :Ag<Space><C-r><C-w><CR>
 map <Leader>m :tabnew<CR>:tcd ../
 
 map <Leader>, :tabedit $MYVIMRC<CR>
-map <Leader>< :tabedit ~/.vim<CR>
+map <Leader>< :execute ':tabedit' fnamemodify(resolve(expand($MYVIMRC)), ':h') <CR>
 map <Leader>z :tabedit ~/.zshrc<CR>
 
 " gundo
