@@ -1,6 +1,5 @@
-call plug#begin("~/.vim/plugged")
+call plug#begin("~/.local/share/nvim/plugged")
 
-Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -50,6 +49,8 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 Plug 'wellle/targets.vim'
 
+Plug 'hkupty/nvimux'
+
 " tmux
 Plug 'Keithbsmiley/tmux.vim', { 'for': 'tmux' }
 Plug 'LnL7/vim-tslime'
@@ -72,6 +73,7 @@ Plug 'guns/vim-clojure-highlight',                 { 'for': 'clojure' }
 Plug 'tpope/vim-salve',                            { 'for': 'clojure' }
 Plug 'fuadsaud/vim-midje',                         { 'for': 'clojure' }
 Plug 'guns/vim-sexp',                              { 'for': 'clojure' }
+Plug 'clojure-vim/acid.nvim',                      { 'branch': 'testing' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 
 "haskell

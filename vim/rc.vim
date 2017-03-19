@@ -30,10 +30,6 @@ set lazyredraw
 set wildmenu
 set wildmode=longest,full
 
-if has("nvim")
-  set termguicolors
-endif
-
 " whitespace
 set autoindent
 set copyindent
@@ -53,10 +49,6 @@ set incsearch
 set ignorecase
 set smartcase
 set gdefault
-
-if has("nvim")
-  set inccommand=split
-endif
 
 " folding
 set foldenable
@@ -184,27 +176,6 @@ if executable('matcher')
   endfunction
 end
 
-if has('nvim')
-  function! OnTabEnter(path)
-    " echo "path: " . a:path
-    " echo "is: " . isdirectory(a:path)
-    if isdirectory(a:path)
-      let dirname = a:path
-      " echo "dir tcd " . dirname
-    else
-      let dirname = fnamemodify(a:path, ":h")
-      " echo "file tcd " . dirname
-    endif
-    " execute "tcd ". dirname
-  endfunction()
-
-  autocmd TabNewEntered * call OnTabEnter(expand("<amatch>"))
-endif
-
 if filereadable(expand('~/.vim/mappings.vim'))
   source ~/.vim/mappings.vim
 endif
-
-let g:acid_lein_host='192.168.99.100'
-let g:acid_log_messages=1
-let g:acid_eval_command_handler = ['MetaRepl']
