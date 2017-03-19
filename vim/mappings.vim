@@ -1,1 +1,1 @@
-nvim/mappings.vim
+../nvim/mappings.vim

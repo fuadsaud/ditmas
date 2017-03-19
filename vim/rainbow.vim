@@ -1,1 +1,1 @@
-nvim/rainbow.vim
+../nvim/rainbow.vim
