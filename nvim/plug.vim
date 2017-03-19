@@ -17,9 +17,9 @@ Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ctrlpvim/ctrlp.vim' | Plug 'burke/matcher'
-Plug 'junegunn/fzf', { 'dir': '/usr/local/opt/fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Plug 'ctrlpvim/ctrlp.vim' | Plug 'burke/matcher'
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-projectionist'
 Plug 'sjl/gundo.vim'
 Plug 'rking/ag.vim'
@@ -40,6 +40,7 @@ Plug 'honza/vim-snippets'
 Plug 'a.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/goyo.vim'
+Plug 'justinmk/vim-gtfo'
 
 " text objects
 Plug 'kana/vim-textobj-user'
@@ -73,10 +74,10 @@ Plug 'guns/vim-clojure-highlight',                 { 'for': 'clojure' }
 Plug 'tpope/vim-salve',                            { 'for': 'clojure' }
 Plug 'fuadsaud/vim-midje',                         { 'for': 'clojure' }
 Plug 'guns/vim-sexp',                              { 'for': 'clojure' }
-Plug 'clojure-vim/acid.nvim',                      { 'branch': 'testing' }
+Plug 'clojure-vim/acid.nvim',                      { 'do': ':UpdateRemotePlugins' }
+Plug 'clojure-vim/async-clj-omni',                 { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 
-"haskell
 Plug 'dag/vim2hs',          { 'for': 'haskell' }
 Plug 'raichoo/haskell-vim', { 'for': 'haskell' }
 Plug 'hspec/hspec.vim',     { 'for': 'haskell' }
