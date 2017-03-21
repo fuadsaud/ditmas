@@ -15,6 +15,7 @@ Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
 
 " general utilities
 Plug 'tpope/vim-vinegar'
+Plug 'justinmk/vim-dirvish'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Plug 'ctrlpvim/ctrlp.vim' | Plug 'burke/matcher'
