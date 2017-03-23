@@ -36,6 +36,7 @@ Plug 'gregsexton/MatchTag'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'junegunn/vim-easy-align'
+Plug 'tommcdo/vim-lion'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'a.vim'
@@ -88,6 +89,9 @@ Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 
 " javascript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+
+" kotlin
+Plug 'udalov/kotlin-vim'
 
 " markup
 Plug 'hail2u/vim-css3-syntax',         { 'for': 'css'}
