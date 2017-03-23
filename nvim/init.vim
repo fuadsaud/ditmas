@@ -28,6 +28,7 @@ set undofile
 set lazyredraw
 set wildmenu
 set wildmode=longest,full
+set fillchars=vert:│
 
 set termguicolors
 
@@ -149,43 +150,8 @@ let g:fzf_colors =
 
 " The Silver Searcher
 if executable('ag')
-  " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
 endif
-
-" Matcher
-if executable('matcher')
-  let g:ctrlp_match_func = { 'match': 'GoodMatch' }
-
-  function! GoodMatch(items, str, limit, mmode, ispath, crfile, regex)
-
-    " Create a cache file if not yet exists
-    let cachefile = ctrlp#utils#cachedir().'/matcher.cache'
-    if !( filereadable(cachefile) && a:items == readfile(cachefile) )
-      call writefile(a:items, cachefile)
-    endif
-    if !filereadable(cachefile)
-      return []
-    endif
-
-    " a:mmode is currently ignored. In the future, we should probably do
-    " something about that. the matcher behaves like "full-line".
-    let cmd = 'matcher --limit '.a:limit.' --manifest '.cachefile.' '
-    if !( exists('g:ctrlp_dotfiles') && g:ctrlp_dotfiles )
-      let cmd = cmd.'--no-dotfiles '
-    endif
-    let cmd = cmd.a:str
-
-    return split(system(cmd), "\n")
-
-  endfunction
-end
 
 function! OnTabEnter(path)
   " echo "path: " . a:path
