@@ -46,7 +46,6 @@ Plug 'wellle/targets.vim'
 Plug 'Keithbsmiley/tmux.vim', { 'for': 'tmux' }
 Plug 'LnL7/vim-tslime'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'edkolev/tmuxline.vim'
 
 " ruby
 Plug 'vim-ruby/vim-ruby'
