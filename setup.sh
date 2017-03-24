@@ -180,7 +180,7 @@ pip install \
 
 # ruby
 
-ruby-install ruby
+ruby-install -s /tmp/ruby-src ruby
 
 gem install \
   boom \
