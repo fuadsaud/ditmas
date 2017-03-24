@@ -87,9 +87,8 @@ done
 brew tap caskroom/fonts
 
 brew cask install \
-  font-fira-mono \
-  font-fira-mono-for-powerline \
-  font-fira-sans
+  font-fira-sans \
+  font-fira-code
 
 brew tap brona/iproute2mac
 brew install iproute2mac
