@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 CODE_DIR=~/Code
-REPO=fuadsaud/houdini
+REPO='https://github.com/fuadsaud/houdini'
 PROJECTS_DIR="$CODE_DIR/fuadsaud/"
 HOUDINI_DIR=~/.houdini
 VIM_DIR=~/.vim
@@ -96,7 +96,7 @@ brew install iproute2mac
 
 mkdir -p $PROJECTS_DIR
 
-hub clone --recursive $REPO "$PROJECTS_DIR/houdini"
+git clone --recursive $REPO "$PROJECTS_DIR"
 
 ln -s $PROJECTS_DIR/houdini $HOUDINI_DIR
 
