@@ -27,4 +27,4 @@ if [[ -s "${HOME}/.nurc" ]]; then
   source ~/.nurc
 fi
 
-chruby 2.3
+chruby 2
