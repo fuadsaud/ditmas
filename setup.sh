@@ -33,13 +33,15 @@ brew install zsh \
   asciinema \
   cowsay \
   leiningen \
-  htop
+  htop \
+  mas \
+  tmate \
+  tmux
 
 brew tap neovim/neovim
 
 brew install --HEAD \
   vim \
-  tmux \
   neovim \
   ruby-install
 
@@ -51,14 +53,34 @@ brew cask install \
   google-drive \
   vlc \
   atom \
-  clipmenu \
   dropbox \
   vagrant \
   go \
   heroku-toolbelt \
   docker \
   whatsapp \
-  transmission
+  transmission \
+  1password \
+  spectacle \
+  flux \
+  iterm2-beta
+
+local mac_store_apps=(
+'Telegram Desktop'
+'Slack'
+'Twitter'
+'Amphetamine' 
+'Daisy Disk'
+'Reeder 3'
+'Pixelmator'
+'Irvue'
+'Chegou'
+'CloudApp'
+)
+
+for appname in mac_store_apps; do
+  mas search $appname | head -n 1 | cut -f 1 -d ' ' | xargs mas install
+done
 
 # fonts
 
@@ -71,9 +93,6 @@ brew cask install \
 
 brew tap brona/iproute2mac
 brew install iproute2mac
-
-brew tap nviennot/tmate
-brew install tmate
 
 mkdir -p $PROJECTS_DIR
 
@@ -88,7 +107,7 @@ ln -s $VIM_DIR/rc.vim ~/.vimrc
 ln -s $VIM_DIR/grc.vim ~/.gvimrc
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 vim +PlugInstall +qall
 
@@ -97,7 +116,7 @@ vim +PlugInstall +qall
 ln -s $HOUDINI_DIR/nvim ~/.config/
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 nvim +PlugInstall +qall
 
