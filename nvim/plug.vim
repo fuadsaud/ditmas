@@ -101,7 +101,7 @@ Plug 'jtratner/vim-flavored-markdown', { 'for': 'markdown'}
 
 " colorschemes
 Plug 'AlessandroYorba/Sidonia'
-Plug 'AlessandroYorba/Monrovia', { 'commit': '51ea85c' }
+Plug 'AlessandroYorba/Monrovia', { 'branch': 'dev' }
 Plug 'taecilla/fairyfloss.vim'
 Plug 'zanglg/nova.vim'
 Plug 'altercation/vim-colors-solarized'
