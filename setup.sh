@@ -165,6 +165,10 @@ ln -s $HOUDINI_DIR/ctags ~/.ctags
 
 ln -s $HOUDINI_DIR/lein ~/.lein
 
+# karabiner
+
+ln -s $HOUDINI_DIR/karabiner ~/.config
+
 # python
 
 pip install --upgrade pip setuptools
