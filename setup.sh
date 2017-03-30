@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+set -euo pipefail
+
 CODE_DIR=~/Code
 REPO='https://github.com/fuadsaud/houdini'
 PROJECTS_DIR="$CODE_DIR/fuadsaud/"
