@@ -99,6 +99,9 @@ Plug 'othree/html5.vim',               { 'for': 'html' }
 Plug 'tpope/vim-markdown',             { 'for': 'markdown'}
 Plug 'jtratner/vim-flavored-markdown', { 'for': 'markdown'}
 
+" prose
+Plug 'dbmrq/vim-ditto'
+
 " colorschemes
 Plug 'AlessandroYorba/Sidonia'
 Plug 'AlessandroYorba/Monrovia', { 'branch': 'dev' }
