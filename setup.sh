@@ -78,6 +78,7 @@ local mac_store_apps=(
 'Irvue'
 'Chegou'
 'CloudApp'
+'Shazam'
 )
 
 for appname in mac_store_apps; do
