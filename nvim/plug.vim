@@ -74,11 +74,11 @@ Plug 'ngmy/vim-rubocop',         { 'for': 'ruby' }
 Plug 'guns/vim-clojure-static',                    { 'for': 'clojure' }
 Plug 'guns/vim-clojure-highlight',                 { 'for': 'clojure' }
 Plug 'tpope/vim-salve',                            { 'for': 'clojure' }
-Plug 'fuadsaud/vim-midje',                         { 'for': 'clojure' }
+" Plug 'gregspurrier/vim-midje'
 Plug 'guns/vim-sexp',                              { 'for': 'clojure' }
+Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'clojure-vim/acid.nvim',                      { 'do': ':UpdateRemotePlugins' }
 Plug 'clojure-vim/async-clj-omni',                 { 'for': 'clojure' }
-Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 
 Plug 'dag/vim2hs',          { 'for': 'haskell' }
 Plug 'raichoo/haskell-vim', { 'for': 'haskell' }
@@ -104,7 +104,8 @@ Plug 'dbmrq/vim-ditto'
 
 " colorschemes
 Plug 'AlessandroYorba/Sidonia'
-Plug 'AlessandroYorba/Monrovia', { 'branch': 'dev' }
+Plug 'AlessandroYorba/Monrovia'
+Plug 'fuadsaud/OldMonrovia', { 'branch': 'old-monrovia' }
 Plug 'taecilla/fairyfloss.vim'
 Plug 'zanglg/nova.vim'
 Plug 'altercation/vim-colors-solarized'
