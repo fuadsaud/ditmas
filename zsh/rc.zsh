@@ -16,6 +16,8 @@ stty -ixon # disable C-s
 
 unsetopt correct
 
+setopt interactivecomments
+
 source "${ZDOTDIR:-$HOME}/.zsh/aliases.zsh"
 source "${ZDOTDIR:-$HOME}/.zsh/fzf.zsh"
 
