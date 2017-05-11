@@ -124,11 +124,8 @@ let g:splitjoin_ruby_do_block_split = 0
 
 let g:jsx_ext_required = 0
 
-let g:clojure_align_subforms = 1
-
 let g:sexp_enable_insert_mode_mappings = 0
 
-let g:acid_lein_host='192.168.99.100'
 let g:acid_log_messages=1
 let g:acid_eval_command_handler = ['MetaRepl']
 
@@ -172,3 +169,17 @@ autocmd TabNewEntered * call OnTabEnter(expand("<amatch>"))
 source ~/.config/nvim/colors.vim
 source ~/.config/nvim/rainbow.vim
 source ~/.config/nvim/mappings.vim
+
+augroup vimrc-auto-mkdir
+  autocmd!
+  autocmd BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'), v:cmdbang)
+  function! s:auto_mkdir(dir, force)
+    if !isdirectory(a:dir)
+          \   && (a:force
+          \       || input("'" . a:dir . "' does not exist. Create? [y/N]") =~? '^y\%[es]$')
+      call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
+    endif
+  endfunction
+augroup END
+
+set lispwords+=fact,facts,flow
