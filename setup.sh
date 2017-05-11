@@ -91,7 +91,8 @@ brew tap caskroom/fonts
 
 brew cask install \
   font-fira-sans \
-  font-fira-code
+  font-fira-code \
+  font-comic-neue
 
 brew tap brona/iproute2mac
 brew install iproute2mac
