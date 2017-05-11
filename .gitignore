@@ -7,3 +7,4 @@ env.sh
 emacs.d/elpa
 
 lein/repl-history
+nvim/Ditto
