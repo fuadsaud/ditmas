@@ -29,3 +29,6 @@ alias zz='fasd_cd -d -i' # cd with interactive selection
 alias j='fasd_cd -d'
 
 alias nude="nu utils docker-env"
+alias nuss="nu security scope show"
+alias nusa="nu security scope add"
+alias nusf="nu security scope find"
