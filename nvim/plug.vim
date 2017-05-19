@@ -10,6 +10,7 @@ Plug 'tpope/vim-abolish'
 " git
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
 
@@ -89,6 +90,7 @@ Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 
 " javascript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 
 " kotlin
 Plug 'udalov/kotlin-vim'
