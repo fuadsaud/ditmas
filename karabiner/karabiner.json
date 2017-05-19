@@ -22,10 +22,10 @@
                 "f9": "fastforward"
             },
             "name": "Default profile",
+            "one_to_many_mappings": {},
             "selected": true,
             "simple_modifications": {
-                "caps_lock": "left_control",
-                "escape": "vk_none"
+                "caps_lock": "left_control"
             },
             "standalone_keys": {
                 "caps_lock": "escape",
