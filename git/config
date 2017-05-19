@@ -7,6 +7,7 @@
   ap = add-pattern
   au = update-index --assume-unchanged
   br = branch
+  brw = browse
   ci = commit --verbose
   co = checkout
   cof = fz-checkout
