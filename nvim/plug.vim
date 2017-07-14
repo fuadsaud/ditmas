@@ -74,7 +74,7 @@ Plug 'ngmy/vim-rubocop',         { 'for': 'ruby' }
 Plug 'guns/vim-clojure-static',                    { 'for': 'clojure' }
 Plug 'clojure-vim/async-clj-highlight',            { 'for': 'clojure' }
 Plug 'tpope/vim-salve',                            { 'for': 'clojure' }
-Plug 'fuadsaud/vim-midje',                     { 'for': 'clojure', 'branch': 'fix-lispwords' }
+Plug 'fuadsaud/vim-midje',                         { 'for': 'clojure', 'branch': 'fix-lispwords' }
 Plug 'guns/vim-sexp',                              { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'clojure-vim/acid.nvim',                      { 'do': ':UpdateRemotePlugins' }
