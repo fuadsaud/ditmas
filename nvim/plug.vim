@@ -19,7 +19,6 @@ Plug 'tpope/vim-vinegar'
 Plug 'justinmk/vim-dirvish'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'ctrlpvim/ctrlp.vim' | Plug 'burke/matcher'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-projectionist'
@@ -73,9 +72,9 @@ Plug 'ngmy/vim-rubocop',         { 'for': 'ruby' }
 
 " clojure
 Plug 'guns/vim-clojure-static',                    { 'for': 'clojure' }
-Plug 'guns/vim-clojure-highlight',                 { 'for': 'clojure' }
+Plug 'clojure-vim/async-clj-highlight',            { 'for': 'clojure' }
 Plug 'tpope/vim-salve',                            { 'for': 'clojure' }
-" Plug 'gregspurrier/vim-midje'
+Plug 'fuadsaud/vim-midje',                     { 'for': 'clojure', 'branch': 'fix-lispwords' }
 Plug 'guns/vim-sexp',                              { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'clojure-vim/acid.nvim',                      { 'do': ':UpdateRemotePlugins' }
@@ -111,10 +110,15 @@ Plug 'fuadsaud/OldMonrovia', { 'branch': 'old-monrovia' }
 Plug 'taecilla/fairyfloss.vim'
 Plug 'zanglg/nova.vim'
 Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
 Plug 'noahfrederick/Hemisu'
 Plug 'nanotech/jellybeans.vim'
 Plug 'joshdick/onedark.vim'
 Plug 'trusktr/seti.vim'
 Plug 'flazz/vim-colorschemes'
+
+Plug 'fuadsaud/vim-wsd'
+
+" Plug $NU_HOME.'/nudev/ides/nvim'
 
 call plug#end()
