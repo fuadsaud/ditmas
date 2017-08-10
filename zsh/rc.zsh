@@ -20,6 +20,7 @@ setopt interactivecomments
 
 source "${ZDOTDIR:-$HOME}/.zsh/aliases.zsh"
 source "${ZDOTDIR:-$HOME}/.zsh/fzf.zsh"
+source "${ZDOTDIR:-$HOME}/.zsh/colors.zsh"
 
 # source completions
 compctl -g "${HOME}/.teamocil/*(:t:r)" teamocil
