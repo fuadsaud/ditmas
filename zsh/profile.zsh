@@ -45,6 +45,7 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  ~/.opam/system/bin
   $ANDROID_HOME/tools
   $ANDROID_HOME/platform-tools
   ~/.houdini/bin
