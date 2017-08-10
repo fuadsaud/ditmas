@@ -65,7 +65,8 @@ brew cask install \
   1password \
   spectacle \
   flux \
-  iterm2-beta
+  iterm2-beta \
+  karabiner-elements
 
 local mac_store_apps=(
 'Telegram Desktop'
