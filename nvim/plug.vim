@@ -43,6 +43,7 @@ Plug 'a.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'justinmk/vim-gtfo'
+Plug 'simeji/winresizer'
 
 " text objects
 Plug 'kana/vim-textobj-user'
@@ -73,8 +74,9 @@ Plug 'ngmy/vim-rubocop',         { 'for': 'ruby' }
 " clojure
 Plug 'guns/vim-clojure-static',                    { 'for': 'clojure' }
 Plug 'clojure-vim/async-clj-highlight',            { 'for': 'clojure' }
-Plug 'tpope/vim-salve',                            { 'for': 'clojure' }
+Plug 'tpope/vim-salve',                            { 'for': 'clojure', 'commit': 'a0dc869' }
 Plug 'fuadsaud/vim-midje',                         { 'for': 'clojure', 'branch': 'fix-lispwords' }
+Plug 'fuadsaud/vim-postman-clj',                   { 'for': 'clojure' }
 Plug 'guns/vim-sexp',                              { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'clojure-vim/acid.nvim',                      { 'do': ':UpdateRemotePlugins' }

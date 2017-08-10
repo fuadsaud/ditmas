@@ -2,7 +2,7 @@
 " vimrc by fs
 "
 
-set shell=/bin/sh
+set shell=/usr/local/bin/zsh
 
 set encoding=utf-8
 set modelines=0
@@ -133,6 +133,15 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#keyword_patterns = {}
 let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
 
+" deoplete doesnt' play well with multiple cursors
+function! Multiple_cursors_before()
+    let b:deoplete_disable_auto_complete = 1
+endfunction
+
+function! Multiple_cursors_after()
+    let b:deoplete_disable_auto_complete = 0
+endfunction
+
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -152,23 +161,10 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
-function! OnTabEnter(path)
-  " echo "path: " . a:path
-  " echo "is: " . isdirectory(a:path)
-  if isdirectory(a:path)
-    let dirname = a:path
-    " echo "dir tcd " . dirname
-  else
-    let dirname = fnamemodify(a:path, ":h")
-    " echo "file tcd " . dirname
-  endif
-  " execute "tcd ". dirname
-endfunction()
-autocmd TabNewEntered * call OnTabEnter(expand("<amatch>"))
-
 source ~/.config/nvim/colors.vim
 source ~/.config/nvim/rainbow.vim
 source ~/.config/nvim/mappings.vim
+" source ~/Code/nubank/nudev/ides/nvim/plugin/nudev.vim
 
 augroup vimrc-auto-mkdir
   autocmd!
@@ -182,4 +178,4 @@ augroup vimrc-auto-mkdir
   endfunction
 augroup END
 
-set lispwords+=fact,facts,flow
+setlocal lispwords+=flow
