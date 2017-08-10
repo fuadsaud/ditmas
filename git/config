@@ -19,6 +19,7 @@
   current-branch = symbolic-ref HEAD --short
   d  = diff
   dc = diff --cached
+  dm = "!git show @ --format=short | head -n 2 | tail -n 1 | cut -d ' ' -f 2,3 | xargs git diff"
   dw = diff --word-diff
   f  = fetch --verbose --progress
   fix = ci --fixup
@@ -29,7 +30,7 @@
   ft = fetch --verbose --tags
   fm = pull --verbose
   fr = pull --rebase --verbose
-  frm = fr origin master
+  frms = fr origin master
   l  = log --graph --abbrev-commit
   la = log --graph --abbrev-commit --all
   m  = merge --verbose
@@ -43,7 +44,7 @@
   ra = rebase --abort
   rc = rebase --continue
   ri = rebase -i
-  rm = rebase master
+  rms = rebase master
   rom = rebase origin/master
   rias = rebase -i --autosquash
   redo = ci --amend --no-edit
