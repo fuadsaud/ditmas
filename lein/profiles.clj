@@ -1,5 +1,5 @@
 {:user
- {:dependencies [[cljdev "0.6.3-SNAPSHOT"]]
+ {:dependencies [[cljdev "0.6.7-SNAPSHOT"]]
   :injections   [(require 'nu)]
   :repositories [["nu-maven" {:url "s3p://nu-maven/releases/"
                               :username [:gpg :env/artifacts_aws_access_key_id]
