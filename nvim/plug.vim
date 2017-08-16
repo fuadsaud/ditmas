@@ -106,8 +106,6 @@ Plug 'jtratner/vim-flavored-markdown', { 'for': 'markdown'}
 Plug 'dbmrq/vim-ditto'
 
 " colorschemes
-Plug 'AlessandroYorba/Sidonia'
-Plug 'AlessandroYorba/Monrovia'
 Plug 'fuadsaud/OldMonrovia', { 'branch': 'old-monrovia' }
 Plug 'taecilla/fairyfloss.vim'
 Plug 'zanglg/nova.vim'
