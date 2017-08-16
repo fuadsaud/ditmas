@@ -16,7 +16,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew update
 
 brew install zsh \
-  reattach-to-user-namespace \
+  bash \
   ag \
   git \
   hub \
@@ -38,7 +38,8 @@ brew install zsh \
   htop \
   mas \
   tmate \
-  tmux
+  tmux \
+  reattach-to-user-namespace \
 
 brew tap neovim/neovim
 
