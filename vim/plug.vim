@@ -31,7 +31,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'gregsexton/MatchTag'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'junegunn/vim-easy-align'
-Plug 'a.vim'
+Plug 'vim-scripts/a.vim'
 Plug 'editorconfig/editorconfig-vim'
 
 " text objects
