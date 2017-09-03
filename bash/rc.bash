@@ -1,4 +1,6 @@
-export PS1="\[\e[32m\]\u\[\e[m\]@\[\e[33m\]\h\[\e[m\]:\[\e[36m\]\w\[\e[m\] \[\e[33m\]\\$\[\e[m\] "
+PROMPT_COMMAND='PS1_PATH=$(sed "s:\([^/\.]\)[^/]*/:\1/:g" <<< ${PWD/#$HOME/\~})'
+export PS1='\[\e[32m\]\u\[\e[m\]@\[\e[33m\]\h\[\e[m\]:\[\e[36m\] $PS1_PATH\[\e[m\] \[\e[33m\]\\$\[\e[m\] '
+export PS4='+(${BASH_SOURCE}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
 
 fasd_cd() {
   if [ $# -le 1 ]; then
