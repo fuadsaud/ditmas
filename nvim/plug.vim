@@ -36,7 +36,7 @@ Plug 'gregsexton/MatchTag'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'junegunn/vim-easy-align'
-Plug 'tommcdo/vim-lion'
+Plug 'easymotion/vim-easymotion'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'vim-scripts/a.vim'
@@ -53,13 +53,12 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 Plug 'wellle/targets.vim'
 
-Plug 'hkupty/nvimux'
-
 " tmux
 Plug 'Keithbsmiley/tmux.vim', { 'for': 'tmux' }
 Plug 'LnL7/vim-tslime'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'edkolev/tmuxline.vim'
+Plug 'hkupty/nvimux'
 
 " ruby
 Plug 'vim-ruby/vim-ruby'
