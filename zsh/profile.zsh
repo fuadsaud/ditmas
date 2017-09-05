@@ -45,11 +45,11 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  ~/.opam/system/bin
   $ANDROID_HOME/tools
   $ANDROID_HOME/platform-tools
+  ~/.houdini/nu/bin
   ~/.houdini/bin
-  ~/anaconda3/bin
+  ~/.opam/system/bin
   ~/.cabal/bin
   ~/.go/bin
   /usr/local/share/npm/bin
@@ -117,6 +117,7 @@ export JAVA_HOME=`/usr/libexec/java_home`
 export GOPATH="$HOME/.go"
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export NVM_DIR="$HOME/.nvm"
+export VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python2'
 
 # source "$(brew --prefix nvm)/nvm.sh"
 if [[ -s "${HOME}/.env.sh" ]]; then
