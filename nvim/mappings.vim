@@ -101,7 +101,7 @@ vnoremap <Leader>a :Tab/\w:\zs/l0l1<CR>
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-nnoremap <C-p> :Files<CR>
+nnoremap <C-p> :GitFiles --cached --other<CR>
 nnoremap <Leader>b :Buffers<CR>
 
 let g:acid_goto_shorthand_mapping = 'gd'
