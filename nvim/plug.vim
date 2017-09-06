@@ -44,6 +44,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'justinmk/vim-gtfo'
 Plug 'simeji/winresizer'
+Plug 'kburdett/vim-nuuid'
 
 " text objects
 Plug 'kana/vim-textobj-user'

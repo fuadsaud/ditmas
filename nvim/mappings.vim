@@ -85,7 +85,7 @@ map <Leader>< :execute ':tabedit' fnamemodify(resolve(expand($MYVIMRC)), ':h')<C
 map <Leader>z :tabedit ~/.zshrc<CR>
 
 " gundo
-nnoremap <Leader>u :GundoToggle<CR>
+nnoremap <Leader>U :GundoToggle<CR>
 
 " yankstack
 nmap <Leader>p <Plug>yankstack_substitute_older_paste
