@@ -23,7 +23,6 @@ set title
 set showmatch
 set list
 set nobackup
-set noswapfile
 set undofile
 set lazyredraw
 set wildmenu

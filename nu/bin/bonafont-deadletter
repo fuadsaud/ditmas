@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+jq -s 'map(.payload) | .[]' -r | \
+  jq -s 'map(.payload) | .[]' -r | \
+  jq -s 'to_entries[] | {"chunk_id": .value.id, "customer_id": .value.customer_id, "account_request_id": .value.owner_id, "cid": .value.meta.cid, "produced_at": .value.meta.produced_at}' | \
+  jq -s

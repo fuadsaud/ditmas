@@ -78,7 +78,7 @@ nnoremap <Leader>c <C-^>
 map <Leader>M :TagbarToggle<CR>
 map <Leader>a :Ag<Space>
 map <Leader>A :Ag<Space><C-r><C-w><CR>
-map <Leader>m :tabnew<CR>:tcd ../
+map <Leader>m :tabnew<CR>:tcd $NU_HOME/
 
 map <Leader>, :tabedit $MYVIMRC<CR>
 map <Leader>< :execute ':tabedit' fnamemodify(resolve(expand($MYVIMRC)), ':h')<CR>
@@ -101,7 +101,7 @@ vnoremap <Leader>a :Tab/\w:\zs/l0l1<CR>
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-nnoremap <C-p> :GitFiles --cached --other<CR>
+nnoremap <C-p> :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 
 let g:acid_goto_shorthand_mapping = 'gd'

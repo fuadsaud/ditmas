@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+kind=$1
+id=$2
+
+nu ser curl GET global auth /api/mapping/${kind}/${id}\?fallback=false -- -I

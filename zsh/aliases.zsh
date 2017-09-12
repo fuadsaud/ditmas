@@ -11,7 +11,6 @@ alias vhalt="vagrant halt"
 alias vssh="vagrant ssh"
 alias vup="vagrant up"
 alias vi="vim"
-alias v="vim"
 alias vplug="vim +PlugInstall +qall"
 alias yt="youtube-dl -t"
 
@@ -28,7 +27,8 @@ alias sd='fasd -sid'     # interactive directory selection
 alias sf='fasd -sif'     # interactive file selection
 alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # cd with interactive selection
-alias j='fasd_cd -d'
+alias j="fasd_jump"
+alias nv="fasd_edit"
 
 alias nude="nu utils docker-env"
 alias nusss="nu security scope show"
@@ -36,4 +36,5 @@ alias nussa="nu security scope add"
 alias nussf="nu security scope find"
 alias numq="nu mordor query so - --accept application/json | jq ."
 alias nuclone="nu projects clone"
-alias nuzag="nu inutils zagallo"
+alias zagallo="nu inutils zagallo"
+alias acq="$NU_HOME/playbook-acquisition/bin/console"

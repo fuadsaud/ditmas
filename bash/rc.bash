@@ -14,6 +14,7 @@ fasd_cd() {
 
 alias g=git
 source ~/.zsh/aliases.zsh
+source ~/.zsh/fasd.zsh
 source ~/.nurc
 
 source /usr/local/opt/chruby/share/chruby/chruby.sh
