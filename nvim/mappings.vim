@@ -101,8 +101,8 @@ vnoremap <Leader>a :Tab/\w:\zs/l0l1<CR>
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-nnoremap <C-p> :Files<CR>
-nnoremap <Leader>b :Buffers<CR>
+nnoremap <C-p> :FzfFiles<CR>
+nnoremap <Leader>b :FzfBuffers<CR>
 
 let g:acid_goto_shorthand_mapping = 'gd'
 let g:acid_find_usage_command_mapping = 'gu'

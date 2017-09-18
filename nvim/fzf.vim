@@ -1,6 +1,6 @@
-let g:fzf_command_prefix = 'Fzf'
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
-let $FZF_DEFAULT_COMMAND= 'ag -g ""'
+let g:fzf_command_prefix = 'Fzf'
 
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -18,5 +18,3 @@ let g:fzf_colors =
 
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-
