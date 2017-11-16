@@ -44,6 +44,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'justinmk/vim-gtfo'
 Plug 'simeji/winresizer'
 Plug 'kburdett/vim-nuuid'
+Plug 'w0rp/ale'
 
 " text objects
 Plug 'kana/vim-textobj-user'
@@ -89,8 +90,9 @@ Plug 'hspec/hspec.vim',     { 'for': 'haskell' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 
 " javascript
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+Plug 'mxw/vim-jsx'
 
 " kotlin
 Plug 'udalov/kotlin-vim'
