@@ -16,7 +16,7 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-command! -bang -nargs=? -complete=dir FzfFiles
+command! -bang -nargs=? -complete=dir FFiles
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 command! -bang -nargs=* Ag

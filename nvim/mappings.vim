@@ -76,8 +76,8 @@ nnoremap <Leader>v V`]
 nnoremap <Leader>c <C-^>
 
 map <Leader>M :TagbarToggle<CR>
-map <Leader>g :Ag<Space>
-map <Leader>G :Ag<Space><C-r><C-w><CR>
+map <Leader>a :Ag<Space>
+map <Leader>A :Ag<Space><C-r><C-w><CR>
 map <Leader>m :tabnew<CR>:tcd $NU_HOME/
 
 map <Leader>, :tabedit $MYVIMRC<CR>
