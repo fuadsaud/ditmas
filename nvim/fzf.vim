@@ -1,6 +1,6 @@
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
-let g:fzf_command_prefix = 'Fzf'
+let g:fzf_command_prefix = 'F'
 
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
