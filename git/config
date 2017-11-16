@@ -38,6 +38,7 @@
   nu-sha = "!git sha @ | cut -c -7 | tr -d '\n'"
   p  = push --verbose --progress
   pf = p --force-with-lease
+  pm = prune-merged
   pr = pull-request
   prune-merged = "!git branch --merged | grep -v \\* | grep -v master | xargs -n 1 git branch -d"
   r  = rebase
