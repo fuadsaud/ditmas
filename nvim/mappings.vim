@@ -76,8 +76,8 @@ nnoremap <Leader>v V`]
 nnoremap <Leader>c <C-^>
 
 map <Leader>M :TagbarToggle<CR>
-map <Leader>a :Ag<Space>
-map <Leader>A :Ag<Space><C-r><C-w><CR>
+map <Leader>g :Ag<Space>
+map <Leader>G :Ag<Space><C-r><C-w><CR>
 map <Leader>m :tabnew<CR>:tcd $NU_HOME/
 
 map <Leader>, :tabedit $MYVIMRC<CR>
@@ -101,8 +101,8 @@ vnoremap <Leader>a :Tab/\w:\zs/l0l1<CR>
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-nnoremap <C-p> :FzfFiles<CR>
-nnoremap <Leader>b :FzfBuffers<CR>
+nnoremap <C-p> :FFiles<CR>
+nnoremap <Leader>b :FBuffers<CR>
 
 let g:acid_goto_shorthand_mapping = 'gd'
 let g:acid_find_usage_command_mapping = 'gu'
