@@ -107,4 +107,6 @@ nnoremap <Leader>b :FBuffers<CR>
 let g:acid_goto_shorthand_mapping = 'gd'
 let g:acid_find_usage_command_mapping = 'gu'
 
+let g:paredit_leader = "'"
+
 call togglebg#map('<F5>')

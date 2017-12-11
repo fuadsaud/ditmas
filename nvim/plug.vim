@@ -36,6 +36,7 @@ Plug 'gregsexton/MatchTag'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'junegunn/vim-easy-align'
+Plug 'justinmk/vim-sneak'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'vim-scripts/a.vim'
@@ -80,7 +81,8 @@ Plug 'fuadsaud/vim-postman-clj',                   { 'for': 'clojure' }
 Plug 'guns/vim-sexp',                              { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'clojure-vim/acid.nvim',                      { 'do': ':UpdateRemotePlugins' }
-Plug 'clojure-vim/async-clj-omni',                 { 'for': 'clojure' }
+" Plug 'clojure-vim/async-clj-omni',                 { 'for': 'clojure' }
+Plug 'vim-scripts/paredit.vim',                    { 'for': 'clojure' }
 
 Plug 'dag/vim2hs',          { 'for': 'haskell' }
 Plug 'raichoo/haskell-vim', { 'for': 'haskell' }
