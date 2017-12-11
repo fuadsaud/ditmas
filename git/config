@@ -39,6 +39,8 @@
   p  = push --verbose --progress
   pf = p --force-with-lease
   pm = prune-merged
+  pod = p origin --delete
+  ppr = "!git p && git pr"
   pr = pull-request
   prune-merged = "!git branch --merged | grep -v \\* | grep -v master | xargs -n 1 git branch -d"
   r  = rebase
