@@ -1,20 +1,12 @@
 call plug#begin("~/.local/share/nvim/plugged")
 
+" general utilities
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-abolish'
-
-" git
-Plug 'tpope/vim-git'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'airblade/vim-gitgutter'
-Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
-
-" general utilities
 Plug 'tpope/vim-vinegar'
 Plug 'justinmk/vim-dirvish'
 Plug 'vim-airline/vim-airline'
@@ -22,6 +14,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-projectionist'
+Plug 'BurningEther/fzf-proj.vim'
 Plug 'sjl/gundo.vim'
 Plug 'rking/ag.vim'
 Plug 'milkypostman/vim-togglelist'
@@ -46,7 +39,8 @@ Plug 'justinmk/vim-gtfo'
 Plug 'simeji/winresizer'
 Plug 'kburdett/vim-nuuid'
 Plug 'w0rp/ale'
-
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'BurningEther/iron.nvim', { 'do': ':UpdateRemotePlugins' }
 " text objects
 Plug 'kana/vim-textobj-user'
 Plug 'Julian/vim-textobj-variable-segment'
@@ -54,6 +48,13 @@ Plug 'tommcdo/vim-exchange'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 Plug 'wellle/targets.vim'
+
+" git
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'airblade/vim-gitgutter'
+Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
 
 " tmux
 Plug 'Keithbsmiley/tmux.vim', { 'for': 'tmux' }
@@ -73,7 +74,7 @@ Plug 'sunaku/vim-ruby-minitest', { 'for': 'ruby' }
 Plug 'ngmy/vim-rubocop',         { 'for': 'ruby' }
 
 " clojure
-Plug 'guns/vim-clojure-static',                    { 'for': 'clojure' }
+Plug 'cursork/vim-clojure-static',                 { 'for': 'clojure', 'branch': 'contains-hack' }
 Plug 'clojure-vim/async-clj-highlight',            { 'for': 'clojure' }
 Plug 'tpope/vim-salve',                            { 'for': 'clojure', 'commit': 'a0dc869' }
 Plug 'fuadsaud/vim-midje',                         { 'for': 'clojure', 'branch': 'fix-lispwords' }
@@ -81,9 +82,10 @@ Plug 'fuadsaud/vim-postman-clj',                   { 'for': 'clojure' }
 Plug 'guns/vim-sexp',                              { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'clojure-vim/acid.nvim',                      { 'do': ':UpdateRemotePlugins' }
-" Plug 'clojure-vim/async-clj-omni',                 { 'for': 'clojure' }
-Plug 'vim-scripts/paredit.vim',                    { 'for': 'clojure' }
+Plug 'clojure-vim/async-clj-omni',                 { 'for': 'clojure' }
+" Plug 'vim-scripts/paredit.vim',                    { 'for': 'clojure' }
 
+" haskell
 Plug 'dag/vim2hs',          { 'for': 'haskell' }
 Plug 'raichoo/haskell-vim', { 'for': 'haskell' }
 Plug 'hspec/hspec.vim',     { 'for': 'haskell' }

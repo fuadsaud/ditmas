@@ -81,6 +81,7 @@ local mac_store_apps=(
 'Chegou'
 'CloudApp'
 'Shazam'
+'Wunderlist'
 )
 
 for appname in mac_store_apps; do

@@ -171,4 +171,4 @@ augroup vimrc-auto-mkdir
   endfunction
 augroup END
 
-setlocal lispwords+=flow
+let g:fzf#proj#project_dir = '~/Code/nubank'

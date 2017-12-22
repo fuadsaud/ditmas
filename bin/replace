@@ -4,9 +4,15 @@
 #
 # replace foo bar **/*.rb
 
-find_this=$1
+set -euxo pipefail
+
+find_this="${1}"
+echo $find_this
 shift
-replace_with=$1
+replace_with="${1}"
+echo $replace_with
 shift
 
-ag -l $find_this $* | xargs sed -i '' "s/$find_this/$replace_with/g"
+echo $*
+
+ag -l ${find_this} $* | xargs sed -i '' "s/${find_this}/${replace_with}/g"
