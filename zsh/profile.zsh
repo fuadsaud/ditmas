@@ -114,6 +114,7 @@ fi
 
 export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 export JAVA_HOME=`/usr/libexec/java_home`
+export JETTY_HOME="/usr/local/Cellar/jetty/9.4.7.v20170914/libexec/"
 export GOPATH="$HOME/.go"
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export NVM_DIR="$HOME/.nvm"

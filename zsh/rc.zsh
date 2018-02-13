@@ -32,5 +32,3 @@ if [[ -s "${HOME}/.nurc" ]]; then
 fi
 
 chruby 2
-
-JETTY_HOME="/usr/local/Cellar/jetty/9.4.7.v20170914/libexec/"
