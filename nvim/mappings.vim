@@ -92,14 +92,22 @@ nmap <Leader>p <Plug>yankstack_substitute_older_paste
 nmap <Leader>P <Plug>yankstack_substitute_newer_paste
 
 " vim rspec
-nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
-nnoremap <Leader>s :call RunNearestSpec()<CR>
-nnoremap <Leader>S :call RunLastSpec()<CR>
+" nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
+" nnoremap <Leader>s :call RunNearestSpec()<CR>
+" nnoremap <Leader>S :call RunLastSpec()<CR>
 
 vnoremap <Leader>a :Tab/\w:\zs/l0l1<CR>
 
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+map <Leader>s <Plug>Sneak_s
+map <Leader>S <Plug>Sneak_S
+
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
 
 nnoremap <C-p> :FFiles<CR>
 nnoremap <Leader>b :FBuffers<CR>

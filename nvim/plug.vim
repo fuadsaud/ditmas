@@ -12,7 +12,7 @@ Plug 'justinmk/vim-dirvish'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-projectionist'
 Plug 'BurningEther/fzf-proj.vim'
 Plug 'sjl/gundo.vim'
@@ -48,12 +48,14 @@ Plug 'tommcdo/vim-exchange'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 Plug 'wellle/targets.vim'
+Plug 'vim-scripts/AnsiEsc.vim'
 
 " git
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
+Plug 'jreybert/vimagit'
 Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
 
 " tmux
@@ -83,6 +85,7 @@ Plug 'guns/vim-sexp',                              { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'clojure-vim/acid.nvim',                      { 'do': ':UpdateRemotePlugins' }
 Plug 'clojure-vim/async-clj-omni',                 { 'for': 'clojure' }
+Plug 'paulojean/sort-quire.vim',                   { 'for': 'clojure' }
 " Plug 'vim-scripts/paredit.vim',                    { 'for': 'clojure' }
 
 " haskell
