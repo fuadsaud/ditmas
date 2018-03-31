@@ -18,28 +18,30 @@ brew update
 brew install zsh \
   bash \
   ag \
-  git \
-  hub \
-  curl \
-  python \
-  youtube-dl \
-  chruby \
-  fasd \
-  fzf \
-  tree \
-  trash \
-  ctags \
-  unrar \
-  p7zip \
-  jq \
   asciinema \
+  awscli \
+  chruby \
   cowsay \
-  leiningen \
+  ctags \
+  curl \
+  fzf \
+  git \
   htop \
+  hub \
+  jq \
+  leiningen \
   mas \
+  python \
+  python2 \
+  fasd \
+  p7zip \
+  reattach-to-user-namespace \
+  trash \
+  tree \
+  unrar \
   tmate \
   tmux \
-  reattach-to-user-namespace \
+  youtube-dl
 
 brew tap neovim/neovim
 
@@ -70,18 +72,18 @@ brew cask install \
   karabiner-elements
 
 local mac_store_apps=(
-'Telegram Desktop'
-'Slack'
-'Twitter'
-'Amphetamine' 
-'Daisy Disk'
-'Reeder 3'
-'Pixelmator'
-'Irvue'
-'Chegou'
-'CloudApp'
-'Shazam'
-'Wunderlist'
+  'Telegram Desktop'
+  'Slack'
+  'Twitter'
+  'Amphetamine'
+  'Daisy Disk'
+  'Reeder 3'
+  'Pixelmator'
+  'Irvue'
+  'Chegou'
+  'CloudApp'
+  'Shazam'
+  'Wunderlist'
 )
 
 for appname in mac_store_apps; do
@@ -178,31 +180,39 @@ ln -s $HOUDINI_DIR/karabiner ~/.config
 
 # python
 
+local python_packages=(
+  'virtualenv'
+  'virtualenvwrapper'
+  'powerline-status'
+  'psutil'
+  'speedtest-cli'
+  'doge'
+  'neovim'
+)
+
 pip install --upgrade pip setuptools
-pip install \
-  virtualenv \
-  virtualenvwrapper \
-  powerline-status \
-  psutil \
-  speedtest-cli \
-  doge \
-  neovim
+pip install ${python_packages}
+pip3 install --upgrade pip setuptools
+pip3 install ${python_packages}
 
 # ruby
 
+local ruby_gems=(
+  'boom'
+  'pry'
+  'rubocop'
+  'm'
+  'bundler'
+  'neovim'
+)
+
 ruby-install -s /tmp/ruby-src ruby
 
-gem install \
-  boom \
-  pry \
-  rubocop \
-  m \
-  bundler \
-  teamocil \
-  neovim
-
-$HOUDINI_DIR/osx
+gem install ${ruby_gems}
 
 # heroku
 
 heroku plugins:install heroku-repo
+
+$HOUDINI_DIR/osx
+
