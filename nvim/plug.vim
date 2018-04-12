@@ -14,7 +14,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-projectionist'
-Plug 'BurningEther/fzf-proj.vim'
+Plug 'm00qek/nvim-contabs'
 Plug 'sjl/gundo.vim'
 Plug 'rking/ag.vim'
 Plug 'milkypostman/vim-togglelist'

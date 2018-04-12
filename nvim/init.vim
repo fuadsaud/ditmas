@@ -173,4 +173,7 @@ augroup vimrc-auto-mkdir
   endfunction
 augroup END
 
-let g:fzf#proj#project_dir = '~/Code/nubank'
+let g:contabs#project#locations = [
+  \ { 'path': '~/Code/fuadsaud', 'depth': 1, 'git_only': 0 },
+  \ { 'path': '~/Code/nubank', 'depth': 1, 'git_only': 0 },
+  \]
