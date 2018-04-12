@@ -77,7 +77,7 @@
 [diff]
   algorithm = patience
 [format]
-  pretty = %C(yellow)%h •%Creset%C(red)%d%Creset %s %Cgreen• %cr by %cn%Creset
+  pretty = %C(yellow)%h •%Creset%C(red)%d%Creset %s %Cgreen• %cr by %an%Creset
 [github]
   user = fuadsaud
 [hub]
