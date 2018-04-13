@@ -109,6 +109,15 @@ map F <Plug>Sneak_F
 map t <Plug>Sneak_t
 map T <Plug>Sneak_T
 
+nnoremap <M-h> <Nop>
+nnoremap <M-j> <Nop>
+nnoremap <M-k> <Nop>
+nnoremap <M-l> <Nop>
+nnoremap <M-s-h> <Nop>
+nnoremap <M-s-j> <Nop>
+nnoremap <M-s-k> <Nop>
+nnoremap <M-s-l> <Nop>
+
 nnoremap <C-p> :FFiles<CR>
 nnoremap <Leader>b :FBuffers<CR>
 
