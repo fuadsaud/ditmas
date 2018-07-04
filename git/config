@@ -26,7 +26,6 @@
   fixf = fz-fixup
   fixup = ci --fixup HEAD
   showf = fz-show
-  fuck = "!git add .; git ci -m 'Fuck this shit, I am done for today!'; git p;"
   ft = fetch --verbose --tags
   fm = pull --verbose
   fr = pull --rebase --verbose
@@ -71,7 +70,7 @@
 [color]
   ui = auto
 [credential]
-	helper = osxkeychain
+	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 [core]
   excludesfile = ~/.houdini/git/ignore
 [diff]

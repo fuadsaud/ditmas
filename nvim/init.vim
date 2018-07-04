@@ -2,7 +2,7 @@
 " vimrc by fs
 "
 
-set shell=/usr/local/bin/zsh
+set shell=/usr/bin/zsh
 
 set encoding=utf-8
 set modelines=0
@@ -10,7 +10,7 @@ set autoread
 set visualbell
 set noshowmode
 set showcmd
-set clipboard=unnamed
+set clipboard=unnamedplus
 set mouse=a
 set relativenumber
 set number
@@ -143,7 +143,7 @@ endfunction
 
 " The Silver Searcher
 if executable('ag')
-  set grepprg=ag\ --nogroup
+  "set grepprg=ag\ --nogroup
 endif
 
 let g:ale_fixers = { 'javascript': ['prettier_standard'] }
