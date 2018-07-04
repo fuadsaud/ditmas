@@ -71,7 +71,7 @@
 [color]
   ui = auto
 [credential]
-  helper = osxkeychain
+	helper = osxkeychain
 [core]
   excludesfile = ~/.houdini/git/ignore
 [diff]
@@ -92,3 +92,8 @@
   defaultCommand = status -sb
 [gpg]
   program = gpg2
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

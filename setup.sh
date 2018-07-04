@@ -69,7 +69,8 @@ brew cask install \
   spectacle \
   flux \
   iterm2-beta \
-  karabiner-elements
+  karabiner-elements \
+  itsycal
 
 local mac_store_apps=(
   'Telegram Desktop'
