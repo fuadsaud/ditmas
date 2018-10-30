@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+emoji_prefix = ARGV[0]
+size = (ARGV[1] || 9).to_i
+
+unless emoji_prefix
+  puts 'Usage: exodia <emoji_name> [size]'
+  exit 1
+end
+
+puts (1..size).map { |i| ":#{emoji_prefix}-#{i}:"}.each_slice(Math.sqrt(size).to_i).map(&:join).join("\n")
