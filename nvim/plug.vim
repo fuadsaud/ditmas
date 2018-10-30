@@ -12,7 +12,7 @@ Plug 'justinmk/vim-dirvish'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-projectionist'
 Plug 'm00qek/nvim-contabs'
 Plug 'sjl/gundo.vim'
@@ -105,6 +105,9 @@ Plug 'mxw/vim-jsx'
 Plug 'udalov/kotlin-vim'
 
 " markup
+Plug 'mattn/emmet-vim'
+Plug 'JulesWang/css.vim'
+Plug 'ap/vim-css-color'
 Plug 'hail2u/vim-css3-syntax',         { 'for': 'css'}
 Plug 'othree/html5.vim',               { 'for': 'html' }
 Plug 'tpope/vim-markdown',             { 'for': 'markdown'}

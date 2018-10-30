@@ -26,6 +26,7 @@
   fixf = fz-fixup
   fixup = ci --fixup HEAD
   showf = fz-show
+  showm = "!git show @ --format=full | tail -n +2 | head -n 1 | cut -d ':' -f 2 | awk 'BEGIN{FS=" ";OFS="..."} {t1=$1;$1=$2;$2=t1;print}'"
   fuck = "!git add .; git ci -m 'Fuck this shit, I am done for today!'; git p;"
   ft = fetch --verbose --tags
   fm = pull --verbose

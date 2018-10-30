@@ -82,13 +82,14 @@ if has('autocmd')
   autocmd FileType scss.css   setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType yaml       setlocal ts=2 sts=2 sw=2 expandtab
 
+  autocmd FileType html,css,markdown EmmetInstall
   autocmd FileType markdown,text,tex DittoOn
 
   autocmd Filetype gitcommit  setlocal spell textwidth=72
 
+  autocmd BufNewFile,Bufread *.mdx  setfiletype markdown
   autocmd BufNewFile,Bufread *.hl   setfiletype clojure
   autocmd BufNewFile,BufRead *.rss  setfiletype xml
-  autocmd BufNewFile,BufRead *.skim setfiletype slim
 
   autocmd FileType go nmap <buffer> = <Esc>:Fmt<CR>
 endif
