@@ -1,0 +1,54 @@
+set visualbell
+
+set number
+set relativenumber
+
+set hlsearch
+set incsearch
+
+set scrolloff=8
+
+let mapleader = ","
+let maplocalleader = ","
+
+nmap *   :action FindNext<CR>
+nmap #   :action FindPrevious<CR>
+
+nmap K   :action QuickJavaDoc<CR>
+
+nmap gd  :action GotoDeclaration<CR>
+nmap g]  :action GotoImplementation<CR>
+nmap g}  :action QuickImplementations<CR>
+nmap gu  :action ShowUsages<CR>
+
+nmap dsf :action :cursive.actions.paredit/splice<CR>
+
+nmap B   :action :cursive.actions.paredit/backward-up<CR>
+nmap W   :action :cursive.actions.paredit/forward-up<CR>
+nmap gE  :action :cursive.actions.paredit/backward<CR>
+nmap E   :action :cursive.actions.paredit/forward<CR>
+
+" nmap <I  :action ???
+" nmap >I  :action ???
+nmap <f  :action :cursive.actions.paredit/move-form-up<CR>
+nmap >f  :action :cursive.actions.paredit/move-form-down<CR>
+" nmap <e  :action ???
+" nmap >e  :action ???
+nmap >(  :action :cursive.actions.paredit/barf-backwards<CR>
+nmap >)  :action :cursive.actions.paredit/slurp-forwards<CR>
+nmap <(  :action :cursive.actions.paredit/slurp-backwards<CR>
+nmap <)  :action :cursive.actions.paredit/barf-forwards<CR>
+
+nmap cpp :action :cursive.repl.actions/run-top-sexp<CR>
+nmap cpr :action :cursive.repl.actions/load-file<CR>
+nmap cmm :action :cursive.repl.actions/macroexpansion<CR>
+
+nmap <leader>rt :action ActivateREPLToolWindow<CR>
+nmap <leader>ri :action :cursive.repl.actions/jump-to-repl<CR>
+nmap <leader>ro :action :cursive.repl.actions/jump-to-output<CR>
+
+nmap <leader>rr :action Run<CR>
+nmap <leader>rd :action Debug<CR>
+nmap <leader>rs :action Stop<CR>
+
+nmap <leader>dt :action ToggleLineBreakpoint<CR>
