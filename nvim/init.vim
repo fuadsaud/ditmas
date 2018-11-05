@@ -28,6 +28,7 @@ set lazyredraw
 set wildmenu
 set wildmode=longest,full
 set fillchars=vert:│
+:set noswapfile
 
 set termguicolors
 
@@ -86,9 +87,10 @@ if has('autocmd')
 
   autocmd Filetype gitcommit  setlocal spell textwidth=72
 
-  autocmd BufNewFile,Bufread *.hl   setfiletype clojure
-  autocmd BufNewFile,BufRead *.rss  setfiletype xml
-  autocmd BufNewFile,BufRead *.skim setfiletype slim
+  autocmd BufNewFile,Bufread *.hl        setfiletype clojure
+  autocmd BufNewFile,BufRead *.json.base setfiletype json
+  autocmd BufNewFile,BufRead *.rss       setfiletype xml
+  autocmd BufNewFile,BufRead *.skim      setfiletype slim
 
   autocmd FileType go nmap <buffer> = <Esc>:Fmt<CR>
 endif
