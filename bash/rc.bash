@@ -17,10 +17,12 @@ source ~/.zsh/aliases.zsh
 source ~/.zsh/fasd.zsh
 source ~/.nurc
 
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
+# source /usr/local/opt/chruby/share/chruby/chruby.sh
+# source /usr/local/opt/chruby/share/chruby/auto.sh
 
-chruby 2
+# chruby 2
+
+source /usr/share/bash-completion/completions/git
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

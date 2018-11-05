@@ -1,7 +1,7 @@
 [user]
   name = Fuad Saud
   email = fuadfsaud@gmail.com
-  signingkey = C89D3162
+  signingkey = fuadfsaud@gmail.com
 [alias]
   a  = add --verbose
   ap = add-pattern
@@ -25,8 +25,6 @@
   fix = ci --fixup
   fixf = fz-fixup
   fixup = ci --fixup HEAD
-  showf = fz-show
-  showm = "!git show @ --format=full | tail -n +2 | head -n 1 | cut -d ':' -f 2 | awk 'BEGIN{FS=" ";OFS="..."} {t1=$1;$1=$2;$2=t1;print}'"
   fuck = "!git add .; git ci -m 'Fuck this shit, I am done for today!'; git p;"
   ft = fetch --verbose --tags
   fm = pull --verbose
@@ -57,6 +55,8 @@
   sed  = "!git ls-files | xargs sed -i"
   sha = rev-parse --short
   shaf = fz-sha
+  showf = fz-show
+  showm = "!git show @ --format=full | tail -n +2 | head -n 1 | cut -d ':' -f 2 | awk 'BEGIN{FS=" ";OFS="..."} {t1=$1;$1=$2;$2=t1;print}'"
   sl = stash list
   snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
   sp = stash pop
@@ -72,7 +72,7 @@
 [color]
   ui = auto
 [credential]
-	helper = osxkeychain
+  helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 [core]
   excludesfile = ~/.houdini/git/ignore
 [diff]
@@ -92,9 +92,11 @@
 [gitsh]
   defaultCommand = status -sb
 [gpg]
-  program = gpg2
+  program = gpg
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+#[commit]
+#  gpgsign = true

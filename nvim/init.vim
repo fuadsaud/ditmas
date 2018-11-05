@@ -2,7 +2,7 @@
 " vimrc by fs
 "
 
-set shell=/usr/local/bin/zsh
+set shell=/usr/bin/zsh
 
 set encoding=utf-8
 set modelines=0
@@ -10,7 +10,7 @@ set autoread
 set visualbell
 set noshowmode
 set showcmd
-set clipboard=unnamed
+set clipboard=unnamedplus
 set mouse=a
 set relativenumber
 set number
@@ -28,6 +28,7 @@ set lazyredraw
 set wildmenu
 set wildmode=longest,full
 set fillchars=vert:│
+:set noswapfile
 
 set termguicolors
 
@@ -87,9 +88,10 @@ if has('autocmd')
 
   autocmd Filetype gitcommit  setlocal spell textwidth=72
 
-  autocmd BufNewFile,Bufread *.mdx  setfiletype markdown
-  autocmd BufNewFile,Bufread *.hl   setfiletype clojure
-  autocmd BufNewFile,BufRead *.rss  setfiletype xml
+  autocmd BufNewFile,Bufread *.hl        setfiletype clojure
+  autocmd BufNewFile,BufRead *.json.base setfiletype json
+  autocmd BufNewFile,BufRead *.rss       setfiletype xml
+  autocmd BufNewFile,BufRead *.skim      setfiletype slim
 
   autocmd FileType go nmap <buffer> = <Esc>:Fmt<CR>
 endif
@@ -144,7 +146,7 @@ endfunction
 
 " The Silver Searcher
 if executable('ag')
-  set grepprg=ag\ --nogroup
+  "set grepprg=ag\ --nogroup
 endif
 
 let g:ale_fixers = { 'javascript': ['prettier_standard'] }
