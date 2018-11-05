@@ -1,7 +1,7 @@
 [user]
   name = Fuad Saud
   email = fuadfsaud@gmail.com
-  signingkey = C89D3162
+  signingkey = fuadfsaud@gmail.com
 [alias]
   a  = add --verbose
   ap = add-pattern
@@ -70,7 +70,7 @@
 [color]
   ui = auto
 [credential]
-	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+  helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 [core]
   excludesfile = ~/.houdini/git/ignore
 [diff]
@@ -90,9 +90,11 @@
 [gitsh]
   defaultCommand = status -sb
 [gpg]
-  program = gpg2
+  program = gpg
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+#[commit]
+#  gpgsign = true
