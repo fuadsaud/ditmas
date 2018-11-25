@@ -119,7 +119,7 @@ mac_store_apps=(
 
 for appname in "${mac_store_apps[@]}"; do
   log "Installing ${appname}"
-  mas search "${appname}" | head -n 1 | cut -f 4 -d ' ' | xargs mas install
+  mas search "${appname}" | head -n 1 | grep -Eo '\d+' | head -n 1 | xargs mas install
 done
 
 # python
