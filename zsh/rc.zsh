@@ -31,4 +31,7 @@ if [[ -s "${HOME}/.nurc" ]]; then
   source ~/.nurc
 fi
 
+
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+
 chruby 2
