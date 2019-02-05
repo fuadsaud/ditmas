@@ -231,3 +231,15 @@ lns-once $HOUDINI_DIR/karabiner ~/.config
 heroku plugins:install heroku-repo
 
 $HOUDINI_DIR/osx
+
+# QMK
+
+git clone https://github.com/fuadsaud/qmk_firmware.git $PROJECTS_DIR/
+
+brew tap osx-cross/avr
+brew tap PX4/homebrew-px4
+brew install \
+  avr-gcc \
+  dfu-programmer \
+  gcc-arm-none-eabi \
+  avrdude
