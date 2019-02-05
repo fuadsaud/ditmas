@@ -73,7 +73,7 @@
 [color]
   ui = auto
 [credential]
-  helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+  helper = osxkeychain
 [core]
   excludesfile = ~/.houdini/git/ignore
 [diff]
