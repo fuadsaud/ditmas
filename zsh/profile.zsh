@@ -127,3 +127,5 @@ fi
 
 # Fixes python locale crash. I believe prezto should be setting this, but it's not the case.
 export LC_ALL=$LANG
+
+export PATH="$HOME/.cargo/bin:$PATH"
