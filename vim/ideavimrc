@@ -7,9 +7,10 @@ set hlsearch
 set incsearch
 
 set scrolloff=8
+set clipboard+=unnamed
 
 let mapleader = ","
-let maplocalleader = ","
+let maplocalleader = "\\"
 
 nmap *   :action FindNext<CR>
 nmap #   :action FindPrevious<CR>
