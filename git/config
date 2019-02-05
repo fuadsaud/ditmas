@@ -9,6 +9,7 @@
   br = branch
   brw = browse
   ci = commit --verbose
+  cim = ci -m
   co = checkout
   cof = fz-checkout
   conflicts = diff --name-only --diff-filter=U
