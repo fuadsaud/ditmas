@@ -1,2 +1,3 @@
 source ~/.bashrc
-source ~/.nurc
+
+export PATH="$HOME/.cargo/bin:$PATH"
