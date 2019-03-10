@@ -8,7 +8,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-vinegar'
-Plug 'justinmk/vim-dirvish'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -77,6 +76,7 @@ Plug 'sunaku/vim-ruby-minitest', { 'for': 'ruby' }
 Plug 'ngmy/vim-rubocop',         { 'for': 'ruby' }
 
 " clojure
+Plug 'tpope/vim-fireplace'
 Plug 'fuadsaud/vim-clojure-static',                { 'for': 'clojure' }
 Plug 'clojure-vim/async-clj-highlight',            { 'for': 'clojure' }
 Plug 'tpope/vim-salve',                            { 'for': 'clojure', 'commit': 'a0dc869' }

@@ -51,6 +51,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-ruby/vim-ruby'
 
 " clojure
+Plug 'tpope/vim-fireplace'
 Plug 'guns/vim-clojure-static',                    { 'for': 'clojure' }
 Plug 'guns/vim-clojure-highlight',                 { 'for': 'clojure' }
 Plug 'tpope/vim-salve',                            { 'for': 'clojure' }
