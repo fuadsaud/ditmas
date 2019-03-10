@@ -146,7 +146,13 @@ endfunction
 
 " The Silver Searcher
 if executable('ag')
-  "set grepprg=ag\ --nogroup
+  set grepprg=ag\ --vim-grep\ --smart-case
+  let g:ackprg = 'ag --vimgrep --smart-case'
+
+  cnoreabbrev ag Ack
+  cnoreabbrev aG Ack
+  cnoreabbrev Ag Ack
+  cnoreabbrev AG Ack
 endif
 
 let g:ale_fixers = { 'javascript': ['prettier_standard'] }
