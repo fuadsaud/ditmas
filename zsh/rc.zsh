@@ -32,3 +32,7 @@ if [[ -s "${HOME}/.nurc" ]]; then
 fi
 
 chruby 2
+
+alias bat='docker run -it --rm -e BAT_THEME -e BAT_STYLE -e BAT_TABS -v "$(pwd):/myapp" danlynn/bat'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
