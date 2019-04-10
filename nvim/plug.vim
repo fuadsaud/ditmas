@@ -120,6 +120,7 @@ Plug 'iamcco/markdown-preview.nvim',   { 'do': 'cd app & npm install'  }
 Plug 'dbmrq/vim-ditto'
 
 " colorschemes
+Plug 'dylanaraps/wal.vim'
 Plug 'fuadsaud/OldMonrovia', { 'branch': 'old-monrovia' }
 Plug 'taecilla/fairyfloss.vim'
 Plug 'zanglg/nova.vim'
