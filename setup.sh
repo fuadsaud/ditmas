@@ -185,8 +185,8 @@ lns-once ~/.zsh/preztorc.zsh ~/.zpreztorc
 # bash
 
 lns-once $HOUDINI_DIR/bash ~/.bash
-lns-once ~/.bash/profile.bash ~/.bash_profile
-lns-once ~/.bash/rc.bash ~/.bashrc
+lns-once ~/.bash/.bash_profile ~/.bash_profile
+lns-once ~/.bash/.bashrc ~/.bashrc
 
 
 if ! $(cat /etc/shells | grep); then
@@ -197,34 +197,15 @@ fi
 
 chsh -s $HOMEBREW_ZSH_BIN
 
-# tmux
+# stow packages
 
-lns-once $HOUDINI_DIR/tmux.conf ~/.tmux.conf
-
-# rubocop
-
-lns-once $HOUDINI_DIR/rubocop.yml ~/.rubocop.yml
-
-# gem
-
-lns-once $HOUDINI_DIR/gemrc ~/.gemrc
-
-# git
-
-lns-once $HOUDINI_DIR/git/ignore ~/.gitignore
-lns-once $HOUDINI_DIR/git/config ~/.gitconfig
-
-# ctags
-
-lns-once $HOUDINI_DIR/ctags ~/.ctags
-
-# leiningen
-
-lns-once $HOUDINI_DIR/lein ~/.lein
-
-# karabiner
-
-lns-once $HOUDINI_DIR/karabiner ~/.config
+stow tmux
+stow screen
+stow ruby
+stow git
+stow ctags
+stow lein
+stow karabiner
 
 # heroku
 
