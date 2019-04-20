@@ -29,7 +29,6 @@ PERSONAL_SRC_DIR="$SRC_DIR/fuadsaud/"
 HOUDINI_DIR=~/.houdini
 CONFIG_DIR=~/.config
 VIM_DIR=~/.vim
-GIT_DIR=~/.git
 
 HOMEBREW_ZSH_BIN=/usr/local/bin/zsh
 
@@ -108,26 +107,6 @@ brew_fonts=(
 brew tap caskroom/fonts
 brew cask install ${brew_fonts[@]}
 
-# MAS apps
-
-log 'Installing MAS apps'
-
-mac_store_apps=(
-  'Telegram Desktop'
-  'Slack'
-  'Amphetamine'
-  'Daisy Disk'
-  'Reeder 3'
-  'Pixelmator'
-  'Irvue'
-  'Shazam'
-)
-
-for appname in "${mac_store_apps[@]}"; do
-  log "Installing ${appname}"
-  mas search "${appname}" | head -n 1 | grep -Eo '\d+' | head -n 1 | xargs mas install
-done
-
 # python
 
 python_packages=(
@@ -164,34 +143,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 vim +PlugInstall +qall
 
-# neovim
-
-mkdir -p ${CONFIG_DIR}
-
-lns-once $HOUDINI_DIR/nvim ${CONFIG_DIR}
-
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-nvim +PlugInstall +qall
-
 # zsh
-
-lns-once $HOUDINI_DIR/zsh ~/.zsh
-lns-once ~/.zsh/prezto ~/.zprezto
-lns-once ~/.zsh/rc.zsh ~/.zshrc
-lns-once ~/.zsh/env.zsh ~/.zshenv
-lns-once ~/.zsh/profile.zsh ~/.zprofile
-lns-once ~/.zsh/login.zsh ~/.zlogin
-lns-once ~/.zsh/logout.zsh ~/.zlogout
-lns-once ~/.zsh/preztorc.zsh ~/.zpreztorc
-
-# bash
-
-lns-once $HOUDINI_DIR/bash ~/.bash
-lns-once ~/.bash/.bash_profile ~/.bash_profile
-lns-once ~/.bash/.bashrc ~/.bashrc
-
 
 if ! $(cat /etc/shells | grep); then
   log "appending ${HOMEBREW_ZSH_BIN} to /etc/shells"
@@ -203,13 +155,23 @@ chsh -s $HOMEBREW_ZSH_BIN
 
 # stow packages
 
+stow zsh
+stow git
+stow nvim
 stow tmux
 stow screen
+stow i3
 stow ruby
-stow git
 stow ctags
 stow lein
 stow karabiner
+
+# neovim
+
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+nvim +PlugInstall +qall
 
 # heroku
 
