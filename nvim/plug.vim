@@ -8,7 +8,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-vinegar'
-Plug 'justinmk/vim-dirvish'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -77,7 +76,8 @@ Plug 'sunaku/vim-ruby-minitest', { 'for': 'ruby' }
 Plug 'ngmy/vim-rubocop',         { 'for': 'ruby' }
 
 " clojure
-Plug 'cursork/vim-clojure-static',                 { 'for': 'clojure', 'branch': 'contains-hack' }
+Plug 'tpope/vim-fireplace'
+Plug 'fuadsaud/vim-clojure-static',                { 'for': 'clojure' }
 Plug 'clojure-vim/async-clj-highlight',            { 'for': 'clojure' }
 Plug 'tpope/vim-salve',                            { 'for': 'clojure', 'commit': 'a0dc869' }
 Plug 'fuadsaud/vim-midje',                         { 'for': 'clojure', 'branch': 'fix-lispwords' }
@@ -85,9 +85,10 @@ Plug 'fuadsaud/vim-postman-clj',                   { 'for': 'clojure' }
 Plug 'guns/vim-sexp',                              { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'clojure-vim/acid.nvim',                      { 'do': ':UpdateRemotePlugins' }
+Plug 'clojure-vim/clj-refactor.nvim',              { 'do': 'clojure' }
 Plug 'clojure-vim/async-clj-omni',                 { 'for': 'clojure' }
 Plug 'paulojean/sort-quire.vim',                   { 'for': 'clojure' }
-" Plug 'vim-scripts/paredit.vim',                    { 'for': 'clojure' }
+Plug 'eraserhd/parinfer-rust',                     { 'for': 'clojure', 'do': 'cargo build --release'}
 
 " haskell
 Plug 'dag/vim2hs',          { 'for': 'haskell' }
@@ -113,6 +114,7 @@ Plug 'hail2u/vim-css3-syntax',         { 'for': 'css'}
 Plug 'othree/html5.vim',               { 'for': 'html' }
 Plug 'tpope/vim-markdown',             { 'for': 'markdown'}
 Plug 'jtratner/vim-flavored-markdown', { 'for': 'markdown'}
+Plug 'iamcco/markdown-preview.nvim',   { 'do': 'cd app & npm install'  }
 
 " prose
 Plug 'dbmrq/vim-ditto'
@@ -128,7 +130,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'joshdick/onedark.vim'
 Plug 'trusktr/seti.vim'
 Plug 'flazz/vim-colorschemes'
-
+Plug 'haishanh/night-owl.vim'
 Plug 'fuadsaud/vim-wsd'
 
 " Plug $NU_HOME.'/nudev/ides/nvim'

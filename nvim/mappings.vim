@@ -27,12 +27,6 @@ map Q <Nop>
 cnoreabbrev W w
 cnoreabbrev Q q
 
-" disable arrows
-noremap  <Up>    <Nop>
-noremap  <Down>  <Nop>
-noremap  <Left>  <Nop>
-noremap  <Right> <Nop>
-
 " emacs motion bindings
 inoremap <C-A> <Home>
 inoremap <C-B> <Left>
@@ -69,8 +63,11 @@ nnoremap <Leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 " re-hardwrap text
 nnoremap <Leader>Q gqip
 
+" reselect last visual shape
+nnoremap <Leader>v `[v`]
+
 " reselect last pasted text
-nnoremap <Leader>v V`]
+nnoremap <Leader>V V`]
 
 " switch between the last two files
 nnoremap <Leader>c <C-^>
@@ -80,8 +77,8 @@ map <Leader>a :Ag<Space>
 map <Leader>A :Ag<Space><C-r><C-w><CR>
 map <Leader>m :tabnew<CR>:tcd $NU_HOME/
 
-map <Leader>, :tabedit $MYVIMRC<CR>
-map <Leader>< :execute ':tabedit' fnamemodify(resolve(expand($MYVIMRC)), ':h')<CR>
+map <Leader>, :execute ':tabedit' fnamemodify(resolve(expand($MYVIMRC)), ':h')<CR>
+map <Leader>< :tabedit $MYVIMRC<CR>
 map <Leader>z :tabedit ~/.zshrc<CR>
 
 " gundo
@@ -139,3 +136,6 @@ nnoremap <silent> <Leader>p :call contabs#project#select()<CR>
 "invoke fzf with the list of buffers of current tab's workingdir
 "the enabled hotkeys are { 'ctrl-t': 'tabedit', 'ctrl-e, <cr>': 'edit', 'ctrl-v': 'vsp', 'ctrl-x': 'sp' }
 nnoremap <silent> <Leader>b :call contabs#buffer#select()<CR>
+
+" enter resize mode
+" g:winresizer_start_key = '<Leader>r'

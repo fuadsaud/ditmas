@@ -1,15 +1,17 @@
 [user]
   name = Fuad Saud
   email = fuadfsaud@gmail.com
-  signingkey = fuadfsaud@gmail.com
+	signingkey = 2CA9356708B5C4FFD15718CAB261006882D81201
 [alias]
   a  = add --verbose
   ap = add-pattern
-  au = update-index --assume-unchanged
+  au = add --update
   br = branch
   brw = browse
   ci = commit --verbose
-  cim = ci -m
+  cia = ci --all
+  cim = ci --message
+  ciam = ci --all --message
   co = checkout
   cof = fz-checkout
   conflicts = diff --name-only --diff-filter=U
@@ -28,9 +30,8 @@
   fixup = ci --fixup HEAD
   fuck = "!git add .; git ci -m 'Fuck this shit, I am done for today!'; git p;"
   ft = fetch --verbose --tags
-  fm = pull --verbose
   fr = pull --rebase --verbose
-  frms = fr origin master
+  frm = fr origin master
   l  = log --graph --abbrev-commit
   la = log --graph --abbrev-commit --all
   m  = merge --verbose
@@ -40,8 +41,8 @@
   pf = p --force-with-lease
   pm = prune-merged
   pod = p origin --delete
-  ppr = "!git p && git pr"
-  pr = pull-request
+  pprq = "!git p && hub prq"
+  prq = pull-request
   prune-merged = "!git branch --merged | grep -v \\* | grep -v master | xargs -n 1 git branch -d"
   r  = rebase
   ra = rebase --abort
@@ -64,6 +65,7 @@
   ss = stash show -p
   st  = status --short --branch
   t = tag
+  uiau = update-index --assume-unchanged
   undo = reset HEAD~1
   unstage = reset HEAD
   untracked = ls-files --others --exclude-standard
