@@ -18,13 +18,12 @@ unsetopt correct
 
 setopt interactivecomments
 
-source "${ZDOTDIR:-$HOME}/.zsh/fasd.zsh"
-source "${ZDOTDIR:-$HOME}/.zsh/fzf.zsh"
-source "${ZDOTDIR:-$HOME}/.zsh/colors.zsh"
-source "${ZDOTDIR:-$HOME}/.zsh/aliases.zsh"
+source "${ZDOTDIR:-$HOME}/lib/zsh/fasd.zsh"
+source "${ZDOTDIR:-$HOME}/lib/zsh/fzf.zsh"
+source "${ZDOTDIR:-$HOME}/lib/zsh/colors.zsh"
+source "${ZDOTDIR:-$HOME}/lib/zsh/aliases.zsh"
 
 # source completions
-compctl -g "${HOME}/.teamocil/*(:t:r)" teamocil
 compctl -g "${HOME}/.rubies/*(:t)" chruby
 
 if [[ -s "${HOME}/.nurc" ]]; then

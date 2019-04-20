@@ -2,23 +2,11 @@
 
 set -euo pipefail
 
-function echoerr {
-  (>&2 echo $1)
-}
+source ./utils.sh
 
-function log {
-  echoerr "=== (houdini) ===> ${1}"
-}
-
-function lns-once {
-  if [[ ! -e $2 ]]; then
-    ln -s $1 $2
-  fi
-}
-
-CODE_DIR=~/Code
+SRC_DIR=$(case-linux-mac "~/src" "~/Source")
+PERSONAL_SRC_DIR="$SRC_DIR/fuadsaud/"
 REPO='https://github.com/fuadsaud/houdini'
-PROJECTS_DIR="$CODE_DIR/fuadsaud/"
 HOUDINI_DIR=~/.houdini
 CONFIG_DIR=~/.config
 VIM_DIR=~/.vim
@@ -75,7 +63,6 @@ brew_formulae=(
   mas
   neovim/neovim/neovim
   python
-  python2
   fasd
   reattach-to-user-namespace
   trash
@@ -134,8 +121,6 @@ python_packages=(
   neovim
 )
 
-pip install --upgrade pip setuptools
-pip install ${python_packages[@]}
 pip3 install --upgrade pip setuptools
 pip3 install ${python_packages[@]}
 
@@ -145,9 +130,9 @@ ruby-install -s /tmp/ruby-src ruby
 
 # links
 
-mkdir -p $PROJECTS_DIR
+mkdir -p $PERSONAL_SRC_DIR
 
-lns-once $PROJECTS_DIR/houdini $HOUDINI_DIR
+lns-once $HOUDINI_DIR $PERSONAL_SRC_DIR/houdini
 
 # vim
 
@@ -215,7 +200,7 @@ $HOUDINI_DIR/osx
 
 # QMK
 
-git clone https://github.com/fuadsaud/qmk_firmware.git $PROJECTS_DIR/
+git clone https://github.com/fuadsaud/qmk_firmware.git $PERSONAL_SRC_DIR/
 
 brew tap osx-cross/avr
 brew tap PX4/homebrew-px4
@@ -224,3 +209,5 @@ brew install \
   dfu-programmer \
   gcc-arm-none-eabi \
   avrdude
+
+set -euo pipefail
