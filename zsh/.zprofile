@@ -47,7 +47,7 @@ typeset -gU cdpath fpath mailpath path
 path=(
   $ANDROID_HOME/tools
   $ANDROID_HOME/platform-tools
-  ~/.houdini/nu/bin
+  ~/.bin
   ~/.houdini/bin
   ~/.opam/system/bin
   ~/.cabal/bin

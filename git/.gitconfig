@@ -13,6 +13,7 @@
   cim = ci --message
   ciam = ci --all --message
   co = checkout
+  cob = co -b
   cof = fz-checkout
   conflicts = diff --name-only --diff-filter=U
   cp = cherry-pick

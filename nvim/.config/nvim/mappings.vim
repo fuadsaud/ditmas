@@ -88,11 +88,6 @@ nnoremap <Leader>U :GundoToggle<CR>
 nmap <Leader>p <Plug>yankstack_substitute_older_paste
 nmap <Leader>P <Plug>yankstack_substitute_newer_paste
 
-" vim rspec
-" nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
-" nnoremap <Leader>s :call RunNearestSpec()<CR>
-" nnoremap <Leader>S :call RunLastSpec()<CR>
-
 vnoremap <Leader>a :Tab/\w:\zs/l0l1<CR>
 
 xmap ga <Plug>(EasyAlign)
@@ -105,6 +100,8 @@ map f <Plug>Sneak_f
 map F <Plug>Sneak_F
 map t <Plug>Sneak_t
 map T <Plug>Sneak_T
+
+nnoremap Y y$
 
 nnoremap <M-h> <Nop>
 nnoremap <M-j> <Nop>
@@ -138,4 +135,4 @@ nnoremap <silent> <Leader>p :call contabs#project#select()<CR>
 nnoremap <silent> <Leader>b :call contabs#buffer#select()<CR>
 
 " enter resize mode
-" g:winresizer_start_key = '<Leader>r'
+let g:winresizer_start_key = 'K'
