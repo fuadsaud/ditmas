@@ -147,8 +147,8 @@ Y	nvim/.config/nvim/mappings.vim	/^nnoremap Y y\$$/;"	m
 ZSH	zsh/.zprezto/modules/syntax-highlighting/external/Makefile	/^ZSH?=zsh # zsh binary to run tests with$/;"	m
 _	nvim/.config/nvim/mappings.vim	/^nnoremap _ <C-w>-$/;"	m
 _	vim/.vim/mappings.vim	/^nnoremap _ <C-w>-$/;"	m
-__fsel	zsh/lib/zsh/fzf.zsh	/^__fsel() {$/;"	f
-__fzfcmd	zsh/lib/zsh/fzf.zsh	/^__fzfcmd() {$/;"	f
+__fsel	zsh/.zsh/fzf.zsh	/^__fsel() {$/;"	f
+__fzfcmd	zsh/.zsh/fzf.zsh	/^__fzfcmd() {$/;"	f
 _async_eval	zsh/.zprezto/modules/prompt/external/async/async.zsh	/^_async_eval() {$/;"	f
 _async_job	zsh/.zprezto/modules/prompt/external/async/async.zsh	/^_async_job() {$/;"	f
 _async_job	zsh/.zprezto/modules/prompt/external/pure/async.zsh	/^_async_job() {$/;"	f
@@ -312,10 +312,7 @@ _zsh_highlight_regexp_highlighter_loop	zsh/.zprezto/modules/syntax-highlighting/
 aG	nvim/.config/nvim/init.vim	/^  cnoreabbrev aG Ack$/;"	m
 ag	nvim/.config/nvim/init.vim	/^  cnoreabbrev ag Ack$/;"	m
 alias1	zsh/.zprezto/modules/syntax-highlighting/external/highlighters/main/test-data/alias.zsh	/^function alias1() {} # to check that it's highlighted as an alias, not as a function$/;"	f
-append_ul	vim/.vim/autoload/plug.vim	/^function! s:append_ul(lnum, text)$/;"	f
 arg0	zsh/.zprezto/modules/syntax-highlighting/external/highlighters/main/main-highlighter.zsh	/^      function arg0$/;"	f
-ask	vim/.vim/autoload/plug.vim	/^function! s:ask(message, ...)$/;"	f
-ask_no_interrupt	vim/.vim/autoload/plug.vim	/^function! s:ask_no_interrupt(...)$/;"	f
 assertEquals	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/shunit2	/^assertEquals() {$/;"	f
 assertFalse	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/shunit2	/^assertFalse() {$/;"	f
 assertNotEquals	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/shunit2	/^assertNotEquals() {$/;"	f
@@ -324,8 +321,6 @@ assertNotSame	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/shunit2	
 assertNull	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/shunit2	/^assertNull() {$/;"	f
 assertSame	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/shunit2	/^assertSame() {$/;"	f
 assertTrue	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/shunit2	/^assertTrue() {$/;"	f
-assign_name	vim/.vim/autoload/plug.vim	/^function! s:assign_name()$/;"	f
-assoc	vim/.vim/autoload/plug.vim	/^function! s:assoc(dict, key, val)$/;"	f
 async	zsh/.zprezto/modules/prompt/external/async/async.zsh	/^async() {$/;"	f
 async	zsh/.zprezto/modules/prompt/external/pure/async.zsh	/^async() {$/;"	f
 async_flush_jobs	zsh/.zprezto/modules/prompt/external/async/async.zsh	/^async_flush_jobs() {$/;"	f
@@ -349,12 +344,9 @@ attach!	zsh/.zprezto/modules/autosuggestions/external/spec/terminal_session.rb	/
 aurget	zsh/.zprezto/modules/pacman/init.zsh	/^function aurget {$/;"	f
 auto_mkdir	nvim/.config/nvim/init.vim	/^  function! s:auto_mkdir(dir, force)$/;"	f
 backgroundColor	zsh/.zprezto/modules/prompt/external/powerlevel9k/functions/colors.zsh	/^function backgroundColor() {$/;"	f
-bang	vim/.vim/autoload/plug.vim	/^function! s:bang(cmd, ...)$/;"	f
-bar	vim/.vim/autoload/plug.vim	/^function! s:bar()$/;"	f
 bindkey	zsh/.zprezto/modules/editor/init.zsh	/^function bindkey-all {$/;"	f
 build_and_run	zsh/.zprezto/modules/prompt/external/powerlevel9k/test-in-docker	/^build_and_run() {$/;"	f
 cannot	zsh/.zprezto/init.zsh	/^    function cannot-fast-forward {$/;"	f
-case	setup/setup.sh	/^function case-linux-mac {$/;"	f
 case	setup/utils.sh	/^function case-linux-mac {$/;"	f
 cb	zsh/.zprezto/modules/prompt/external/async/async_test.zsh	/^	cb() { r+=("$@") }$/;"	f
 cb	zsh/.zprezto/modules/prompt/external/async/async_test.zsh	/^	cb() { r=("$@") }$/;"	f
@@ -365,81 +357,63 @@ cb	zsh/.zprezto/modules/prompt/external/async/async_test.zsh	/^	cb() {$/;"	f
 cd	zsh/.zprezto/modules/syntax-highlighting/external/highlighters/main/test-data/function.zsh	/^cd() {$/;"	f
 cdls	zsh/.zprezto/modules/utility/init.zsh	/^function cdls {$/;"	f
 check_for_known_issues	zsh/.zprezto/modules/prompt/external/powerlevel9k/test-in-docker	/^check_for_known_issues() {$/;"	f
-check_ruby	vim/.vim/autoload/plug.vim	/^function! s:check_ruby()$/;"	f
-checkout	vim/.vim/autoload/plug.vim	/^function! s:checkout(spec)$/;"	f
 child_exit	zsh/.zprezto/modules/prompt/external/async/async.zsh	/^	child_exit() {$/;"	f
 child_exit	zsh/.zprezto/modules/prompt/external/pure/async.zsh	/^	child_exit() {$/;"	f
-chsh	vim/.vim/autoload/plug.vim	/^function! s:chsh(swap)$/;"	f
-clean	vim/.vim/autoload/plug.vim	/^function! s:clean(force)$/;"	f
 cleanup	zsh/.zprezto/modules/prompt/external/async/test.zsh	/^cleanup() {$/;"	f
 clear_screen	zsh/.zprezto/modules/autosuggestions/external/spec/terminal_session.rb	/^  def clear_screen$/;"	f	class:TerminalSession
 close_idle_coproc	zsh/.zprezto/modules/prompt/external/async/async.zsh	/^	close_idle_coproc() {$/;"	f
-clr_black	zsh/lib/zsh/colors.zsh	/^function clr_black           { clr_layer $CLR_BLACK "$@";           }$/;"	f
-clr_blackb	zsh/lib/zsh/colors.zsh	/^function clr_blackb          { clr_layer $CLR_BLACKB "$@";          }$/;"	f
-clr_blue	zsh/lib/zsh/colors.zsh	/^function clr_blue            { clr_layer $CLR_BLUE "$@";            }$/;"	f
-clr_blueb	zsh/lib/zsh/colors.zsh	/^function clr_blueb           { clr_layer $CLR_BLUEB "$@";           }$/;"	f
-clr_bold	zsh/lib/zsh/colors.zsh	/^function clr_bold            { clr_layer $CLR_BOLD "$@";            }$/;"	f
-clr_bright	zsh/lib/zsh/colors.zsh	/^function clr_bright          { clr_layer $CLR_BRIGHT "$@";          }$/;"	f
-clr_brown	zsh/lib/zsh/colors.zsh	/^function clr_brown           { clr_layer $CLR_BROWN "$@";           }$/;"	f
-clr_brownb	zsh/lib/zsh/colors.zsh	/^function clr_brownb          { clr_layer $CLR_BROWNB "$@";          }$/;"	f
-clr_cyan	zsh/lib/zsh/colors.zsh	/^function clr_cyan            { clr_layer $CLR_CYAN "$@";            }$/;"	f
-clr_cyanb	zsh/lib/zsh/colors.zsh	/^function clr_cyanb           { clr_layer $CLR_CYANB "$@";           }$/;"	f
-clr_default	zsh/lib/zsh/colors.zsh	/^function clr_default         { clr_layer $CLR_DEFAULT "$@";         }$/;"	f
-clr_defaultb	zsh/lib/zsh/colors.zsh	/^function clr_defaultb        { clr_layer $CLR_DEFAULTB "$@";        }$/;"	f
-clr_dump	zsh/lib/zsh/colors.zsh	/^function clr_dump$/;"	f
-clr_escape	zsh/lib/zsh/colors.zsh	/^function clr_escape$/;"	f
-clr_green	zsh/lib/zsh/colors.zsh	/^function clr_green           { clr_layer $CLR_GREEN "$@";           }$/;"	f
-clr_greenb	zsh/lib/zsh/colors.zsh	/^function clr_greenb          { clr_layer $CLR_GREENB "$@";          }$/;"	f
-clr_layer	zsh/lib/zsh/colors.zsh	/^function clr_layer$/;"	f
-clr_magenta	zsh/lib/zsh/colors.zsh	/^function clr_magenta         { clr_layer $CLR_MAGENTA "$@";         }$/;"	f
-clr_magentab	zsh/lib/zsh/colors.zsh	/^function clr_magentab        { clr_layer $CLR_MAGENTAB "$@";        }$/;"	f
-clr_red	zsh/lib/zsh/colors.zsh	/^function clr_red             { clr_layer $CLR_RED "$@";             }$/;"	f
-clr_redb	zsh/lib/zsh/colors.zsh	/^function clr_redb            { clr_layer $CLR_REDB "$@";            }$/;"	f
-clr_reset	zsh/lib/zsh/colors.zsh	/^function clr_reset           { clr_layer $CLR_RESET "$@";           }$/;"	f
-clr_reset_reverse	zsh/lib/zsh/colors.zsh	/^function clr_reset_reverse   { clr_layer $CLR_RESET_REVERSE "$@";   }$/;"	f
-clr_reset_underline	zsh/lib/zsh/colors.zsh	/^function clr_reset_underline { clr_layer $CLR_RESET_UNDERLINE "$@"; }$/;"	f
-clr_reverse	zsh/lib/zsh/colors.zsh	/^function clr_reverse         { clr_layer $CLR_REVERSE "$@";         }$/;"	f
-clr_underscore	zsh/lib/zsh/colors.zsh	/^function clr_underscore      { clr_layer $CLR_UNDERSCORE "$@";      }$/;"	f
-clr_white	zsh/lib/zsh/colors.zsh	/^function clr_white           { clr_layer $CLR_WHITE "$@";           }$/;"	f
-clr_whiteb	zsh/lib/zsh/colors.zsh	/^function clr_whiteb          { clr_layer $CLR_WHITEB "$@";          }$/;"	f
+clr_black	zsh/.zsh/colors.zsh	/^function clr_black           { clr_layer $CLR_BLACK "$@";           }$/;"	f
+clr_blackb	zsh/.zsh/colors.zsh	/^function clr_blackb          { clr_layer $CLR_BLACKB "$@";          }$/;"	f
+clr_blue	zsh/.zsh/colors.zsh	/^function clr_blue            { clr_layer $CLR_BLUE "$@";            }$/;"	f
+clr_blueb	zsh/.zsh/colors.zsh	/^function clr_blueb           { clr_layer $CLR_BLUEB "$@";           }$/;"	f
+clr_bold	zsh/.zsh/colors.zsh	/^function clr_bold            { clr_layer $CLR_BOLD "$@";            }$/;"	f
+clr_bright	zsh/.zsh/colors.zsh	/^function clr_bright          { clr_layer $CLR_BRIGHT "$@";          }$/;"	f
+clr_brown	zsh/.zsh/colors.zsh	/^function clr_brown           { clr_layer $CLR_BROWN "$@";           }$/;"	f
+clr_brownb	zsh/.zsh/colors.zsh	/^function clr_brownb          { clr_layer $CLR_BROWNB "$@";          }$/;"	f
+clr_cyan	zsh/.zsh/colors.zsh	/^function clr_cyan            { clr_layer $CLR_CYAN "$@";            }$/;"	f
+clr_cyanb	zsh/.zsh/colors.zsh	/^function clr_cyanb           { clr_layer $CLR_CYANB "$@";           }$/;"	f
+clr_default	zsh/.zsh/colors.zsh	/^function clr_default         { clr_layer $CLR_DEFAULT "$@";         }$/;"	f
+clr_defaultb	zsh/.zsh/colors.zsh	/^function clr_defaultb        { clr_layer $CLR_DEFAULTB "$@";        }$/;"	f
+clr_dump	zsh/.zsh/colors.zsh	/^function clr_dump$/;"	f
+clr_escape	zsh/.zsh/colors.zsh	/^function clr_escape$/;"	f
+clr_green	zsh/.zsh/colors.zsh	/^function clr_green           { clr_layer $CLR_GREEN "$@";           }$/;"	f
+clr_greenb	zsh/.zsh/colors.zsh	/^function clr_greenb          { clr_layer $CLR_GREENB "$@";          }$/;"	f
+clr_layer	zsh/.zsh/colors.zsh	/^function clr_layer$/;"	f
+clr_magenta	zsh/.zsh/colors.zsh	/^function clr_magenta         { clr_layer $CLR_MAGENTA "$@";         }$/;"	f
+clr_magentab	zsh/.zsh/colors.zsh	/^function clr_magentab        { clr_layer $CLR_MAGENTAB "$@";        }$/;"	f
+clr_red	zsh/.zsh/colors.zsh	/^function clr_red             { clr_layer $CLR_RED "$@";             }$/;"	f
+clr_redb	zsh/.zsh/colors.zsh	/^function clr_redb            { clr_layer $CLR_REDB "$@";            }$/;"	f
+clr_reset	zsh/.zsh/colors.zsh	/^function clr_reset           { clr_layer $CLR_RESET "$@";           }$/;"	f
+clr_reset_reverse	zsh/.zsh/colors.zsh	/^function clr_reset_reverse   { clr_layer $CLR_RESET_REVERSE "$@";   }$/;"	f
+clr_reset_underline	zsh/.zsh/colors.zsh	/^function clr_reset_underline { clr_layer $CLR_RESET_UNDERLINE "$@"; }$/;"	f
+clr_reverse	zsh/.zsh/colors.zsh	/^function clr_reverse         { clr_layer $CLR_REVERSE "$@";         }$/;"	f
+clr_underscore	zsh/.zsh/colors.zsh	/^function clr_underscore      { clr_layer $CLR_UNDERSCORE "$@";      }$/;"	f
+clr_white	zsh/.zsh/colors.zsh	/^function clr_white           { clr_layer $CLR_WHITE "$@";           }$/;"	f
+clr_whiteb	zsh/.zsh/colors.zsh	/^function clr_whiteb          { clr_layer $CLR_WHITEB "$@";          }$/;"	f
 cmd	zsh/.zprezto/modules/completion/external/src/_setup.py	/^    cmd="${${_setuppy_cmds[(r)$words[1]:*]%%:*}:-${(k)_setuppy_syns[(r)(*:|)$words[1](:*|)]}}"$/;"	v
 cmd	zsh/.zprezto/modules/prompt/external/powerlevel9k/test-in-docker	/^cmd() {$/;"	f
 coalesce	zsh/.zprezto/modules/helper/init.zsh	/^function coalesce {$/;"	f
 commonEqualsSame	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/shunit2_asserts_test.sh	/^commonEqualsSame() {$/;"	f
 commonNotEqualsSame	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/shunit2_asserts_test.sh	/^commonNotEqualsSame() {$/;"	f
-compare_git_uri	vim/.vim/autoload/plug.vim	/^function! s:compare_git_uri(a, b)$/;"	f
 content	zsh/.zprezto/modules/autosuggestions/external/spec/terminal_session.rb	/^  def content(esc_seqs: false)$/;"	f	class:TerminalSession
 curcontext	zsh/.zprezto/modules/completion/external/src/_setup.py	/^      curcontext="${curcontext%:*:*}:setuppy-${cmd}:"$/;"	v
 curl	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/public_ip.spec	/^  curl() {$/;"	f
 cursor	zsh/.zprezto/modules/autosuggestions/external/spec/terminal_session.rb	/^  def cursor$/;"	f	class:TerminalSession
-define_commands	vim/.vim/autoload/plug.vim	/^function! s:define_commands()$/;"	f
 defined	zsh/.zprezto/modules/prompt/external/powerlevel9k/functions/utilities.zsh	/^function defined() {$/;"	f
-delete	vim/.vim/autoload/plug.vim	/^function! s:delete(range, force)$/;"	f
-delete_op	vim/.vim/autoload/plug.vim	/^function! s:delete_op(type, ...)$/;"	f
 destroy	zsh/.zprezto/modules/autosuggestions/external/spec/terminal_session.rb	/^  def destroy$/;"	f	class:TerminalSession
 df	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/disk_usage.spec	/^  df() {$/;"	f
 die	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/gen_test_report.sh	/^die() {$/;"	f
-diff	vim/.vim/autoload/plug.vim	/^function! s:diff()$/;"	f
 dig	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/public_ip.spec	/^  dig() {$/;"	f
-dirpath	vim/.vim/autoload/plug.vim	/^  function! s:dirpath(path)$/;"	f
 dkmd	zsh/.zprezto/modules/docker/init.zsh	/^function dkmd {$/;"	f
 dkme	zsh/.zprezto/modules/docker/init.zsh	/^function dkme {$/;"	f
-do	vim/.vim/autoload/plug.vim	/^function! s:do(pull, force, todo)$/;"	f
 doas	zsh/.zprezto/modules/syntax-highlighting/external/highlighters/main/test-data/precommand4.zsh	/^doas(){}$/;"	f
-doautocmd	vim/.vim/autoload/plug.vim	/^function! s:doautocmd(...)$/;"	f
-dobufread	vim/.vim/autoload/plug.vim	/^function! s:dobufread(names)$/;"	f
-echoerr	setup/setup.sh	/^function echoerr {$/;"	f
 echoerr	setup/utils.sh	/^function echoerr {$/;"	f
 editor	zsh/.zprezto/modules/editor/init.zsh	/^function editor-info {$/;"	f
 endSkipping	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/shunit2	/^endSkipping() { __shunit_skip=${SHUNIT_FALSE}; }$/;"	f
-err	vim/.vim/autoload/plug.vim	/^function! s:err(msg)$/;"	f
 err	zsh/.zprezto/modules/prompt/external/powerlevel9k/test-in-docker	/^err()$/;"	f
 error	zsh/.zprezto/modules/prompt/external/async/async_test.zsh	/^	error() {$/;"	f
-esc	vim/.vim/autoload/plug.vim	/^function! s:esc(path)$/;"	f
-escrtp	vim/.vim/autoload/plug.vim	/^function! s:escrtp(path)$/;"	f
 expand	zsh/.zprezto/modules/editor/init.zsh	/^function expand-dot-to-parent-directory-path {$/;"	f
 expand	zsh/.zprezto/modules/editor/init.zsh	/^function expand-or-complete-with-indicator {$/;"	f
-extract_name	vim/.vim/autoload/plug.vim	/^function! s:extract_name(str, prefix, suffix)$/;"	f
 f	nvim/.config/nvim/mappings.vim	/^map f <Plug>Sneak_f$/;"	m
 f	vim/.vim/mappings.vim	/^map f <Plug>Sneak_f$/;"	m
 f	zsh/.zprezto/modules/syntax-highlighting/external/highlighters/main/test-data/off-by-one.zsh	/^f() {}$/;"	f
@@ -450,17 +424,12 @@ failSame	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/shunit2	/^fai
 fasd	zsh/.zprezto/modules/fasd/external/fasd	/^fasd() {$/;"	f
 fasd_cd	zsh/.zprezto/modules/fasd/external/fasd	/^fasd_cd() {$/;"	f
 fasd_cd	zsh/.zprezto/modules/fasd/init.zsh	/^function fasd_cd {$/;"	f
-fasd_edit	zsh/lib/zsh/fasd.zsh	/^function fasd_edit {$/;"	f
-fasd_jump	zsh/lib/zsh/fasd.zsh	/^function fasd_jump {$/;"	f
+fasd_edit	zsh/.zsh/fasd.zsh	/^function fasd_edit {$/;"	f
+fasd_jump	zsh/.zsh/fasd.zsh	/^function fasd_jump {$/;"	f
 fast_chr	assorted-scripts/bin/fwd	/^fast_chr() {$/;"	f
 find	zsh/.zprezto/modules/utility/init.zsh	/^function find-exec {$/;"	f
-find_name	vim/.vim/autoload/plug.vim	/^function! s:find_name(lnum)$/;"	f
-finish	vim/.vim/autoload/plug.vim	/^function! s:finish(pull)$/;"	f
-finish_bindings	vim/.vim/autoload/plug.vim	/^function! s:finish_bindings()$/;"	f
-fn_exists	zsh/lib/zsh/colors.zsh	/^function fn_exists$/;"	f
+fn_exists	zsh/.zsh/colors.zsh	/^function fn_exists$/;"	f
 foregroundColor	zsh/.zprezto/modules/prompt/external/powerlevel9k/functions/colors.zsh	/^function foregroundColor() {$/;"	f
-format_git_log	vim/.vim/autoload/plug.vim	/^function! s:format_git_log(line)$/;"	f
-format_message	vim/.vim/autoload/plug.vim	/^function! s:format_message(bullet, name, message)$/;"	f
 frecent	zsh/.zprezto/modules/fasd/external/fasd	/^      function frecent(time) {$/;"	f
 full_width	assorted-scripts/bin/fwd	/^full_width() {$/;"	f
 function	git/bin/git-fz-checkout	/^function() {$/;"	f
@@ -498,13 +467,11 @@ g:gist_clip_command	nvim/.config/nvim/init.vim	/^let g:gist_clip_command = 'pbco
 g:gist_detect_filetype	nvim/.config/nvim/init.vim	/^let g:gist_detect_filetype = 1$/;"	v
 g:javascript_standard_options	nvim/.config/nvim/init.vim	/^let g:javascript_standard_options = '--parser babel-eslint --plugin flowtype'$/;"	v
 g:jsx_ext_required	nvim/.config/nvim/init.vim	/^let g:jsx_ext_required = 0$/;"	v
-g:loaded_plug	vim/.vim/autoload/plug.vim	/^let g:loaded_plug = 1$/;"	v
 g:netrw_browse_split	nvim/.config/nvim/init.vim	/^let g:netrw_browse_split = 0$/;"	v
 g:netrw_liststyle	nvim/.config/nvim/init.vim	/^let g:netrw_liststyle=3$/;"	v
 g:netrw_preview	nvim/.config/nvim/init.vim	/^let g:netrw_preview=1$/;"	v
 g:paredit_leader	nvim/.config/nvim/mappings.vim	/^let g:paredit_leader = "'"$/;"	v
 g:paredit_leader	vim/.vim/mappings.vim	/^let g:paredit_leader = "'"$/;"	v
-g:plugs_order	vim/.vim/autoload/plug.vim	/^  let g:plugs_order = get(g:, 'plugs_order', keys(g:plugs))$/;"	v
 g:rainbow_active	nvim/.config/nvim/rainbow.vim	/^let g:rainbow_active = 1$/;"	v
 g:rainbow_active	vim/.vim/rainbow.vim	/^let g:rainbow_active = 1$/;"	v
 g:rainbow_conf	nvim/.config/nvim/rainbow.vim	/^let g:rainbow_conf = {$/;"	v
@@ -523,17 +490,10 @@ get_ppid	zsh/.zprezto/modules/prompt/external/powerlevel9k/debug/font-issues.zsh
 get_process_name	zsh/.zprezto/modules/prompt/external/powerlevel9k/debug/font-issues.zsh	/^get_process_name() {$/;"	f
 get_term	zsh/.zprezto/modules/prompt/external/powerlevel9k/debug/font-issues.zsh	/^get_term() {$/;"	f
 get_term_font	zsh/.zprezto/modules/prompt/external/powerlevel9k/debug/font-issues.zsh	/^get_term_font() {$/;"	f
-git_validate	vim/.vim/autoload/plug.vim	/^function! s:git_validate(spec, check_branch)$/;"	f
-git_version_requirement	vim/.vim/autoload/plug.vim	/^function! s:git_version_requirement(...)$/;"	f
-glob	vim/.vim/autoload/plug.vim	/^function! s:glob(from, pattern)$/;"	f
 glob	zsh/.zprezto/modules/editor/init.zsh	/^function glob-alias {$/;"	f
-glob_dir	vim/.vim/autoload/plug.vim	/^function! s:glob_dir(path)$/;"	f
-hash_match	vim/.vim/autoload/plug.vim	/^function! s:hash_match(a, b)$/;"	f
 hb_deprecated	zsh/.zprezto/modules/homebrew/init.zsh	/^function hb_deprecated {$/;"	f
 helper	zsh/.zprezto/modules/prompt/external/async/async_test.zsh	/^	helper() {$/;"	f
-infer_properties	vim/.vim/autoload/plug.vim	/^function! s:infer_properties(name, repo)$/;"	f
 initialize	zsh/.zprezto/modules/autosuggestions/external/spec/terminal_session.rb	/^  def initialize(opts = {})$/;"	f	class:TerminalSession
-install	vim/.vim/autoload/plug.vim	/^function! s:install(force, names)$/;"	f
 ip	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/ip.spec	/^    ip(){$/;"	f
 ip	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/ip.spec	/^  ip(){$/;"	f
 ipconfig	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/ip.spec	/^  ipconfig() {$/;"	f
@@ -542,20 +502,12 @@ is	zsh/.zprezto/modules/helper/init.zsh	/^function is-callable {$/;"	f
 is	zsh/.zprezto/modules/helper/init.zsh	/^function is-true {$/;"	f
 isSameColor	zsh/.zprezto/modules/prompt/external/powerlevel9k/functions/colors.zsh	/^function isSameColor() {$/;"	f
 isSkipping	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/shunit2	/^isSkipping() { return ${__shunit_skip}; }$/;"	f
-is_local_plug	vim/.vim/autoload/plug.vim	/^  function! s:is_local_plug(repo)$/;"	f
-is_managed	vim/.vim/autoload/plug.vim	/^function! s:is_managed(name)$/;"	f
-is_preview_window_open	vim/.vim/autoload/plug.vim	/^function! s:is_preview_window_open()$/;"	f
-is_updated	vim/.vim/autoload/plug.vim	/^function! s:is_updated(dir)$/;"	f
 j	nvim/.config/nvim/mappings.vim	/^nnoremap j gj$/;"	m
 j	vim/.vim/mappings.vim	/^nnoremap j gj$/;"	m
 jj	nvim/.config/nvim/mappings.vim	/^inoremap jj <Esc>$/;"	m
 jj	vim/.vim/mappings.vim	/^inoremap jj <Esc>$/;"	m
 jk	nvim/.config/nvim/mappings.vim	/^inoremap jk <Esc>$/;"	m
 jk	vim/.vim/mappings.vim	/^inoremap jk <Esc>$/;"	m
-job_abort	vim/.vim/autoload/plug.vim	/^function! s:job_abort()$/;"	f
-job_cb	vim/.vim/autoload/plug.vim	/^function! s:job_cb(fn, job, ch, data)$/;"	f
-job_exit_cb	vim/.vim/autoload/plug.vim	/^function! s:job_exit_cb(self, data) abort$/;"	f
-job_out_cb	vim/.vim/autoload/plug.vim	/^function! s:job_out_cb(self, data) abort$/;"	f
 jobs	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/background_jobs.spec	/^    jobs() {$/;"	f
 k	nvim/.config/nvim/mappings.vim	/^nnoremap k gk$/;"	m
 k	vim/.vim/mappings.vim	/^nnoremap k gk$/;"	m
@@ -565,24 +517,8 @@ kj	nvim/.config/nvim/mappings.vim	/^inoremap kj <Esc>$/;"	m
 kj	vim/.vim/mappings.vim	/^inoremap kj <Esc>$/;"	m
 kk	nvim/.config/nvim/mappings.vim	/^inoremap kk <Esc>$/;"	m
 kk	vim/.vim/mappings.vim	/^inoremap kk <Esc>$/;"	m
-last_non_empty_line	vim/.vim/autoload/plug.vim	/^function! s:last_non_empty_line(lines)$/;"	f
-lastline	vim/.vim/autoload/plug.vim	/^function! s:lastline(msg)$/;"	f
-lazy	vim/.vim/autoload/plug.vim	/^function! s:lazy(plug, opt)$/;"	f
-lines	vim/.vim/autoload/plug.vim	/^function! s:lines(msg)$/;"	f
-lns	setup/setup.sh	/^function lns-once {$/;"	f
 lns	setup/utils.sh	/^function lns-once {$/;"	f
-load_plugin	vim/.vim/autoload/plug.vim	/^function! s:load_plugin(spec)$/;"	f
-loaded_names	vim/.vim/autoload/plug.vim	/^function! s:loaded_names()$/;"	f
-lod	vim/.vim/autoload/plug.vim	/^function! s:lod(names, types, ...)$/;"	f
-lod_cmd	vim/.vim/autoload/plug.vim	/^function! s:lod_cmd(cmd, bang, l1, l2, args, names)$/;"	f
-lod_ft	vim/.vim/autoload/plug.vim	/^function! s:lod_ft(pat, names)$/;"	f
-lod_map	vim/.vim/autoload/plug.vim	/^function! s:lod_map(map, names, with_prefix, prefix)$/;"	f
-log	setup/setup.sh	/^function log {$/;"	f
 log	setup/utils.sh	/^function log {$/;"	f
-log	vim/.vim/autoload/plug.vim	/^function! s:log(bullet, name, lines)$/;"	f
-log4	vim/.vim/autoload/plug.vim	/^function! s:log4(name, msg)$/;"	f
-logpos	vim/.vim/autoload/plug.vim	/^function! s:logpos(name)$/;"	f
-lpad	vim/.vim/autoload/plug.vim	/^function! s:lpad(str, len)$/;"	f
 ls	zsh/.zprezto/modules/syntax-highlighting/external/highlighters/main/test-data/function.zsh	/^ls() {$/;"	f
 main	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/examples/mock_file.sh	/^main() {$/;"	f
 main	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/gen_test_report.sh	/^main() {$/;"	f
@@ -602,13 +538,10 @@ mockKubectlOtherNamespace	zsh/.zprezto/modules/prompt/external/powerlevel9k/test
 mockLaravelVersion	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/laravel_version.spec	/^function mockLaravelVersion() {$/;"	f
 mockNoLaravelVersion	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/laravel_version.spec	/^function mockNoLaravelVersion() {$/;"	f
 mockRust	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/rust_version.spec	/^function mockRust() {$/;"	f
-names	vim/.vim/autoload/plug.vim	/^function! s:names(...)$/;"	f
-new_window	vim/.vim/autoload/plug.vim	/^function! s:new_window()$/;"	f
 node	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/node_version.spec	/^    node() {$/;"	f
 node	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/nodeenv.spec	/^    node() {$/;"	f
 noremoteglob	zsh/.zprezto/modules/utility/init.zsh	/^function noremoteglob {$/;"	f
 null_echo	zsh/.zprezto/modules/prompt/external/async/async_test.zsh	/^	null_echo() {$/;"	f
-nvim_cb	vim/.vim/autoload/plug.vim	/^function! s:nvim_cb(job_id, data, event) dict abort$/;"	f
 nvm_version	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/nvm.spec	/^  function nvm_version() {$/;"	f
 oneTimeSetUp	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/examples/math_test.sh	/^oneTimeSetUp() {$/;"	f
 oneTimeSetUp	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/examples/mkdir_test.sh	/^oneTimeSetUp() {$/;"	f
@@ -622,32 +555,20 @@ oo	vim/.vim/mappings.vim	/^nmap oo o<Esc>$/;"	m
 ord	assorted-scripts/bin/fwd	/^ord() {$/;"	f
 overwrite	zsh/.zprezto/modules/editor/init.zsh	/^function overwrite-mode {$/;"	f
 p9k_hello_world	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/custom.spec	/^    function p9k_hello_world() {$/;"	f
-parse_options	vim/.vim/autoload/plug.vim	/^function! s:parse_options(arg)$/;"	f
 parse_opts	zsh/.zprezto/modules/prompt/external/async/test.zsh	/^parse_opts() {$/;"	f
 passwd_filename	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/examples/mock_file.sh	/^passwd_filename() {$/;"	f
 paste_string	zsh/.zprezto/modules/autosuggestions/external/spec/terminal_session.rb	/^  def paste_string(str)$/;"	f	class:TerminalSession
-path	vim/.vim/autoload/plug.vim	/^  function! s:path(path)$/;"	f
 php	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/symfony_version.spec	/^    function php() {$/;"	f
-plug#	vim/.vim/autoload/plug.vim	/^function! plug#(repo, ...)$/;"	f
-plug#begin	vim/.vim/autoload/plug.vim	/^function! plug#begin(...)$/;"	f
-plug#end	vim/.vim/autoload/plug.vim	/^function! plug#end()$/;"	f
-plug#helptags	vim/.vim/autoload/plug.vim	/^function! plug#helptags()$/;"	f
-plug#load	vim/.vim/autoload/plug.vim	/^function! plug#load(...)$/;"	f
-plug_window_exists	vim/.vim/autoload/plug.vim	/^function! s:plug_window_exists()$/;"	f
 pmodload	zsh/.zprezto/init.zsh	/^function pmodload {$/;"	f
 popdls	zsh/.zprezto/modules/utility/init.zsh	/^function popdls {$/;"	f
 pound	zsh/.zprezto/modules/editor/init.zsh	/^function pound-toggle {$/;"	f
-prepare	vim/.vim/autoload/plug.vim	/^function! s:prepare(...)$/;"	f
 prepend	zsh/.zprezto/modules/editor/init.zsh	/^function prepend-sudo {$/;"	f
-preview_commit	vim/.vim/autoload/plug.vim	/^function! s:preview_commit()$/;"	f
 printSizeHumanReadable	zsh/.zprezto/modules/prompt/external/powerlevel9k/functions/utilities.zsh	/^printSizeHumanReadable() {$/;"	f
 print_123_delayed_exit	zsh/.zprezto/modules/prompt/external/async/async_test.zsh	/^	print_123_delayed_exit() {$/;"	f
 print_deprecation_warning	zsh/.zprezto/modules/prompt/external/powerlevel9k/functions/utilities.zsh	/^print_deprecation_warning() {$/;"	f
 print_four	zsh/.zprezto/modules/prompt/external/async/async_test.zsh	/^	print_four() { print -n 4 }$/;"	f
 print_icon	zsh/.zprezto/modules/prompt/external/powerlevel9k/functions/icons.zsh	/^function print_icon() {$/;"	f
 print_result_cb	zsh/.zprezto/modules/prompt/external/async/async_test.zsh	/^		print_result_cb() { print ${(Vq-)@} }$/;"	f
-progress_bar	vim/.vim/autoload/plug.vim	/^function! s:progress_bar(line, bar, total)$/;"	f
-progress_opt	vim/.vim/autoload/plug.vim	/^function! s:progress_opt(base)$/;"	f
 prompt_pure_async_callback	zsh/.zprezto/modules/prompt/external/pure/pure.plugin.zsh	/^prompt_pure_async_callback() {$/;"	f
 prompt_pure_async_callback	zsh/.zprezto/modules/prompt/external/pure/pure.zsh	/^prompt_pure_async_callback() {$/;"	f
 prompt_pure_async_git_aliases	zsh/.zprezto/modules/prompt/external/pure/pure.plugin.zsh	/^prompt_pure_async_git_aliases() {$/;"	f
@@ -688,21 +609,11 @@ prompt_pure_update_vim_prompt	zsh/.zprezto/modules/prompt/external/pure/pure.plu
 prompt_pure_update_vim_prompt	zsh/.zprezto/modules/prompt/external/pure/pure.zsh	/^prompt_pure_update_vim_prompt() {$/;"	f
 psu	zsh/.zprezto/modules/utility/init.zsh	/^function psu {$/;"	f
 pushdls	zsh/.zprezto/modules/utility/init.zsh	/^function pushdls {$/;"	f
-reap	vim/.vim/autoload/plug.vim	/^function! s:reap(name)$/;"	f
-regress_bar	vim/.vim/autoload/plug.vim	/^function! s:regress_bar()$/;"	f
-reload_plugins	vim/.vim/autoload/plug.vim	/^function! s:reload_plugins()$/;"	f
-remove_rtp	vim/.vim/autoload/plug.vim	/^function! s:remove_rtp()$/;"	f
-remove_triggers	vim/.vim/autoload/plug.vim	/^function! s:remove_triggers(name)$/;"	f
-reorg_rtp	vim/.vim/autoload/plug.vim	/^function! s:reorg_rtp()$/;"	f
 resolve_framework	zsh/.zprezto/modules/prompt/external/powerlevel9k/test-in-docker	/^resolve_framework() {$/;"	f
 resolve_version	zsh/.zprezto/modules/prompt/external/powerlevel9k/test-in-docker	/^resolve_version() {$/;"	f
-retry	vim/.vim/autoload/plug.vim	/^function! s:retry()$/;"	f
-revert	vim/.vim/autoload/plug.vim	/^function! s:revert()$/;"	f
-rm_rf	vim/.vim/autoload/plug.vim	/^function! s:rm_rf(dir)$/;"	f
 root_uid	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/examples/mock_file.sh	/^root_uid() { awk -F: 'u==$1{print $3}' u=root "$1"; }$/;"	f
 root_uid_from_derived_filename	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/examples/mock_file.sh	/^root_uid_from_derived_filename() {$/;"	f
 root_uid_from_passed_filename	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/examples/mock_file.sh	/^root_uid_from_passed_filename() {$/;"	f
-rtp	vim/.vim/autoload/plug.vim	/^  function! s:rtp(spec)$/;"	f
 run_command	zsh/.zprezto/modules/autosuggestions/external/spec/terminal_session.rb	/^  def run_command(command)$/;"	f	class:TerminalSession
 run_test	zsh/.zprezto/modules/syntax-highlighting/external/tests/test-highlighting.zsh	/^run_test() {$/;"	f
 run_test	zsh/.zprezto/modules/syntax-highlighting/external/tests/test-perfs.zsh	/^run_test() {$/;"	f
@@ -713,22 +624,6 @@ runner_error	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/test_runn
 runner_fatal	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/test_runner	/^runner_fatal() { echo "runner:FATAL $*" >&2; exit 1; }$/;"	f
 runner_usage	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/test_runner	/^runner_usage() {$/;"	f
 runner_warn	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/test_runner	/^runner_warn() { echo "runner:WARN $*" >&2; }$/;"	f
-s:TYPE	vim/.vim/autoload/plug.vim	/^let s:TYPE = {$/;"	v
-s:base_spec	vim/.vim/autoload/plug.vim	/^let s:base_spec = { 'branch': 'master', 'frozen': 0 }$/;"	v
-s:cpo_save	vim/.vim/autoload/plug.vim	/^let s:cpo_save = &cpo$/;"	v
-s:first_rtp	vim/.vim/autoload/plug.vim	/^let s:first_rtp = s:escrtp(get(s:split_rtp(), 0, ''))$/;"	v
-s:is_win	vim/.vim/autoload/plug.vim	/^let s:is_win = has('win32')$/;"	v
-s:last_rtp	vim/.vim/autoload/plug.vim	/^let s:last_rtp  = s:escrtp(get(s:split_rtp(), -1, ''))$/;"	v
-s:loaded	vim/.vim/autoload/plug.vim	/^let s:loaded = get(s:, 'loaded', {})$/;"	v
-s:mac_gui	vim/.vim/autoload/plug.vim	/^let s:mac_gui = has('gui_macvim') && has('gui_running')$/;"	v
-s:me	vim/.vim/autoload/plug.vim	/^let s:me = resolve(expand('<sfile>:p'))$/;"	v
-s:nvim	vim/.vim/autoload/plug.vim	/^let s:nvim = has('nvim-0.2') || (has('nvim') && exists('*jobwait') && !s:is_win)$/;"	v
-s:plug_buf	vim/.vim/autoload/plug.vim	/^let s:plug_buf = get(s:, 'plug_buf', -1)$/;"	v
-s:plug_src	vim/.vim/autoload/plug.vim	/^let s:plug_src = 'https:\/\/github.com\/junegunn\/vim-plug.git'$/;"	v
-s:plug_tab	vim/.vim/autoload/plug.vim	/^let s:plug_tab = get(s:, 'plug_tab', -1)$/;"	v
-s:triggers	vim/.vim/autoload/plug.vim	/^let s:triggers = get(s:, 'triggers', {})$/;"	v
-s:vim8	vim/.vim/autoload/plug.vim	/^let s:vim8 = has('patch-8.0.0039') && exists('*job_start')$/;"	v
-section	vim/.vim/autoload/plug.vim	/^function! s:section(flags)$/;"	f
 segmentShouldBeJoined	zsh/.zprezto/modules/prompt/external/powerlevel9k/functions/utilities.zsh	/^function segmentShouldBeJoined() {$/;"	f
 segment_in_use	zsh/.zprezto/modules/prompt/external/powerlevel9k/functions/utilities.zsh	/^segment_in_use() {$/;"	f
 send_keys	zsh/.zprezto/modules/autosuggestions/external/spec/terminal_session.rb	/^  def send_keys(*keys)$/;"	f	class:TerminalSession
@@ -778,19 +673,10 @@ setUp	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/vcs-hg.spe
 setUp	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/vi_mode.spec	/^function setUp() {$/;"	f
 set_default	zsh/.zprezto/modules/prompt/external/powerlevel9k/functions/utilities.zsh	/^function set_default() {$/;"	f
 setopt_helper	zsh/.zprezto/modules/prompt/external/async/async_test.zsh	/^setopt_helper() {$/;"	f
-shellesc	vim/.vim/autoload/plug.vim	/^function! s:shellesc(arg)$/;"	f
-shellesc_cmd	vim/.vim/autoload/plug.vim	/^function! s:shellesc_cmd(arg)$/;"	f
 show_help	zsh/.zprezto/modules/prompt/external/async/test.zsh	/^show_help() {$/;"	f
 show_help	zsh/.zprezto/modules/prompt/external/powerlevel9k/test-in-docker	/^show_help() {$/;"	f
 slit	zsh/.zprezto/modules/utility/init.zsh	/^function slit {$/;"	f
-snapshot	vim/.vim/autoload/plug.vim	/^function! s:snapshot(force, ...) abort$/;"	f
-source	vim/.vim/autoload/plug.vim	/^function! s:source(from, ...)$/;"	f
-spawn	vim/.vim/autoload/plug.vim	/^function! s:spawn(name, cmd, opts)$/;"	f
-split_rtp	vim/.vim/autoload/plug.vim	/^function! s:split_rtp()$/;"	f
 startSkipping	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/shunit2	/^startSkipping() { __shunit_skip=${SHUNIT_TRUE}; }$/;"	f
-status	vim/.vim/autoload/plug.vim	/^function! s:status()$/;"	f
-status_load	vim/.vim/autoload/plug.vim	/^function! s:status_load(lnum)$/;"	f
-status_update	vim/.vim/autoload/plug.vim	/^function! s:status_update() range$/;"	f
 sudo	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/context.spec	/^    function sudo() {$/;"	f
 sudo	zsh/.zprezto/modules/syntax-highlighting/external/highlighters/main/test-data/alias-nested-precommand.zsh	/^sudo(){}$/;"	f
 sudo	zsh/.zprezto/modules/syntax-highlighting/external/highlighters/main/test-data/alias-precommand-option-argument1.zsh	/^sudo(){}$/;"	f
@@ -807,13 +693,8 @@ suite_addTest	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/shunit2	
 suite_test_one	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/examples/suite_test.sh	/^suite_test_one() {$/;"	f
 suite_test_two	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/examples/suite_test.sh	/^suite_test_two() {$/;"	f
 swift	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/swift_version.spec	/^    function swift() {$/;"	f
-switch_in	vim/.vim/autoload/plug.vim	/^function! s:switch_in()$/;"	f
-switch_out	vim/.vim/autoload/plug.vim	/^function! s:switch_out(...)$/;"	f
-syntax	vim/.vim/autoload/plug.vim	/^function! s:syntax()$/;"	f
 sysctl	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/load.spec	/^    sysctl() {$/;"	f
 sysctl	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/swap.spec	/^    sysctl() {$/;"	f
-system	vim/.vim/autoload/plug.vim	/^function! s:system(cmd, ...)$/;"	f
-system_chomp	vim/.vim/autoload/plug.vim	/^function! s:system_chomp(...)$/;"	f
 t	nvim/.config/nvim/mappings.vim	/^map t <Plug>Sneak_t$/;"	m
 t	vim/.vim/mappings.vim	/^map t <Plug>Sneak_t$/;"	m
 t_defer	zsh/.zprezto/modules/prompt/external/async/test.zsh	/^	t_defer() {$/;"	f
@@ -1184,27 +1065,14 @@ test_root_uid_from_derived_filename	zsh/.zprezto/modules/prompt/external/powerle
 test_root_uid_from_passed_filename	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/examples/mock_file_test.sh	/^test_root_uid_from_passed_filename() {$/;"	f
 test_zle_watcher	zsh/.zprezto/modules/prompt/external/async/async_test.zsh	/^test_zle_watcher() {$/;"	f
 th_assertTrueWithNoOutput	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/examples/mkdir_test.sh	/^th_assertTrueWithNoOutput() {$/;"	f
-tick	vim/.vim/autoload/plug.vim	/^function! s:tick()$/;"	f
 tmux_command	zsh/.zprezto/modules/autosuggestions/external/spec/terminal_session.rb	/^  def tmux_command(cmd)$/;"	f	class:TerminalSession
 tmux_socket_name	zsh/.zprezto/modules/autosuggestions/external/spec/terminal_session.rb	/^  def tmux_socket_name$/;"	f	class:TerminalSession
-to_a	vim/.vim/autoload/plug.vim	/^function! s:to_a(v)$/;"	f
-to_s	vim/.vim/autoload/plug.vim	/^function! s:to_s(v)$/;"	f
-trim	vim/.vim/autoload/plug.vim	/^function! s:trim(str)$/;"	f
 trim	zsh/.zprezto/modules/prompt/external/powerlevel9k/debug/font-issues.zsh	/^trim() {$/;"	f
 truncatePath	zsh/.zprezto/modules/prompt/external/powerlevel9k/functions/utilities.zsh	/^function truncatePath() {$/;"	f
 truncatePathFromRight	zsh/.zprezto/modules/prompt/external/powerlevel9k/functions/utilities.zsh	/^function truncatePathFromRight() {$/;"	f
 typeset_p	zsh/.zprezto/modules/syntax-highlighting/external/tests/test-highlighting.zsh	/^typeset_p() {$/;"	f
 unichr	assorted-scripts/bin/fwd	/^function unichr {$/;"	f
-update	vim/.vim/autoload/plug.vim	/^function! s:update(force, names)$/;"	f
-update_finish	vim/.vim/autoload/plug.vim	/^function! s:update_finish()$/;"	f
-update_impl	vim/.vim/autoload/plug.vim	/^function! s:update_impl(pull, force, args) abort$/;"	f
-update_python	vim/.vim/autoload/plug.vim	/^function! s:update_python()$/;"	f
-update_ruby	vim/.vim/autoload/plug.vim	/^function! s:update_ruby()$/;"	f
-update_vim	vim/.vim/autoload/plug.vim	/^function! s:update_vim()$/;"	f
-upgrade	vim/.vim/autoload/plug.vim	/^function! s:upgrade()$/;"	f
-upgrade_specs	vim/.vim/autoload/plug.vim	/^function! s:upgrade_specs()$/;"	f
 upsearch	zsh/.zprezto/modules/prompt/external/powerlevel9k/functions/utilities.zsh	/^function upsearch () {$/;"	f
-version_requirement	vim/.vim/autoload/plug.vim	/^function! s:version_requirement(val, min)$/;"	f
 versions_main	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/lib/versions	/^versions_main() {$/;"	f
 versions_osName	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/lib/versions	/^versions_osName() {$/;"	f
 versions_osVersion	zsh/.zprezto/modules/prompt/external/powerlevel9k/shunit2/lib/versions	/^versions_osVersion() {$/;"	f
@@ -1220,9 +1088,7 @@ vi	zsh/.zprezto/modules/editor/init.zsh	/^function vi-insert {$/;"	f
 vi	zsh/.zprezto/modules/editor/init.zsh	/^function vi-insert-bol {$/;"	f
 vi	zsh/.zprezto/modules/editor/init.zsh	/^function vi-replace  {$/;"	f
 vimrc	nvim/.config/nvim/init.vim	/^augroup vimrc-auto-mkdir$/;"	a
-warn	vim/.vim/autoload/plug.vim	/^function! s:warn(cmd, msg)$/;"	f
 wget	zsh/.zprezto/modules/prompt/external/powerlevel9k/test/segments/public_ip.spec	/^  wget() {$/;"	f
-with_cd	vim/.vim/autoload/plug.vim	/^function! s:with_cd(cmd, dir)$/;"	f
 with_history	zsh/.zprezto/modules/autosuggestions/external/spec/spec_helper.rb	/^  def with_history(*commands, &block)$/;"	f
 zle	zsh/.zprezto/modules/editor/init.zsh	/^function zle-keymap-select {$/;"	f
 zle	zsh/.zprezto/modules/editor/init.zsh	/^function zle-line-finish {$/;"	f

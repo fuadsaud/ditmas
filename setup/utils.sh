@@ -16,8 +16,7 @@ function lns-once {
 
 function case-linux-mac {
   case `uname` in
-    Linux)  $1;;
-    Darwin) $2;;
+    Linux)  echo $1;;
+    Darwin) echo $2;;
   esac
 }
-
