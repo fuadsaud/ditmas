@@ -3,6 +3,10 @@ vim/autoload/plug.vim
 vim/.netrwhist
 nvim/.netrwhist
 
+zsh/.config/zsh/.zcompdump
+zsh/.config/zsh/.zcompdump.zwc
+zsh/.config/zsh/.zhistory
+
 env.sh
 emacs.d/elpa
 
