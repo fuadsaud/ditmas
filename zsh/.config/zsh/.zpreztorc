@@ -40,6 +40,7 @@ zstyle ':prezto:load' pmodule \
   'node' \
   'homebrew' \
   'python' \
+  'pacman' \
   'ruby' \
   'rails' \
   'fasd'   \
@@ -134,8 +135,7 @@ zstyle ':prezto:module:prompt' theme 'sorin'
     'main' \
     'brackets' \
     'pattern' \
-    'cursor' \
-#   'root'
+    'root'
 #
 # Set syntax highlighting styles.
 # zstyle ':prezto:module:syntax-highlighting' styles \
