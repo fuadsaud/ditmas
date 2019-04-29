@@ -1,7 +1,7 @@
 [user]
   name = Fuad Saud
   email = fuadfsaud@gmail.com
-	signingkey = 2CA9356708B5C4FFD15718CAB261006882D81201
+	signingkey = fuadfsaud@gmail.com
 [alias]
   a  = add --verbose
   ap = add-pattern
