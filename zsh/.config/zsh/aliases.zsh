@@ -15,7 +15,7 @@ alias vi="vim"
 alias vplug="vim +PlugInstall +qall"
 alias nvplug="nvim +PlugInstall +qall"
 alias yt="youtube-dl -t"
-alias y=yarn
+alias y="yay -S"
 alias zdd="$EDITOR ${ZDOTDIR:-$HOME}"
 
 alias cp="${aliases[cp]:-cp} -v"
