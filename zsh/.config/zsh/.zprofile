@@ -47,11 +47,7 @@ typeset -gU cdpath fpath mailpath path
 path=(
   $ANDROID_HOME/tools
   $ANDROID_HOME/platform-tools
-  ~/.bin
-  ~/.houdini/bin
-  ~/.opam/system/bin
-  ~/.cabal/bin
-  ~/.go/bin
+  $HOME/.local/bin
   /usr/local/share/npm/bin
   /usr/local/heroku/bin
   /usr/local/{bin,sbin}
