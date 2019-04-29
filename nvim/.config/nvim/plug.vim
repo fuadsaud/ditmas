@@ -114,7 +114,6 @@ Plug 'hail2u/vim-css3-syntax',         { 'for': 'css'}
 Plug 'othree/html5.vim',               { 'for': 'html' }
 Plug 'tpope/vim-markdown',             { 'for': 'markdown'}
 Plug 'jtratner/vim-flavored-markdown', { 'for': 'markdown'}
-Plug 'iamcco/markdown-preview.nvim',   { 'do': 'cd app & npm install'  }
 
 " prose
 Plug 'dbmrq/vim-ditto'
