@@ -1,7 +1,7 @@
 [user]
   name = Fuad Saud
   email = fuadfsaud@gmail.com
-	signingkey = fuadfsaud@gmail.com
+  signingkey = fuadfsaud@gmail.com
 [alias]
   a  = add --verbose
   ap = add-pattern
@@ -76,13 +76,13 @@
 [color]
   ui = auto
 [credential]
-  helper = osxkeychain
+  helper = /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
 [core]
   excludesfile = ~/.houdini/git/ignore
 [diff]
   algorithm = patience
 [format]
-  pretty = %C(yellow)%h •%Creset%C(red)%d%Creset %s %Cgreen• %cr by %an%Creset
+  pretty = %C(yellow)%h •%Creset%C(red)%d%Creset %s %Cgreen• %cr by %Creset%C(magenta)%an%Creset %Creset%C(cyan)|%G?|
 [github]
   user = fuadsaud
 [hub]
