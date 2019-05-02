@@ -48,7 +48,7 @@
   r  = rebase
   ra = rebase --abort
   rc = rebase --continue
-  resign = ri --exec 'git redo -S'
+  resign = r --gpg-sign --no-ff
   ri = rebase -i
   rms = rebase master
   rom = rebase origin/master
