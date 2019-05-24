@@ -1,18 +1,15 @@
-{:user
- {:dependencies [[cljdev "0.7.0"]]
-
-  :injections   [(require 'nu)]
-
-  :repositories [["nu-maven" {:url "s3p://nu-maven/releases/"
-                              :username [:gpg :env/artifacts_aws_access_key_id]
-                              :passphrase [:gpg :env/artifacts_aws_secret_access_key]}]]
-
-  :plugins [[s3-wagon-private "1.3.0"]
-            [jonase/eastwood "0.2.4"]
-            [com.jakemccrary/lein-test-refresh "0.21.1"]
-            [venantius/ultra "0.5.2"]]}
-
-  :repl {:plugins [[cider/cider-nrepl "0.15.1"]
-                   [refactor-nrepl "2.3.1"]]
-         :dependencies [[org.clojure/tools.nrepl "0.2.12"]]
-         :repl-options {:timeout 120000}}}
+{:user {:dependencies        [[cljdev "0.7.2"]]
+        :injections          [(require 'nu)]
+        :repositories        [["central"  {:url "https://repo1.maven.org/maven2/" :snapshots false}]
+                              ["clojars"  {:url "https://clojars.org/repo/"}]
+                              ["nu-maven" {:url    "s3p://nu-maven/releases/"
+                                           :region "sa-east-1"}]]
+        :plugin-repositories [["nu-maven" {:url "s3p://nu-maven/releases/"}]]
+        :plugins             [[s3-wagon-private "1.3.1" :upgrade false]
+                              [lein-ancient "0.6.15"]]}
+ :repl {:plugins      [[cider/cider-nrepl "0.21.0"]
+                       [refactor-nrepl "2.4.0"]]
+        :dependencies [[org.clojure/tools.nrepl "0.2.13"]
+                       [alembic "0.3.2"]
+                       [mvxcvi/puget "1.1.0"]]
+        :repl-options {:timeout 120000}}}
