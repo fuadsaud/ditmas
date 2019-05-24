@@ -1,6 +1,6 @@
-vim/plugged
-vim/autoload/plug.vim
-vim/.netrwhist
+vim/.vim/plugged
+vim/.vim/autoload/plug.vim
+vim/.vim/.netrwhist
 nvim/.netrwhist
 
 zsh/.config/zsh/.zcompdump
