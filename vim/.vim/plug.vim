@@ -75,7 +75,7 @@ Plug 'tpope/vim-markdown',             { 'for': 'markdown'}
 Plug 'jtratner/vim-flavored-markdown', { 'for': 'markdown'}
 
 " colorschemes
-Plug 'AlessandroYorba/Monrovia', { 'commit': '51ea85c' }
+Plug 'fuadsaud/Monrovia'
 Plug 'altercation/vim-colors-solarized'
 Plug 'flazz/vim-colorschemes'
 
