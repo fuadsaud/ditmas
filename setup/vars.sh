@@ -4,7 +4,7 @@ set -euo pipefail
 
 source ./utils.sh
 
-export SRC_DIR=`case-linux-mac "~/src" "~/Source"`
+export SRC_DIR="${HOME}/Code"
 export PERSONAL_SRC_DIR="$SRC_DIR/fuadsaud/"
 export HOUDINI_DIR=~/.houdini
 export OS_SETUP_SCRIPT=`case-linux-mac "./linux.sh" "./mac.sh"`
