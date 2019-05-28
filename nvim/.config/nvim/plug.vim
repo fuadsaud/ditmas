@@ -41,6 +41,7 @@ Plug 'kburdett/vim-nuuid'
 Plug 'w0rp/ale'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'BurningEther/iron.nvim', { 'do': ':UpdateRemotePlugins' }
+
 " text objects
 Plug 'kana/vim-textobj-user'
 Plug 'Julian/vim-textobj-variable-segment'
@@ -120,7 +121,7 @@ Plug 'dbmrq/vim-ditto'
 
 " colorschemes
 Plug 'dylanaraps/wal.vim'
-Plug 'fuadsaud/OldMonrovia', { 'branch': 'old-monrovia' }
+Plug 'fuadsaud/Monrovia'
 Plug 'taecilla/fairyfloss.vim'
 Plug 'zanglg/nova.vim'
 Plug 'altercation/vim-colors-solarized'
