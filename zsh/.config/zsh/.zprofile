@@ -47,6 +47,7 @@ typeset -gU cdpath fpath mailpath path
 path=(
   $ANDROID_HOME/tools
   $ANDROID_HOME/platform-tools
+  $HOME/.cargo/bin
   $HOME/.local/bin
   /usr/local/share/npm/bin
   /usr/local/heroku/bin
@@ -109,19 +110,5 @@ if [[ -n "$ZSH_VERSION" ]]; then
 fi
 
 export HOMEBREW_CASK_OPTS='--appdir=/Applications'
-# export JAVA_HOME=`/usr/libexec/java_home`
-export JETTY_HOME="/usr/local/Cellar/jetty/9.4.7.v20170914/libexec/"
-export GOPATH="$HOME/.go"
+export GOPATH="$HOME/Code/go"
 export ANDROID_HOME="$HOME/Library/Android/sdk"
-export NVM_DIR="$HOME/.nvm"
-export VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python2'
-
-# source "$(brew --prefix nvm)/nvm.sh"
-if [[ -s "${HOME}/.env.sh" ]]; then
-  source "$HOME/.env.sh"
-fi
-
-# Fixes python locale crash. I believe prezto should be setting this, but it's not the case.
-export LC_ALL=$LANG
-
-export PATH="$HOME/.cargo/bin:$PATH"
