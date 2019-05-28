@@ -23,26 +23,29 @@ Create:
 ### Formatting
 
   ```sh
-    $ mkfs.fat -F32 /dev/sda1                     # format efi as FAT32
-    $ mkfs.ext4 /dev/sda2                         # format boot as ext4
+    $ mkfs.fat -F32 /dev/nvme0n1p1                # format efi as FAT32
+    $ mkfs.ext4 /dev/nvme0n1p2                    # format boot as ext4
 
-    $ cryptsetup luksFormat /dev/sda3             # encrypt lvm
-    $ cryptsetup open /dev/sda3 lvm               # unlock lvm
+    $ cryptsetup luksFormat /dev/nvme0n1p3        # encrypt lvm
+    $ cryptsetup open /dev/nvme0n1p3 lvm          # unlock lvm
     $ pvcreate --dataalignment 1m /dev/mapper/lvm # create lvm physical volume
-    $ vgcreate volgroup0 /dev/mapper/lvm          # create volume group
-    $ lvcreate -L 30GB volgroup0 -n lv_root       # create root logical volume
-    $ lvcreate -L 15GB volgroup0 -n lv_home       # create home logical volume
+    $ vgcreate vg0 /dev/mapper/lvm                # create volume group
+    $ lvcreate -L 30GB vg0 -n lvroot              # create root logical volume
+    $ lvcreate -L 50GB vg0 -n lvvar               # create var logical volume
+    $ lvcreate -l 100%FREE vg0 -n lvhome          # create home logical volume
     $ modprobe dm_mod                             # load device mapping kernel module
     $ vgscan                                      # scan for lvm volume groups
-    $ vgchange -ay                                # activate logical volumes in volgroup0
-    $ mkfs.ext4 /dev/volgroup0/lv_root            # format lv_root as ext4
-    $ mkfs.ext4 /dev/volgroup0/lv_home            # format lv_home as ext4
-    $ mount /dev/volgroup0/lv_root /mnt           # mount root volume
+    $ vgchange -ay                                # activate logical volumes in vg0
+    $ mkfs.ext4 /dev/vg0/lv_root                  # format lv_root as ext4
+    $ mkfs.ext4 /dev/vg0/lv_home                  # format lv_home as ext4
+    $ mount /dev/vg0/lv_root /mnt                 # mount root volume
     $ mkdir /mnt/boot
+    $ mkdir /mnt/boot/efi
     $ mkdir /mnt/home
-    $ mount /dev/sda2 /mnt/boot                   # mount boot partition
-    $ mount /dev/volgroup0/lv_home /mnt/home      # mount home partition
-    $ pacstrap -i /mnt base # install arch base distro
+    $ mount /dev/nvme0n1p2 /mnt/boot              # mount boot partition
+    $ mount /dev/nvme0n1p1 /mnt/boot/efi          # mount efi partition
+    $ mount /dev/vg0/lv_home /mnt/home            # mount home partition
+    $ pacstrap -i /mnt base                       # install arch base distro
     $ genfstab -U -p /mnt >> /mnt/etc/fstab       # generate fstab file
   ```
 
