@@ -44,7 +44,7 @@
   pod = p origin --delete
   pprq = "!git p && hub prq"
   prq = pull-request
-  prune-merged = "!git branch --merged | grep -v \\* | grep -v master | xargs -n 1 git branch -d"
+  prune-merged = "!git branch --merged master | grep -v \\* | grep -v master | xargs --no-run-if-empty -n 1 git branch -d"
   r  = rebase
   ra = rebase --abort
   rc = rebase --continue
