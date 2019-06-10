@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/fuad/Code/nubank/nucli/nucli.d/definition.d'
-let g:netrw_dirhist_2='/Users/fuad/Code/nubank/nucli/nucli.d/helpers.d'
-let g:netrw_dirhist_3='/Users/fuad/.houdini/setup'
-let g:netrw_dirhist_4='/Users/fuad/.houdini/nvim/.config/nvim'
-let g:netrw_dirhist_5='/Users/fuad/Code/fuadsaud/vim-airline-themes/autoload/airline/themes'
-let g:netrw_dirhist_6='/Users/fuad/.houdini/nvim/.config/nvim'
