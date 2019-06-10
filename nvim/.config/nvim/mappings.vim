@@ -115,11 +115,6 @@ nnoremap <M-s-l> <Nop>
 nnoremap <C-p> :FFiles<CR>
 nnoremap <Leader>b :FBuffers<CR>
 
-let g:acid_goto_shorthand_mapping = 'gd'
-let g:acid_find_usage_command_mapping = 'gu'
-
-let g:paredit_leader = "'"
-
 "command to change the current tab's workingdir
 command! -nargs=1 -complete=dir EP call contabs#project#edit(<q-args>)
 
@@ -128,7 +123,7 @@ command! -nargs=1 -complete=dir TP call contabs#project#tabedit(<q-args>)
 
 "invoke fzf with the list of projects configured in g:contabs#project#locations
 "the enabled hotkeys are { 'ctrl-t': 'tabedit', 'ctrl-e, <cr>': 'edit' }
-nnoremap <silent> <Leader>p :call contabs#project#select()<CR>
+nnoremap <silent> <Leader>m :call contabs#project#select()<CR>
 
 "invoke fzf with the list of buffers of current tab's workingdir
 "the enabled hotkeys are { 'ctrl-t': 'tabedit', 'ctrl-e, <cr>': 'edit', 'ctrl-v': 'vsp', 'ctrl-x': 'sp' }
