@@ -59,11 +59,12 @@ set foldlevelstart=10
 set foldnestmax=10
 set foldmethod=indent
 
+
+set omnifunc=syntaxcomplete#Complete
+
 filetype off | source ~/.config/nvim/plug.vim
 filetype plugin indent on
 syntax on
-
-set omnifunc=syntaxcomplete#Complete
 
 if has('autocmd')
   autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab
@@ -128,12 +129,11 @@ let g:jsx_ext_required = 0
 
 let g:sexp_enable_insert_mode_mappings = 0
 
-let g:acid_log_messages=1
-let g:acid_eval_command_handler = ['MetaRepl']
-
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#keyword_patterns = {}
 let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
+
+let g:ale_completion_enabled = 1
 
 " deoplete doesnt' play well with multiple cursors
 function! Multiple_cursors_before()
@@ -164,10 +164,10 @@ let g:airline#extensions#ale#enabled = 1
 
 let g:javascript_standard_options = '--parser babel-eslint --plugin flowtype'
 
-source ~/.config/nvim/colors.vim
 source ~/.config/nvim/rainbow.vim
 source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/mappings.vim
+source ~/.config/nvim/colors.vim
 
 augroup vimrc-auto-mkdir
   autocmd!

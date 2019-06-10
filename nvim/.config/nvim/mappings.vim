@@ -135,4 +135,4 @@ nnoremap <silent> <Leader>p :call contabs#project#select()<CR>
 nnoremap <silent> <Leader>b :call contabs#buffer#select()<CR>
 
 " enter resize mode
-let g:winresizer_start_key = 'K'
+let g:winresizer_start_key = '_'
