@@ -168,7 +168,6 @@ source ~/.config/nvim/colors.vim
 source ~/.config/nvim/rainbow.vim
 source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/mappings.vim
-" source ~/Code/nubank/nudev/ides/nvim/plugin/nudev.vim
 
 augroup vimrc-auto-mkdir
   autocmd!

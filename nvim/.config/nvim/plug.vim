@@ -1,46 +1,57 @@
 call plug#begin("~/.local/share/nvim/plugged")
 
 " general utilities
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-ragtag'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-vinegar'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'kburdett/vim-nuuid'
+
+" language server
+Plug 'w0rp/ale'
+
+" integrations
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-eunuch'
+Plug 'ludovicchabant/vim-gutentags'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 " Plug '~/.fzf' | Plug 'junegunn/fzf.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'tpope/vim-projectionist'
-Plug 'm00qek/nvim-contabs'
-Plug 'sjl/gundo.vim'
-Plug 'mileszs/ack.vim'
+
+" ui
+Plug 'junegunn/goyo.vim'
 Plug 'milkypostman/vim-togglelist'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'jszakmeister/vim-togglecursor'
+Plug 'simeji/winresizer'
+Plug 'gregsexton/MatchTag'
 Plug 'luochen1990/rainbow'
 Plug 'jaxbot/semantic-highlight.vim'
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-eunuch'
-Plug 'gregsexton/MatchTag'
-Plug 'AndrewRadev/splitjoin.vim'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'junegunn/vim-easy-align'
-Plug 'justinmk/vim-sneak'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+Plug 'jszakmeister/vim-togglecursor'
+Plug 'vim-airline/vim-airline'
+Plug 'fuadsaud/vim-airline-themes'
+
+" workspace mgmt
+Plug 'm00qek/nvim-contabs'
+
+" navigation
 Plug 'vim-scripts/a.vim'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'junegunn/goyo.vim'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-projectionist'
 Plug 'justinmk/vim-gtfo'
-Plug 'simeji/winresizer'
-Plug 'kburdett/vim-nuuid'
-Plug 'w0rp/ale'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'BurningEther/iron.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'justinmk/vim-sneak'
+
+" text manipulation
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'junegunn/vim-easy-align'
+Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'jiangmiao/auto-pairs'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'sjl/gundo.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " text objects
 Plug 'kana/vim-textobj-user'
@@ -85,11 +96,11 @@ Plug 'fuadsaud/vim-midje',                         { 'for': 'clojure', 'branch':
 Plug 'fuadsaud/vim-postman-clj',                   { 'for': 'clojure' }
 Plug 'guns/vim-sexp',                              { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
-Plug 'clojure-vim/acid.nvim',                      { 'do': ':UpdateRemotePlugins' }
-Plug 'clojure-vim/clj-refactor.nvim',              { 'do': 'clojure' }
-Plug 'clojure-vim/async-clj-omni',                 { 'for': 'clojure' }
-Plug 'paulojean/sort-quire.vim',                   { 'for': 'clojure' }
 Plug 'eraserhd/parinfer-rust',                     { 'for': 'clojure', 'do': 'cargo build --release'}
+" Plug 'clojure-vim/acid.nvim',                      { 'do': ':UpdateRemotePlugins' }
+" Plug 'clojure-vim/async-clj-omni',                 { 'for': 'clojure' }
+Plug 'clojure-vim/clj-refactor.nvim',              { 'do': 'clojure' }
+Plug 'paulojean/sort-quire.vim',                   { 'for': 'clojure' }
 
 " haskell
 Plug 'dag/vim2hs',          { 'for': 'haskell' }
@@ -133,7 +144,5 @@ Plug 'trusktr/seti.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'haishanh/night-owl.vim'
 Plug 'fuadsaud/vim-wsd'
-
-" Plug $NU_HOME.'/nudev/ides/nvim'
 
 call plug#end()
