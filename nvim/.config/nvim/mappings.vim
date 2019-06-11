@@ -1,6 +1,6 @@
 " keymaps
-let mapleader = ','
-let maplocalleader = '\'
+let mapleader = ' '
+let maplocalleader = '<BS>'
 
 " default / to perl-style regexp's
 nnoremap / /\v
@@ -55,7 +55,7 @@ inoremap <C-s> <Esc>:w<CR>
 nnoremap <Leader><Space> :noh<CR>
 
 " opens/closes folds
-nnoremap <Space> za
+nnoremap <Return> za
 
 " delete trailing whitespace
 nnoremap <Leader>W :%s/\s\+$//<CR>:let @/=''<CR>
@@ -79,7 +79,7 @@ map <Leader>m :tabnew<CR>:tcd $NU_HOME/
 
 map <Leader>, :execute ':tabedit' fnamemodify(resolve(expand($MYVIMRC)), ':h')<CR>
 map <Leader>< :tabedit $MYVIMRC<CR>
-map <Leader>z :tabedit ~/.zshrc<CR>
+map <Leader>z :tabedit $ZDOTDIR/.zshrc<CR>
 
 " gundo
 nnoremap <Leader>U :GundoToggle<CR>
