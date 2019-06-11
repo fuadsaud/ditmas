@@ -15,7 +15,9 @@
 } &!
 
 # Print a random, hopefully interesting, adage.
-if (( $+commands[doge] )); then
+if (( $+commands[neofetch] )); then
+  neofetch
+elif (( $+commands[doge] )); then
   doge
 elif (( $+commands[fortune] )); then
   msg=$(fortune -a | cowsay -f milk)

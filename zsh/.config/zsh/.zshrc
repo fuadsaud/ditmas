@@ -22,16 +22,13 @@ source "${ZDOTDIR:-$HOME}/fzf.zsh"
 source "${ZDOTDIR:-$HOME}/colors.zsh"
 source "${ZDOTDIR:-$HOME}/aliases.zsh"
 
+source /usr/share/nvm/init-nvm.sh
+
 # source completions
-# compctl -g "${HOME}/.rubies/*(:t)" chruby
+compctl -g "${HOME}/.rubies/*(:t)" chruby
 
-# source /usr/local/opt/chruby/share/chruby/chruby.sh
-
-# chruby 2
+chruby 2
 
 if [[ -s "${HOME}/.config/nu/nurc" ]]; then
   source ~/.config/nu/nurc
 fi
-
-source /usr/share/nvm/init-nvm.sh
-
