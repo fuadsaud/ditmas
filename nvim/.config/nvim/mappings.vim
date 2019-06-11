@@ -1,5 +1,6 @@
 " keymaps
-let mapleader = ' '
+let mapleader = '\'
+map <Space> <Leader>
 let maplocalleader = '<BS>'
 
 " default / to perl-style regexp's
