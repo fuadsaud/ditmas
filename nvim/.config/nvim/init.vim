@@ -28,7 +28,7 @@ set lazyredraw
 set wildmenu
 set wildmode=longest,full
 set fillchars=vert:│
-:set noswapfile
+set noswapfile
 
 set termguicolors
 
@@ -94,7 +94,11 @@ if has('autocmd')
   autocmd BufNewFile,BufRead *.rss       setfiletype xml
   autocmd BufNewFile,BufRead *.skim      setfiletype slim
 
+  " automatic gofmt
   autocmd FileType go nmap <buffer> = <Esc>:Fmt<CR>
+
+  " support for json c
+  autocmd FileType json syntax match Comment +\/\/.\+$+
 endif
 
 highlight link hspecDescribe Type
@@ -103,8 +107,8 @@ highlight link hspecDescription Comment
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#tabs_label = fnamemodify(getcwd(), ':t')
 
 let g:AutoPairsMultilineClose = 0
 let g:AutoPairsFlyMode = 0
@@ -133,8 +137,6 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#keyword_patterns = {}
 let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
 
-let g:ale_completion_enabled = 1
-
 " deoplete doesnt' play well with multiple cursors
 function! Multiple_cursors_before()
     let b:deoplete_disable_auto_complete = 1
@@ -157,17 +159,17 @@ endif
 
 let g:ale_fixers = { 'javascript': ['prettier_standard'] }
 let g:ale_linters = { 'javascript': ['standard'], 'clojure': ['joker'] }
-let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_text_changed = 'always'
 let g:ale_lint_on_save = 1
-let g:ale_lint_on_enter = 0
+let g:ale_lint_on_enter = 1
 let g:airline#extensions#ale#enabled = 1
-
 let g:javascript_standard_options = '--parser babel-eslint --plugin flowtype'
 
 source ~/.config/nvim/rainbow.vim
 source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/mappings.vim
 source ~/.config/nvim/colors.vim
+source ~/.config/nvim/contabs.vim
 
 augroup vimrc-auto-mkdir
   autocmd!
@@ -180,8 +182,3 @@ augroup vimrc-auto-mkdir
     endif
   endfunction
 augroup END
-
-let g:contabs#project#locations = [
-  \ { 'path': '~/Code/fuadsaud', 'depth': 1, 'git_only': 0 },
-  \ { 'path': '~/Code/nubank', 'depth': 1, 'git_only': 0 },
-  \]
