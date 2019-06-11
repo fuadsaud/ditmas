@@ -2,7 +2,7 @@
 " vimrc by fs
 "
 
-set shell=/usr/local/bin/zsh
+set shell=$SHELL
 
 set encoding=utf-8
 set modelines=0

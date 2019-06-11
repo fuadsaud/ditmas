@@ -56,7 +56,7 @@ inoremap <C-s> <Esc>:w<CR>
 nnoremap <Leader><Space> :noh<CR>
 
 " opens/closes folds
-nnoremap <Return> za
+" nnoremap <Return> za
 
 " delete trailing whitespace
 nnoremap <Leader>W :%s/\s\+$//<CR>:let @/=''<CR>
@@ -78,9 +78,10 @@ map <Leader>a :Ag<Space>
 map <Leader>A :Ag<Space><C-r><C-w><CR>
 map <Leader>m :tabnew<CR>:tcd $NU_HOME/
 
-map <Leader>, :execute ':tabedit' fnamemodify(resolve(expand($MYVIMRC)), ':h')<CR>
+map <Leader>, :execute ':EP' fnamemodify(resolve(expand($MYVIMRC)), ':h')<CR>
 map <Leader>< :tabedit $MYVIMRC<CR>
 map <Leader>z :tabedit $ZDOTDIR/.zshrc<CR>
+map <Leader>si :source $MYVIMRC<CR>
 
 " gundo
 nnoremap <Leader>U :GundoToggle<CR>
