@@ -36,6 +36,8 @@ inoremap <C-F> <Right>
 
 nnoremap j gj
 nnoremap k gk
+nnoremap H 0
+nnoremap L $
 
 " easier navigation between split windows
 nnoremap <C-j> <C-w>j
