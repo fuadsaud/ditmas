@@ -1,7 +1,8 @@
 " keymaps
-let mapleader = '\'
-map <Space> <Leader>
-let maplocalleader = '<BS>'
+let mapleader = ' '
+" map <Space> <Leader>
+" let maplocalleader = '<BS>'
+let maplocalleader = '\'
 
 " default / to perl-style regexp's
 nnoremap / /\v
@@ -17,9 +18,6 @@ inoremap jj <Esc>
 inoremap kk <Esc>
 inoremap jk <Esc>
 inoremap kj <Esc>
-
-nmap oo o<Esc>
-nmap OO O<Esc>
 
 " disable ex mode mapping
 map Q <Nop>
@@ -81,7 +79,7 @@ map <Leader>A :Ag<Space><C-r><C-w><CR>
 map <Leader>m :tabnew<CR>:tcd $NU_HOME/
 
 map <Leader>, :execute ':EP' fnamemodify(resolve(expand($MYVIMRC)), ':h')<CR>
-map <Leader>< :tabedit $MYVIMRC<CR>
+map <Leader>< :vsplit $MYVIMRC<CR>
 map <Leader>z :tabedit $ZDOTDIR/.zshrc<CR>
 map <Leader>si :source $MYVIMRC<CR>
 
