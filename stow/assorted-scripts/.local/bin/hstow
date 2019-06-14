@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
 find ${STOW_DIR:-$HOUDINI_DIR/stow} -maxdepth 1 -mindepth 1 |
-  xargs basename |
   sort |
+  xargs -n 1 basename |
   xargs stow --restow --verbose=2 --target $HOME
