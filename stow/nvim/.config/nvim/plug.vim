@@ -12,7 +12,6 @@ Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'ludovicchabant/vim-gutentags'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-" Plug '~/.fzf' | Plug 'junegunn/fzf.vim'
 
 " ui
 Plug 'junegunn/goyo.vim'
@@ -52,6 +51,7 @@ Plug 'sjl/gundo.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neco-vim'
 
 " text objects
 Plug 'kana/vim-textobj-user'

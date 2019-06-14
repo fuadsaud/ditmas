@@ -106,4 +106,4 @@
 [rebase]
   autoStash = true
 [commit]
-	gpgsign = true
+  gpgsign = true

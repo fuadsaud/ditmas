@@ -64,27 +64,6 @@ filetype off | source ~/.config/nvim/plug.vim
 filetype plugin indent on
 syntax on
 
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#show_close_button = 0
-
-let g:AutoPairsMultilineClose = 0
-let g:AutoPairsFlyMode = 0
-
-let g:netrw_browse_split = 0
-let g:netrw_liststyle=3
-let g:netrw_preview=1
-
-let g:gist_clip_command = 'pbc'
-let g:gist_detect_filetype = 1
-
-let g:splitjoin_ruby_do_block_split = 0
-
-let g:jsx_ext_required = 0
-
-let g:sexp_enable_insert_mode_mappings = 0
-
 source ~/.config/nvim/ag.vim
 source ~/.config/nvim/ale.vim
 source ~/.config/nvim/auto-mk-dir.vim
@@ -95,3 +74,24 @@ source ~/.config/nvim/filetypes.vim
 source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/mappings.vim
 source ~/.config/nvim/rainbow.vim
+
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_close_button = 0
+
+let g:AutoPairsMultilineClose = 0
+let g:AutoPairsFlyMode = 0
+
+let g:gist_clip_command = 'pbc'
+let g:gist_detect_filetype = 1
+
+let g:jsx_ext_required = 0
+
+let g:netrw_browse_split = 0
+let g:netrw_liststyle=3
+let g:netrw_preview=1
+
+let g:sexp_enable_insert_mode_mappings = 0
+
+let g:splitjoin_ruby_do_block_split = 0

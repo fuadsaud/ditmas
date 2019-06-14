@@ -9,8 +9,7 @@ nnoremap / /\v
 vnoremap / /\v
 
 " use tab to jump between matching brackets
-" map <Tab> %
-
+map <Tab> %
 nnoremap <C-;> <C-i>
 
 " go from insert to normal mode
@@ -78,7 +77,7 @@ map <Leader>a :Ag<Space>
 map <Leader>A :Ag<Space><C-r><C-w><CR>
 map <Leader>m :tabnew<CR>:tcd $NU_HOME/
 
-map <Leader>, :execute ':EP' fnamemodify(resolve(expand($MYVIMRC)), ':h')<CR>
+map <Leader>, :execute ':TP' fnamemodify(resolve(expand($MYVIMRC)), ':h')<CR>
 map <Leader>< :vsplit $MYVIMRC<CR>
 map <Leader>z :tabedit $ZDOTDIR/.zshrc<CR>
 map <Leader>si :source $MYVIMRC<CR>
