@@ -1,0 +1,18 @@
+{
+    "workbench.colorTheme": "SynthWave '84",
+    "workbench.statusBar.visible": true,
+    "editor.cursorBlinking": "smooth",
+    "editor.fontFamily": "'ProFont for Powerline', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 18,
+    "window.zoomLevel": 1,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "explorer.confirmDelete": false,
+    "vscode_custom_css.imports": [
+        "file:///home/fuad/.config/Code/User/Resources/synthwave84.css"
+    ],
+    "window.menuBarVisibility": "toggle",
+    "workbench.activityBar.visible": true,
+    "vim.useSystemClipboard": true
+}
