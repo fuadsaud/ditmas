@@ -90,8 +90,6 @@ nnoremap <Leader>U :GundoToggle<CR>
 nmap <Leader>p <Plug>yankstack_substitute_older_paste
 nmap <Leader>P <Plug>yankstack_substitute_newer_paste
 
-vnoremap <Leader>a :Tab/\w:\zs/l0l1<CR>
-
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
@@ -133,3 +131,8 @@ nnoremap <silent> <Leader>b :call contabs#buffer#select()<CR>
 
 " enter resize mode
 let g:winresizer_start_key = '_'
+
+" neosnippets
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)

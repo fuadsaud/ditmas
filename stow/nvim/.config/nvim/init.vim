@@ -29,7 +29,6 @@ set wildmenu
 set wildmode=longest,full
 set fillchars=vert:│
 set noswapfile
-
 set termguicolors
 
 " whitespace
@@ -57,53 +56,13 @@ set inccommand=split
 set foldenable
 set foldlevelstart=10
 set foldnestmax=10
-set foldmethod=indent
-
+set foldmethod=syntax
 
 set omnifunc=syntaxcomplete#Complete
 
 filetype off | source ~/.config/nvim/plug.vim
 filetype plugin indent on
 syntax on
-
-if has('autocmd')
-  autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab
-  autocmd FileType cpp        setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab
-  autocmd FileType css        setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType scss       setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType go         setlocal ts=4 sts=4 sw=4 noexpandtab
-  autocmd FileType haskell    setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType html       setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType java       setlocal ts=4 sts=4 sw=4 expandtab
-  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType json       setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType make       setlocal ts=8 sts=8 sw=8 noexpandtab
-  autocmd FileType objc       setlocal ts=4 sts=4 sw=4 expandtab
-  autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab
-  autocmd FileType scss.css   setlocal ts=4 sts=4 sw=4 expandtab
-  autocmd FileType yaml       setlocal ts=2 sts=2 sw=2 expandtab
-
-  autocmd FileType html,css,markdown EmmetInstall
-  autocmd FileType markdown,text,tex DittoOn
-
-  autocmd Filetype gitcommit  setlocal spell textwidth=72
-
-  autocmd BufNewFile,Bufread *.hl        setfiletype clojure
-  autocmd BufNewFile,BufRead *.json.base setfiletype json
-  autocmd BufNewFile,BufRead *.rss       setfiletype xml
-  autocmd BufNewFile,BufRead *.skim      setfiletype slim
-
-  " automatic gofmt
-  autocmd FileType go nmap <buffer> = <Esc>:Fmt<CR>
-
-  " support for json c
-  autocmd FileType json syntax match Comment +\/\/.\+$+
-endif
-
-highlight link hspecDescribe Type
-highlight link hspecIt Identifier
-highlight link hspecDescription Comment
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -117,14 +76,7 @@ let g:netrw_browse_split = 0
 let g:netrw_liststyle=3
 let g:netrw_preview=1
 
-let g:UltiSnipsExpandTrigger       = '<tab>'
-let g:UltiSnipsJumpForwardTrigger  = '<c-b>'
-let g:UltiSnipsJumpBackwardTrigger = '<c-z>'
-let g:UltiSnipsEditSplit           = 'vertical'
-
-let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec {spec}\n")'
-
-let g:gist_clip_command = 'pbcopy'
+let g:gist_clip_command = 'pbc'
 let g:gist_detect_filetype = 1
 
 let g:splitjoin_ruby_do_block_split = 0
@@ -133,52 +85,13 @@ let g:jsx_ext_required = 0
 
 let g:sexp_enable_insert_mode_mappings = 0
 
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#keyword_patterns = {}
-let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
-
-" deoplete doesnt' play well with multiple cursors
-function! Multiple_cursors_before()
-    let b:deoplete_disable_auto_complete = 1
-endfunction
-
-function! Multiple_cursors_after()
-    let b:deoplete_disable_auto_complete = 0
-endfunction
-
-" The Silver Searcher
-if executable('ag')
-  set grepprg=ag\ --vim-grep\ --smart-case
-  let g:ackprg = 'ag --vimgrep --smart-case'
-
-  cnoreabbrev ag Ack
-  cnoreabbrev aG Ack
-  cnoreabbrev Ag Ack
-  cnoreabbrev AG Ack
-endif
-
-let g:ale_fixers = { 'javascript': ['prettier_standard'] }
-let g:ale_linters = { 'javascript': ['standard'], 'clojure': ['joker'] }
-let g:ale_lint_on_text_changed = 'always'
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_enter = 1
-let g:airline#extensions#ale#enabled = 1
-let g:javascript_standard_options = '--parser babel-eslint --plugin flowtype'
-
-source ~/.config/nvim/rainbow.vim
-source ~/.config/nvim/fzf.vim
-source ~/.config/nvim/mappings.vim
+source ~/.config/nvim/ag.vim
+source ~/.config/nvim/ale.vim
+source ~/.config/nvim/auto-mk-dir.vim
 source ~/.config/nvim/colors.vim
 source ~/.config/nvim/contabs.vim
-
-augroup vimrc-auto-mkdir
-  autocmd!
-  autocmd BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'), v:cmdbang)
-  function! s:auto_mkdir(dir, force)
-    if !isdirectory(a:dir)
-          \   && (a:force
-          \       || input("'" . a:dir . "' does not exist. Create? [y/N] ") =~? '^y\%[es]$')
-      call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
-    endif
-  endfunction
-augroup END
+source ~/.config/nvim/deoplete.vim
+source ~/.config/nvim/filetypes.vim
+source ~/.config/nvim/fzf.vim
+source ~/.config/nvim/mappings.vim
+source ~/.config/nvim/rainbow.vim

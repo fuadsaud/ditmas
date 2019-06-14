@@ -6,7 +6,6 @@ Plug 'kburdett/vim-nuuid'
 
 " language server
 Plug 'w0rp/ale'
-" Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 " integrations
 Plug 'mileszs/ack.vim'
@@ -46,13 +45,13 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'junegunn/vim-easy-align'
-Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
 Plug 'jiangmiao/auto-pairs'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'sjl/gundo.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 
 " text objects
 Plug 'kana/vim-textobj-user'
@@ -73,10 +72,8 @@ Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
 
 " tmux
 Plug 'Keithbsmiley/tmux.vim', { 'for': 'tmux' }
-Plug 'LnL7/vim-tslime'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'edkolev/tmuxline.vim'
-Plug 'hkupty/nvimux'
 
 " ruby
 Plug 'vim-ruby/vim-ruby'
@@ -111,17 +108,17 @@ Plug 'hspec/hspec.vim',     { 'for': 'haskell' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 
 " javascript
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript',  { 'for': 'javascript' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'mxw/vim-jsx'
+Plug 'mxw/vim-jsx',              { 'for': 'javascript' }
 
 " kotlin
-Plug 'udalov/kotlin-vim'
+Plug 'udalov/kotlin-vim',        { 'for': 'kotlin' }
 
 " markup
-Plug 'mattn/emmet-vim'
-Plug 'JulesWang/css.vim'
-Plug 'ap/vim-css-color'
+Plug 'mattn/emmet-vim',                { 'for': 'html' }
+Plug 'JulesWang/css.vim',              { 'for': 'css'}
+Plug 'ap/vim-css-color',               { 'for': 'css'}
 Plug 'hail2u/vim-css3-syntax',         { 'for': 'css'}
 Plug 'othree/html5.vim',               { 'for': 'html' }
 Plug 'tpope/vim-markdown',             { 'for': 'markdown'}

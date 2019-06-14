@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if mac-host; then
+  pbcopy
+elif linux-host; then
+  xclip -i -f -selection primary | xclip -i -selection clipboard
+fi
