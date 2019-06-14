@@ -1,16 +1,16 @@
-vim/.vim/plugged
-vim/.vim/autoload/plug.vim
-vim/.vim/.netrwhist
-nvim/.config/nvim/.netrwhist
+stow/lein/repl-history
 
-zsh/.config/zsh/.zcompdump
-zsh/.config/zsh/.zcompcache
-zsh/.config/zsh/.zcompdump.zwc
-zsh/.config/zsh/.zhistory
+stow/vim/.vim/plugged
+stow/vim/.vim/autoload/plug.vim
+stow/vim/.vim/.netrwhist
+stow/nvim/.config/nvim/.netrwhist
+stow/nvim/.config/nvim/Ditto
 
-env.sh
+stow/zsh/.config/zsh/.zcompdump
+stow/zsh/.config/zsh/.zcompcache
+stow/zsh/.config/zsh/.zcompdump.zwc
+stow/zsh/.config/zsh/.zhistory
+
 emacs.d/elpa
 
-lein/repl-history
-nvim/Ditto
 tags
