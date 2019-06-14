@@ -109,6 +109,9 @@ if [[ -n "$ZSH_VERSION" ]]; then
   fi
 fi
 
+export HOUDINI_DIR="$HOME/.houdini"
+export STOW_DIR="$HOUDINI_DIR/stow"
+
 export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 export GOPATH="$HOME/Code/go"
 export ANDROID_HOME="$HOME/Library/Android/sdk"
