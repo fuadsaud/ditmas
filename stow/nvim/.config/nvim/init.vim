@@ -70,7 +70,7 @@ source ~/.config/nvim/auto-mk-dir.vim
 source ~/.config/nvim/colors.vim
 source ~/.config/nvim/contabs.vim
 source ~/.config/nvim/deoplete.vim
-source ~/.config/nvim/filetypes.vim
+source ~/.config/nvim/fts.vim
 source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/mappings.vim
 source ~/.config/nvim/rainbow.vim
