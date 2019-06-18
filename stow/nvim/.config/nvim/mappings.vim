@@ -135,3 +135,7 @@ let g:winresizer_start_key = '_'
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
+
+nnoremap <Leader>vpc :PlugClean<CR>
+nnoremap <Leader>vpi :PlugInstall<CR>
+nnoremap <Leader>vpu :PlugUpdate<CR>
