@@ -88,6 +88,7 @@ Plug 'ngmy/vim-rubocop',         { 'for': 'ruby' }
 " clojure
 Plug 'tpope/vim-fireplace',                        { 'for': 'clojure' }
 Plug 'tpope/vim-salve',                            { 'for': 'clojure', 'commit': 'a0dc869' }
+Plug 'venantius/vim-cljfmt',                       { 'for': 'clojure' }
 Plug 'fuadsaud/vim-clojure-static',                { 'for': 'clojure' }
 Plug 'fuadsaud/vim-midje',                         { 'for': 'clojure', 'branch': 'fix-lispwords' }
 Plug 'fuadsaud/vim-postman-clj',                   { 'for': 'clojure' }
