@@ -8,8 +8,6 @@ let maplocalleader = '\'
 nnoremap / /\v
 vnoremap / /\v
 
-" use tab to jump between matching brackets
-map <Tab> %
 nnoremap <C-;> <C-i>
 
 " go from insert to normal mode
