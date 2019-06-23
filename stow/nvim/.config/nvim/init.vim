@@ -63,6 +63,7 @@ set omnifunc=syntaxcomplete#Complete
 let s:config_dir = stdpath('config')
 
 let s:additional_configs = [
+\   'plug-helpers.vim'
 \   'plug.vim',
 \   'ag.vim',
 \   'ale.vim',

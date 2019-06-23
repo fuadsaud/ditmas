@@ -1,5 +1,3 @@
-source ./plug-helpers.vim
-
 call plug#begin("~/.local/share/nvim/plugged")
 
 " general utilities
