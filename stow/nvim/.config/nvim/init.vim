@@ -95,3 +95,5 @@ let g:netrw_preview=1
 let g:sexp_enable_insert_mode_mappings = 0
 
 let g:splitjoin_ruby_do_block_split = 0
+
+au TabLeave * if !haslocaldir() | let t:cwd = getcwd() | endif

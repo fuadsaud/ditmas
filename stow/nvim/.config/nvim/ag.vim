@@ -1,6 +1,6 @@
 " The Silver Searcher
 if executable('ag')
-  set grepprg=ag\ --vim-grep\ --smart-case
+  " set grepprg=ag\ --vimgrep\ --smart-case
   let g:ackprg = 'ag --vimgrep --smart-case'
 
   cnoreabbrev ag Ack

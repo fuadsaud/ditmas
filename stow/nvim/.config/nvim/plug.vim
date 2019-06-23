@@ -1,7 +1,6 @@
 call plug#begin("~/.local/share/nvim/plugged")
 
 " general utilities
-Plug 'editorconfig/editorconfig-vim'
 Plug 'kburdett/vim-nuuid'
 
 " language server
@@ -10,8 +9,9 @@ Plug 'w0rp/ale'
 " integrations
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-eunuch'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'editorconfig/editorconfig-vim'
 
 " ui
 Plug 'junegunn/goyo.vim'
@@ -117,7 +117,7 @@ Plug 'mxw/vim-jsx',              { 'for': 'javascript' }
 Plug 'udalov/kotlin-vim',        { 'for': 'kotlin' }
 
 " markup
-Plug 'mattn/emmet-vim',                { 'for': 'html' }
+Plug 'mattn/emmet-vim'
 Plug 'JulesWang/css.vim',              { 'for': 'css'}
 Plug 'ap/vim-css-color',               { 'for': 'css'}
 Plug 'hail2u/vim-css3-syntax',         { 'for': 'css'}
