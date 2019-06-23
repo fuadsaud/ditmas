@@ -73,7 +73,6 @@ source ~/.config/nvim/deoplete.vim
 source ~/.config/nvim/fts.vim
 source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/mappings.vim
-source ~/.config/nvim/rainbow.vim
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -96,4 +95,28 @@ let g:sexp_enable_insert_mode_mappings = 0
 
 let g:splitjoin_ruby_do_block_split = 0
 
-au TabLeave * if !haslocaldir() | let t:cwd = getcwd() | endif
+let g:tmuxline_preset = 'crosshair'
+
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+\   'guifgs': ['Orange4', 'teal', 'DeepPink4', 'DeepSkyBlue4'],
+\   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+\   'operators': '_,_',
+\   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+\   'separately': {
+\       '*': {},
+\       'tex': {
+\           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+\       },
+\       'lisp': {
+\           'guifgs': ['Orange4', 'teal', 'DeepPink4', 'DeepSkyBlue4', 'olive'],
+\       },
+\       'vim': {
+\           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+\       },
+\       'html': {
+\           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+\       },
+\       'css': 0,
+\   }
+\}
