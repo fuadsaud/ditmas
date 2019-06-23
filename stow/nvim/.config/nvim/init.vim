@@ -80,17 +80,13 @@ for additional_config in s:additional_configs
   execute "source " . s:config_dir . '/' . additional_config
 endfor
 
-" source s:config_dir ."/plug.vim"
-
-" source s:config_dir ."/ag.vim"
-" source s:config_dir ."/ale.vim"
-" source s:config_dir ."/auto-mk-dir.vim"
-" source s:config_dir ."/colors.vim"
-" source s:config_dir ."/contabs.vim"
-" source s:config_dir ."/deoplete.vim"
-" source s:config_dir ."/fts.vim"
-" source s:config_dir ."/fzf.vim"
-" source s:config_dir ."/mappings.vim"
+let g:ale_fixers = { 'javascript': ['prettier_standard'] }
+let g:ale_linters = { 'javascript': ['standard'], 'clojure': ['joker'] }
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_enter = 1
+let g:airline#extensions#ale#enabled = 1
+let g:javascript_standard_options = '--parser babel-eslint --plugin flowtype'
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
