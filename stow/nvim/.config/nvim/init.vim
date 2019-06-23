@@ -60,17 +60,36 @@ set foldmethod=syntax
 
 set omnifunc=syntaxcomplete#Complete
 
-source ./plug.vim
+let s:config_dir = stdpath('config')
 
-source ./ag.vim
-source ./ale.vim
-source ./auto-mk-dir.vim
-source ./colors.vim
-source ./contabs.vim
-source ./deoplete.vim
-source ./fts.vim
-source ./fzf.vim
-source ./mappings.vim
+let s:additional_configs = [
+\   'plug.vim',
+\   'ag.vim',
+\   'ale.vim',
+\   'auto-mk-dir.vim',
+\   'colors.vim',
+\   'contabs.vim',
+\   'deoplete.vim',
+\   'fts.vim',
+\   'fzf.vim',
+\   'mappings.vim',
+\ ]
+
+for additional_config in s:additional_configs
+  execute "source " . s:config_dir . '/' . additional_config
+endfor
+
+" source s:config_dir ."/plug.vim"
+
+" source s:config_dir ."/ag.vim"
+" source s:config_dir ."/ale.vim"
+" source s:config_dir ."/auto-mk-dir.vim"
+" source s:config_dir ."/colors.vim"
+" source s:config_dir ."/contabs.vim"
+" source s:config_dir ."/deoplete.vim"
+" source s:config_dir ."/fts.vim"
+" source s:config_dir ."/fzf.vim"
+" source s:config_dir ."/mappings.vim"
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1

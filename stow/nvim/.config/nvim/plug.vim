@@ -145,4 +145,6 @@ Plug 'flazz/vim-colorschemes'
 Plug 'haishanh/night-owl.vim'
 Plug 'fuadsaud/vim-wsd'
 
+Plug '$HOME/Sources/fuadsaud/vim-potion'
+
 call plug#end()
