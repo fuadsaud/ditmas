@@ -60,19 +60,17 @@ set foldmethod=syntax
 
 set omnifunc=syntaxcomplete#Complete
 
-filetype off | source ~/.config/nvim/plug.vim
-filetype plugin indent on
-syntax on
+source ./plug.vim
 
-source ~/.config/nvim/ag.vim
-source ~/.config/nvim/ale.vim
-source ~/.config/nvim/auto-mk-dir.vim
-source ~/.config/nvim/colors.vim
-source ~/.config/nvim/contabs.vim
-source ~/.config/nvim/deoplete.vim
-source ~/.config/nvim/fts.vim
-source ~/.config/nvim/fzf.vim
-source ~/.config/nvim/mappings.vim
+source ./ag.vim
+source ./ale.vim
+source ./auto-mk-dir.vim
+source ./colors.vim
+source ./contabs.vim
+source ./deoplete.vim
+source ./fts.vim
+source ./fzf.vim
+source ./mappings.vim
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1

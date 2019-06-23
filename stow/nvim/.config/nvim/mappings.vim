@@ -70,15 +70,15 @@ nnoremap <Leader>V V`]
 " switch between the last two files
 nnoremap <Leader>c <C-^>
 
-map <Leader>M :TagbarToggle<CR>
-map <Leader>a :Ag<Space>
-map <Leader>A :Ag<Space><C-r><C-w><CR>
-map <Leader>m :tabnew<CR>:tcd $NU_HOME/
+nnoremap <Leader>M :TagbarToggle<CR>
+nnoremap <Leader>a :Ag<Space>
+nnoremap <Leader>A :Ag<Space><C-r><C-w><CR>
 
-map <Leader>, :execute ':TP' fnamemodify(resolve(expand($MYVIMRC)), ':h')<CR>
-map <Leader>< :vsplit $MYVIMRC<CR>
-map <Leader>z :tabedit $ZDOTDIR/.zshrc<CR>
-map <Leader>si :source $MYVIMRC<CR>
+nnoremap <Leader>, :execute ':TP' fnamemodify(resolve(expand($MYVIMRC)), ':h')<CR>
+nnoremap <Leader>< :vsplit $MYVIMRC<CR>
+nnoremap <Leader>z :tabedit $ZDOTDIR/.zshrc<CR>
+nnoremap <Leader>si :source $MYVIMRC<CR>
+nnoremap <Leader>so :source %<CR>
 
 " gundo
 nnoremap <Leader>U :GundoToggle<CR>
