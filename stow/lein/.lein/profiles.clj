@@ -1,4 +1,4 @@
-{:user {:dependencies        [[cljdev "0.7.2"]]
+{:user {:dependencies        [[cljdev "0.8.0"]]
         :injections          [(require 'nu)]
         :repositories        [["central"  {:url "https://repo1.maven.org/maven2/" :snapshots false}]
                               ["clojars"  {:url "https://clojars.org/repo/"}]
