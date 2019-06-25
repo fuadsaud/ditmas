@@ -1,4 +1,5 @@
 #
+#
 # Executes commands at the start of an interactive session.
 #
 # Authors:
@@ -16,6 +17,7 @@ stty -ixon # disable C-s
 
 unsetopt correct
 setopt interactivecomments
+setopt globdots
 
 source "${ZDOTDIR:-$HOME}/fasd.zsh"
 source "${ZDOTDIR:-$HOME}/fzf.zsh"
@@ -32,3 +34,5 @@ chruby 2
 if [[ -s "${HOME}/.config/nu/nurc" ]]; then
   source ~/.config/nu/nurc
 fi
+
+export PATH="$PATH:$HOME/Sources/potion/bin"
