@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+git --git-dir=$HOUDINI_DIR/.git pull
+
+hstow
