@@ -48,6 +48,7 @@
   r  = rebase
   ra = rebase --abort
   rc = rebase --continue
+  rh = reset --hard
   resign = r --gpg-sign --no-ff
   ri = rebase -i
   rms = rebase master
@@ -107,3 +108,5 @@
   autoStash = true
 [commit]
   gpgsign = true
+[pull]
+  rebase = true
