@@ -33,6 +33,7 @@
   ft = fetch --verbose --tags
   fr = pull --rebase --verbose
   frm = fr origin master
+  gh-pages = !git checkout --orphan gh-pages && git rm $(git ls-files) -f
   l  = log --graph --abbrev-commit
   la = log --graph --abbrev-commit --all
   m  = merge --verbose
@@ -63,6 +64,7 @@
   showf = fz-show
   showm = "!git show @ --format=full | tail -n +2 | head -n 1 | cut -d ':' -f 2 | awk 'BEGIN{FS=" ";OFS="..."} {t1=$1;$1=$2;$2=t1;print}'"
   sl = stash list
+  sm = submodule
   snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
   sp = stash pop
   ss = stash show -p
@@ -74,7 +76,6 @@
   untracked = ls-files --others --exclude-standard
   wc = whatchanged --graph --abbrev-commit
   wip = ci -m '•••••<[WIP]>•••••'
-  gh-pages = !git checkout --orphan gh-pages && git rm $(git ls-files) -f
 [color]
   ui = auto
 [credential]
