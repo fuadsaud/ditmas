@@ -3,6 +3,7 @@ let g:contabs#integrations#airline_theme = 'basename'
 let g:contabs#project#locations = [
   \ { 'path': '~/Sources/fuadsaud', 'depth': 1, 'git_only': 0 },
   \ { 'path': '~/Sources/nubank', 'depth': 1, 'git_only': 0 },
+  \ { 'path': '~/.houdini/stow/', 'depth': 1, 'git_only': 0 },
   \]
 
 "command to change the current tab's workingdir

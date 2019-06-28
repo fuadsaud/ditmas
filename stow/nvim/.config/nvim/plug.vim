@@ -145,4 +145,6 @@ Plug 'fuadsaud/vim-wsd'
 
 Plug '$HOME/Sources/fuadsaud/vim-potion'
 
+Plug 'johngrib/vim-game-code-break'
+
 call plug#end()
