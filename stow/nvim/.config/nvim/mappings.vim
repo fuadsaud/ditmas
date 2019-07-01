@@ -1,6 +1,6 @@
 " keymaps
 " interesting unused keys in normal mode:
-"   - <Return> (testing it for quick switching buffers)
+"   - <Return>
 "   - +
 "   - _
 "   - \
@@ -72,7 +72,7 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " switch between the last two files
 nnoremap <Leader>c <C-^>
-nnoremap <Return> <C-^>
+nnoremap <Leader><Tab> <C-^>
 
 nnoremap <Leader>M :TagbarToggle<CR>
 nnoremap <Leader>a :Ack<Space>
