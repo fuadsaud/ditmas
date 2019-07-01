@@ -7,7 +7,8 @@ Plug 'kburdett/vim-nuuid'
 Plug 'w0rp/ale'
 
 " integrations
-Plug 'mileszs/ack.vim'
+" Plug 'mileszs/ack.vim'
+Plug 'wincent/ferret'
 Plug 'tpope/vim-eunuch'
 Plug 'ludovicchabant/vim-gutentags'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
