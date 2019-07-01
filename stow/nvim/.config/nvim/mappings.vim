@@ -61,11 +61,8 @@ nnoremap <Leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 " re-hardwrap text
 nnoremap <Leader>Q gqip
 
-" reselect last visual shape
-nnoremap <Leader>v `[v`]
-
 " reselect last pasted text
-nnoremap <Leader>V V`]
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " switch between the last two files
 nnoremap <Leader>c <C-^>
