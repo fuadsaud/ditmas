@@ -140,3 +140,9 @@ let g:rainbow_conf['guifgs'] = [
 \ ]
 
 " let g:rainbow_conf['guifgs'] = ['Orange4', 'teal', 'DeepPink4', 'DeepSkyBlue4']
+
+"command to change the current tab's workingdir
+command! -nargs=1 -complete=dir EP call contabs#project#edit(<q-args>)
+
+"command to open a new tab with some workingdir
+command! -nargs=1 -complete=dir TP call contabs#project#tabedit(<q-args>)

@@ -1,14 +1,19 @@
 " keymaps
+" interesting unused keys in normal mode:
+"   - <Return> (testing it for quick switching buffers)
+"   - +
+"   - _
+"   - \
+"   - | (currently used as an aux <LocalLeader>)
+"   - <Del> (testing for  :noh)
+
 let mapleader = ' '
-" map <Space> <Leader>
-" let maplocalleader = '<BS>'
-let maplocalleader = '\'
+let maplocalleader = '<Bar>'
+map <BS> <LocalLeader>
 
 " default / to perl-style regexp's
 nnoremap / /\v
 vnoremap / /\v
-
-nnoremap <C-;> <C-i>
 
 " go from insert to normal mode
 inoremap jj <Esc>
@@ -16,8 +21,8 @@ inoremap kk <Esc>
 inoremap jk <Esc>
 inoremap kj <Esc>
 
-" disable ex mode mapping
-map Q <Nop>
+" run macros
+nnoremap Q @q
 
 " ahw, what the hell!
 cnoreabbrev W w
@@ -31,17 +36,17 @@ inoremap <C-F> <Right>
 
 nnoremap j gj
 nnoremap k gk
-nnoremap H 0
-nnoremap L $
+
+map $ <Nop>
+map ^ <Nop>
+noremap H 0
+noremap L $
 
 " easier navigation between split windows
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-
-nnoremap + <C-w>+
-nnoremap _ <C-w>-
 
 nnoremap <Leader>- <Plug>VinegarTabUp
 
@@ -51,9 +56,10 @@ inoremap <C-s> <Esc>:w<CR>
 
 " remove highligted terms
 nnoremap <Leader><Space> :noh<CR>
+nnoremap <Del> :noh<CR>
 
 " opens/closes folds
-" nnoremap <Return> za
+nnoremap z<Space> zA
 
 " delete trailing whitespace
 nnoremap <Leader>W :%s/\s\+$//<CR>:let @/=''<CR>
@@ -66,16 +72,25 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " switch between the last two files
 nnoremap <Leader>c <C-^>
+nnoremap <Return> <C-^>
 
 nnoremap <Leader>M :TagbarToggle<CR>
-nnoremap <Leader>a :Ag<Space>
-nnoremap <Leader>A :Ag<Space><C-r><C-w><CR>
+nnoremap <Leader>a :Ack<Space>
+nnoremap <Leader>A :Ack<Space><C-r><C-w><CR>
 
-nnoremap <Leader>, :execute ':TP' fnamemodify(resolve(expand($MYVIMRC)), ':h')<CR>
-nnoremap <Leader>< :vsplit $MYVIMRC<CR>
-nnoremap <Leader>z :tabedit $ZDOTDIR/.zshrc<CR>
+" tabedit intersting dirs
+nnoremap <silent> <Leader>< :vsplit $MYVIMRC<CR>
+nnoremap <silent> <Leader>, :execute ':TP' fnamemodify(resolve(expand($MYVIMRC)), ':h')<CR>
+nnoremap <silent> <Leader>z :TP $ZDOTDIR/.zshrc<CR>
+
+" source
 nnoremap <Leader>si :source $MYVIMRC<CR>
 nnoremap <Leader>so :source %<CR>
+
+" plug
+nnoremap <Leader>vpc :PlugClean<CR>
+nnoremap <Leader>vpi :PlugInstall<CR>
+nnoremap <Leader>vpu :PlugUpdate<CR>
 
 " gundo
 nnoremap <Leader>U :GundoToggle<CR>
@@ -87,16 +102,24 @@ nmap <Leader>P <Plug>yankstack_substitute_newer_paste
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
+" sneak
+
 map <Leader>s <Plug>Sneak_s
 map <Leader>S <Plug>Sneak_S
 
+" swap default seek mappings by sneak
 map f <Plug>Sneak_f
 map F <Plug>Sneak_F
 map t <Plug>Sneak_t
 map T <Plug>Sneak_T
 
+" yank to EOL
 nnoremap Y y$
 
+" delete to EOL
+inoremap <C-Del> <C-\><C-O>D
+
+" disable meta mappings
 nnoremap <M-h> <Nop>
 nnoremap <M-j> <Nop>
 nnoremap <M-k> <Nop>
@@ -109,12 +132,6 @@ nnoremap <M-s-l> <Nop>
 nnoremap <C-p> :FFiles<CR>
 nnoremap <Leader>b :FBuffers<CR>
 
-"command to change the current tab's workingdir
-command! -nargs=1 -complete=dir EP call contabs#project#edit(<q-args>)
-
-"command to open a new tab with some workingdir
-command! -nargs=1 -complete=dir TP call contabs#project#tabedit(<q-args>)
-
 "invoke fzf with the list of projects configured in g:contabs#project#locations
 "the enabled hotkeys are { 'ctrl-t': 'tabedit', 'ctrl-e, <cr>': 'edit' }
 nnoremap <silent> <Leader>m :call contabs#project#select()<CR>
@@ -124,13 +141,9 @@ nnoremap <silent> <Leader>m :call contabs#project#select()<CR>
 nnoremap <silent> <Leader>b :call contabs#buffer#select()<CR>
 
 " enter resize mode
-let g:winresizer_start_key = '_'
+let g:winresizer_start_key = '<C-_>'
 
 " neosnippets
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
-
-nnoremap <Leader>vpc :PlugClean<CR>
-nnoremap <Leader>vpi :PlugInstall<CR>
-nnoremap <Leader>vpu :PlugUpdate<CR>
