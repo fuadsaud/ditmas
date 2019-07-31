@@ -92,7 +92,7 @@ nnoremap j gj
 nnoremap k gk
 
 " less finger yoga
-noremap H 0
+noremap H ^
 noremap L $
 " TODO: remove when muscle memory is adapted
 map $ <Nop>
@@ -140,12 +140,16 @@ nnoremap <Leader>c <C-^>
 nnoremap <Return> <C-^>
 nnoremap <Leader><Tab> <C-^>
 
+" In the quickfix window, <CR> is used to jump to the error under the
+" cursor, so undefine the mapping there.
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+
 " set fold methods
-nnoremap <leader>ff :set fdm=manual<cr>
-nnoremap <leader>fi :set fdm=indent<cr>
-nnoremap <leader>fm :set fdm=marker<cr>
-nnoremap <leader>fs :set fdm=syntax<cr>
-nnoremap <leader>fd :set fdm=diff<cr>
+nnoremap <Leader>ff :set fdm=manual<CR>
+nnoremap <Leader>fi :set fdm=indent<CR>
+nnoremap <Leader>fm :set fdm=marker<CR>
+nnoremap <Leader>fs :set fdm=syntax<CR>
+nnoremap <Leader>fd :set fdm=diff<CR>
 
 "invoke fzf with the list of projects configured in g:contabs#project#locations
 "the enabled hotkeys are { 'ctrl-t': 'tabedit', 'ctrl-e, <cr>': 'edit' }

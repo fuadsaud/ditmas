@@ -7,7 +7,7 @@ Plug 'kburdett/vim-nuuid'
 Plug 'w0rp/ale'
 
 " integrations
-" Plug 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 Plug 'wincent/ferret'
 Plug 'tpope/vim-eunuch'
 Plug 'ludovicchabant/vim-gutentags'
@@ -68,7 +68,6 @@ Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
-Plug 'jreybert/vimagit'
 Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
 
 " tmux

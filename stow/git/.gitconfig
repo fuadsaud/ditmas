@@ -11,6 +11,7 @@
   cb = co -b
   ci = commit --verbose
   cia = ci --all
+  cinos = commit --no-gpg-sign
   cim = ci --message
   ciam = ci --all --message
   co = checkout
