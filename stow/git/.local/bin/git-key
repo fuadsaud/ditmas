@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if mac-host; then
+  git credential-osxkeychain
+elif linux-host; then
+  /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
+fi
