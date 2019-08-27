@@ -1,4 +1,4 @@
-stow/lein/repl-history
+stow/lein/.lein/repl-history
 
 stow/vim/.vim/plugged
 stow/vim/.vim/autoload/plug.vim
