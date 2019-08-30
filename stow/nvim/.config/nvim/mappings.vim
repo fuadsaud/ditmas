@@ -177,9 +177,9 @@ nnoremap <Leader>t :TagbarToggle<CR>
 nnoremap <Leader>U :GundoToggle<CR>
 
 " plug
-nnoremap <Leader>vpc :PlugClean<CR>
-nnoremap <Leader>vpi :PlugInstall<CR>
-nnoremap <Leader>vpu :PlugUpdate<CR>
+nnoremap <Leader>pc :PlugClean<CR>
+nnoremap <Leader>pi :PlugInstall<CR>
+nnoremap <Leader>pu :PlugUpdate<CR>
 
 " delete trailing whitespace
 nnoremap <Leader>w :%s/\s\+$//<CR>:let @/=''<CR>
