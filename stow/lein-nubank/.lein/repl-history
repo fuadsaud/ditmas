@@ -1,0 +1,2 @@
+(require 'authorizer.core :reload)
+(require '[datomic.client.api :as d])
