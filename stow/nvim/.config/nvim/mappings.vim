@@ -160,7 +160,7 @@ nnoremap <silent> <Leader>pp :call contabs#project#select()<CR>
 nnoremap <silent> <Leader>pb :call contabs#buffer#select()<CR>
 
 " re-hardwrap text
-nnoremap <Leader>q gqip
+nnoremap <Leader><Return> gqip
 
 " sneak
 map <Leader>s <Plug>Sneak_s
