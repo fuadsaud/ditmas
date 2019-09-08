@@ -1,4 +1,8 @@
 stow/lein/.lein/repl-history
+stow/lein/.lein/self-installs
+
+stow/lein-nubank/.lein/repl-history
+stow/lein-nubank/.lein/self-installs
 
 stow/vim/.vim/plugged
 stow/vim/.vim/autoload/plug.vim
