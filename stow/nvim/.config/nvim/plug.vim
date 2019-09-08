@@ -86,16 +86,16 @@ Plug 'sunaku/vim-ruby-minitest', { 'for': 'ruby' }
 Plug 'ngmy/vim-rubocop',         { 'for': 'ruby' }
 
 " clojure
+Plug 'guns/vim-sexp',                              { 'for': 'clojure' }
+Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace',                        { 'for': 'clojure' }
 Plug 'tpope/vim-salve',                            { 'for': 'clojure' }
 Plug 'venantius/vim-cljfmt',                       { 'for': 'clojure' }
 Plug 'fuadsaud/vim-clojure-static',                { 'for': 'clojure' }
 Plug 'fuadsaud/vim-midje',                         { 'for': 'clojure', 'branch': 'fix-lispwords' }
 Plug 'fuadsaud/vim-postman-clj',                   { 'for': 'clojure' }
-Plug 'guns/vim-sexp',                              { 'for': 'clojure' }
-Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'eraserhd/parinfer-rust',                     { 'for': 'clojure', 'do': 'cargo build --release'}
-Plug 'clojure-vim/async-clj-highlight',            { 'for': 'clojure' }
+" Plug 'clojure-vim/async-clj-highlight',            { 'for': 'clojure' }
 " Plug 'clojure-vim/acid.nvim',                      { 'for': 'clojure', 'do': ':UpdateRemotePlugins' }
 Plug 'clojure-vim/jazz.nvim' | Plug 'Vigemus/impromptu.nvim'
 Plug 'paulojean/sort-quire.vim',                   { 'for': 'clojure' }
