@@ -12,6 +12,9 @@
   ci = commit --verbose
   cia = ci --all
   cinos = commit --no-gpg-sign
+  cinosa = cinos -a
+  cinosm = cinos -m
+  cinosam = cinos -am
   cim = ci --message
   ciam = ci --all --message
   co = checkout
@@ -110,5 +113,3 @@
   gpgsign = true
 [pull]
   rebase = true
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
