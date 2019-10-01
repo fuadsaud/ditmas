@@ -3,7 +3,7 @@
 set -euo pipefail
 
 if mac-host; then
-  /usr/local/bin/pinentry
+  /usr/local/bin/pinentry-curses
 elif linux-host; then
   /usr/bin/pinentry-gnome3
 fi
