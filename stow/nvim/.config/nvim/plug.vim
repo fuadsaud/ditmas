@@ -10,7 +10,7 @@ Plug 'w0rp/ale'
 Plug 'mileszs/ack.vim'
 Plug 'wincent/ferret'
 Plug 'tpope/vim-eunuch'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'editorconfig/editorconfig-vim'
 

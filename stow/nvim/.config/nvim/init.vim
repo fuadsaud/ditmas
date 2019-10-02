@@ -58,7 +58,16 @@ set foldlevelstart=10
 set foldnestmax=10
 set foldmethod=syntax
 
+" completion
+set completeopt=longest,menuone
 set omnifunc=syntaxcomplete#Complete
+
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
 
 let s:config_dir = stdpath('config')
 
