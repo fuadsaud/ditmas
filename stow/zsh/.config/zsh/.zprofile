@@ -45,8 +45,16 @@ typeset -gU cdpath fpath mailpath path
 #   $cdpath
 # )
 
+export HOUDINI_DIR="$HOME/.houdini"
+export STOW_DIR="$HOUDINI_DIR/stow"
+
+export HOMEBREW_CASK_OPTS='--appdir=/Applications'
+export GOPATH="$HOME/Code/go"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+
 # Set the list of directories that Zsh searches for programs.
 path=(
+  $ANDROID_HOME/emulator
   $ANDROID_HOME/tools
   $ANDROID_HOME/platform-tools
   $HOME/.cargo/bin
@@ -110,10 +118,3 @@ if [[ -n "$ZSH_VERSION" ]]; then
     preexec_functions+=("add_trusted_local_bin_to_path")
   fi
 fi
-
-export HOUDINI_DIR="$HOME/.houdini"
-export STOW_DIR="$HOUDINI_DIR/stow"
-
-export HOMEBREW_CASK_OPTS='--appdir=/Applications'
-export GOPATH="$HOME/Code/go"
-export ANDROID_HOME="$HOME/Library/Android/sdk"
