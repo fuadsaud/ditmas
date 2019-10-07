@@ -1,11 +1,11 @@
 " keymaps
 " interesting unused keys in normal mode:
 "   - <Return> (testing for buffer switch)
-"   - +
-"   - _
+"   - + (testing for aux <LocalLeader>)
+"   - _ (testing for aux <Leader>)
 "   - \
-"   - | (currently used as an aux <LocalLeader>)
-"   - <Del> (testing for  :noh)
+"   - |
+"   - <Del> (testing for :noh)
 
 "          __    __
 "   ____ _/ /_  / /_  ________ _   __
@@ -124,9 +124,10 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 " /_/\___/\__,_/\__,_/\___/_/
 "
 
-let mapleader = ' '
-let maplocalleader = '<Bar>'
-map <BS> <LocalLeader>
+let mapleader = '_'
+let maplocalleader = '+'
+map <Space> _
+map <Backspace> +
 
 " ack
 nnoremap <Leader>a :Ack<Space>
