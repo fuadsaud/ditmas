@@ -4,7 +4,8 @@ set -euo pipefail
 
 hostname=${HOSTNAME:-$(hostname)}
 packages=$(cat "${HOUDINI_DIR}/hosts/${hostname}")
+packages_dir="${HOUDINI_DIR}/stow"
 
 echo $packages |
   sort |
-  xargs stow --restow --verbose=2 --target $HOME
+  xargs stow --restow --verbose=2 --dir "${packages_dir}" --target "${HOME}"
