@@ -21,7 +21,7 @@ jdk-openjdk
 jq
 kubernetes
 leiningen
-libgnome-keyring
+libsecret
 linux-headers
 linux-lts
 linux-lts-headers
