@@ -16,6 +16,7 @@ gnome-tweaks
 google-chrome
 grub
 hub
+inetutils
 jdk-openjdk
 jq
 kubernetes
@@ -24,6 +25,7 @@ libgnome-keyring
 linux-headers
 linux-lts
 linux-lts-headers
+man
 mtools
 neovim
 nodejs
@@ -36,8 +38,9 @@ otf-fira-code
 otf-sfmono
 powerline
 powerline-fonts-git
-python2-pip
 python-pip
+python2-pip
+ruby-install
 rust
 rxvt-unicode
 slack-desktop
@@ -56,7 +59,5 @@ xclip
 yaru-icon-theme
 yay
 yubico-pam
-yubico-yubioath-desktop
-yubikey-manager
-yubikey-manager-qt
+yubico-yubioath-desktop-git
 zsh

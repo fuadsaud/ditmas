@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 function echoerr {
   (>&2 echo $1)
@@ -9,7 +9,7 @@ function log {
 }
 
 function lns-once {
-  if [[ ! -e $2 ]]; then
+  if [[ ! -h $2 ]]; then
     ln -s $1 $2
   fi
 }
