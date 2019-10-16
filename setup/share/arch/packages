@@ -26,6 +26,7 @@ linux-headers
 linux-lts
 linux-lts-headers
 man
+moreutils
 mtools
 neovim
 nodejs
@@ -35,12 +36,12 @@ nvm
 openssh
 os-prober
 otf-san-francisco
-otf-san-francisco-pro
 otf-san-francisco-mono
+otf-san-francisco-pro
 powerline
 powerline-fonts-git
-python-pip
 python2-pip
+python-pip
 ruby-install
 rust
 rxvt-unicode
