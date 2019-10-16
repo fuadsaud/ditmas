@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+packages_file="$HOUDINI_DIR/setup/share/arch/packages"
+
+cat "$packages_file" \
+  | sed "s/$/\n$1/" \
+  | sort -u \
+  | sponge "$packages_file"
