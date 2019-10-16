@@ -34,8 +34,9 @@ npm
 nvm
 openssh
 os-prober
-otf-fira-code
-otf-sfmono
+otf-san-francisco
+otf-san-francisco-pro
+otf-san-francisco-mono
 powerline
 powerline-fonts-git
 python-pip
@@ -59,5 +60,4 @@ xclip
 yaru-icon-theme
 yay
 yubico-pam
-yubico-yubioath-desktop-git
 zsh
