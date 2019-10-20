@@ -24,7 +24,7 @@ pacman -Syyy
 
 # @@ set console font
 
-pacman -S terminus-font
+pacman -S --noconfirm terminus-font
 
 setfont /usr/share/kbd/consolefonts/ter-m32n.psf.gz
 
@@ -34,17 +34,14 @@ timedatectl set-ntp true
 
 # @@ create partitions
 
-sgdisk --zap-all "$disk"
+sgdisk --zap-all "$DISK"
 
-parted -s "$disk" -- \
+parted -s "$DISK" -- \
   mklabel gpt \
   mkpart primary 0% 500MiB \
   mkpart primary 500MiB 1GiB \
   mkpart primary 1GiB 100% \
   set 1 esp on \
-  name 1 esp \
-  name 2 boot \
-  name 3 lvm_on_luks
 
 # @@ format partitions
 
@@ -52,11 +49,11 @@ mkfs.fat -F32 "${PART_EFI}"
 mkfs.ext4 "${PART_BOOT}"
 
 cryptsetup luksFormat "${PART_LUKS_LVM}"
-cryptsetup open --type lvm_on_luks "${PART_LUKS_LVM}"
+cryptsetup open --type luks "${PART_LUKS_LVM}" lvm-on-luks
 
 # @@ setup lvm
 
-pvcreate --dataalignment 1m /dev/mapper/lvm
+pvcreate --dataalignment 1m /dev/mapper/lvm-on-luks
 vgcreate "$VG" /dev/mapper/lvm
 lvcreate --size 30GB     "$VG" --name "${LV_ROOT}"
 lvcreate --size 30GB     "$VG" --name "${LV_VAR}"

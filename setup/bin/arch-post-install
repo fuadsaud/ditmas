@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+hostname="the-hostname"
+
 function install_yay() {
   local yay_url="https://github.com/Jguer/yay"
   local yay_dir="/tmp/yay"
@@ -38,6 +40,10 @@ function install_docker() {
   usemod fuad -G docker
 }
 
+function set_hostname() {
+  echo "$1" > /etc/hostname
+}
+
 current_dir=$(dirname "${BASH_SOURCE[0]}")
 setup_dir="$HOUDINI_DIR/setup"
 
@@ -48,3 +54,4 @@ source "${setup_dir}/lib/utils.sh"
 # install_gnome
 # install_yay
 # install_pacman_packages
+# set_hostname "$hostname"
