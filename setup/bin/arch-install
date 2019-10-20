@@ -1,0 +1,105 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+export DISK="/dev/nvme0n1"
+export DISK_PARTITION_SUFFIX="p"
+export PART_EFI="${DISK}${DISK_PARTITION_SUFFIX}1"
+export PART_BOOT="${DISK}${DISK_PARTITION_SUFFIX}2"
+export PART_LUKS_LVM="${DISK}${DISK_PARTITION_SUFFIX}3"
+
+export VG="vg0"
+export LV_ROOT="lv_root"
+export LV_VAR="lv_var"
+export LV_HOME="lv_home"
+
+export PART_ROOT="/dev/${VG}/${LV_ROOT}"
+export PART_VAR="/dev/${VG}/${LV_VAR}"
+export PART_HOME="/dev/${VG}/${LV_HOME}"
+
+# @@ warm up pacman
+pacman -Syyy
+
+# TODO: network connection
+
+# @@ set console font
+
+pacman -S terminus-font
+
+setfont /usr/share/kbd/consolefonts/ter-m32n.psf.gz
+
+# @@ update system time/date
+
+timedatectl set-ntp true
+
+# @@ create partitions
+
+sgdisk --zap-all "$disk"
+
+parted -s "$disk" -- \
+  mklabel gpt \
+  mkpart primary 0% 500MiB \
+  mkpart primary 500MiB 1GiB \
+  mkpart primary 1GiB 100% \
+  set 1 esp on \
+  name 1 esp \
+  name 2 boot \
+  name 3 lvm_on_luks
+
+# @@ format partitions
+
+mkfs.fat -F32 "${PART_EFI}"
+mkfs.ext4 "${PART_BOOT}"
+
+cryptsetup luksFormat "${PART_LUKS_LVM}"
+cryptsetup open --type lvm_on_luks "${PART_LUKS_LVM}"
+
+# @@ setup lvm
+
+pvcreate --dataalignment 1m /dev/mapper/lvm
+vgcreate "$VG" /dev/mapper/lvm
+lvcreate --size 30GB     "$VG" --name "${LV_ROOT}"
+lvcreate --size 30GB     "$VG" --name "${LV_VAR}"
+lvcreate --size 100%FREE "$VG" --name "${LV_HOME}"
+
+modprobe dm_mod
+vgscan
+vgchange -ay
+
+mkfs.ext4 "${PART_ROOT}"
+mkfs.ext4 "${PART_VAR}"
+mkfs.ext4 "${PART_HOME}"
+
+# @@ mount partitions
+
+mount "/dev/${VG}/${LV_ROOT}" /mnt
+
+mkdir /mnt/boot
+mkdir /mnt/var
+mkdir /mnt/home
+
+mount "${PART_BOOT}" /mnt/boot
+mount "${PART_VAR}" /mnt/var
+mount "${PART_HOME}" /mnt/home
+
+# @@ install arch
+
+pacstrap -i /mnt base
+
+# @@ generate fstab
+
+genfstab -U -p /mnt >> /mnt/etc/fstab
+
+# @@ chroot
+
+# cp ./arch-post-chroot /mnt/root/arch-post-chroot
+
+# arch-chroot /mnt /root/arch-post-chroot
+
+# rm /mnt/root/setup-chroot
+
+# @@ wrap up
+
+umount -a
+
+echo 'Installation finished.'

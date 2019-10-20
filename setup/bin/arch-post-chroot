@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+disk="/dev/nvme0n1"
+disk_partition_suffix="p"
+part_efi="${disk}${disk_partition_suffix}1"
+part_boot="${disk}${disk_partition_suffix}2"
+part_luks_lvm="${disk}${disk_partition_suffix}3"
+
+vg="vg0"
+lv_root="lv_root"
+lv_var="lv_var"
+lv_home="lv_home"
+
+part_root="/dev/${vg}/${lv_root}"
+part_var="/dev/${vg}/${lv_var}"
+part_home="/dev/${vg}/${lv_home}"
+
+# @@ install packages
+
+pacman -S \
+  base-devel \
+  grub \
+  efibootmgr \
+  dosfstools \
+  openssh \
+  os-prober \
+  mtools \
+  linux \
+  linux-headers \
+  linux-lts \
+  linux-lts-headers
+
+# TODO: pacman -S pacsave list
+
+# @@ mkinitcpio
+
+# TODO: edit /etc/mkinicpio.conf
+
+mkinitcpio -p linux
+mkinitcpio -p linux-lts
+
+# @@ locale
+
+# TODO: edit /etc/locale.gen
+
+locale-gen
+
+# @@ setup users and groups
+
+passwd
+
+useradd fuad -G wheel
+
+# @@ setup bootloader
+
+# TODO: edit /etc/default/grub
+
+mkdir /boot/EFI
+
+mount "$part_efi" /boot/EFI
+
+grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
+
+cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
+
+grub-mkconfig -o /boot/gru/grub.cfg
