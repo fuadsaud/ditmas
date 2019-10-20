@@ -112,6 +112,6 @@ genfstab -U -p /mnt >> /mnt/etc/fstab
 
 # @@ wrap up
 
-umount -a
+umount -R /mnt
 
 echo 'Installation finished.'
