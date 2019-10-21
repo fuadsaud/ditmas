@@ -101,6 +101,8 @@ parted -s "$DISK" -- \
 mkfs.fat -F32 "${PART_EFI}"
 mkfs.ext4 "${PART_BOOT}"
 
+modprobe dm-crypt
+
 cryptsetup luksFormat "${PART_LUKS_LVM}"
 cryptsetup open --type luks "${PART_LUKS_LVM}" lvm-on-luks
 
@@ -157,6 +159,12 @@ pacstrap -i /mnt \
   os-prober \
   sudo \
   vim \
+  networkmanager  \
+  networkmanager-openvpn \
+  network-manager-applet \
+  wireless_tools \
+  wpa_supplicant \
+  wpa_actiond \
 
 # @@ generate fstab
 
@@ -172,6 +180,12 @@ echo '/swapfile non swap sw 0 0' | tee -a /mnt/etc/fstab
 # @@ set hostname
 
 echo "${hostname}" > /mnt/etc/hostname
+
+cat > /mnt/etc/hosts << EOF
+127.0.0.1 localhost
+::1       localhost
+127.0.1.1 ${hostname}.localdomain ${hostname}
+EOF
 
 # @@ chroot
 

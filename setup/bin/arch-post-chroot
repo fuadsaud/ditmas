@@ -33,18 +33,26 @@ export PART_ROOT="/dev/${VG}/${LV_ROOT}"
 export PART_VAR="/dev/${VG}/${LV_VAR}"
 export PART_HOME="/dev/${VG}/${LV_HOME}"
 
+# @@ set console font
+
+cat > /etc/vconsole.conf << EOF
+FONT=ter-m32n
+EOF
+
 # @@ mkinitcpio
 
-# TODO: edit /etc/mkinicpio.conf
+sed -i 's/^\(HOOKS=\).*$/\1(base udev autodetect consolefont modconf block encrypt lvm filesystems keyboard fsck)/' /etc/mkinitcpio.conf
 
 mkinitcpio -p linux
 mkinitcpio -p linux-lts
 
 # @@ locale
 
-# TODO: edit /etc/locale.gen
+sed -i 's/\#en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen
 
 locale-gen
+
+ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 
 # @@ setup users and groups
 
@@ -54,11 +62,11 @@ useradd fuad -G wheel
 
 # @@ setup bootloader
 
-# TODO: edit /etc/default/grub
+sed -i "s/GRUB_CMDLINE_LINUX_DEFAULT=\"\\(.*\\)\"/GRUB_CMDLINE_LINUX_DEFAULT=\"$PART_LUKS_LVM:$VG \\1\"/"
 
 mkdir /boot/EFI
 
-mount "$part_efi" /boot/EFI
+mount "$PART_EFI" /boot/EFI
 
 grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 
