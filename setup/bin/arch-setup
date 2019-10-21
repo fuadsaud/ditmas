@@ -25,9 +25,9 @@ export LV_ROOT="lv_root"
 export LV_VAR="lv_var"
 export LV_HOME="lv_home"
 
-# export LV_ROOT_SIZE="30GB"
-# export LV_VAR_SIZE="30GB"
-# export LV_HOME_SIZE="100%FREE"
+export LV_ROOT_SIZE="10GB"
+export LV_VAR_SIZE="10GB"
+export LV_HOME_SIZE="100%FREE"
 
 echo "/ size: $LV_ROOT_SIZE"
 echo "/var size: $LV_VAR_SIZE"
