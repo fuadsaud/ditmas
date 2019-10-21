@@ -4,6 +4,6 @@ set -euo pipefail
 
 arch_tarball_url="https://bit.ly/houdini-tarball"
 
-curl -sfL "$arch_setup_script" | tar -zxf -
+curl -sfL "$arch_tarball_url" | tar -zxf -
 
 ./houdini-master/setup/bin/arch-setup
