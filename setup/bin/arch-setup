@@ -99,9 +99,31 @@ mount "${PART_BOOT}" /mnt/boot
 mount "${PART_VAR}" /mnt/var
 mount "${PART_HOME}" /mnt/home
 
-# @@ install arch
+# @@ install packages
 
-pacstrap -i /mnt base
+pacstrap -i /mnt \
+  base \
+  base-devel \
+  dhcpcd \
+  dialog \
+  dosfstools \
+  efibootmgr \
+  git \
+  gnome \
+  grub \
+  linux \
+  linux-headers \
+  linux-lts \
+  linux-lts-headers \
+  linux-firmware \
+  lvm2 \
+  man-db \
+  man-pages \
+  mtools \
+  openssh \
+  os-prober \
+  sudo \
+  vim \
 
 # @@ generate fstab
 
@@ -117,6 +139,6 @@ genfstab -U -p /mnt >> /mnt/etc/fstab
 
 # @@ wrap up
 
-umount -R /mnt
+# umount -R /mnt
 
 echo 'Installation finished.'
