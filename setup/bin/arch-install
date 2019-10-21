@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
-arch_setup_script="https://raw.githubusercontent.com/fuadsaud/houdini/master/setup/bin/arch-setup"
+arch_tarball_url="https://bit.ly/houdini-tarball"
 
-curl -sfL "$arch_setup_script" | bash
+curl -sfL "$arch_setup_script" | tar -zxf -
+
+./houdini-master/setup/bin/arch-setup
