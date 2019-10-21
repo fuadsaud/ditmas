@@ -10,7 +10,7 @@ if $(lsblk | grep nvme0n1); then
   export DISK="/dev/nvme0n1"
   export DISK_PARTITION_SUFFIX="p"
 else
-  export DISK="/dev/sda1"
+  export DISK="/dev/sda"
   export DISK_PARTITION_SUFFIX=""
 fi
 
