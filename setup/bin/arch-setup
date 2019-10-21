@@ -75,9 +75,9 @@ cryptsetup open --type luks "${PART_LUKS_LVM}" lvm-on-luks
 
 pvcreate --dataalignment 1m /dev/mapper/lvm-on-luks
 vgcreate "$VG" /dev/mapper/lvm-on-luks
-lvcreate --size "${LV_ROOT_SIZE}" "$VG" --name "${LV_ROOT}"
-lvcreate --size "${LV_VAR_SIZE}"  "$VG" --name "${LV_VAR}"
-lvcreate --size "${LV_HOME_SIZE}" "$VG" --name "${LV_HOME}"
+lvcreate -L "${LV_ROOT_SIZE}" "$VG" --name "${LV_ROOT}"
+lvcreate -L "${LV_VAR_SIZE}"  "$VG" --name "${LV_VAR}"
+lvcreate -l "${LV_HOME_SIZE}" "$VG" --name "${LV_HOME}"
 
 modprobe dm_mod
 vgscan
