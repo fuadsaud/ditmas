@@ -2,45 +2,36 @@
 
 set -euo pipefail
 
-disk="/dev/nvme0n1"
-disk_partition_suffix="p"
-part_efi="${disk}${disk_partition_suffix}1"
-part_boot="${disk}${disk_partition_suffix}2"
-part_luks_lvm="${disk}${disk_partition_suffix}3"
+if $(lsblk | grep nvme0n1); then
+  export DISK="/dev/nvme0n1"
+  export DISK_PARTITION_SUFFIX="p"
+else
+  export DISK="/dev/sda"
+  export DISK_PARTITION_SUFFIX=""
+fi
 
-vg="vg0"
-lv_root="lv_root"
-lv_var="lv_var"
-lv_home="lv_home"
+echo "Disk: ${DISK}"
 
-part_root="/dev/${vg}/${lv_root}"
-part_var="/dev/${vg}/${lv_var}"
-part_home="/dev/${vg}/${lv_home}"
+export PART_EFI="${DISK}${DISK_PARTITION_SUFFIX}1"
+export PART_BOOT="${DISK}${DISK_PARTITION_SUFFIX}2"
+export PART_LUKS_LVM="${DISK}${DISK_PARTITION_SUFFIX}3"
 
-# @@ install packages
+export VG="vg0"
+export LV_ROOT="lv_root"
+export LV_VAR="lv_var"
+export LV_HOME="lv_home"
 
-pacman -S \
-  base-devel \
-  dhcpcd \
-  dialog \
-  dosfstools \
-  efibootmgr \
-  git \
-  gnome \
-  grub \
-  linux \
-  linux-headers \
-  linux-lts \
-  linux-lts-headers \
-  linux-firmware \
-  lvm2 \
-  man-db \
-  man-pages \
-  mtools \
-  openssh \
-  os-prober \
-  sudo \
-  vim \
+export LV_ROOT_SIZE="10GB"
+export LV_VAR_SIZE="10GB"
+export LV_HOME_SIZE="100%FREE"
+
+echo "/ size: $LV_ROOT_SIZE"
+echo "/var size: $LV_VAR_SIZE"
+echo "/home size: $LV_HOME_SIZE"
+
+export PART_ROOT="/dev/${VG}/${LV_ROOT}"
+export PART_VAR="/dev/${VG}/${LV_VAR}"
+export PART_HOME="/dev/${VG}/${LV_HOME}"
 
 # @@ mkinitcpio
 
@@ -74,10 +65,3 @@ grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
 
 grub-mkconfig -o /boot/gru/grub.cfg
-
-# @@ create swap file
-
-fallocate -l 2G /swapfile
-chmod 600 /swapfile
-mkswap /swapfile
-echo '/swapfile non swap sw 0 0' | tee -a /etc/fstab

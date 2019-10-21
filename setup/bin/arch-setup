@@ -37,6 +37,32 @@ export PART_ROOT="/dev/${VG}/${LV_ROOT}"
 export PART_VAR="/dev/${VG}/${LV_VAR}"
 export PART_HOME="/dev/${VG}/${LV_HOME}"
 
+# @@ collect data
+
+hostname=$(dialog --stdout --inputbox "Enter hostname" 0 0) || exit 1
+clear
+: ${hostname:?"hostname cannot be empty"}
+
+user=$(dialog --stdout --inputbox "Enter admin username" 0 0) || exit 1
+clear
+: ${user:?"user cannot be empty"}
+
+password=$(dialog --stdout --passwordbox "Enter admin password" 0 0) || exit 1
+clear
+: ${password:?"password cannot be empty"}
+password2=$(dialog --stdout --passwordbox "Enter admin password again" 0 0) || exit 1
+clear
+[[ "$password" == "$password2" ]] || ( echo "Passwords did not match"; exit 1; )
+
+devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
+device=$(dialog --stdout --menu "Select installation disk" 0 0 0 ${devicelist}) || exit 1
+clear
+: ${device:?"device cannot be empty"}
+
+# @@ setup logging
+exec 1> >(tee "stdout.log")
+exec 2> >(tee "stderr.log")
+
 # @@ warm up pacman
 pacman -Syyy
 
@@ -128,6 +154,17 @@ pacstrap -i /mnt \
 # @@ generate fstab
 
 genfstab -U -p /mnt >> /mnt/etc/fstab
+
+# @@ create swap file
+
+fallocate -l 2G /mnt/swapfile
+chmod 600 /mnt/swapfile
+mkswap /mnt/swapfile
+echo '/swapfile non swap sw 0 0' | tee -a /mnt/etc/fstab
+
+# @@ set hostname
+
+echo "${hostname}" > /mnt/etc/hostname
 
 # @@ chroot
 
