@@ -2,41 +2,34 @@
 
 set -euo pipefail
 
-if $(lsblk | grep nvme0n1); then
-  export DISK="/dev/nvme0n1"
-  export DISK_PARTITION_SUFFIX="p"
-else
-  export DISK="/dev/sda"
-  export DISK_PARTITION_SUFFIX=""
-fi
+# @@ collect data
 
-echo "Disk: ${DISK}"
+hostname=$(dialog --stdout --inputbox "Enter hostname" 0 0) || exit 1
+clear
+: ${hostname:?"hostname cannot be empty"}
 
-export PART_EFI="${DISK}${DISK_PARTITION_SUFFIX}1"
-export PART_BOOT="${DISK}${DISK_PARTITION_SUFFIX}2"
-export PART_LUKS_LVM="${DISK}${DISK_PARTITION_SUFFIX}3"
+user=$(dialog --stdout --inputbox "Enter admin username" 0 0) || exit 1
+clear
+: ${user:?"user cannot be empty"}
 
-export VG="vg0"
-export LV_ROOT="lv_root"
-export LV_VAR="lv_var"
-export LV_HOME="lv_home"
+password=$(dialog --stdout --passwordbox "Enter user password" 0 0) || exit 1
+clear
+: ${password:?"password cannot be empty"}
+password2=$(dialog --stdout --passwordbox "Enter user password again" 0 0) || exit 1
+clear
+[[ "$password" == "$password2" ]] || ( echo "Passwords did not match"; exit 1; )
 
-export LV_ROOT_SIZE="10GB"
-export LV_VAR_SIZE="10GB"
-export LV_HOME_SIZE="100%FREE"
-
-echo "/ size: $LV_ROOT_SIZE"
-echo "/var size: $LV_VAR_SIZE"
-echo "/home size: $LV_HOME_SIZE"
-
-export PART_ROOT="/dev/${VG}/${LV_ROOT}"
-export PART_VAR="/dev/${VG}/${LV_VAR}"
-export PART_HOME="/dev/${VG}/${LV_HOME}"
+password_root=$(dialog --stdout --passwordbox "Enter root password" 0 0) || exit 1
+clear
+: ${password_root:?"password cannot be empty"}
+password_root2=$(dialog --stdout --passwordbox "Enter root password again" 0 0) || exit 1
+clear
+[[ "$password_root" == "$password_root2" ]] || ( echo "Passwords did not match"; exit 1; )
 
 # @@ set console font
 
 cat > /etc/vconsole.conf << EOF
-FONT=ter-m32n
+FONT=${CONSOLE_FONT}
 EOF
 
 # @@ mkinitcpio

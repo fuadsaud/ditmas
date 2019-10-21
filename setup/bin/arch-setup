@@ -37,34 +37,16 @@ export PART_ROOT="/dev/${VG}/${LV_ROOT}"
 export PART_VAR="/dev/${VG}/${LV_VAR}"
 export PART_HOME="/dev/${VG}/${LV_HOME}"
 
-# @@ collect data
-
-hostname=$(dialog --stdout --inputbox "Enter hostname" 0 0) || exit 1
-clear
-: ${hostname:?"hostname cannot be empty"}
-
-user=$(dialog --stdout --inputbox "Enter admin username" 0 0) || exit 1
-clear
-: ${user:?"user cannot be empty"}
-
-password=$(dialog --stdout --passwordbox "Enter user password" 0 0) || exit 1
-clear
-: ${password:?"password cannot be empty"}
-password2=$(dialog --stdout --passwordbox "Enter user password again" 0 0) || exit 1
-clear
-[[ "$password" == "$password2" ]] || ( echo "Passwords did not match"; exit 1; )
-
-password_root=$(dialog --stdout --passwordbox "Enter root password" 0 0) || exit 1
-clear
-: ${password_root:?"password cannot be empty"}
-password_root2=$(dialog --stdout --passwordbox "Enter root password again" 0 0) || exit 1
-clear
-[[ "$password_root" == "$password_root2" ]] || ( echo "Passwords did not match"; exit 1; )
+export CONSOLE_FONT="ter-m32n.psf.gz"
+export CONSOLE_FONT_PATH="/usr/share/kbd/consolefonts/$CONSOLE_FONT"
 
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
-device=$(dialog --stdout --menu "Select installation disk" 0 0 0 ${devicelist}) || exit 1
+export DEVICE=$(dialog --stdout --menu "Select installation disk" 0 0 0 ${devicelist}) || exit 1
 clear
-: ${device:?"device cannot be empty"}
+: ${DEVICE:?"device cannot be empty"}
+
+echo "DIALOG DEVICE: #{device}"
+read foo
 
 # @@ setup logging
 exec 1> >(tee "stdout.log")
@@ -79,7 +61,7 @@ pacman -Syyy
 
 pacman -S --noconfirm terminus-font
 
-setfont /usr/share/kbd/consolefonts/ter-m32n.psf.gz
+setfont
 
 # @@ update system time/date
 
@@ -87,19 +69,19 @@ timedatectl set-ntp true
 
 # @@ create partitions
 
+shred -v -n1 "$DISK"
+
 sgdisk --zap-all "$DISK"
 
 parted -s "$DISK" -- \
   mklabel gpt \
-  mkpart primary 0% 500MiB \
-  mkpart primary 500MiB 1GiB \
-  mkpart primary 1GiB 100% \
+  mkpart primary 0% 512MiB \
+  mkpart primary 512MiB 100% \
   set 1 esp on
 
 # @@ format partitions
 
 mkfs.fat -F32 "${PART_EFI}"
-mkfs.ext4 "${PART_BOOT}"
 
 modprobe dm-crypt
 
@@ -130,7 +112,7 @@ mkdir /mnt/boot
 mkdir /mnt/var
 mkdir /mnt/home
 
-mount "${PART_BOOT}" /mnt/boot
+mount "${PART_EFI}" /mnt/boot
 mount "${PART_VAR}" /mnt/var
 mount "${PART_HOME}" /mnt/home
 
