@@ -10,7 +10,7 @@ clear
 
 username=$(dialog --stdout --inputbox "Enter username" 0 0) || exit 1
 clear
-: "${user:?"username cannot be empty"}"
+: "${username:?"username cannot be empty"}"
 
 password=$(dialog --stdout --passwordbox "Enter user password" 0 0) || exit 1
 clear
@@ -26,12 +26,6 @@ password_root2=$(dialog --stdout --passwordbox "Enter root password again" 0 0) 
 clear
 [[ "$password_root" == "$password_root2" ]] || ( echo "Passwords did not match"; exit 1; )
 
-# @@ set console font
-
-cat > /etc/vconsole.conf << EOF
-FONT=${CONSOLE_FONT}
-EOF
-
 # @@ set hostname
 
 echo "${hostname}" > /etc/hostname
@@ -44,10 +38,10 @@ EOF
 
 # @@ mkinitcpio
 
-sed -i 's/^\(HOOKS=\).*$/\1(base udev autodetect keyboard consolefont modconf block encrypt lvm filesystems fsck)/' /etc/mkinitcpio.conf
+sed -i 's/^\(HOOKS=\).*$/\1(base udev autodetect keyboard consolefont modconf block encrypt lvm2 filesystems fsck)/' /etc/mkinitcpio.conf
 
-mkinitcpio -p linux
-mkinitcpio -p linux-lts
+mkinitcpio --preset linux
+mkinitcpio --preset linux-lts
 
 # @@ locale
 
@@ -61,24 +55,9 @@ hwclock --systohc
 
 # @@ setup users and groups
 
-useradd "$username" -s /usr/bin/zsh -mUG wheel docker
+useradd --shell /usr/bin/zsh --create-home --user-group --groups sudo,docker "$username"
 
+visudo /etc/sudoers
 
 echo "root:${password_root}" | chpasswd
 echo "${username}:${password}" | chpasswd
-
-# @@ setup bootloader
-
-bootctl --path=/boot install
-
-cat <<EOF > /mnt/boot/loader/loader.conf
-default arch
-timeout 3
-EOF
-
-cat <<EOF > /mnt/boot/loader/entries/arch.conf
-title    Arch Linux
-linux    /vmlinuz-linux
-initrd   /initramfs-linux.img
-options  cryptdevice=UUID=$(blkid -s PARTUUID -o value "$PART_LUKS_LVM"):${VG} root=/dev/mapper/${LV_ROOT} rw
-EOF

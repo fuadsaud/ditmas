@@ -2,52 +2,46 @@
 
 set -euo pipefail
 
-# current_dir=$(dirname $(readlink -f ${BASH_SOURCE[0]}))
+current_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
-# export DISK="/dev/sda"
+# TODO: select disk with dialog
 
 if lsblk | grep nvme0n1; then
-  export DISK="/dev/nvme0n1"
-  export DISK_PARTITION_SUFFIX="p"
+  DISK="/dev/nvme0n1"
 else
-  export DISK="/dev/sda"
-  export DISK_PARTITION_SUFFIX=""
+  DISK="/dev/sda"
 fi
 
-echo "Disk: ${DISK}"
+VG="vg0"
+LV_ROOT="lv_root"
+LV_VAR="lv_var"
+LV_HOME="lv_home"
+LV_ROOT_SIZE="10GB"
+LV_VAR_SIZE="10GB"
+LV_HOME_SIZE="100%FREE"
 
-export PART_EFI="${DISK}${DISK_PARTITION_SUFFIX}1"
-export PART_LUKS_LVM="${DISK}${DISK_PARTITION_SUFFIX}2"
+function find_partition() {
+  find /dev -iwholename "${DISK}*" | grep -E "^${DISK}p?${1}$"
+}
 
-export VG="vg0"
-export LV_ROOT="lv_root"
+PART_EFI="$(find_partition 1)"
+PART_LUKS_LVM="$(find_partition 2)"
+PART_ROOT="/dev/${VG}/${LV_ROOT}"
+PART_VAR="/dev/${VG}/${LV_VAR}"
+PART_HOME="/dev/${VG}/${LV_HOME}"
 
-
-echo "/ size: $LV_ROOT_SIZE"
-echo "/var size: $LV_VAR_SIZE"
-echo "/home size: $LV_HOME_SIZE"
-
-export PART_ROOT="/dev/${VG}/${LV_ROOT}"
-export PART_VAR="/dev/${VG}/${LV_VAR}"
-export PART_HOME="/dev/${VG}/${LV_HOME}"
-
-export CONSOLE_FONT="ter-m32n.psf.gz"
-export CONSOLE_FONT_PATH="/usr/share/kbd/consolefonts/$CONSOLE_FONT"
-
-devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
-DEVICE=$(dialog --stdout --menu "Select installation disk" 0 0 0 "${devicelist}") || exit 1
-export DEVICE
-clear
-: "${DEVICE:?"device cannot be empty"}"
-
-echo "DIALOG DEVICE: #{device}"
-read -r foo
-
-export foo
+export CONSOLE_FONT="ter-m32n"
+export CONSOLE_FONT_PATH="/usr/share/kbd/consolefonts/$CONSOLE_FONT.psf.gz"
 
 # @@ setup logging
 exec 1> >(tee "stdout.log")
 exec 2> >(tee "stderr.log")
+
+# @@ log installation parameters
+echo "disk: ${DISK}"
+echo "/ size: $LV_ROOT_SIZE"
+echo "/var size: $LV_VAR_SIZE"
+echo "/home size: $LV_HOME_SIZE"
 
 # @@ warm up pacman
 pacman -Syyy
@@ -76,12 +70,9 @@ parted -s "$DISK" -- \
   mkpart primary 512MiB 100% \
   set 1 esp on
 
-# @@ format partitions
-
-mkfs.fat -F32 "${PART_EFI}"
+# @@ setup luks
 
 modprobe dm-crypt
-
 cryptsetup luksFormat "${PART_LUKS_LVM}"
 cryptsetup open --type luks "${PART_LUKS_LVM}" lvm-on-luks
 
@@ -91,7 +82,11 @@ pvcreate --dataalignment 1m /dev/mapper/lvm-on-luks
 vgcreate "$VG" /dev/mapper/lvm-on-luks
 lvcreate -L "${LV_ROOT_SIZE}" "$VG" --name "${LV_ROOT}"
 lvcreate -L "${LV_VAR_SIZE}"  "$VG" --name "${LV_VAR}"
+lvcreate -l "${LV_HOME_SIZE}" "$VG" --name "${LV_HOME}"
 
+# @@ format partitions
+
+mkfs.fat -F32 "${PART_EFI}"
 mkfs.ext4 "${PART_ROOT}"
 mkfs.ext4 "${PART_VAR}"
 mkfs.ext4 "${PART_HOME}"
@@ -132,13 +127,15 @@ pacstrap -i /mnt \
   openssh \
   os-prober \
   sudo \
+  terminus-font \
+  tmux \
   vim \
+  zsh \
   networkmanager  \
   networkmanager-openvpn \
   network-manager-applet \
   wireless_tools \
   wpa_supplicant \
-  wpa_actiond \
 
 # @@ generate fstab
 
@@ -151,7 +148,31 @@ chmod 600 /mnt/swapfile
 mkswap /mnt/swapfile
 echo '/swapfile non swap sw 0 0' | tee -a /mnt/etc/fstab
 
+# @@ persist console font
+
+cat > /mnt/etc/vconsole.conf << EOF
+FONT=${CONSOLE_FONT}
+EOF
+
+# @@ setup bootloader
+
+arch-chroot /mnt bootctl --path=/boot install
+
+cat <<EOF > /mnt/boot/loader/loader.conf
+default arch
+timeout 3
+EOF
+
+cat <<EOF > /mnt/boot/loader/entries/arch.conf
+title    Arch Linux
+linux    /vmlinuz-linux
+initrd   /initramfs-linux.img
+options  cryptdevice=PARTUUID=$(blkid -s PARTUUID -o value "$PART_LUKS_LVM"):${VG} root=/dev/mapper/${VG}-${LV_ROOT} rw
+EOF
+
 # @@ chroot
+
+# TODO: slurp separate script into here
 
 cp "${current_dir}/arch-post-chroot" /mnt/root/arch-post-chroot
 
@@ -161,6 +182,6 @@ rm /mnt/root/setup-chroot
 
 # @@ wrap up
 
-# umount -R /mnt
+umount -R /mnt
 
 echo 'Installation finished.'
