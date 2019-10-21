@@ -2,14 +2,19 @@
 
 set -euo pipefail
 
-# export DISK="/dev/sda1"
-echo "DISK: ${DISK}"
+# current_dir=$(dirname $(readlink -f ${BASH_SOURCE[0]}))
 
-if [[ $DISK == *"nvme"* ]]; then
+# export DISK="/dev/sda"
+
+if $(lsblk | grep nvme0n1); then
+  export DISK="/dev/nvme0n1"
   export DISK_PARTITION_SUFFIX="p"
 else
+  export DISK="/dev/sda1"
   export DISK_PARTITION_SUFFIX=""
 fi
+
+echo "Disk: ${DISK}"
 
 export PART_EFI="${DISK}${DISK_PARTITION_SUFFIX}1"
 export PART_BOOT="${DISK}${DISK_PARTITION_SUFFIX}2"
@@ -104,7 +109,7 @@ genfstab -U -p /mnt >> /mnt/etc/fstab
 
 # @@ chroot
 
-# cp ./arch-post-chroot /mnt/root/arch-post-chroot
+# cp "${current_dir}/arch-post-chroot /mnt/root/arch-post-chroot
 
 # arch-chroot /mnt /root/arch-post-chroot
 
