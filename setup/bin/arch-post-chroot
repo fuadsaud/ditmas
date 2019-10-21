@@ -6,22 +6,22 @@ set -euo pipefail
 
 hostname=$(dialog --stdout --inputbox "Enter hostname" 0 0) || exit 1
 clear
-: ${hostname:?"hostname cannot be empty"}
+: "${hostname:?"hostname cannot be empty"}"
 
-user=$(dialog --stdout --inputbox "Enter admin username" 0 0) || exit 1
+username=$(dialog --stdout --inputbox "Enter username" 0 0) || exit 1
 clear
-: ${user:?"user cannot be empty"}
+: "${user:?"username cannot be empty"}"
 
 password=$(dialog --stdout --passwordbox "Enter user password" 0 0) || exit 1
 clear
-: ${password:?"password cannot be empty"}
+: "${password:?"password cannot be empty"}"
 password2=$(dialog --stdout --passwordbox "Enter user password again" 0 0) || exit 1
 clear
 [[ "$password" == "$password2" ]] || ( echo "Passwords did not match"; exit 1; )
 
 password_root=$(dialog --stdout --passwordbox "Enter root password" 0 0) || exit 1
 clear
-: ${password_root:?"password cannot be empty"}
+: "${password_root:?"password cannot be empty"}"
 password_root2=$(dialog --stdout --passwordbox "Enter root password again" 0 0) || exit 1
 clear
 [[ "$password_root" == "$password_root2" ]] || ( echo "Passwords did not match"; exit 1; )
@@ -32,9 +32,19 @@ cat > /etc/vconsole.conf << EOF
 FONT=${CONSOLE_FONT}
 EOF
 
+# @@ set hostname
+
+echo "${hostname}" > /etc/hostname
+
+cat > /etc/hosts << EOF
+127.0.0.1 localhost
+::1       localhost
+127.0.1.1 ${hostname}.localdomain ${hostname}
+EOF
+
 # @@ mkinitcpio
 
-sed -i 's/^\(HOOKS=\).*$/\1(base udev autodetect consolefont modconf block encrypt lvm filesystems keyboard fsck)/' /etc/mkinitcpio.conf
+sed -i 's/^\(HOOKS=\).*$/\1(base udev autodetect keyboard consolefont modconf block encrypt lvm filesystems fsck)/' /etc/mkinitcpio.conf
 
 mkinitcpio -p linux
 mkinitcpio -p linux-lts
@@ -47,22 +57,28 @@ locale-gen
 
 ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 
+hwclock --systohc
+
 # @@ setup users and groups
 
-passwd
+useradd "$username" -s /usr/bin/zsh -mUG wheel docker
 
-useradd fuad -G wheel
+
+echo "root:${password_root}" | chpasswd
+echo "${username}:${password}" | chpasswd
 
 # @@ setup bootloader
 
-sed -i "s/GRUB_CMDLINE_LINUX_DEFAULT=\"\\(.*\\)\"/GRUB_CMDLINE_LINUX_DEFAULT=\"$PART_LUKS_LVM:$VG \\1\"/"
+bootctl --path=/boot install
 
-mkdir /boot/EFI
+cat <<EOF > /mnt/boot/loader/loader.conf
+default arch
+timeout 3
+EOF
 
-mount "$PART_EFI" /boot/EFI
-
-grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
-
-cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
-
-grub-mkconfig -o /boot/gru/grub.cfg
+cat <<EOF > /mnt/boot/loader/entries/arch.conf
+title    Arch Linux
+linux    /vmlinuz-linux
+initrd   /initramfs-linux.img
+options  cryptdevice=UUID=$(blkid -s PARTUUID -o value "$PART_LUKS_LVM"):${VG} root=/dev/mapper/${LV_ROOT} rw
+EOF
