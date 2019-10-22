@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -euxo pipefail
 
 # @@ collect data
 
@@ -46,12 +46,6 @@ function find_partition() {
   find /dev -iwholename "${disk}*" | grep -E "^${disk}p?${1}$"
 }
 
-part_efi="$(find_partition 1)"
-part_luks_lvm="$(find_partition 2)"
-part_root="/dev/${vg}/${lv_root}"
-part_var="/dev/${vg}/${lv_var}"
-part_home="/dev/${vg}/${lv_home}"
-
 export console_font='ter-m32n'
 export console_font_path="/usr/share/kbd/consolefonts/${console_font}.psf.gz"
 
@@ -92,6 +86,12 @@ parted -s "${disk}" -- \
   mkpart primary 512MiB 100% \
   set 1 esp on
 
+part_efi="$(find_partition 1)"
+part_luks_lvm="$(find_partition 2)"
+part_root="/dev/${vg}/${lv_root}"
+part_var="/dev/${vg}/${lv_var}"
+part_home="/dev/${vg}/${lv_home}"
+
 # @@ setup luks
 
 modprobe dm-crypt
@@ -127,10 +127,11 @@ mount "${part_home}" /mnt/home
 
 # @@ install packages
 
-pacstrap -i /mnt \
+pacstrap /mnt \
   base \
   base-devel \
   dialog \
+  docker \
   dosfstools \
   efibootmgr \
   git \
@@ -209,13 +210,20 @@ arch-chroot /mnt hwclock --systohc
 
 # @@ setup users and groups
 
-arch-chroot /mnt useradd --shell /usr/bin/zsh --create-home --user-group --groups sudo,docker "${username}"
+arch-chroot /mnt groupadd docker
+arch-chroot /mnt groupadd sudo
+
+arch-chroot /mnt useradd --shell /usr/bin/zsh --create-home --user-group --groups docker,sudo "${username}"
 
 visudo /mnt/etc/sudoers
 
 # @@ setup networking
 
 arch-chroot /mnt systemctl enable NetworkManager
+
+# @@ setup docker
+
+arch-chroot /mnt systemctl enable docker
 
 # @@ setup bootloader
 
