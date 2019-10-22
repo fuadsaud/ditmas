@@ -4,6 +4,7 @@ base-devel
 bluez-utils
 chrome-gnome-shell
 chruby
+clang
 clojure
 consolas-font
 ctags
@@ -40,6 +41,8 @@ neovim
 network-manager-applet
 networkmanager
 nodejs
+notion
+notion-app
 noto-fonts
 npm
 nvm
@@ -48,6 +51,7 @@ os-prober
 otf-san-francisco
 otf-san-francisco-mono
 otf-san-francisco-pro
+parallel
 powerline
 powerline-fonts-git
 python-pip
