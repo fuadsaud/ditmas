@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+input=$(cat)
+status_code=$(echo "$input" | tail -n 1)
+body=$(echo "$input" | head -n -1)
+
+jq -n \
+  --argjson http_status_code "$status_code" \
+  --arg http_body "$body" \
+  '{"status_code": $http_status_code, "body": $http_body}'
