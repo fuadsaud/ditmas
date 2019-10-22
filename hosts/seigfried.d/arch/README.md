@@ -66,4 +66,6 @@ Create:
       linux-lts-headers     # install a bunch of packages
   ```
 
+## Resources
 
+[How to better enable Color Emojis](https://www.reddit.com/r/archlinux/comments/9q8dlj/how_to_better_enable_color_emojis/)
