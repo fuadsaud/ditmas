@@ -4,41 +4,43 @@ set -euo pipefail
 
 # @@ collect data
 
-hostname=$(dialog --stdout --inputbox "Enter hostname" 0 0) || exit 1
+hostname=$(dialog --stdout --inputbox 'Enter hostname' 0 0) || exit 1
 clear
-: "${hostname:?"hostname cannot be empty"}"
+: "${hostname:?'hostname cannot be empty'}"
 
-username=$(dialog --stdout --inputbox "Enter username" 0 0) || exit 1
+username=$(dialog --stdout --inputbox 'Enter username' 0 0) || exit 1
 clear
-: "${username:?"username cannot be empty"}"
+: "${username:?'username cannot be empty'}"
 
-password=$(dialog --stdout --passwordbox "Enter user password" 0 0) || exit 1
+password=$(dialog --stdout --passwordbox 'Enter user password' 0 0) || exit 1
 clear
-: "${password:?"password cannot be empty"}"
-password2=$(dialog --stdout --passwordbox "Enter user password again" 0 0) || exit 1
+: "${password:?'password cannot be empty'}"
+password2=$(dialog --stdout --passwordbox 'Enter user password again' 0 0) || exit 1
 clear
-[[ "$password" == "$password2" ]] || ( echo "Passwords did not match"; exit 1; )
+[[ "${password}" == "${password2}" ]] || ( echo 'Passwords did not match'; exit 1; )
 
-password_root=$(dialog --stdout --passwordbox "Enter root password" 0 0) || exit 1
+password_root=$(dialog --stdout --passwordbox 'Enter root password' 0 0) || exit 1
 clear
-: "${password_root:?"password cannot be empty"}"
-password_root2=$(dialog --stdout --passwordbox "Enter root password again" 0 0) || exit 1
+: "${password_root:?'password cannot be empty'}"
+password_root2=$(dialog --stdout --passwordbox 'Enter root password again' 0 0) || exit 1
 clear
-[[ "$password_root" == "$password_root2" ]] || ( echo "Passwords did not match"; exit 1; )
+[[ "${password_root}" == "${password_root2}" ]] || ( echo 'Passwords did not match'; exit 1; )
 
-devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac | tr '\n' ' ')
-disk=$(dialog --stdout --menu "Select installation disk" 0 0 0 ${devicelist}) || exit 1
+devicelist=$(lsblk -dplnx size -o name,size | grep -Ev 'boot|rpmb|loop' | tac | tr '\n' ' ')
+disk=$(dialog --stdout --menu 'Select installation disk' 0 0 0 "${devicelist}") || exit 1
 clear
 
 # @@ define vars
 
-vg="vg0"
-lv_root="lv_root"
-lv_var="lv_var"
-lv_home="lv_home"
-lv_root_size="10GB"
-lv_var_size="10GB"
-lv_home_size="100%FREE"
+houdini_repo_url='https://github.com/fuadsaud/houdini'
+
+vg='vg0'
+lv_root='lv_root'
+lv_var='lv_var'
+lv_home='lv_home'
+lv_root_size='10GB'
+lv_var_size='10GB'
+lv_home_size='100%FREE'
 
 function find_partition() {
   find /dev -iwholename "${disk}*" | grep -E "^${disk}p?${1}$"
@@ -50,12 +52,12 @@ part_root="/dev/${vg}/${lv_root}"
 part_var="/dev/${vg}/${lv_var}"
 part_home="/dev/${vg}/${lv_home}"
 
-export console_font="ter-m32n"
+export console_font='ter-m32n'
 export console_font_path="/usr/share/kbd/consolefonts/${console_font}.psf.gz"
 
 # @@ setup logging
-exec 1> >(tee "stdout.log")
-exec 2> >(tee "stderr.log")
+exec 1> >(tee 'stdout.log')
+exec 2> >(tee 'stderr.log')
 
 # @@ log installation parameters
 echo "disk: ${disk}"
@@ -80,11 +82,11 @@ timedatectl set-ntp true
 
 # @@ create partitions
 
-shred -v -n1 "$disk"
+shred -v -n1 "${disk}"
 
-sgdisk --zap-all "$disk"
+sgdisk --zap-all "${disk}"
 
-parted -s "$disk" -- \
+parted -s "${disk}" -- \
   mklabel gpt \
   mkpart primary 0% 512MiB \
   mkpart primary 512MiB 100% \
@@ -99,7 +101,7 @@ cryptsetup open --type luks "${part_luks_lvm}" lvm-on-luks
 # @@ setup lvm
 
 pvcreate --dataalignment 1m /dev/mapper/lvm-on-luks
-vgcreate "$vg" /dev/mapper/lvm-on-luks
+vgcreate "${vg}" /dev/mapper/lvm-on-luks
 lvcreate -L "${lv_root_size}" "$vg" --name "${lv_root}"
 lvcreate -L "${lv_var_size}"  "$vg" --name "${lv_var}"
 lvcreate -l "${lv_home_size}" "$vg" --name "${lv_home}"
@@ -128,7 +130,6 @@ mount "${part_home}" /mnt/home
 pacstrap -i /mnt \
   base \
   base-devel \
-  dhcpcd \
   dialog \
   dosfstools \
   efibootmgr \
@@ -144,6 +145,8 @@ pacstrap -i /mnt \
   man-db \
   man-pages \
   mtools \
+  networkmanager  \
+  network-manager-applet \
   openssh \
   os-prober \
   sudo \
@@ -151,11 +154,6 @@ pacstrap -i /mnt \
   tmux \
   vim \
   zsh \
-  networkmanager  \
-  networkmanager-openvpn \
-  network-manager-applet \
-  wireless_tools \
-  wpa_supplicant \
 
 # @@ generate fstab
 
@@ -201,13 +199,17 @@ sed -i \
 
 arch-chroot /mnt locale-gen
 
+cat > /mnt/etc/locale.conf <<EOF
+LANG=en_US.UTF-8
+EOF
+
 ln -s /mnt/usr/share/zoneinfo/America/Sao_Paulo /mnt/etc/localtime
 
 arch-chroot /mnt hwclock --systohc
 
 # @@ setup users and groups
 
-arch-chroot /mnt useradd --shell /usr/bin/zsh --create-home --user-group --groups sudo,docker "$username"
+arch-chroot /mnt useradd --shell /usr/bin/zsh --create-home --user-group --groups sudo,docker "${username}"
 
 visudo /mnt/etc/sudoers
 
@@ -230,6 +232,10 @@ linux    /vmlinuz-linux
 initrd   /initramfs-linux.img
 options  cryptdevice=PARTUUID=$(blkid -s PARTUUID -o value "${part_luks_lvm}"):${vg} root=/dev/mapper/${vg}-${lv_root} rw
 EOF
+
+# @@ clone houdini
+
+arch-chroot /mnt git clone --recurse-submodules -j8 "${houdini_repo_url}" "/home/${username}/.houdini"
 
 # @@ wrap up
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 set -euo pipefail
 
@@ -106,10 +106,10 @@ done
 
 log 'letting the system know homebrew-installed zsh'
 
-if ! $(cat /etc/shells | grep); then
+if ! grep zsh /etc/shells; then
   log "appending ${ZSH_BIN} to /etc/shells"
 
-  echo $ZSH_BIN | sudo tee -a /etc/shells > /dev/null
+  echo "${ZSH_BIN}" | sudo tee -a /etc/shells > /dev/null
 fi
 
 # set mac defaults

@@ -2,28 +2,22 @@
 
 set -euo pipefail
 
-hostname="the-hostname"
-
 function install_yay() {
-  local yay_url="https://github.com/Jguer/yay"
+  local yay_url="https://aur.archlinux.org/yay.git"
   local yay_dir="/tmp/yay"
   git clone "$yay_url" "$yay_dir"
   cd "$yay_dir"
-  makepkg --no-confirm
+  makepkg --syncdeps --install
   yay -Syyu --no-confirm
 }
 
-function install_git() {
-  sudo pacman -S git
-}
-
 function install_pacman_packages() {
-  yay -S $(cat "$setup_dir/share/arch/packages")
+  yay -S "$(cat "$setup_dir/share/arch/packages")"
 }
 
 function install_gnome() {
   sudo pacman -S gnome
-  systemctl enable gdm
+  sudo systemctl enable gdm
 }
 
 function upgrade_system() {
@@ -33,25 +27,15 @@ function upgrade_system() {
 function install_docker() {
   sudo pacman -S docker
 
-  systemctl enable docker
-
-  groupadd docker
-
-  usemod fuad -G docker
+  sudo systemctl enable docker
 }
 
-function set_hostname() {
-  echo "$1" > /etc/hostname
-}
-
-current_dir=$(dirname "${BASH_SOURCE[0]}")
-setup_dir="$HOUDINI_DIR/setup"
+current_dir=$(diname "$(readlink -f "${BASH_SOURCE[0]}")")
+setup_dir="${current_dir}/.."
 
 source "${setup_dir}/lib/utils.sh"
 
-# upgrade_system
-# install_git
+upgrade_system
 # install_gnome
-# install_yay
-# install_pacman_packages
-# set_hostname "$hostname"
+install_yay
+install_pacman_packages
