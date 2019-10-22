@@ -26,8 +26,8 @@ password_root2=$(dialog --stdout --passwordbox 'Enter root password again' 0 0) 
 clear
 [[ "${password_root}" == "${password_root2}" ]] || ( echo 'Passwords did not match'; exit 1; )
 
-mapfile -t devicelist < <(lsblk -dplnx size -o name,size | grep -Ev 'boot|rpmb|loop' | tac | tr -d '\n' -s ' ')
-disk=$(dialog --stdout --menu 'Select installation disk' 0 0 0 "${devicelist[@]}") || exit 1
+mapfile -t devicelist < <(lsblk -dplnx size -o name,size | grep -Ev 'boot|rpmb|loop' | tac | tr -s ' ')
+disk=$(dialog --stdout --menu 'Select installation disk' 0 0 0 ${devicelist[@]}) || exit 1
 clear
 
 # @@ define vars
