@@ -210,7 +210,6 @@ arch-chroot /mnt hwclock --systohc
 
 # @@ setup users and groups
 
-arch-chroot /mnt groupadd docker
 arch-chroot /mnt groupadd sudo
 
 arch-chroot /mnt useradd --shell /usr/bin/zsh --create-home --user-group --groups docker,sudo "${username}"
