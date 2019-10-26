@@ -138,7 +138,10 @@ pacstrap /mnt \
   linux-headers \
   linux-lts \
   linux-lts-headers \
+  linux-firmware \
+  lvm2 \
   sudo \
+  terminus-font \
   zsh \
 
 # @@ generate fstab
@@ -216,7 +219,7 @@ yay_dir="/tmp/yay"
 arch-chroot /mnt git clone "$yay_url" "$yay_dir"
 arch-chroot /mnt bash -c "cd $yay_dir && makepkg -si"
 arch-chroot /mnt yay -Syu --no-confirm
-arch-chroot /mnt yay -S "$(cat "$arch_packages_file")"
+arch-chroot /mnt yay -S "$(cat "$arch_packages_file")" --needed
 
 # @@ setup users and groups
 
