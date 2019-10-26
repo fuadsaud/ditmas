@@ -4,7 +4,6 @@ set -euo pipefail
 
 packages_file="$HOUDINI_DIR/setup/share/arch/packages"
 
-cat "$packages_file" \
-  | sed "s/$/\n$1/" \
+sed -e "\$a\\$1" "$packages_file" \
   | sort -u \
   | sponge "$packages_file"
