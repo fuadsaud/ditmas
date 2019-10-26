@@ -12,7 +12,6 @@ function step() {
 
 step 'starting arch installation'
 
-# @@ collect data
 step 'collecting data'
 
 hostname=$(dialog --stdout --inputbox 'Enter hostname' 0 0) || exit 1
@@ -41,7 +40,6 @@ mapfile -t devicelist < <(lsblk -dplnx size -o name,size | grep -Ev 'boot|rpmb|l
 disk=$(dialog --stdout --menu 'Select installation disk' 0 0 0 ${devicelist[@]}) || exit 1
 clear
 
-# @@ define vars
 step 'defining vars'
 
 vg='vg0'
@@ -59,13 +57,11 @@ function find_partition() {
 export console_font='ter-m32n'
 export console_font_path="/usr/share/kbd/consolefonts/${console_font}.psf.gz"
 
-# @@ setup logging
-step '@@ setting up log files'
+step 'setting up log files'
 
 exec 1> >(tee 'stdout.log')
 exec 2> >(tee 'stderr.log')
 
-# @@ log installation parameters
 step 'installation params:'
 
 log "\tdisk: ${disk}"
@@ -73,25 +69,21 @@ log "\t/ size: ${lv_root_size}"
 log "\t/var size: ${lv_var_size}"
 log "\t/home size: ${lv_home_size}"
 
-# @@ warm up pacman
 step 'warming up pacman'
 pacman -Syyy
 
 # TODO: network connection
 
-# @@ set console font
 step 'setting console font'
 
 pacman -S --noconfirm terminus-font
 
 setfont "${console_font_path}"
 
-# @@ update system time/date
 step 'updating system time/date'
 
 timedatectl set-ntp true
 
-# @@ create partitions
 step 'creating partitions'
 
 shred -v -n1 "${disk}"
@@ -110,14 +102,12 @@ part_root="/dev/${vg}/${lv_root}"
 part_var="/dev/${vg}/${lv_var}"
 part_home="/dev/${vg}/${lv_home}"
 
-# @@ setup luks
 step 'seting up luks'
 
 modprobe dm-crypt
 cryptsetup luksFormat "${part_luks_lvm}"
 cryptsetup open --type luks "${part_luks_lvm}" lvm-on-luks
 
-# @@ setup lvm
 step 'setting up lvm'
 
 pvcreate --dataalignment 1m /dev/mapper/lvm-on-luks
@@ -126,7 +116,6 @@ lvcreate -L "${lv_root_size}" "$vg" --name "${lv_root}"
 lvcreate -L "${lv_var_size}"  "$vg" --name "${lv_var}"
 lvcreate -l "${lv_home_size}" "$vg" --name "${lv_home}"
 
-# @@ format partitions
 step 'formatting partitions'
 
 mkfs.fat -F32 "${part_efi}"
@@ -134,7 +123,6 @@ mkfs.ext4 "${part_root}"
 mkfs.ext4 "${part_var}"
 mkfs.ext4 "${part_home}"
 
-# @@ mount partitions
 step 'mouting partitions'
 
 mount "/dev/${vg}/${lv_root}" /mnt
@@ -147,7 +135,6 @@ mount "${part_efi}" /mnt/boot
 mount "${part_var}" /mnt/var
 mount "${part_home}" /mnt/home
 
-# @@ install packages
 step 'pacstrapping'
 
 pacstrap /mnt \
@@ -158,16 +145,15 @@ pacstrap /mnt \
   linux-lts-headers \
   linux-firmware \
   lvm2 \
+  networkmanager \
   sudo \
   terminus-font \
   zsh \
 
-# @@ generate fstab
 step 'generating fstab'
 
 genfstab -U -p /mnt >> /mnt/etc/fstab
 
-# @@ create swap file
 step 'creating swap file'
 
 fallocate -l 2G /mnt/swapfile
@@ -175,14 +161,12 @@ chmod 600 /mnt/swapfile
 mkswap /mnt/swapfile
 echo '/swapfile non swap sw 0 0' | tee -a /mnt/etc/fstab
 
-# @@ persist console font
 step 'persisting console font'
 
 cat > /mnt/etc/vconsole.conf << EOF
 FONT=${console_font}
 EOF
 
-# @@ set hostname
 step 'setting hostname'
 
 echo "${hostname}" > /mnt/etc/hostname
@@ -193,7 +177,6 @@ cat > /mnt/etc/hosts << EOF
 127.0.1.1 ${hostname}.localdomain ${hostname}
 EOF
 
-# @@ mkinitcpio
 step 'mkinitcpio'
 
 sed -i \
@@ -203,7 +186,6 @@ sed -i \
 arch-chroot /mnt mkinitcpio --preset linux
 arch-chroot /mnt mkinitcpio --preset linux-lts
 
-# @@ locale
 step 'setting up locale'
 
 sed -i \
@@ -220,7 +202,6 @@ ln -s /mnt/usr/share/zoneinfo/America/Sao_Paulo /mnt/etc/localtime
 
 arch-chroot /mnt hwclock --systohc
 
-# @@ setup bootloader
 step 'setting up bootloader'
 
 arch-chroot /mnt bootctl --path=/boot install
@@ -237,7 +218,6 @@ initrd   /initramfs-linux.img
 options  cryptdevice=PARTUUID=$(blkid -s PARTUUID -o value "${part_luks_lvm}"):${vg} root=/dev/mapper/${vg}-${lv_root} rw
 EOF
 
-# @@ setup users and groups
 step 'creating users and groups'
 
 arch-chroot /mnt groupadd sudo
@@ -249,7 +229,10 @@ arch-chroot /mnt bash -c "echo \"root:${password_root}\"   | chpasswd"
 
 visudo /mnt/etc/sudoers
 
-# @@ wrap up
+step 'setting up networking'
+
+arch-chroot /mnt systemctl enable NetworkManager
+
 step 'wrapping up'
 
 umount -R /mnt
