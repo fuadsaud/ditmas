@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
-current_dir=$(dirname "${BASH_SOURCE[0]}")
+set -euxo pipefail
 
-${current_dir}/arch
+current_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+
+"${current_dir}/arch-post-install"

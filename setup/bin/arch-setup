@@ -2,7 +2,7 @@
 
 set -euxo pipefail
 
-current_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+# current_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 # @@ collect data
 hostname=$(dialog --stdout --inputbox 'Enter hostname' 0 0) || exit 1

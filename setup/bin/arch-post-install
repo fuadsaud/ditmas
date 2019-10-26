@@ -2,11 +2,9 @@
 
 set -euxo pipefail
 
-# current_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+current_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
-houdini_repo_url='https://github.com/fuadsaud/houdini'
-houdini_dir="$HOME/.houdini"
-arch_packages_file="${houdini_dir}/setup/share/arch/packages"
+arch_packages_file="${current_dir}/../share/arch/packages"
 
 ## @@ setup yay
 
@@ -30,12 +28,6 @@ sudo usermod --append --groups docker "${USER}"
 ## @@ setup gnome
 
 sudo systemctl enable gdm
-
-# @@ setup houdini
-
-git clone --recurse-submodules -j8 "${houdini_repo_url}" "${houdini_dir}"
-
-"${houdini_dir}/stow/assorted-scripts/.local/bin/hstow"
 
 # @@ wrap up
 

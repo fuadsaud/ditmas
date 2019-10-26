@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -euxo pipefail
 
-source ./utils.sh
-source ./vars.sh
+current_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+
+source "${current_dir}/../lib//utils.sh"
+
+# @@ define vars
+zsh_bin=$(command -v zsh)
 
 log 'installing homebrew'
 
@@ -48,7 +52,7 @@ brew_formulae=(
   zsh
 )
 
-brew install ${brew_formulae[@]}
+brew install "${brew_formulae[@]}"
 brew install --HEAD ruby-install
 
 log 'installing homebrew casks'
@@ -84,7 +88,7 @@ brew_cask_formulae=(
   PX4/px4/gcc-arm-none-eabi
 )
 
-brew cask install ${brew_cask_formulae[@]}
+brew cask install "${brew_cask_formulae[@]}"
 
 log 'installing mac app store apps'
 
@@ -107,9 +111,11 @@ done
 log 'letting the system know homebrew-installed zsh'
 
 if ! grep zsh /etc/shells; then
-  log "appending ${ZSH_BIN} to /etc/shells"
+  log "appending ${zsh_bin} to /etc/shells"
 
-  echo "${ZSH_BIN}" | sudo tee -a /etc/shells > /dev/null
+  echo "${zsh_bin}" | sudo tee -a /etc/shells > /dev/null
+
+  chsh -s "${zsh_bin}"
 fi
 
 # set mac defaults

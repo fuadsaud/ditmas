@@ -8,4 +8,4 @@ cd /tmp
 
 curl -sfL "$arch_tarball_url" | tar -zxf -
 
-./houdini-master/setup/bin/arch-setup
+./houdini-master/setup/bin/post-install

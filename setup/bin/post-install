@@ -1,13 +1,20 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -euxo pipefail
 
-current_dir=$(dirname "${BASH_SOURCE[0]}")
+current_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 source "${current_dir}/../lib/utils.sh"
-source "${current_dir}/../lib/vars.sh"
 
-source "$OS_SETUP_SCRIPT"
+houdini_dir="${HOME}/.houdini"
+
+function os_post_install() {
+  local houdini_setup_dir="${houdini_dir}/setup"
+  local os_post_install_script
+  os_post_install_script=$(case-linux-mac "${houdini_setup_dir}/bin/linux-post-install" "${houdini_setup_dir}/bin/mac-post-install")
+
+  source "$os_post_install_script"
+}
 
 function setup_ruby() {
   ruby-install -s /tmp/ruby-src ruby
@@ -25,25 +32,28 @@ function setup_python {
   )
 
   pip3 install --user --upgrade pip setuptools
-  pip3 install --user ${python_packages[@]}
+  pip3 install --user "${python_packages[@]}"
 }
 
 function setup_personal_src_dir() {
-  mkdir -p $PERSONAL_SRC_DIR
+  local src_dir="${HOME}/Sources"
+  local personal_src_dir="${src_dir}/fuadsaud"
 
-  lns-once $HOUDINI_DIR $PERSONAL_SRC_DIR/houdini
+  mkdir -p "${personal_src_dir}"
 
-  if [[ ! -d "$PERSONAL_SRC_DIR/qmk_firmware" ]]; then
-    git clone https://github.com/fuadsaud/qmk_firmware.git "$PERSONAL_SRC_DIR/qmk_firmware"
+  lns-once "${houdini_dir}" "${personal_src_dir}/houdini"
+
+  if [[ ! -d "$personal_src_dir/qmk_firmware" ]]; then
+    git clone https://github.com/fuadsaud/qmk_firmware.git "$personal_src_dir/qmk_firmware"
   fi
 }
 
-function setup_chsh() {
-  chsh -s $ZSH_BIN
-}
+function setup_houdini() {
+  local houdini_repo_url="https://github.com/fuadsaud/houdini"
 
-function setup_stow() {
-  $HOUDINI_DIR/stow/assorted-scripts/.local/bin/hstow
+  git clone --recurse-submodules -j8 "${houdini_repo_url}" "${houdini_dir}"
+
+  "${houdini_dir}/stow/assorted-scripts/.local/bin/hstow"
 }
 
 function setup_vim() {
@@ -56,14 +66,14 @@ function setup_vim() {
 function setup_neovim() {
   curl -fLo "${HOME}/.local/share/nvim/site/autoload/plug.vim" --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  nvim +PlugInstall +qall
 
+  nvim +PlugInstall +qall
 }
 
+os_post_install
+setup_houdini
 setup_python
-# setup_ruby
+setup_ruby
 setup_personal_src_dir
-# setup_chsh
-setup_stow
 setup_vim
 setup_neovim
