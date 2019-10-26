@@ -1,1 +1,11 @@
-arch-install-trigger
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+arch_tarball_url="https://bit.ly/houdini-tarball"
+
+cd /tmp
+
+curl -sfL "$arch_tarball_url" | tar -zxf -
+
+./houdini-master/setup/bin/arch-setup
