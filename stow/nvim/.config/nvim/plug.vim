@@ -126,6 +126,9 @@ Plug 'othree/html5.vim',               { 'for': 'html' }
 " Plug 'jtratner/vim-flavored-markdown', { 'for': 'markdown'}
 Plug 'plasticboy/vim-markdown',        { 'for': 'markdown' }
 
+" nginx
+Plug 'chr4/nginx.vim'
+
 " prose
 Plug 'dbmrq/vim-ditto'
 
