@@ -2,6 +2,8 @@
 
 set -euxo pipefail
 
+current_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+
 # @@ collect data
 
 hostname=$(dialog --stdout --inputbox 'Enter hostname' 0 0) || exit 1
@@ -33,6 +35,8 @@ clear
 # @@ define vars
 
 houdini_repo_url='https://github.com/fuadsaud/houdini'
+houdini_dir="/home/${username}/.houdini"
+arch_packages_file="$current_dir/../share/arch/packages"
 
 vg='vg0'
 lv_root='lv_root'
@@ -129,31 +133,12 @@ mount "${part_home}" /mnt/home
 
 pacstrap /mnt \
   base \
-  base-devel \
-  dialog \
-  docker \
-  dosfstools \
-  efibootmgr \
   git \
-  gnome \
-  grub \
   linux \
   linux-headers \
   linux-lts \
   linux-lts-headers \
-  linux-firmware \
-  lvm2 \
-  man-db \
-  man-pages \
-  mtools \
-  networkmanager  \
-  network-manager-applet \
-  openssh \
-  os-prober \
   sudo \
-  terminus-font \
-  tmux \
-  vim \
   zsh \
 
 # @@ generate fstab
@@ -208,22 +193,6 @@ ln -s /mnt/usr/share/zoneinfo/America/Sao_Paulo /mnt/etc/localtime
 
 arch-chroot /mnt hwclock --systohc
 
-# @@ setup users and groups
-
-arch-chroot /mnt groupadd sudo
-
-arch-chroot /mnt useradd --shell /usr/bin/zsh --create-home --user-group --groups docker,sudo "${username}"
-
-visudo /mnt/etc/sudoers
-
-# @@ setup networking
-
-arch-chroot /mnt systemctl enable NetworkManager
-
-# @@ setup docker
-
-arch-chroot /mnt systemctl enable docker
-
 # @@ setup bootloader
 
 arch-chroot /mnt bootctl --path=/boot install
@@ -240,9 +209,44 @@ initrd   /initramfs-linux.img
 options  cryptdevice=PARTUUID=$(blkid -s PARTUUID -o value "${part_luks_lvm}"):${vg} root=/dev/mapper/${vg}-${lv_root} rw
 EOF
 
+## @@ setup yay
+
+yay_url="https://aur.archlinux.org/yay.git"
+yay_dir="/tmp/yay"
+arch-chroot /mnt git clone "$yay_url" "$yay_dir"
+arch-chroot /mnt bash -c "cd $yay_dir && makepkg -si"
+arch-chroot /mnt yay -Syu --no-confirm
+arch-chroot /mnt yay -S "$(cat "$arch_packages_file")"
+
+# @@ setup users and groups
+
+arch-chroot /mnt groupadd sudo
+
+arch-chroot /mnt useradd --shell /usr/bin/zsh --create-home --user-group --groups docker,sudo "${username}"
+
+chpasswd --root /mnt <<EOF
+$username:$password
+root:$password_root
+EOF
+
+visudo /mnt/etc/sudoers
+
+# @@ setup networking
+
+arch-chroot /mnt systemctl enable NetworkManager
+
+# @@ setup docker
+
+arch-chroot /mnt systemctl enable docker
+
+## @@ setup gnome
+
+arch-chroot /mnt systemctl enable gdm
+
 # @@ clone houdini
 
-arch-chroot /mnt git clone --recurse-submodules -j8 "${houdini_repo_url}" "/home/${username}/.houdini"
+arch-chroot /mnt git clone --recurse-submodules -j8 "${houdini_repo_url}" "$houdini_dir"
+arch-chroot /mnt bash -c "$houdini_dir/stow/assorted-scripts/.local/bin/hstow"
 
 # @@ wrap up
 
