@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+# current_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+
+houdini_repo_url='https://github.com/fuadsaud/houdini'
+houdini_dir="$HOME/.houdini"
+arch_packages_file="${houdini_dir}/setup/share/arch/packages"
+
+## @@ setup yay
+
+yay_url="https://aur.archlinux.org/yay.git"
+yay_dir="/tmp/yay"
+git clone "${yay_url}" "${yay_dir}"
+bash -c "cd ${yay_dir} && makepkg -si"
+yay -Syu --no-confirm
+yay -S "$(cat "${arch_packages_file}")" --needed
+
+# @@ setup networking
+
+sudo systemctl enable NetworkManager
+
+# @@ setup docker
+
+sudo systemctl enable docker
+
+sudo usermod --append --groups docker "${USER}"
+
+## @@ setup gnome
+
+sudo systemctl enable gdm
+
+# @@ setup houdini
+
+git clone --recurse-submodules -j8 "${houdini_repo_url}" "${houdini_dir}"
+
+"${houdini_dir}/stow/assorted-scripts/.local/bin/hstow"
+
+# @@ wrap up
+
+echo 'Post-installation finished.'
