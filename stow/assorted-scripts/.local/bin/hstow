@@ -2,13 +2,18 @@
 
 set -euo pipefail
 
-current_dir="$(dirname "$(greadlink -f "${BASH_SOURCE[0]}")")"
-inferred_houdinid_dir=$(greadlink -f "$current_dir/../../../..")
+if greadlink --version &>> /dev/null; then
+  readlink_program=greadlink
+else
+  readlink_program=readlink
+fi
+
+current_dir="$(dirname "$("$readlink_program" -f "${BASH_SOURCE[0]}")")"
+inferred_houdini_dir=$("$readlink_program" -f "$current_dir/../../../..")
 
 hostname=${HOSTNAME:-$(hostname)}
-packages=$(cat "${HOUDINI_DIR:-$inferred_houdinid_dir}/hosts/${hostname}")
+packages_file="${HOUDINI_DIR:-$inferred_houdini_dir}/hosts/${hostname}"
 packages_dir="${HOUDINI_DIR}/stow"
 
-echo $packages |
-  sort |
-  xargs stow --restow --verbose=2 --dir "${packages_dir}" --target "${HOME}"
+sort "$packages_file" \
+  | xargs stow --restow --verbose=2 --dir "${packages_dir}" --target "${HOME}"
