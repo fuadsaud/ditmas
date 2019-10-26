@@ -4,8 +4,12 @@ function echoerr {
   (>&2 echo "${1}")
 }
 
-function log {
+function logerr {
   echoerr "=== (houdini) ===> ${1}"
+}
+
+function log {
+  echo "=== (houdini) ===> ${1}"
 }
 
 function lns-once {
