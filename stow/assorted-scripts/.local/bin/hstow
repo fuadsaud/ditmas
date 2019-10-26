@@ -1,9 +1,12 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 set -euo pipefail
 
+current_dir="$(dirname "$(greadlink -f "${BASH_SOURCE[0]}")")"
+inferred_houdinid_dir=$(greadlink -f "$current_dir/../../../..")
+
 hostname=${HOSTNAME:-$(hostname)}
-packages=$(cat "${HOUDINI_DIR}/hosts/${hostname}")
+packages=$(cat "${HOUDINI_DIR:-$inferred_houdinid_dir}/hosts/${hostname}")
 packages_dir="${HOUDINI_DIR}/stow"
 
 echo $packages |
