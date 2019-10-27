@@ -4,7 +4,7 @@ set -euxo pipefail
 
 current_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
-source "${current_dir}/../lib//utils.sh"
+source "${current_dir}/../lib/utils.sh"
 
 # @@ define vars
 zsh_bin=$(command -v zsh)
