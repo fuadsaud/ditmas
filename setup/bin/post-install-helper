@@ -2,10 +2,10 @@
 
 set -euxo pipefail
 
-arch_tarball_url="https://bit.ly/houdini-tarball"
+arch_tarball_url='http://sh.fuad.im/houdini'
 
 cd /tmp
 
 curl -sfL "$arch_tarball_url" | tar -zxf -
 
-./houdini-master/setup/bin/post-install
+/tmp/houdini-master/setup/bin/post-install
