@@ -21,10 +21,6 @@ function install_packages {
   yay -S --needed --noconfirm "${arch_packages[@]}"
 }
 
-function setup_networking {
-  sudo systemctl enable NetworkManager
-}
-
 function setup_docker {
   sudo systemctl enable docker
 
@@ -36,7 +32,7 @@ function setup_gnome {
 }
 
 install_yay
-setup_networking
+install_packages
 setup_docker
 setup_gnome
 
