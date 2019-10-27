@@ -12,7 +12,7 @@ function os_post_install {
   local os_post_install_script
   os_post_install_script=$(case-linux-mac "${current_dir}/linux-post-install" "${current_dir}/mac-post-install")
 
-  source "$os_post_install_script"
+  "$os_post_install_script"
 }
 
 function setup_ruby {
