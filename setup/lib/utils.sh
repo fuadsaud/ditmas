@@ -12,6 +12,10 @@ function log {
   echo "=== (houdini) ===> ${1}"
 }
 
+function step() {
+  log "@@ ${1}"
+}
+
 function lns-once {
   if [[ ! -h ${2} ]]; then
     ln -s "${1}" "${2}"

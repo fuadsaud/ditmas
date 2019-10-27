@@ -4,31 +4,53 @@ set -euxo pipefail
 
 current_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
-arch_packages_file="${current_dir}/../share/arch/packages"
+source "${current_dir}/../lib/utils.sh"
 
-## @@ setup yay
+function install_yay {
+  step 'installing yay'
 
-yay_url="https://aur.archlinux.org/yay.git"
-yay_dir="/tmp/yay"
-git clone "${yay_url}" "${yay_dir}"
-bash -c "cd ${yay_dir} && makepkg -si"
-yay -Syu --no-confirm
-yay -S "$(cat "${arch_packages_file}")" --needed
+  local yay_url="https://aur.archlinux.org/yay.git"
+  local yay_dir="/tmp/yay"
+  rm -rf "${yay_dir}"
+  git clone "${yay_url}" "${yay_dir}"
+  bash -c "cd ${yay_dir} && makepkg -si"
+  yay -Syu --noconfirm
+}
 
-# @@ setup networking
+function install_packages {
+  step 'installing packages'
 
-sudo systemctl enable NetworkManager
+  local arch_packages_file="${current_dir}/../share/arch/packages"
+  mapfile -t arch_packages < <(cat "${arch_packages_file}")
+  yay -S --needed --noconfirm "${arch_packages[@]}"
+}
 
-# @@ setup docker
+function setup_networking {
+  step 'setting up networking'
 
-sudo systemctl enable docker
+  sudo systemctl enable NetworkManager
+}
 
-sudo usermod --append --groups docker "${USER}"
+function setup_docker {
+  step 'setting up docker'
 
-## @@ setup gnome
+  sudo systemctl enable docker
 
-sudo systemctl enable gdm
+  sudo usermod --append --groups docker "${USER}"
+}
 
-# @@ wrap up
+function setup_gnome {
+  step 'setting up gnome'
 
-echo 'Post-installation finished.'
+  sudo systemctl enable gdm
+}
+
+function wrap_up {
+  step 'arch post-installation finished'
+}
+
+install_yay
+setup_networking
+setup_docker
+setup_gnome
+wrap_up

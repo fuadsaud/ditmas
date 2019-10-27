@@ -6,10 +6,6 @@ current_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 source "${current_dir}/../lib/utils.sh"
 
-function step() {
-  log "@@ ${1}"
-}
-
 step 'starting arch installation'
 
 step 'collecting data'
@@ -139,6 +135,8 @@ step 'pacstrapping'
 
 pacstrap /mnt \
   base \
+  base-devel \
+  git \
   linux \
   linux-headers \
   linux-lts \
@@ -146,8 +144,10 @@ pacstrap /mnt \
   linux-firmware \
   lvm2 \
   networkmanager \
+  screen \
   sudo \
   terminus-font \
+  vim \
   zsh \
 
 step 'generating fstab'
