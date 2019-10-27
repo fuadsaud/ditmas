@@ -7,18 +7,21 @@ current_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 source "${current_dir}/../lib/utils.sh"
 
 function install_yay {
-  local yay_url="https://aur.archlinux.org/yay.git"
-  local yay_dir="/tmp/yay"
-  rm -rf "${yay_dir}"
-  git clone "${yay_url}" "${yay_dir}"
-  bash -c "cd ${yay_dir} && makepkg -si --noconfirm"
-  yay -Syu --noconfirm
+  if ! command -v yay; then
+    local yay_url="https://aur.archlinux.org/yay.git"
+    local yay_dir="/tmp/yay"
+    rm -rf "${yay_dir}"
+    git clone "${yay_url}" "${yay_dir}"
+    bash -c "cd ${yay_dir} && makepkg -si --noconfirm"
+    yay -Syu --noconfirm
+  fi
 }
 
 function install_packages {
   local hostname; hostname="$(hostname)"
   local arch_packages_file="${current_dir}/../../hosts/${hostname}.d/arch/packages"
   mapfile -t arch_packages < <(cat "${arch_packages_file}")
+
   yay -S --needed --noconfirm "${arch_packages[@]}"
 }
 

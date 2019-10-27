@@ -52,7 +52,7 @@ function setup_houdini {
 
   git clone --recurse-submodules -j8 "${houdini_repo_url}" "${houdini_dir}"
 
-  "${houdini_dir}/stow/assorted-scripts/.local/bin/hstow"
+  "${houdini_dir}/stow/assorted-scripts/.local/bin/hstow" --overwrite '.*'
 }
 
 function setup_vim {

@@ -22,4 +22,4 @@ fi
 packages_dir="${houdini_dir}/stow"
 
 sort "$packages_file" \
-  | xargs stow --restow --verbose=2 --dir "${packages_dir}" --target "${HOME}"
+  | xargs stow --restow --verbose=2 --dir "${packages_dir}" --target "${HOME}" "$@"
