@@ -12,8 +12,9 @@ current_dir="$(dirname "$("$readlink_program" -f "${BASH_SOURCE[0]}")")"
 inferred_houdini_dir=$("$readlink_program" -f "$current_dir/../../../..")
 
 hostname=${HOSTNAME:-$(hostname)}
-packages_file="${HOUDINI_DIR:-$inferred_houdini_dir}/hosts/${hostname}"
-packages_dir="${HOUDINI_DIR}/stow"
+houdini_dir="${HOUDINI_DIR:-$inferred_houdini_dir}"
+packages_file="${houdini_dir}/hosts/${hostname}"
+packages_dir="${houdini_dir}/stow"
 
 sort "$packages_file" \
   | xargs stow --restow --verbose=2 --dir "${packages_dir}" --target "${HOME}"
