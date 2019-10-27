@@ -16,7 +16,7 @@ function install_yay {
 }
 
 function install_packages {
-  local arch_packages_file="${current_dir}/../share/arch/packages"
+  local arch_packages_file="${current_dir}/../../hosts/arch/packages"
   mapfile -t arch_packages < <(cat "${arch_packages_file}")
   yay -S --needed --noconfirm "${arch_packages[@]}"
 }
