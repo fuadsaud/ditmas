@@ -43,8 +43,8 @@ function define_vars {
   lv_root='lv_root'
   lv_var='lv_var'
   lv_home='lv_home'
-  lv_root_size='10GB'
-  lv_var_size='10GB'
+  lv_root_size='30GB'
+  lv_var_size='1GB'
   lv_home_size='100%FREE'
   console_font='ter-m32n'
   console_font_path="/usr/share/kbd/consolefonts/${console_font}.psf.gz"
