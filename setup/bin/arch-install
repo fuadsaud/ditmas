@@ -284,10 +284,10 @@ define_vars
 enable_ntp
 warmup_pacman
 setup_consolefont
-setup_luks
-setup_lvm
 create_partitions
 define_partition_vars
+setup_luks
+setup_lvm
 format_partitions
 mount_partitions
 run_pacstrap
