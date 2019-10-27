@@ -11,7 +11,7 @@ function install_yay {
   local yay_dir="/tmp/yay"
   rm -rf "${yay_dir}"
   git clone "${yay_url}" "${yay_dir}"
-  bash -c "cd ${yay_dir} && makepkg -si"
+  bash -c "cd ${yay_dir} && makepkg -si --noconfirm"
   yay -Syu --noconfirm
 }
 
