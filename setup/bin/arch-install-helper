@@ -2,7 +2,7 @@
 
 set -euxo pipefail
 
-arch_tarball_url='http://sh.fuad.im/houdini'
+arch_tarball_url='http://sh.fuad.im/houdini.tar.gz'
 
 cd /tmp
 
