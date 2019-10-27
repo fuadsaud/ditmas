@@ -7,8 +7,6 @@ current_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 source "${current_dir}/../lib/utils.sh"
 
 function collect_data {
-  step 'collecting data'
-
   hostname=$(dialog --stdout --inputbox 'Enter hostname' 0 0) || exit 1
   clear
   : "${hostname:?'hostname cannot be empty'}"
@@ -37,8 +35,6 @@ function collect_data {
 }
 
 function define_vars {
-  step 'defining vars'
-
   vg='vg0'
   lv_root='lv_root'
   lv_var='lv_var'
@@ -55,28 +51,20 @@ function find_partition {
 }
 
 function warmup_pacman {
-  step 'warming up pacman'
-
   pacman -Syyy
 }
 
 function setup_consolefont {
-  step 'setting console font'
-
   pacman -S --noconfirm terminus-font
 
   setfont "${console_font_path}"
 }
 
 function enable_ntp {
-  step 'updating system time/date'
-
   timedatectl set-ntp true
 }
 
 function create_partitions {
-  step 'creating partitions'
-
   shred -v -n1 "${disk}"
 
   sgdisk --zap-all "${disk}"
@@ -88,17 +76,22 @@ function create_partitions {
     set 1 esp on
 }
 
-function setup_luks {
-  step 'seting up luks'
+function define_partition_vars {
+  part_efi="$(find_partition 1)"
+  part_luks_lvm="$(find_partition 2)"
+  part_root="/dev/${vg}/${lv_root}"
+  part_var="/dev/${vg}/${lv_var}"
+  part_home="/dev/${vg}/${lv_home}"
+}
 
+
+function setup_luks {
   modprobe dm-crypt
   cryptsetup luksFormat "${part_luks_lvm}"
   cryptsetup open --type luks "${part_luks_lvm}" lvm-on-luks
 }
 
 function setup_lvm {
-  step 'setting up lvm'
-
   pvcreate --dataalignment 1m /dev/mapper/lvm-on-luks
   vgcreate "${vg}" /dev/mapper/lvm-on-luks
   lvcreate -L "${lv_root_size}" "$vg" --name "${lv_root}"
@@ -107,8 +100,6 @@ function setup_lvm {
 }
 
 function format_partitions {
-  step 'formatting partitions'
-
   mkfs.fat -F32 "${part_efi}"
   mkfs.ext4 "${part_root}"
   mkfs.ext4 "${part_var}"
@@ -116,8 +107,6 @@ function format_partitions {
 }
 
 function mount_partitions {
-  step 'mouting partitions'
-
   mount "/dev/${vg}/${lv_root}" /mnt
 
   mkdir /mnt/boot
@@ -130,8 +119,6 @@ function mount_partitions {
 }
 
 function run_pacstrap {
-  step 'pacstrapping'
-
   local packages=(
     base
     base-devel
@@ -154,14 +141,10 @@ function run_pacstrap {
 }
 
 function generate_fstab {
-  step 'generating fstab'
-
   genfstab -U -p /mnt >> /mnt/etc/fstab
 }
 
 function create_swapfile {
-  step 'creating swap file'
-
   fallocate -l 2G /mnt/swapfile
   chmod 600 /mnt/swapfile
   mkswap /mnt/swapfile
@@ -169,16 +152,12 @@ function create_swapfile {
 }
 
 function persist_consolefont {
-  step 'persisting console font'
-
   cat > /mnt/etc/vconsole.conf << EOF
   FONT=${console_font}
 EOF
 }
 
 function set_hostname {
-  step 'setting hostname'
-
   echo "${hostname}" > /mnt/etc/hostname
 
   cat > /mnt/etc/hosts << EOF
@@ -189,8 +168,6 @@ EOF
 }
 
 function run_mkinitcpio {
-  step 'mkinitcpio'
-
   sed -i \
     's/^\(HOOKS=\).*$/\1(base udev autodetect keyboard consolefont modconf block encrypt lvm2 filesystems fsck)/' \
     /mnt/etc/mkinitcpio.conf
@@ -200,8 +177,6 @@ function run_mkinitcpio {
 }
 
 function setup_locale {
-  step 'setting up locale'
-
   sed -i \
     's/\#en_US.UTF-8/en_US.UTF-8/' \
     /mnt/etc/locale.gen
@@ -218,8 +193,6 @@ EOF
 }
 
 function setup_bootloader {
-  step 'setting up bootloader'
-
   arch-chroot /mnt bootctl --path=/boot install
 
   cat <<EOF > /mnt/boot/loader/loader.conf
@@ -236,8 +209,6 @@ EOF
 }
 
 function create_users_and_groups {
-  step 'creating users and groups'
-
   arch-chroot /mnt groupadd sudo
 
   arch-chroot /mnt useradd --shell /usr/bin/zsh --create-home --user-group --groups sudo "${username}"
@@ -249,33 +220,19 @@ function create_users_and_groups {
 }
 
 function setup_networking {
-  step 'setting up networking'
-
   arch-chroot /mnt systemctl enable NetworkManager
 }
 
-function wrap_up {
-  step 'wrapping up'
-
+function unmount {
   umount -R /mnt
-
-  step 'installation finished'
 }
 
-function define_partition_vars {
-  part_efi="$(find_partition 1)"
-  part_luks_lvm="$(find_partition 2)"
-  part_root="/dev/${vg}/${lv_root}"
-  part_var="/dev/${vg}/${lv_var}"
-  part_home="/dev/${vg}/${lv_home}"
-}
-
-step 'setting up log files'
+log 'setting up log files'
 
 exec 1> >(tee 'stdout.log')
 exec 2> >(tee 'stderr.log')
 
-step 'starting arch installation'
+log 'starting arch installation'
 
 # TODO: network connection
 
@@ -300,4 +257,6 @@ setup_locale
 setup_bootloader
 create_users_and_groups
 setup_networking
-wrap_up
+unmount
+
+log 'installation finished'

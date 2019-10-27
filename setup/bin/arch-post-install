@@ -7,8 +7,6 @@ current_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 source "${current_dir}/../lib/utils.sh"
 
 function install_yay {
-  step 'installing yay'
-
   local yay_url="https://aur.archlinux.org/yay.git"
   local yay_dir="/tmp/yay"
   rm -rf "${yay_dir}"
@@ -18,39 +16,28 @@ function install_yay {
 }
 
 function install_packages {
-  step 'installing packages'
-
   local arch_packages_file="${current_dir}/../share/arch/packages"
   mapfile -t arch_packages < <(cat "${arch_packages_file}")
   yay -S --needed --noconfirm "${arch_packages[@]}"
 }
 
 function setup_networking {
-  step 'setting up networking'
-
   sudo systemctl enable NetworkManager
 }
 
 function setup_docker {
-  step 'setting up docker'
-
   sudo systemctl enable docker
 
   sudo usermod --append --groups docker "${USER}"
 }
 
 function setup_gnome {
-  step 'setting up gnome'
-
   sudo systemctl enable gdm
-}
-
-function wrap_up {
-  step 'arch post-installation finished'
 }
 
 install_yay
 setup_networking
 setup_docker
 setup_gnome
-wrap_up
+
+log 'arch post-installation finished'
