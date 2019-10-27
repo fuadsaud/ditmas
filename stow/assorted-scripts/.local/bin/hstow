@@ -14,6 +14,11 @@ inferred_houdini_dir=$("$readlink_program" -f "$current_dir/../../../..")
 hostname=${HOSTNAME:-$(hostname)}
 houdini_dir="${HOUDINI_DIR:-$inferred_houdini_dir}"
 packages_file="${houdini_dir}/hosts/${hostname}.d/stow"
+
+if [[ ! -e $packages_file ]]; then
+  packages_file="${houdini_dir}/hosts/base.d/stow"
+fi
+
 packages_dir="${houdini_dir}/stow"
 
 sort "$packages_file" \

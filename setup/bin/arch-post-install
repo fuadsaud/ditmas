@@ -16,15 +16,18 @@ function install_yay {
 }
 
 function install_packages {
-  local arch_packages_file="${current_dir}/../../hosts/arch/packages"
+  local hostname; hostname="$(hostname)"
+  local arch_packages_file="${current_dir}/../../hosts/${hostname}.d/arch/packages"
   mapfile -t arch_packages < <(cat "${arch_packages_file}")
   yay -S --needed --noconfirm "${arch_packages[@]}"
 }
 
 function setup_docker {
-  sudo systemctl enable docker
+  if command -v docker ; then
+    sudo systemctl enable docker
 
-  sudo usermod --append --groups docker "${USER}"
+    sudo usermod --append --groups docker "${USER}"
+  fi
 }
 
 function setup_gnome {

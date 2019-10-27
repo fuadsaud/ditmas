@@ -123,6 +123,7 @@ function run_pacstrap {
     base
     base-devel
     git
+    inetutils
     linux
     linux-headers
     linux-lts
@@ -220,7 +221,7 @@ function create_users_and_groups {
 }
 
 function setup_networking {
-  sudo systemctl enable NetworkManager
+  arch-chroot /mnt systemctl enable NetworkManager
 }
 
 function unmount {
