@@ -12,6 +12,7 @@ dialog
 docker
 dosfstools
 efibootmgr
+entr
 forticlientsslvpn
 fzf
 git
@@ -19,6 +20,7 @@ gnome
 gnome-tweaks
 google-chrome
 grub
+gthumb
 hub
 inetutils
 jdk-openjdk
@@ -55,6 +57,7 @@ parallel
 powerline
 powerline-fonts-git
 python-pip
+rlwrap
 ruby-install
 rust
 rxvt-unicode
