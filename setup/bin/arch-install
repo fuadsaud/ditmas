@@ -235,8 +235,6 @@ exec 2> >(tee 'stderr.log')
 
 log 'starting arch installation'
 
-# TODO: network connection
-
 collect_data
 define_vars
 enable_ntp
