@@ -7,6 +7,18 @@
 "   - |
 "   - <Del> (testing for :noh)
 
+"     __               __
+"    / /__  ____ _____/ /__  _____
+"   / / _ \/ __ `/ __  / _ \/ ___/
+"  / /  __/ /_/ / /_/ /  __/ /
+" /_/\___/\__,_/\__,_/\___/_/
+"
+
+let mapleader = '_'
+let maplocalleader = '+'
+map <Space> _
+map <Backspace> +
+
 "          __    __
 "   ____ _/ /_  / /_  ________ _   __
 "  / __ `/ __ \/ __ \/ ___/ _ \ | / /
@@ -114,20 +126,11 @@ map T <Plug>Sneak_T
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
+nnoremap <LocalLeader>j[ vi[<C-v>$:EasyAlign\ g/^\S/<CR>gv=
+nnoremap <LocalLeader>j{ vi{<C-v>$:EasyAlign\ g/^\S/<CR>gv=
+
 " reselect last pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
-
-"     __               __
-"    / /__  ____ _____/ /__  _____
-"   / / _ \/ __ `/ __  / _ \/ ___/
-"  / /  __/ /_/ / /_/ /  __/ /
-" /_/\___/\__,_/\__,_/\___/_/
-"
-
-let mapleader = '_'
-let maplocalleader = '+'
-map <Space> _
-map <Backspace> +
 
 " ack
 nnoremap <Leader>a :Ack<Space>
