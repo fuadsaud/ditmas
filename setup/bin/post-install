@@ -34,6 +34,10 @@ function setup_python {
   pip3 install --user "${python_packages[@]}"
 }
 
+function clear_dotfiles_and_dotdirs {
+  find "${HOME}" -maxpdepth 1 -iname '.*' -exec rm -rf '{}' \;
+}
+
 function setup_personal_src_dir {
   local src_dir="${HOME}/Sources"
   local personal_src_dir="${src_dir}/fuadsaud"
@@ -50,7 +54,7 @@ function setup_personal_src_dir {
 function setup_houdini {
   local houdini_repo_url="https://github.com/fuadsaud/houdini"
 
-  rm -rf "${houdini_dir}" "${HOME}"/.*
+  rm -rf "${houdini_dir}"
 
   git clone --recurse-submodules -j8 "${houdini_repo_url}" "${houdini_dir}"
 
@@ -72,6 +76,7 @@ function setup_neovim {
 }
 
 os_post_install
+clear_dotfiles_and_dotdirs
 setup_houdini
 setup_python
 setup_ruby
