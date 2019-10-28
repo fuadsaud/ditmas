@@ -50,6 +50,8 @@ function setup_personal_src_dir {
 function setup_houdini {
   local houdini_repo_url="https://github.com/fuadsaud/houdini"
 
+  rm -rf "${houdini_dir}" "${HOME}/.*"
+
   git clone --recurse-submodules -j8 "${houdini_repo_url}" "${houdini_dir}"
 
   "${houdini_dir}/stow/assorted-scripts/.local/bin/hstow" --overwrite '.*'
