@@ -1,3 +1,5 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+
+set -euo pipefail
 
 mas search "$*" | head -n 1 | cut -d ' ' -f 1 | xargs mas install
