@@ -1,5 +1,0 @@
-#!/bin/zsh
-#
-# Prints a list of directories in the current path.
-
-print -l $path
