@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if greadlink --version &>> /dev/null; then
+  greadlink
+else
+  readlink
+fi
