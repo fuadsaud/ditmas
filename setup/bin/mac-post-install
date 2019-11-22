@@ -19,38 +19,10 @@ log 'installing homebrew formulae'
 
 brew update
 
-brew_formulae=(
-  ag
-  asciinema
-  awscli
-  bash
-  chruby
-  clojure
-  cowsay
-  ctags
-  curl
-  fzf
-  git
-  heroku/brew/heroku
-  htop
-  hub
-  iproute2mac
-  jq
-  leiningen
-  mas
-  neovim/neovim/neovim
-  python
-  fasd
-  reattach-to-user-namespace
-  trash
-  tree
-  unrar
-  tmux
-  vim
-  youtube-dl
-  homebrew/cask-drivers/yubico-authenticator
-  zsh
-)
+hostname="$(hostname)"
+brew_formulae_file="${current_dir}/../../hosts/${hostname}.d/brew/formulae"
+
+mapfile -t brew_formulae < <(cat "${brew_formulae_file}")
 
 brew install "${brew_formulae[@]}"
 brew install --HEAD ruby-install
