@@ -9,17 +9,17 @@ else
 fi
 
 current_dir="$(dirname "$("$readlink_program" -f "${BASH_SOURCE[0]}")")"
-inferred_houdini_dir=$("$readlink_program" -f "$current_dir/../../../..")
+inferred_ditmas_dir=$("$readlink_program" -f "$current_dir/../../../..")
 
 hostname=${HOSTNAME:-$(hostname)}
-houdini_dir="${HOUDINI_DIR:-$inferred_houdini_dir}"
-packages_file="${houdini_dir}/hosts/${hostname}.d/stow"
+ditmas_dir="${DITMAS_DIR:-$inferred_ditmas_dir}"
+packages_file="${ditmas_dir}/hosts/${hostname}.d/stow"
 
 if [[ ! -e $packages_file ]]; then
-  packages_file="${houdini_dir}/hosts/base.d/stow"
+  packages_file="${ditmas_dir}/hosts/base.d/stow"
 fi
 
-packages_dir="${houdini_dir}/stow"
+packages_dir="${ditmas_dir}/stow"
 
 sort "$packages_file" \
   | xargs stow --restow --verbose=2 --dir "${packages_dir}" --target "${HOME}" "$@"

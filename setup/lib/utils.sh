@@ -5,11 +5,11 @@ function echoerr {
 }
 
 function logerr {
-  echoerr "=== (houdini) ===> ${1}"
+  echoerr "=== (ditmas) ===> ${1}"
 }
 
 function log {
-  echo "=== (houdini) ===> ${1}"
+  echo "=== (ditmas) ===> ${1}"
 }
 
 function lns-once {

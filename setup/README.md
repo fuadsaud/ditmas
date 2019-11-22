@@ -1,4 +1,4 @@
-# Houdini Host Setup
+# Host Setup
 
 ## Arch Linux
 

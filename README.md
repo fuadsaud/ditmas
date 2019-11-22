@@ -1,4 +1,4 @@
-houdini
-===========
+<p align="center">
+  <img src="./resources/ditmas.png">
+</p>
 
-This is my set of dotfiles, shell scripts, environment tweaks and other goodies.

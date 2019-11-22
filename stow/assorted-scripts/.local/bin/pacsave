@@ -3,7 +3,7 @@
 set -euo pipefail
 
 hostname=$(hostname)
-packages_file="${HOUDINI_DIR}/hosts/${hostname}.d/arch/packages"
+packages_file="${DITMAS_DIR}/hosts/${hostname}.d/arch/packages"
 
 sed -e "\$a\\$1" "$packages_file" \
   | sort -u \

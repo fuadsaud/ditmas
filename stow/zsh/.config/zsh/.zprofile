@@ -45,8 +45,9 @@ typeset -gU cdpath fpath mailpath path
 #   $cdpath
 # )
 
-export HOUDINI_DIR="$HOME/.houdini"
-export STOW_DIR="$HOUDINI_DIR/stow"
+export HOUDINI_DIR="$HOME/.ditmas"
+export DITMAS_DIR="$HOME/.ditmas"
+export STOW_DIR="$DITMAS_DIR/stow"
 
 export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 export GOPATH="$HOME/Code/go"
@@ -59,8 +60,6 @@ path=(
   $ANDROID_HOME/platform-tools
   $HOME/.cargo/bin
   $HOME/.local/bin
-  /usr/local/share/npm/bin
-  /usr/local/heroku/bin
   /usr/local/{bin,sbin}
   $path
 )
