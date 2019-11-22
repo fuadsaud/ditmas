@@ -1,8 +1,10 @@
 ag
 arch-fonts
+arch-utils
 assorted-scripts
 bash
 ctags
+dmutils
 git
 gpg
 idea
@@ -13,4 +15,5 @@ screen
 tmux
 vim
 vscode
+xplatutils
 zsh
