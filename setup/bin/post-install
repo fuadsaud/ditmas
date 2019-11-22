@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euxo pipefail
+sdmstowet -euxo pipefail
 
 current_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
@@ -58,7 +58,7 @@ function setup_ditmas {
 
   git clone --recurse-submodules -j8 "${repo_url}" "${ditmas_dir}"
 
-  "${ditmas_dir}/stow/assorted-scripts/.local/bin/hstow" --overwrite '.*'
+  DITMAS_DIR="${ditmas_dir}" "${ditmas_dir}/stow/dmutils/.local/bin/dsync" --overwrite '.*'
 }
 
 function setup_vim {

@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
 
 git --git-dir="${DITMAS_DIR}/.git" pull
-
-dmrestow
