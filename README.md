@@ -6,11 +6,11 @@ Ditmas is a collection of dotfiles, scripts and host configurations.
 
 ## Primer
 
-- `stow/` contains [GNU Stow](https://www.gnu.org/software/stow/) packages. They may contain a mix of static configuration
+- [`stow/`](./stow) contains [GNU Stow](https://www.gnu.org/software/stow/) packages. They may contain a mix of static configuration
     files and executable scripts. See each package's README for more details.
-- `hosts/` contains host configurations. Each host is defined by a directory named after it, which contains a `stow`
+- [`hosts/`](./hosts) contains host configurations. Each host is defined by a directory named after it, which contains a `stow`
     file, listing the stow packages to be installed, and further (os specific) package manager packages. A `base` host
     exists as a default.
-- `setup/` contains setup scripts for bootstrapping and preparing hosts. Install scripts are mostly oppinionated and
+- [`setup/`](./setup) contains setup scripts for bootstrapping and preparing hosts. Install scripts are mostly oppinionated and
     post-installation is based upon the afforementioned host configurations.
 
