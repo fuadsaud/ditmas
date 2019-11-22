@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+hostname=${HOSTNAME:-$(hostname)}
+packages_file="${DITMAS_DIR}/hosts/${hostname}.d/stow"
+
+if [[ ! -e $packages_file ]]; then
+  packages_file="${DITMAS_DIR}/hosts/base.d/stow"
+fi
+
+sort "$packages_file"

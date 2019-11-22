@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+packages_dir="${DITMAS_DIR}/stow"
+
+stow --verbose=2 --dir "${packages_dir}" --target "${HOME}" "$@"
