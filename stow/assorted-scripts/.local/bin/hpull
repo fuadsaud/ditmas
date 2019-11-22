@@ -1,5 +1,0 @@
-#!/usr/bin/env zsh
-
-git --git-dir=$DITMAS_DIR/.git pull
-
-hstow
