@@ -3,6 +3,7 @@ arch-fonts
 arch-utils
 assorted-scripts
 bash
+clojure
 ctags
 dmutils
 git
