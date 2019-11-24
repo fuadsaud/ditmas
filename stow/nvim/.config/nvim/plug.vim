@@ -89,6 +89,7 @@ Plug 'ngmy/vim-rubocop',         { 'for': 'ruby' }
 Plug 'guns/vim-sexp',                              { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace',                        { 'for': 'clojure' }
+Plug 'Olical/conjure',                             { 'tag': 'v2.1.1', 'do': 'bin/compile' }
 Plug 'tpope/vim-salve',                            { 'for': 'clojure' }
 Plug 'venantius/vim-cljfmt',                       { 'for': 'clojure' }
 Plug 'fuadsaud/vim-clojure-static',                { 'for': 'clojure' }

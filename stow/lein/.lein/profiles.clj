@@ -7,6 +7,7 @@
  :repl {:dependencies [[org.clojure/tools.namespace "0.3.1"]
                        [cljfmt "0.6.4"]
                        [nrepl "0.6.0"]
+                       [olical/propel "1.3.1"]
                        [mvxcvi/puget "1.1.2"]]
 
         :plugins      [[cider/cider-nrepl "0.22.1"]
