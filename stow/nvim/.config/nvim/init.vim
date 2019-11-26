@@ -72,6 +72,7 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
 let s:config_dir = stdpath('config')
 
 let s:additional_configs = [
+\   'conjure.vim',
 \   'plug-helpers.vim',
 \   'plug.vim',
 \   'ag.vim',
@@ -111,7 +112,7 @@ let g:jsx_ext_required = 0
 " linting
 
 let g:ale_fixers = { 'javascript': ['prettier_standard'] }
-let g:ale_linters = { 'javascript': ['standard'], 'clojure': ['joker'] }
+let g:ale_linters = { 'javascript': ['standard'], 'clojure': ['clj-kondo'] }
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 1
@@ -149,9 +150,3 @@ let g:rainbow_conf['guifgs'] = [
 \ ]
 
 " let g:rainbow_conf['guifgs'] = ['Orange4', 'teal', 'DeepPink4', 'DeepSkyBlue4']
-
-"command to change the current tab's workingdir
-command! -nargs=1 -complete=dir EP call contabs#project#edit(<q-args>)
-
-"command to open a new tab with some workingdir
-command! -nargs=1 -complete=dir TP call contabs#project#tabedit(<q-args>)
