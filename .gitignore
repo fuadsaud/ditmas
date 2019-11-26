@@ -1,3 +1,5 @@
+stow/clojure/.config/clojure/.cpcache
+
 stow/lein/.lein/repl-history
 stow/lein/.lein/self-installs
 
