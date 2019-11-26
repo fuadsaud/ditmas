@@ -45,13 +45,19 @@ typeset -gU cdpath fpath mailpath path
 #   $cdpath
 # )
 
-export HOUDINI_DIR="$HOME/.ditmas"
-export DITMAS_DIR="$HOME/.ditmas"
-export STOW_DIR="$DITMAS_DIR/stow"
+export HOUDINI_DIR="${HOME}/.ditmas"
+export DITMAS_DIR="${HOME}/.ditmas"
+export STOW_DIR="${DITMAS_DIR}/stow"
+export SRC_DIR="${HOME}/Sources"
+export BIN_DIR="${HOME}/.local/bin"
+export OPT_DIR="${HOME}/.local/opt"
+export XDG_DATA_HOME=${XDG_DATA_HOME:-"${HOME}/.local/share"}
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"${HOME}/.config"}
 
 export HOMEBREW_CASK_OPTS='--appdir=/Applications'
-export GOPATH="$HOME/Code/go"
-export ANDROID_HOME="$HOME/Library/Android/sdk"
+export GOPATH="${SRC_DIR}/go"
+export ANDROID_HOME="${HOME}/Library/Android/sdk"
+export NVM_DIR="${OPT_DIR}/nvm"
 
 # Set the list of directories that Zsh searches for programs.
 path=(
@@ -59,7 +65,7 @@ path=(
   $ANDROID_HOME/tools
   $ANDROID_HOME/platform-tools
   $HOME/.cargo/bin
-  $HOME/.local/bin
+  $BIN_DIR
   /usr/local/{bin,sbin}
   $path
 )
