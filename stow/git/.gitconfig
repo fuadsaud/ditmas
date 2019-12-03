@@ -33,7 +33,8 @@
   fix = ci --fixup
   fixf = fz-fixup
   fixup = ci --fixup HEAD
-  fuck = "!git add .; git ci -m 'Fuck this shit, I am done for today!'; git p;"
+  foo = "!git co master && git fr && git pm"
+  fuck = "!git add . && git ci -m 'Fuck this shit, I am done for today!' && git p"
   ft = fetch --verbose --tags
   fr = pull --rebase --verbose
   frm = fr origin master
@@ -49,7 +50,7 @@
   pod = p origin --delete
   pprq = "!git p && hub prq"
   prq = pull-request
-  prune-merged = "!git branch --merged master | grep -v \\* | grep -v master | xargs -n 1 git branch -d"
+  prune-merged = "!git branch --merged master | grep -v \\* | grep -v master | ifne xargs -rn 1 git branch -d"
   r  = rebase
   ra = rebase --abort
   rc = rebase --continue
@@ -110,6 +111,6 @@
 [rebase]
   autoStash = true
 [commit]
-  gpgsign = false
+  gpgsign = true
 [pull]
   rebase = true

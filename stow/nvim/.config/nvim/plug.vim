@@ -35,6 +35,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-projectionist'
 Plug 'justinmk/vim-gtfo'
 Plug 'justinmk/vim-sneak'
+Plug 'easymotion/vim-easymotion'
 
 " text manipulation
 Plug 'tpope/vim-abolish'

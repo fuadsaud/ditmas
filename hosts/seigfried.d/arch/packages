@@ -5,6 +5,7 @@ bluez-utils
 chrome-gnome-shell
 chruby
 clang
+clj-kondo-bin
 clojure
 consolas-font
 ctags

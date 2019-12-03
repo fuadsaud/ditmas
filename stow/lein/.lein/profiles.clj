@@ -1,7 +1,6 @@
 {:user {:dependencies   [[mvxcvi/puget "1.1.2"]
                          [olical/propel "1.3.0"]]
 
-
         :plugins        [[lein-ancient "0.6.15"]
                          [lein-pprint "1.2.0"]
                          [venantius/ultra "0.6.0"]]}
