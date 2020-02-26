@@ -23,12 +23,12 @@
         :dependencies [[org.clojure/tools.namespace "0.3.1"]
                        [nrepl "0.6.0"]
                        [olical/propel "1.3.0"]
-                       [mvxcvi/puget "1.1.1"]]
+                       [mvxcvi/puget "1.1.1"]]}
 
-        :repl-options {:timeout 120000
-                       :init (do (require 'propel.core)
-                                 (let [prepl (propel.core/start-prepl! {:port-file? true})]
-                                   (println "pREPL server started on port"
-                                            (:port prepl)
-                                            "on host"
-                                            (:address prepl))))}}}
+ :repl-options {:init (do (println "PASOU AQUI")
+                          (require 'propel.core)
+                          (let [prepl (propel.core/start-prepl! {:port-file? true})]
+                            (println "pREPL server started on port"
+                                     (:port prepl)
+                                     "on host"
+                                     (:address prepl))))}}
