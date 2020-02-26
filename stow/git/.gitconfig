@@ -74,6 +74,8 @@
   sp = stash pop
   ss = stash show -p
   st  = status --short --branch
+  sw = switch
+  swc = switch --create
   t = tag
   uiau = update-index --assume-unchanged
   undo = reset HEAD~1
