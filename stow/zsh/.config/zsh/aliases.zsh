@@ -20,6 +20,7 @@ alias w10="watch -n 10"
 alias w15="watch -n 10"
 alias w30="watch -n 10"
 alias yt="youtube-dl -t"
+alias yta="youtube-dl -t -x --audio-format mp3"
 alias y="yay -S"
 
 alias cp="${aliases[cp]:-cp} -v"
