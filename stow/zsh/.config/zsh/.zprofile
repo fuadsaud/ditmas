@@ -58,6 +58,7 @@ export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 export GOPATH="${SRC_DIR}/go"
 export ANDROID_HOME="${HOME}/Library/Android/sdk"
 export NVM_DIR="${OPT_DIR}/nvm"
+export QMK_HOME="${SRC_DIR}/fuadsaud/qmk_firmware"
 
 # Set the list of directories that Zsh searches for programs.
 path=(
