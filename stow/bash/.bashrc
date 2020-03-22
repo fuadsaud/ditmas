@@ -13,19 +13,34 @@ fasd_cd() {
 }
 
 alias g=git
-source ~/.zsh/aliases.zsh
-source ~/.zsh/fasd.zsh
-source ~/.nurc
+source "${XDG_CONFIG_HOME}/zsh/aliases.zsh"
+source "${XDG_CONFIG_HOME}/zsh/fasd.zsh"
+source "${XDG_CONFIG_HOME}/nu/nurc"
 
-# source /usr/local/opt/chruby/share/chruby/chruby.sh
-# source /usr/local/opt/chruby/share/chruby/auto.sh
+function load_chruby {
+  local chruby_dir="$(dirname $(dirname $(which chruby-exec)))"
 
-# chruby 2
+  source "${chruby_dir}/share/chruby/chruby.sh"
+  source "${chruby_dir}/share/chruby/auto.sh"
 
-source /usr/share/bash-completion/completions/git
+  chruby 2
+}
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+function load_git_completions {
+  source /usr/share/bash-completion/completions/git
+}
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+function load_nvm {
+  export NVM_DIR="${HOME}/.nvm"
+  [ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"  # This loads nvm
+  [ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion"  # This loads nvm bash_completion
+}
+
+function load_fzf {
+  [ -f ~/.fzf.bash ] && source "${HOME}/.fzf.bash"
+}
+
+load_git_completions
+load_chruby
+load_nvm
+load_fzf
