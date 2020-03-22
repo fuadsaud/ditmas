@@ -26,10 +26,6 @@ function load_chruby {
   chruby 2
 }
 
-function load_git_completions {
-  source /usr/share/bash-completion/completions/git
-}
-
 function load_nvm {
   export NVM_DIR="${HOME}/.nvm"
   [ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"  # This loads nvm
@@ -40,7 +36,6 @@ function load_fzf {
   [ -f ~/.fzf.bash ] && source "${HOME}/.fzf.bash"
 }
 
-load_git_completions
 load_chruby
 load_nvm
 load_fzf
