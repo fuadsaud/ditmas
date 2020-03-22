@@ -23,6 +23,7 @@ source "${ZDOTDIR:-$HOME}/fasd.zsh"
 source "${ZDOTDIR:-$HOME}/fzf.zsh"
 source "${ZDOTDIR:-$HOME}/colors.zsh"
 source "${ZDOTDIR:-$HOME}/aliases.zsh"
+source "${ZDOTDIR:-$HOME}/nu.zsh"
 
 export LEIN_USE_BOOTCLASSPATH=no
 
