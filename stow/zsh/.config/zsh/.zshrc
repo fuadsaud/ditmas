@@ -24,8 +24,6 @@ source "${ZDOTDIR:-$HOME}/fzf.zsh"
 source "${ZDOTDIR:-$HOME}/colors.zsh"
 source "${ZDOTDIR:-$HOME}/aliases.zsh"
 
-source /usr/share/nvm/init-nvm.sh
-
 export LEIN_USE_BOOTCLASSPATH=no
 
 # source completions
