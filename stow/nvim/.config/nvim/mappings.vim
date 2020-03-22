@@ -192,7 +192,7 @@ nnoremap <Leader>w :%s/\s\+$//<CR>:let @/=''<CR>
 nmap <Leader>yp <Plug>yankstack_substitute_older_paste
 nmap <Leader>yP <Plug>yankstack_substitute_newer_paste
 
-" tabedit intersting dirs
+" tabedit interesting dirs
 nnoremap <silent> <Leader>< :vsplit $MYVIMRC<CR>
 nnoremap <silent> <Leader>,v :execute ':TP' fnamemodify(resolve(expand($MYVIMRC)), ':h')<CR>
 nnoremap <silent> <Leader>,z :TP $ZDOTDIR/.zshrc<CR>
