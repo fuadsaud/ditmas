@@ -1,5 +1,5 @@
 {:user
- {:dependencies        [[cljdev "0.8.0"]]
+ {:dependencies        [[cljdev "0.9.0"]]
 
   :injections          [(require 'nu)]
 
@@ -14,7 +14,8 @@
   :plugins             [[s3-wagon-private "1.3.1" :upgrade false]
                         [venantius/ultra "0.6.0"]
                         [lein-ancient "0.6.15"]
-                        [lein-auto "0.1.3"]]}
+                        [lein-auto "0.1.3"]
+                        [com.jakemccrary/lein-test-refresh "0.24.1"]]}
 
  :repl {:plugins      [[cider/cider-nrepl "0.21.1"]
                        [refactor-nrepl "2.4.0"]
@@ -25,7 +26,7 @@
                        [olical/propel "1.3.0"]
                        [mvxcvi/puget "1.1.1"]]}
 
- :repl-options {:init (do (println "PASOU AQUI")
+ :repl-options {:init (do (println "Starting Propel...")
                           (require 'propel.core)
                           (let [prepl (propel.core/start-prepl! {:port-file? true})]
                             (println "pREPL server started on port"
