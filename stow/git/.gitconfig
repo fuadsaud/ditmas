@@ -1,14 +1,14 @@
 [user]
   name = Fuad Saud
   email = fuadfsaud@gmail.com
-  signingkey = fuadfsaud@gmail.com
+  signingkey = 1396F5D87C2FE45F
 [alias]
   a  = add --verbose
   ap = add-pattern
   au = add --update
   br = branch
   brw = browse
-  cb = co -b
+  cb = switch --create
   ci = commit --verbose
   cia = ci --all
   cinos = commit --no-gpg-sign
@@ -33,7 +33,7 @@
   fix = ci --fixup
   fixf = fz-fixup
   fixup = ci --fixup HEAD
-  foo = "!git co master && git fr && git pm"
+  foo = "!git switch master && git fr && git pm"
   fuck = "!git add . && git ci -m 'Fuck this shit, I am done for today!' && git p"
   ft = fetch --verbose --tags
   fr = pull --rebase --verbose
