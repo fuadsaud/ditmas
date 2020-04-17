@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+playerctl --player=pocket_casts_linux,spotify,chrome,chromium prev
