@@ -19,6 +19,8 @@ unsetopt correct
 setopt interactivecomments
 setopt globdots
 
+autoload bashcompinit; bashcompinit
+
 source "${ZDOTDIR:-$HOME}/fasd.zsh"
 source "${ZDOTDIR:-$HOME}/fzf.zsh"
 source "${ZDOTDIR:-$HOME}/colors.zsh"
