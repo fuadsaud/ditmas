@@ -31,7 +31,6 @@ log 'installing homebrew casks'
 
 brew_cask_formulae=(
   1password
-  atom
   docker
   dropbox
   figma
@@ -42,11 +41,17 @@ brew_cask_formulae=(
   itsycal
   java
   karabiner-elements
-  spectacle
+  pocket-casts
+  rectangle
   spotify
   transmission
   vlc
   whatsapp
+
+
+  # music production
+  ableton-live-standard
+  dexed
 
   # fonts
   caskroom/fonts/font-fira-sans
@@ -55,8 +60,8 @@ brew_cask_formulae=(
 
   # qmk
   osx-cross/avr/avr-gcc
-  osx-cross/avr/dfu-programmer
-  osx-cross/avr/avr-dude
+  dfu-programmer
+  avr-dude
   PX4/px4/gcc-arm-none-eabi
 )
 
@@ -68,10 +73,12 @@ mac_store_apps=(
   'Telegram Desktop'
   'Slack'
   'Amphetamine'
+  'Key Codes'
+  'Microsoft To Do'
   'Daisy Disk'
-  'Reeder 3'
   'Pixelmator'
-  'Irvue'
+  'Be Focused - Focus Timer'
+  'Pocket'
   'Shazam'
 )
 
