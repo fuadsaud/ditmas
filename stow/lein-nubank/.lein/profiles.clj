@@ -15,33 +15,14 @@
                         [venantius/ultra "0.6.0"]
                         [lein-ancient "0.6.15"]
                         [lein-auto "0.1.3"]
-                        [com.jakemccrary/lein-test-refresh "0.24.1"]]
-
-  :repl-options {:prompt (constantly "user profile yeah=>")
-                 :init (do (println "Starting Propel...")
-                           (require 'propel.core)
-                           (let [prepl (propel.core/start-prepl! {:port-file? true})]
-                             (println "pREPL server started on port"
-                                      (:port prepl)
-                                      "on host"
-                                      (:address prepl))))}}
+                        [com.jakemccrary/lein-test-refresh "0.24.1"]]}
 
  :repl
- {:plugins      [[cider/cider-nrepl "0.21.1"]
+ {:plugins      [[cider/cider-nrepl "0.24.0"]
                  [refactor-nrepl "2.4.0"]
                  [lein-cljfmt "0.6.4"]]
 
   :dependencies [[org.clojure/tools.namespace "0.3.1"]
                  [nrepl "0.6.0"]
                  [olical/propel "1.3.0"]
-                 [mvxcvi/puget "1.1.1"]]}
-
- :propel
- {:repl-options {:prompt (constantly "CHIDDDDY=>")
-                 :init (do (println "Starting Propel...")
-                           (require 'propel.core)
-                           (let [prepl (propel.core/start-prepl! {:port-file? true})]
-                             (println "pREPL server started on port"
-                                      (:port prepl)
-                                      "on host"
-                                      (:address prepl))))}}}
+                 [mvxcvi/puget "1.1.1"]]}}
