@@ -116,3 +116,5 @@
   gpgsign = true
 [pull]
   rebase = true
+[advice]
+	detachedHead = false
