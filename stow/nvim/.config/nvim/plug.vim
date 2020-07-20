@@ -89,18 +89,19 @@ Plug 'ngmy/vim-rubocop',         { 'for': 'ruby' }
 " clojure
 Plug 'guns/vim-sexp',                              { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
-Plug 'tpope/vim-fireplace',                        { 'for': 'clojure' }
-Plug 'Olical/conjure',                             { 'tag': 'v2.1.1', 'do': 'bin/compile' }
+" Plug 'tpope/vim-fireplace',                        { 'for': 'clojure' }
+Plug 'Olical/conjure',                             {'tag': 'v4.0.1'}
 Plug 'tpope/vim-salve',                            { 'for': 'clojure' }
-Plug 'venantius/vim-cljfmt',                       { 'for': 'clojure' }
+" Plug 'venantius/vim-cljfmt',                       { 'for': 'clojure' }
 Plug 'fuadsaud/vim-clojure-static',                { 'for': 'clojure' }
 Plug 'fuadsaud/vim-midje',                         { 'for': 'clojure', 'branch': 'fix-lispwords' }
 Plug 'fuadsaud/vim-postman-clj',                   { 'for': 'clojure' }
 Plug 'eraserhd/parinfer-rust',                     { 'for': 'clojure', 'do': 'cargo build --release'}
 " Plug 'clojure-vim/async-clj-highlight',            { 'for': 'clojure' }
-" Plug 'clojure-vim/acid.nvim',                      { 'for': 'clojure', 'do': ':UpdateRemotePlugins' }
-Plug 'clojure-vim/jazz.nvim' | Plug 'Vigemus/impromptu.nvim'
 Plug 'paulojean/sort-quire.vim',                   { 'for': 'clojure' }
+
+" Fennel
+Plug 'bakpakin/fennel.vim'
 
 " haskell
 Plug 'dag/vim2hs',          { 'for': 'haskell' }
