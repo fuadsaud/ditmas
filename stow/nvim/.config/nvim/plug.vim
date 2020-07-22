@@ -3,8 +3,11 @@ call plug#begin("~/.local/share/nvim/plugged")
 " general utilities
 Plug 'kburdett/vim-nuuid'
 
-" language server
+" lsp
 Plug 'w0rp/ale'
+Plug 'm00qek/nvim-lsp'
+Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/diagnostic-nvim'
 
 " integrations
 Plug 'mileszs/ack.vim'

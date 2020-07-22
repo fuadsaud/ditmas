@@ -59,7 +59,8 @@ set foldnestmax=10
 set foldmethod=syntax
 
 " completion
-set completeopt=longest,menuone
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
 set omnifunc=syntaxcomplete#Complete
 
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
@@ -68,6 +69,9 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
+" diagnostic
+let g:diagnostic_enable_virtual_text = 1
+let g:diagnostic_virtual_text_prefix = "\uE0CE"
 
 let s:config_dir = stdpath('config')
 
@@ -117,6 +121,19 @@ let g:ale_lint_on_text_changed = 'always'
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 1
 let g:javascript_standard_options = '--parser babel-eslint --plugin flowtype'
+
+" lsp
+lua << EOF
+local on_attach_vim = function(client, bufnr)
+  require'completion'.on_attach()
+  require'diagnostic'.on_attach()
+end
+
+local ok, lsp = pcall(require,"nvim_lsp")
+if ok then
+  lsp.clojure_lsp.setup{on_attach=on_attach_vim}
+end
+EOF
 
 " netrw
 
