@@ -16,6 +16,7 @@ stow/zsh/.config/zsh/.zcompdump
 stow/zsh/.config/zsh/.zcompcache
 stow/zsh/.config/zsh/.zcompdump.zwc
 stow/zsh/.config/zsh/.zhistory
+stow/zsh/.config/zsh/.zsh_history
 
 emacs.d/elpa
 
