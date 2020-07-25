@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sdmstowet -euxo pipefail
+set -euxo pipefail
 
 current_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
@@ -21,11 +21,9 @@ function setup_ruby {
 
 function setup_python {
   local python_packages=(
-    virtualenv
-    virtualenvwrapper
+    pipenv
     powerline-status
     psutil
-    speedtest-cli
     doge
     neovim
   )
@@ -36,6 +34,11 @@ function setup_python {
 
 function clear_dotfiles_and_dotdirs {
   find "${HOME}" -maxpdepth 1 -iname '.*' -exec rm -rf '{}' \;
+}
+
+function setup_xdg_dirs {
+  mkdir -p ~/.local/bin
+  mkdir -p ~/.local/share
 }
 
 function setup_personal_src_dir {
@@ -77,6 +80,7 @@ function setup_neovim {
 
 os_post_install
 clear_dotfiles_and_dotdirs
+setup_xdg_dirs
 setup_ditmas
 setup_python
 setup_ruby
