@@ -8,6 +8,7 @@ cowsay
 ctags
 curl
 fzf
+gh
 git
 heroku/brew/heroku
 htop
@@ -19,6 +20,7 @@ mas
 neovim/neovim/neovim
 python
 fasd
+qmk
 reattach-to-user-namespace
 speedtest-cli
 trash
