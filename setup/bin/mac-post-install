@@ -6,9 +6,6 @@ current_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 source "${current_dir}/../lib/utils.sh"
 
-# @@ define vars
-zsh_bin=$(command -v zsh)
-
 log 'installing homebrew'
 
 if [[ ! -x "$(command -v brew)" ]]; then
@@ -90,6 +87,8 @@ done
 log 'letting the system know homebrew-installed zsh'
 
 if ! grep zsh /etc/shells; then
+  zsh_bin="/usr/bin/local/zsh"
+
   log "appending ${zsh_bin} to /etc/shells"
 
   echo "${zsh_bin}" | sudo tee -a /etc/shells > /dev/null
