@@ -54,6 +54,7 @@ brew_cask_formulae=(
   caskroom/fonts/font-fira-sans
   caskroom/fonts/font-fira-code
   caskroom/fonts/font-comic-neue
+  caskroom/fonts/font-profont-nerd-font
 
   # qmk
   osx-cross/avr/avr-gcc
@@ -67,7 +68,7 @@ brew cask install "${brew_cask_formulae[@]}"
 log 'installing mac app store apps'
 
 mac_store_apps=(
-  'Telegram Desktop'
+  'Telegram'
   'Slack'
   'Amphetamine'
   'Key Codes'
