@@ -149,7 +149,7 @@ function create_swapfile {
   fallocate -l 2G /mnt/swapfile
   chmod 600 /mnt/swapfile
   mkswap /mnt/swapfile
-  echo '/swapfile non swap sw 0 0' | tee -a /mnt/etc/fstab
+  echo '/swapfile none swap sw 0 0' | tee -a /mnt/etc/fstab
 }
 
 function persist_consolefont {
