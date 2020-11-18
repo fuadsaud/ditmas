@@ -15,6 +15,7 @@
                         [venantius/ultra "0.6.0"]
                         [lein-ancient "0.6.15"]
                         [lein-auto "0.1.3"]
+                        [jonase/eastwood "0.3.10"]
                         [com.jakemccrary/lein-test-refresh "0.24.1"]]}
 
  :repl
