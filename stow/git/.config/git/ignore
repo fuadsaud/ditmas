@@ -27,3 +27,5 @@ Procfile.dev
 .prepl-port
 
 node_modules
+.lsp
+.clj-kondo
