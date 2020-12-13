@@ -4,10 +4,11 @@ call plug#begin("~/.local/share/nvim/plugged")
 Plug 'kburdett/vim-nuuid'
 
 " lsp
-Plug 'w0rp/ale'
-Plug 'm00qek/nvim-lsp'
+" Plug 'w0rp/ale'
+Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/diagnostic-nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " integrations
 Plug 'mileszs/ack.vim'
@@ -53,7 +54,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'sjl/gundo.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neco-vim'

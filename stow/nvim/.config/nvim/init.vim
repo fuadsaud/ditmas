@@ -70,23 +70,23 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " diagnostic
-let g:diagnostic_enable_virtual_text = 1
-let g:diagnostic_virtual_text_prefix = "\uE0CE"
+" let g:diagnostic_enable_virtual_text = 1
+" let g:diagnostic_virtual_text_prefix = "\uE0CE"
 
 let s:config_dir = stdpath('config')
 
 let s:additional_configs = [
-\   'conjure.vim',
 \   'plug-helpers.vim',
 \   'plug.vim',
 \   'ag.vim',
 \   'auto-mk-dir.vim',
 \   'colors.vim',
 \   'contabs.vim',
-\   'deoplete.vim',
+"\   'deoplete.vim',
 \   'fts.vim',
 \   'fzf.vim',
 \   'mappings.vim',
+\   'coc.vim',
 \ ]
 
 for additional_config in s:additional_configs
@@ -115,25 +115,26 @@ let g:jsx_ext_required = 0
 
 " linting
 
-let g:ale_fixers = { 'javascript': ['prettier_standard'] }
-let g:ale_linters = { 'javascript': ['standard'], 'clojure': ['clj-kondo'] }
-let g:ale_lint_on_text_changed = 'always'
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_enter = 1
-let g:javascript_standard_options = '--parser babel-eslint --plugin flowtype'
+" let g:ale_fixers = { 'javascript': ['prettier_standard'] }
+" let g:ale_linters = { 'javascript': ['standard'] }
+" let g:ale_lint_on_text_changed = 'always'
+" let g:ale_lint_on_save = 1
+" let g:ale_lint_on_enter = 1
+" let g:javascript_standard_options = '--parser babel-eslint --plugin flowtype'
 
 " lsp
-lua << EOF
-local on_attach_vim = function(client, bufnr)
-  require'completion'.on_attach()
-  require'diagnostic'.on_attach()
-end
+" lua << EOF
+" local on_attach_vim = function(client, bufnr)
+"   require'completion'.on_attach()
+"   require'diagnostic'.on_attach()
+" end
 
-local ok, lsp = pcall(require,"nvim_lsp")
-if ok then
-  lsp.clojure_lsp.setup{on_attach=on_attach_vim}
-end
-EOF
+" local ok, lsp = pcall(require,"lspconfig")
+" if ok then
+"   lsp.clojure_lsp.setup{on_attach=on_attach_vim}
+" end
+" EOF
+
 
 " netrw
 
