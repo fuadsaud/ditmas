@@ -11,6 +11,7 @@
   cb = switch --create
   ci = commit --verbose
   cia = ci --all
+  cinc = ci -m ':nail_care:'
   cinos = commit --no-gpg-sign
   cinosa = cinos -a
   cinosm = cinos -m
