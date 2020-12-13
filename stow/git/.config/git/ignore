@@ -1,3 +1,4 @@
+# macos
 _Store
 .DS_Store?
 ._*
@@ -7,25 +8,33 @@ Icon?
 ehthumbs.db
 Thumbs.db
 coverage
-*~
-*.swo
-*.swp
 .DS_Store
 tags
 .sass-cache/*
 
+# vim
+*~
+*.swo
+*.swp
+
+# java
 *.class
 
+# gcc
 a.out
 *.o
+
+# pythonn
 *.pyc
 
-.env.local
-
-Procfile.dev
-
+# clojure
+eastwood-report
+.clj-kondo
+.eastwood
 .prepl-port
 
-node_modules
+# lsp
 .lsp
-.clj-kondo
+
+# js
+node_modules
