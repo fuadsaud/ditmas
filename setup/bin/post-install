@@ -33,7 +33,7 @@ function setup_python {
 }
 
 function clear_dotfiles_and_dotdirs {
-  find "${HOME}" -maxpdepth 1 -iname '.*' -exec rm -rf '{}' \;
+  find "${HOME}" -maxdepth 1 -iname '.*' -exec rm -rf '{}' \;
 }
 
 function setup_xdg_dirs {
