@@ -61,7 +61,9 @@ function setup_ditmas {
 
   git clone --recurse-submodules -j8 "${repo_url}" "${ditmas_dir}"
 
-  DITMAS_DIR="${ditmas_dir}" "${ditmas_dir}/stow/dmutils/.local/bin/dsync" --overwrite '.*'
+  export PATH="$PATH:"
+
+  DITMAS_DIR="${ditmas_dir}" "${ditmas_dir}/stow/dmutils/.local/bin/dsync" --override '.*'
 }
 
 function setup_vim {
