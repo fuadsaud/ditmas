@@ -1,10 +1,10 @@
 ag
-arch-fonts
 assorted-scripts
 bash
 clojure
 ctags
 dmutils
+fontconfig
 git
 gpg
 idea
