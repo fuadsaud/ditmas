@@ -168,3 +168,5 @@ let g:rainbow_conf['guifgs'] = [
 \ ]
 
 " let g:rainbow_conf['guifgs'] = ['Orange4', 'teal', 'DeepPink4', 'DeepSkyBlue4']
+
+let g:sneak#label = 1
