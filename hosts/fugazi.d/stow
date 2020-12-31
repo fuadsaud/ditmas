@@ -13,6 +13,7 @@ idea
 lein-nubank
 nvim
 player
+rofi
 ruby
 screen
 tmux

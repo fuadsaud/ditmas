@@ -1,0 +1,6 @@
+configuration {
+  modi: "drun,window";
+  theme: "DarkBlue";
+  font: "ProFont for Powerline 18";
+}
+
