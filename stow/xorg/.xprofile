@@ -1,1 +1,15 @@
-playerctld daemon &
+#!/usr/bin/env sh
+
+set -euo pipefail
+
+#
+# Start the playerctl daemon for keeping track of player usage.
+#
+
+playerctld daemon
+
+#
+# Restore previous session's wallpaper.
+#
+
+nitrogen --restore
