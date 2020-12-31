@@ -1,0 +1,97 @@
+#!/usr/bin/env sh
+
+set -euo pipefail
+
+function eecho { printf "%s\n" "$*" >&2; }
+
+function query_device_ids {
+  local query="$1"
+
+  xinput --list \
+    | grep 'pointer' \
+    | grep -i "${query}" \
+    | grep -Po '(?<=id=)(\d+)'
+}
+
+function query_prop_id {
+  local device_id="$1"
+  local query="$2"
+
+  xinput --list-props "${device_id}" \
+    | grep 'libinput' \
+    | grep "${query} (" \
+    | grep -Po '(?<=\()(\d+)'
+}
+
+function find_natural_scrolling_prop_id {
+  local device_id="$1"
+
+  query_prop_id "${device_id}" 'Natural Scrolling Enabled'
+}
+
+function find_tapping_prop_id {
+  local device_id="$1"
+
+  query_prop_id "${device_id}" 'Tapping Enabled'
+}
+
+function find_tapping_drag_prop_id {
+  local device_id="$1"
+
+  query_prop_id "${device_id}" 'Tapping Drag Enabled'
+}
+
+function enable_prop {
+  local device_id="$1"
+  local prop_id="$2"
+
+  eecho "Enabling prop #${prop_id} for device #${device_id}"
+
+  xinput --set-prop "${device_id}" "${prop_id}" 1
+}
+
+function disable_prop {
+  local device_id="$1"
+  local prop_id="$2"
+
+  eecho "Disabling prop #${prop_id} for device #${device_id}"
+
+  xinput --set-prop "${device_id}" "${prop_id}" 0
+}
+
+function enable_natural_scrolling {
+  local prop_id=$(find_natural_scrolling_prop_id "${device_id}")
+
+  enable_prop "${device_id}" "${prop_id}"
+}
+
+function enable_tapping {
+  local prop_id=$(find_tapping_prop_id "${device_id}")
+
+  enable_prop "${device_id}" "${prop_id}"
+}
+
+function disable_tapping_drag {
+  local prop_id=$(find_tapping_drag_prop_id "${device_id}")
+
+  disable_prop "${device_id}" "${prop_id}"
+}
+
+function setup_device {
+  local device_ids="$(query_device_ids "$1")"
+  local hooks="${@:2}"
+
+  for device_id in ${device_ids}; do
+    for hook in ${hooks}; do
+      "${hook}" "${device_id}"
+    done
+  done
+}
+
+setup_device 'Mouse' enable_natural_scrolling
+
+setup_device 'Touchpad' \
+  enable_natural_scrolling \
+  enable_tapping \
+  disable_tapping_drag
+
