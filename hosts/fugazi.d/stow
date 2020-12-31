@@ -8,6 +8,7 @@ env
 fontconfig
 git
 gpg
+i3
 idea
 lein-nubank
 nvim
