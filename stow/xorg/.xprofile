@@ -2,14 +2,21 @@
 
 set -euo pipefail
 
-#
+# # #
 # Start the playerctl daemon for keeping track of player usage.
 #
 
 playerctld daemon
 
-#
+# # #
 # Restore previous session's wallpaper.
 #
 
 nitrogen --restore
+
+# # #
+# Enable natural scrolling for all mouse devices and sets up tapping for
+# touchpads.
+#
+
+enable-natural-scrolling-and-tapping
