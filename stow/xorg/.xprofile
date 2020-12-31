@@ -1,6 +1,11 @@
 #!/usr/bin/env sh
 
 # # #
+# Xresources colorscheme
+#
+xrdb -merge "$SRC_DIR/fuadsaud/Monrovia/terminal_colors/monrovia.Xresources"
+
+# # #
 # Start the playerctl daemon for keeping track of player usage.
 #
 playerctld daemon
