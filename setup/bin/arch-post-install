@@ -6,14 +6,14 @@ current_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 source "${current_dir}/../lib/utils.sh"
 
-function install_yay {
-  if ! command -v yay; then
-    local yay_url="https://aur.archlinux.org/yay.git"
-    local yay_dir="/tmp/yay"
-    rm -rf "${yay_dir}"
-    git clone "${yay_url}" "${yay_dir}"
-    bash -c "cd ${yay_dir} && makepkg -si --noconfirm"
-    yay -Syu --noconfirm
+function install_paru {
+  if ! command -v paru; then
+    local paru_url="https://aur.archlinux.org/paru.git"
+    local paru_dir="/tmp/paru"
+    rm -rf "${paru_dir}"
+    git clone "${paru_url}" "${paru_dir}"
+    bash -c "cd ${paru_dir} && makepkg -si --noconfirm"
+    paru -Syu --noconfirm
   fi
 }
 
@@ -37,7 +37,7 @@ function setup_gnome {
   sudo systemctl enable gdm
 }
 
-install_yay
+install_paru
 install_packages
 setup_docker
 setup_gnome
