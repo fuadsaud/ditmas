@@ -11,7 +11,7 @@ class Roficlipster:
     def __init__(self) -> None:
         pass
 
-    def run():
+    def run(self):
         self.entries = self.get_entries_from_clipster()
 
         return_code, stdout = self.open_main_rofi_window()
