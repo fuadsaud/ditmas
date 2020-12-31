@@ -1,6 +1,7 @@
 ag
 assorted-scripts
 bash
+clipster
 clojure
 ctags
 dmutils
@@ -16,8 +17,10 @@ player
 rofi
 ruby
 screen
+systemd
 tmux
 vim
 vscode
+xorg
 xplatutils
 zsh

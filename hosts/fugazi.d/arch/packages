@@ -6,6 +6,7 @@ base-devel
 bluez-utils
 chruby
 clang
+clipster
 clj-kondo-bin
 clojure
 ctags

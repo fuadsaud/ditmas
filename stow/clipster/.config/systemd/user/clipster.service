@@ -1,0 +1,5 @@
+[Unit]
+Description=Clipster clipboard manager daemon
+
+[Service]
+ExecStart=clipster --daemon
