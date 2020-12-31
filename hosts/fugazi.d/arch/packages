@@ -34,6 +34,7 @@ linux-headers
 linux-lts
 linux-lts-headers
 lvm2
+lxappearance
 man
 man-db
 man-pages
@@ -76,7 +77,9 @@ visual-studio-code-bin
 whois
 xcape
 xclip
+xorg-xinput
 yay
 yubico-pam
 zsh
-xorg-xinput
+papirus-icon-theme
+flatery-icon-theme-git

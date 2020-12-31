@@ -6,6 +6,7 @@ clojure
 ctags
 dmutils
 env
+feh
 fontconfig
 git
 gpg
@@ -14,6 +15,8 @@ idea
 lein-nubank
 nvim
 player
+ranger
+ranger
 rofi
 ruby
 screen
