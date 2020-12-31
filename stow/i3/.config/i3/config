@@ -182,3 +182,14 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+# # # # # # # # # #
+# Xorg stuff
+#
+# # # # # # # # # #
+
+# make caps lock behave like control
+exec --no-startup-id setxkbmap -option ctrl:nocaps
+
+# make short-pressed Ctrl behave like Escape
+exec --no-startup-id xcape -e 'Control_L=Escape'
