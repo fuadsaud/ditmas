@@ -17,6 +17,7 @@ player
 rofi
 ruby
 screen
+screenlayout
 systemd
 tmux
 vim

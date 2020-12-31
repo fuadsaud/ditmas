@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 
-set -euo pipefail
-
 # # #
 # Start the playerctl daemon for keeping track of player usage.
 #
@@ -12,7 +10,7 @@ playerctld daemon
 # Restore previous session's wallpaper.
 #
 
-nitrogen --restore
+nitrogen --restore &
 
 # # #
 # Enable natural scrolling for all mouse devices and sets up tapping for
@@ -20,3 +18,7 @@ nitrogen --restore
 #
 
 enable-natural-scrolling-and-tapping
+
+# # #
+# Load screen layout
+"$HOME/.config/screenlayout/home-2-way.sh"
