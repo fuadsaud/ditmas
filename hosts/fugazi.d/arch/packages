@@ -16,6 +16,7 @@ dosfstools
 efibootmgr
 entr
 figma-linux
+flatery-icon-theme-git
 forticlientsslvpn
 fzf
 git
@@ -50,7 +51,9 @@ npm
 nvm
 openssh
 os-prober
+papirus-icon-theme
 parallel
+picom
 polybar
 powerline
 powerline-fonts-git
@@ -81,5 +84,3 @@ xorg-xinput
 yay
 yubico-pam
 zsh
-papirus-icon-theme
-flatery-icon-theme-git
