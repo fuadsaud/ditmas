@@ -1,0 +1,42 @@
+font:
+  size: 20
+  normal:
+    family: ProFont fo rPowerline
+    style: Regular
+
+  bold:
+    family: ProFont for Powerline
+    style: Bold
+
+  italic:
+    family: ProFont for Powerline
+    style: Italic
+
+colors:
+  # Default colors
+  primary:
+    background: '0x1f2433'
+    foreground: '0xd3cbaf'
+
+  # Normal colors
+  normal:
+    black:   '0x1f2433'
+    red:     '0x8c3432'
+    green:   '0x7f4c60'
+    yellow:  '0x538798'
+    blue:    '0xb55242'
+    magenta: '0x9e7156'
+    cyan:    '0x60a195'
+    white:   '0xd3cbaf'
+
+  # Bright colors
+  bright:
+    black:   '0x375268'
+    red:     '0xcb2656'
+    green:   '0xa1617a'
+    yellow:  '0x247dae'
+    blue:    '0xc77366'
+    magenta: '0xb8937c'
+    cyan:    '0x232839'
+    white:   '0xeeeadf'
+
