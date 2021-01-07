@@ -1,4 +1,4 @@
-; vim:ft=dosini
+; vim: ft=dosini
 ;--------------------------------------------
 ; colors                                    ;
 ;--------------------------------------------
@@ -33,11 +33,12 @@ time_p_bg    = ${xrdb:color10}
 ;--------------------------------------------
 ; bars                                      ;
 ;--------------------------------------------
+[base/bar]
+monitor = ${env:MONITOR:}
 
-[bar/base]
 dpi      = 192
 width    = 100%
-height   = 32
+height   = 40
 offset-x = 0
 offset-y = 0
 
@@ -64,28 +65,48 @@ padding-right      = 4
 module-margin-left = 0
 
 font-N = <fontconfig pattern>;<vertical offset>
-font-0 = Siji:size=4;2
-font-1 = scientifica:pixelsize=10;1
+font-0 = Siji:size=8;2
+font-1 = scientifica:style=Bold:pixelsize=10;1
 font-2 = Space Mono for Powerline:pixelsize=8;1
 font-3 = Monospace:pixelsize=9;1
 
 cursor-click = pointer
 
-modules-left = date battery paddinglite playerctl-prev playerctl-play-pause playerctl-next playerctl-metadata
-modules-center  =
-modules-right   = essid workspaces
-
 fixed-center = true
 
+[bar/main]
+inherit=base/bar
+
+modules-left    = date battery paddinglite playerctl-prev playerctl-play-pause playerctl-next playerctl-metadata
+modules-center  = xwindow
+modules-right   = backlight volume essid workspaces
+
 enable-ipc = true
+
+[bar/aux]
+inherit=base/bar
+modules-left = date battery paddinglite
+modules-center  =
+modules-right   =
 
 ;--------------------------------------------
 ; modules                                   ;
 ;--------------------------------------------
+[module/padding]
+type               = custom/text
+content            = |
+content-foreground = ${colors.bg}
+content-background = ${colors.bg}
+
+[module/paddinglite]
+type               = custom/text
+content            = ||
+content-foreground = #000f0f0f
+content-background = #000f0f0f
 
 [module/network]
 type          = internal/network
-interface     = wlp3s0
+interface     = wlp2s0
 ping-interval = 3
 
 [module/xwindow]
@@ -108,16 +129,6 @@ format-padding = 0
 label-background = ${xrdb:color4}
 label-foreground = ${xrdb:color0}
 label-padding    = 3
-
-[module/previous]
-type = custom/text
-
-content = " "
-content-background = ${xrdb:color2}
-content-foreground = ${xrdb:color0}
-content-padding = 1
-
-click-left = mpc prev
 
 [module/playerctl-metadata]
 type = custom/script
@@ -145,7 +156,6 @@ click-left = playerctl previous
 [module/playerctl-play-pause]
 type = custom/ipc
 
-format = <label>
 format-background = ${xrdb:color6}
 format-foreground = ${xrdb:color0}
 
@@ -169,12 +179,12 @@ click-left = playerctl next
 
 [module/battery]
 type          = internal/battery
-full-at       = 98
+full-at       = 100
 battery       = BAT0
-adapter       = AC0
+adapter       = AC
 poll-interval = 5
 
-format-charging = <label-charging>
+format-charging = <ramp-capacity> <label-charging>
 
 format-charging-prefix = "   "
 format-charging-foreground = ${xrdb:color4}
@@ -207,28 +217,50 @@ label-full-background = ${xrdb:color0}
 label-full-foreground = ${xrdb:color7}
 label-full-padding    = 1
 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
 [module/volume]
-type          = internal/volume
+type = internal/pulseaudio
+
+interval = 5
+use-ui-max = false
+
 format-volume = <label-volume>
+format-volume-padding = 0
 
-mapped = true
+format-volume-prefix = "   "
+format-volume-prefix-background = ${xrdb:color0}
+format-volume-prefix-foreground = ${xrdb:color3}
 
-label-volume            = " %percentage%"
+label-volume            = "%percentage:3%"
 label-volume-background = ${xrdb:color0}
 label-volume-foreground = ${xrdb:color3}
 label-volume-padding    = 1
 
 format-muted = <label-muted>
-
-label-muted            = " 0"
-label-muted-background = ${xrdb:color0}
-label-muted-foreground = ${xrdb:color3}
-label-muted-padding    = 3
-
-format-volume-padding = 0
 format-muted-padding  = 0
 
-ramp-headphones-0 = 
+format-muted-prefix = "   "
+format-muted-prefix-background = ${xrdb:color4}
+format-muted-prefix-foreground = ${xrdb:color0}
+
+label-muted            = "-"
+label-muted-background = ${xrdb:color4}
+label-muted-foreground = ${xrdb:color0}
+label-muted-padding    = 2
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+ramp-volume-background = ${xrdb:color0}
+ramp-volume-foreground = ${xrdb:color3}
+
+click-right = pavucontrol
 
 [module/cpu]
 type             = internal/cpu
@@ -267,7 +299,7 @@ inherit = module/network
 
 format-connected = <label-connected>
 
-format-connected-prefix              = ""
+format-connected-prefix              = 
 format-connected-prefix-padding      = 1
 format-connected-prefix-padding-left = 1
 format-connected-prefix-background   = ${xrdb:color0}
@@ -278,6 +310,10 @@ label-connected-background    = ${xrdb:color0}
 label-connected-foreground    = ${xrdb:color5}
 label-connected-padding       = 1
 label-connected-padding-right = 1
+
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
 
 ramp-signal-background    = ${xrdb:color0}
 ramp-signal-foreground    = ${xrdb:color5}
@@ -298,6 +334,7 @@ label-disconnected-foreground    = ${xrdb:color7}
 label-disconnected-padding       = 1
 label-disconnected-padding-right = 1
 
+click-left = networkmanager_dmenu
 
 [module/down]
 inherit = module/network
@@ -313,18 +350,6 @@ label-connected               = %{T2}%downspeed:7%%{T-}
 label-connected-background    = ${colors.modules_bg}
 label-connected-foreground    = ${colors.modules_fg}
 label-connected-padding-right = 1
-
-[module/padding]
-type               = custom/text
-content            = |
-content-foreground = ${colors.bg}
-content-background = ${colors.bg}
-
-[module/paddinglite]
-type               = custom/text
-content            = ||
-content-foreground = #000f0f0f
-content-background = #000f0f0f
 
 [module/workspaces]
 type            = internal/i3
@@ -360,10 +385,8 @@ label-urgent-padding    = 3
 [module/backlight]
 type = internal/backlight
 
-output = LVDS-1
-
-card          = acpi_video0
-enable-scroll = false
+card          = intel_backlight
+enable-scroll = true
 
 format        = <label>
 format-prefix = 
