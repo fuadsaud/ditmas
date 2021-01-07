@@ -57,6 +57,7 @@ picom
 polybar
 powerline
 powerline-fonts-git
+pulseaudio-ctl
 python-pip
 rlwrap
 rofi
