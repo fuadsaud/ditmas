@@ -5,7 +5,6 @@
 set shell=$SHELL
 
 set encoding=utf-8
-set modelines=0
 set autoread
 set visualbell
 set noshowmode
