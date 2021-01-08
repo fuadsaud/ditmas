@@ -1,6 +1,7 @@
 configuration {
-  modi: "drun,window";
+  modi: "combi,drun,window";
   theme: "DarkBlue";
   font: "ProFont for Powerline 18";
+  combi-modi: "window,drun";
 }
 
