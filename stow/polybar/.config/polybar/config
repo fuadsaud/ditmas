@@ -21,14 +21,7 @@ modules_prefix_fg = ${xrdb:color0}
 urgent_bg  = ${xrdb:color1}
 focused_bg = ${xrdb:color10}
 
-essid_p_bg   = ${xrdb:color6}
 down_p_bg    = #5e606c
-cpu_p_bg     = ${xrdb:color5}
-ram_p_bg     = ${xrdb:color11}
-vol_p_bg     = #637b81
-bright_p_bg  = #c29f6f
-battery_p_bg = ${xrdb:color9}
-time_p_bg    = ${xrdb:color10}
 
 ;--------------------------------------------
 ; bars                                      ;
@@ -77,17 +70,17 @@ fixed-center = true
 [bar/main]
 inherit=base/bar
 
-modules-left    = date battery paddinglite playerctl-prev playerctl-play-pause playerctl-next playerctl-metadata
+modules-left    = date temperature battery paddinglite
 modules-center  = xwindow
-modules-right   = backlight volume essid workspaces
-
-enable-ipc = true
+modules-right   = mic volume wireless-ssid paddinglite workspaces
 
 [bar/aux]
 inherit=base/bar
-modules-left = date battery paddinglite
-modules-center  =
-modules-right   =
+modules-left    = date battery paddinglite
+modules-center  = playerctl-prev playerctl-pp playerctl-next playerctl-metadata
+modules-right   = workspaces
+
+enable-ipc = true
 
 ;--------------------------------------------
 ; modules                                   ;
@@ -104,10 +97,53 @@ content            = ||
 content-foreground = #000f0f0f
 content-background = #000f0f0f
 
-[module/network]
+[module/wireless-network]
 type          = internal/network
 interface     = wlp2s0
-ping-interval = 3
+
+[module/wireless-ssid]
+inherit = module/wireless-network
+
+format-connected            = <ramp-signal><label-connected>
+format-connected-padding    = 2
+format-connected-background = ${colors.modules_bg}
+format-connected-foreground = ${colors.modules_fg}
+
+label-connected               = %{A1:networkmanager_dmenu:}%essid%%{A}
+
+ramp-signal-0             = %{A1:networkmanager_dmenu:}%{A}
+ramp-signal-1             = %{A1:networkmanager_dmenu:}%{A}
+ramp-signal-2             = %{A1:networkmanager_dmenu:}%{A}
+ramp-signal-padding-right = 1
+
+format-disconnected                     = <label-disconnected>
+format-disconnected-prefix-padding      = 1
+format-disconnected-prefix-padding-left = 1
+format-disconnected-prefix-background   = ${xrdb:color0}
+format-disconnected-prefix-foreground   = ${xrdb:color7}
+
+label-disconnected               = 
+label-disconnected-background    = ${xrdb:color1}
+label-disconnected-foreground    = ${xrdb:color7}
+label-disconnected-padding       = 1
+label-disconnected-padding-right = 1
+
+click-left = nm-connection-editor
+
+[module/wireless-downspeed]
+inherit = module/wireless-network
+
+format-connected = <label-connected>
+
+format-connected-prefix            = 
+format-connected-prefix-background = ${colors.down_p_bg}
+format-connected-prefix-foreground = ${colors.modules_prefix_fg}
+format-connected-prefix-padding    = 1
+
+label-connected               = %{T2}%downspeed:7%%{T-}
+label-connected-background    = ${colors.modules_bg}
+label-connected-foreground    = ${colors.modules_fg}
+label-connected-padding-right = 1
 
 [module/xwindow]
 y-offset      = 10
@@ -118,7 +154,9 @@ label-padding = 1
 
 [module/date]
 type     = internal/date
+
 interval = 1.0
+
 time     = "%H:%M"
 date-alt = "%a %b %d"
 label    = "%date% %time%"
@@ -130,12 +168,25 @@ label-background = ${xrdb:color4}
 label-foreground = ${xrdb:color0}
 label-padding    = 3
 
+[module/temperature]
+type     = internal/temperature
+
+interval = 1
+
+format         = <label>
+format-padding = 0
+
+label            = "%temperature-c%  "
+label-background = ${xrdb:color4}
+label-foreground = ${xrdb:color0}
+label-padding    = 1
+
 [module/playerctl-metadata]
 type = custom/script
 tail = true
 
-format = <label>
-format-padding = 1
+format            = <label>
+format-padding    = 1
 format-background = ${xrdb:color6}
 format-foreground = ${xrdb:color0}
 
@@ -144,23 +195,36 @@ exec = dpolybar-player-metadata-scroll
 [module/playerctl-prev]
 type = custom/text
 
-content = 
+content            = 
 content-background = ${xrdb:color6}
 content-foreground = ${xrdb:color0}
-content-padding = 1
+content-padding    = 1
 
 format = <label>
 
 click-left = playerctl previous
 
 [module/playerctl-play-pause]
-type = custom/ipc
+type = custom/script
 
+tail = true
+
+exec = dpolybar-player-status-pp
+
+format            = <label>
 format-background = ${xrdb:color6}
 format-foreground = ${xrdb:color0}
 
-hook-0 = echo 
-hook-1 = echo 
+click-left = playerctl play-pause
+
+[module/playerctl-play-pause-legacy]
+type = custom/ipc
+
+format-background = ${xrdb:color9}
+format-foreground = ${xrdb:color0}
+
+hook-0  = echo 
+hook-1  = echo 
 initial = 1
 
 click-left = playerctl play-pause
@@ -168,10 +232,10 @@ click-left = playerctl play-pause
 [module/playerctl-next]
 type = custom/text
 
-content = 
+content            = 
 content-background = ${xrdb:color6}
 content-foreground = ${xrdb:color0}
-content-padding = 1
+content-padding    = 1
 
 format = <label>
 
@@ -184,9 +248,9 @@ battery       = BAT0
 adapter       = AC
 poll-interval = 5
 
-format-charging = <ramp-capacity> <label-charging>
+format-charging =  <label-charging>
 
-format-charging-prefix = "   "
+format-charging-prefix     = "   "
 format-charging-foreground = ${xrdb:color4}
 format-charging-background = ${xrdb:color0}
 
@@ -197,7 +261,7 @@ label-charging-padding    = 1
 
 format-discharging = <label-discharging>
 
-format-discharging-prefix = "   "
+format-discharging-prefix            = "   "
 format-discharging-prefix-foreground = ${xrdb:color4}
 format-discharging-prefix-background = ${xrdb:color0}
 
@@ -208,7 +272,7 @@ label-discharging-padding    = 1
 
 format-full = <label-full>
 
-format-full-prefix = "   "
+format-full-prefix            = "   "
 format-full-prefix-foreground = ${xrdb:color4}
 format-full-prefix-background = ${xrdb:color0}
 
@@ -220,52 +284,48 @@ label-full-padding    = 1
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
 
 [module/volume]
 type = internal/pulseaudio
 
-interval = 5
+interval   = 5
 use-ui-max = false
 
-format-volume = <label-volume>
-format-volume-padding = 0
+format-volume            = <label-volume>
+format-volume-prefix     = 
+format-volume-padding    = 2
+format-volume-background = ${xrdb:color0}
+format-volume-foreground = ${xrdb:color7}
 
-format-volume-prefix = "   "
-format-volume-prefix-background = ${xrdb:color0}
-format-volume-prefix-foreground = ${xrdb:color3}
+label-volume = "%percentage:3%"
 
-label-volume            = "%percentage:3%"
-label-volume-background = ${xrdb:color0}
-label-volume-foreground = ${xrdb:color3}
-label-volume-padding    = 1
+format-muted            = <label-muted>
+format-muted-prefix     = 
+format-muted-padding    = 2
+format-muted-background = ${xrdb:color1}
+format-muted-foreground = ${xrdb:color0}
 
-format-muted = <label-muted>
-format-muted-padding  = 0
-
-format-muted-prefix = "   "
-format-muted-prefix-background = ${xrdb:color4}
-format-muted-prefix-foreground = ${xrdb:color0}
-
-label-muted            = "-"
-label-muted-background = ${xrdb:color4}
-label-muted-foreground = ${xrdb:color0}
-label-muted-padding    = 2
-
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-
-ramp-volume-background = ${xrdb:color0}
-ramp-volume-foreground = ${xrdb:color3}
+label-muted         = -
+label-muted-padding = 1
 
 click-right = pavucontrol
+
+[module/mic]
+type = custom/script
+
+interval   = 1
+exec       = dpolybar-mic-status
+click-left = pulseaudio-ctl mute-input
+
+format         = <label>
+format-padding = 0
 
 [module/cpu]
 type             = internal/cpu
 interval         = 0.5
+
 format           = <label>
+
 label            = %percentage%%
 label-background = ${colors.modules_bg}
 label-foreground = ${colors.modules_fg}
@@ -274,7 +334,7 @@ label-padding    = 1
 format-prefix = 
 
 format-prefix-padding    = 1
-format-prefix-background = ${colors.cpu_p_bg}
+format-prefix-background = ${xrdb:color5}
 format-prefix-foreground = ${colors.modules_prefix_fg}
 
 [module/ram]
@@ -290,97 +350,42 @@ label-padding    = 1
 format-prefix = 
 
 format-prefix-padding    = 1
-format-prefix-background = ${colors.ram_p_bg}
+format-prefix-background = ${xrdb:color11}
 format-prefix-foreground = ${colors.modules_prefix_fg}
 
 
-[module/essid]
-inherit = module/network
-
-format-connected = <label-connected>
-
-format-connected-prefix              = 
-format-connected-prefix-padding      = 1
-format-connected-prefix-padding-left = 1
-format-connected-prefix-background   = ${xrdb:color0}
-format-connected-prefix-foreground   = ${xrdb:color5}
-
-label-connected               = "%essid%"
-label-connected-background    = ${xrdb:color0}
-label-connected-foreground    = ${xrdb:color5}
-label-connected-padding       = 1
-label-connected-padding-right = 1
-
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-
-ramp-signal-background    = ${xrdb:color0}
-ramp-signal-foreground    = ${xrdb:color5}
-ramp-connected-foreground = ${xrdb:color5}
-ramp-signal-padding       = 1
-
-format-disconnected = <label-disconnected>
-
-format-disconnected-prefix              = ""
-format-disconnected-prefix-padding      = 1
-format-disconnected-prefix-padding-left = 1
-format-disconnected-prefix-background   = ${xrdb:color0}
-format-disconnected-prefix-foreground   = ${xrdb:color7}
-
-label-disconnected               = "DISCONNECTED"
-label-disconnected-background    = ${xrdb:color0}
-label-disconnected-foreground    = ${xrdb:color7}
-label-disconnected-padding       = 1
-label-disconnected-padding-right = 1
-
-click-left = networkmanager_dmenu
-
-[module/down]
-inherit = module/network
-
-format-connected = <label-connected>
-
-format-connected-prefix            = 
-format-connected-prefix-background = ${colors.down_p_bg}
-format-connected-prefix-foreground = ${colors.modules_prefix_fg}
-format-connected-prefix-padding    = 1
-
-label-connected               = %{T2}%downspeed:7%%{T-}
-label-connected-background    = ${colors.modules_bg}
-label-connected-foreground    = ${colors.modules_fg}
-label-connected-padding-right = 1
-
 [module/workspaces]
 type            = internal/i3
-format          = <label-state> <label-mode>
 index-sort      = true
 wrapping-scroll = false
 strip-wsnumbers = true
+pin-workspaces  = true
+
+format          = <label-state> <label-mode>
 
 label-mode-background = ${xrdb:color0}
 label-mode-foreground = ${xrdb:color7}
-label-mode-padding    = 3
+label-mode-padding    = 1
 
 label-focused            = %name%
-label-focused-background = ${xrdb:color3}
+label-focused-background = ${xrdb:color6}
 label-focused-foreground = ${xrdb:color0}
-label-focused-padding    = 3
+label-focused-padding    = 1
 
 label-unfocused            = %name%
 label-unfocused-background = ${xrdb:color0}
 label-unfocused-foreground = ${xrdb:color7}
-label-unfocused-padding    = 3
+label-unfocused-padding    = 1
 
 label-visible            = %name%
 label-visible-background = ${xrdb:color0}
 label-visible-foreground = ${xrdb:color7}
-label-visible-padding    = 3
+label-visible-padding    = 1
 
 label-urgent            = %name%
 label-urgent-background = ${xrdb:color0}
 label-urgent-foreground = ${xrdb:color7}
-label-urgent-padding    = 3
+label-urgent-padding    = 1
 
 [module/backlight]
 type = internal/backlight
@@ -392,7 +397,7 @@ format        = <label>
 format-prefix = 
 
 format-prefix-padding    = 1
-format-prefix-background = ${colors.cpu_p_bg}
+format-prefix-background = ${xrdb:color5}
 format-prefix-foreground = ${colors.modules_prefix_fg}
 
 label            = %percentage%%
