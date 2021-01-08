@@ -12,31 +12,61 @@ font:
     family: ProFont for Powerline
     style: Italic
 
-colors:
+colorschemes:
+  monrovia: &monrovia
   # Default colors
-  primary:
-    background: '0x1f2433'
-    foreground: '0xd3cbaf'
+    primary:
+      background: '0x1f2433'
+      foreground: '0xd3cbaf'
 
-  # Normal colors
-  normal:
-    black:   '0x1f2433'
-    red:     '0x8c3432'
-    green:   '0x7f4c60'
-    yellow:  '0x538798'
-    blue:    '0xb55242'
-    magenta: '0x9e7156'
-    cyan:    '0x60a195'
-    white:   '0xd3cbaf'
+    # Normal colors
+    normal:
+      black:   '0x1f2433'
+      red:     '0x8c3432'
+      green:   '0x7f4c60'
+      yellow:  '0x538798'
+      blue:    '0xb55242'
+      magenta: '0x9e7156'
+      cyan:    '0x60a195'
+      white:   '0xd3cbaf'
 
-  # Bright colors
-  bright:
-    black:   '0x375268'
-    red:     '0xcb2656'
-    green:   '0xa1617a'
-    yellow:  '0x247dae'
-    blue:    '0xc77366'
-    magenta: '0xb8937c'
-    cyan:    '0x232839'
-    white:   '0xeeeadf'
+    # Bright colors
+    bright:
+      black:   '0x375268'
+      red:     '0xcb2656'
+      green:   '0xa1617a'
+      yellow:  '0x247dae'
+      blue:    '0xc77366'
+      magenta: '0xb8937c'
+      cyan:    '0x232839'
+      white:   '0xeeeadf'
 
+  hemisu-light: &hemisu-light
+    # Default colors
+    primary:
+      background: '0xffffff'
+      foreground: '0x282828'
+
+    # Normal colors
+    normal:
+      black:   '0x777777'
+      red:     '0xff0055'
+      green:   '0x82b414'
+      yellow:  '0x503d15'
+      blue:    '0x00729b'
+      magenta: '0x5c345f'
+      cyan:    '0x538192'
+      white:   '0x999999'
+
+    # Bright colors
+    bright:
+      black:   '0x999999'
+      red:     '0xd65e76'
+      green:   '0x9dc700'
+      yellow:  '0x957656'
+      blue:    '0x9eb3cd'
+      magenta: '0xa284a5'
+      cyan:    '0x85b2ab'
+      white:   '0xbbbbbb'
+
+colors: *monrovia
