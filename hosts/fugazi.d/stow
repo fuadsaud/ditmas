@@ -6,6 +6,7 @@ clipster
 clojure
 ctags
 dmutils
+dunst
 env
 feh
 fontconfig
