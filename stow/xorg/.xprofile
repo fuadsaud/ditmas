@@ -15,12 +15,14 @@ playerctld daemon
 #
 nitrogen --restore &
 
+# # #
+# Autostart systemctl user services
+systemctl --user start autostart.target
 
 # # #
 # Start picom compositor
 #
 picom &
-
 
 # # #
 # Enable natural scrolling for all mouse devices and sets up tapping for
@@ -30,4 +32,4 @@ enable-natural-scrolling-and-tapping
 
 # # #
 # Load screen layout
-"$HOME/.config/screenlayout/home-2-way.sh"
+# "$HOME/.config/screenlayout/home-2-way.sh"
