@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+pidof dunst && killall dunst
+
+function notify {
+  notify-send -u "$1" "This is a $1 notification" "$2"
+}
+
+title='This is a low notification'
+short_text='The <i>quick</i> <b>brown</b> fox <s>jumps</s> over the <u>lazy</u> dog'
+
+read -r -d '' long_text << TEXT
+The <i>quick</i> <b>brown</b> fox <s>jumps</s> over the <u>lazy</u> dog
+The <i>quick</i> <b>brown</b> fox <s>jumps</s> over the <u>lazy</u> dog
+The <i>quick</i> <b>brown</b> fox <s>jumps</s> over the <u>lazy</u> dog
+The <i>quick</i> <b>brown</b> fox <s>jumps</s> over the <u>lazy</u> dog
+TEXT
+
+notify low      "${short_text}"
+notify critical "${long_text}"
+notify normal   "${short_text}"
