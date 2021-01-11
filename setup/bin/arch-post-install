@@ -41,6 +41,10 @@ function setup_redshift {
   systemctl --user enable redshift
 }
 
+function setup_dropbox {
+  systemctl --user enable dropbox
+}
+
 install_paru
 install_packages
 setup_docker
