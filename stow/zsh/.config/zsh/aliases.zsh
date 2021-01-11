@@ -42,8 +42,7 @@ alias zz='fasd_cd -d -i' # cd with interactive selection
 alias j="fasd_jump"
 alias nv="fasd_edit"
 
-function path { print -l "${PATH}" }
+function path { print -l "${PATH}"; }
 
-function nd { nvim "+cd ${DITMAS_DIR}" }
-function nz { nvim "+cd ${ZDOTDIR}" }
-
+function nd { nvim "+cd ${DITMAS_DIR}"; }
+function nz { nvim "+cd ${ZDOTDIR}"; }
