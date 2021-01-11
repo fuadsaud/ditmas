@@ -25,12 +25,6 @@ systemctl --user start autostart.target
 picom &
 
 # # #
-# Enable natural scrolling for all mouse devices and sets up tapping for
-# touchpads.
-#
-enable-natural-scrolling-and-tapping
-
-# # #
 # Load screen layout
 # "$HOME/.config/screenlayout/laptop-only.sh"
 
