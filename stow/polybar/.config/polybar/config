@@ -63,7 +63,7 @@ inherit=bar/base
 
 modules-left    = date temperature battery paddinglite
 modules-center  = xwindow
-modules-right   = dnd mic volume wireless-ssid paddinglite workspaces
+modules-right   = arch-updates dnd mic volume wireless-ssid paddinglite workspaces
 
 [bar/aux]
 inherit=bar/base
@@ -404,5 +404,22 @@ label            = %percentage%
 label-background = ${colors.modules_bg}
 label-foreground = ${colors.modules_fg}
 label-padding    = 1
+
+[module/arch-updates]
+type = custom/script
+
+interval = 3600
+
+format            = <label>
+format-padding    = 1
+format-background = ${xrdb:color6}
+format-foreground = ${xrdb:color0}
+
+format-prefix               = 
+format-prefix-padding-right = 1
+
+exec = dpolybar-arch-updates
+
+click-left = $TERMINAL -e paru
 
 ; vim: ft=dosini

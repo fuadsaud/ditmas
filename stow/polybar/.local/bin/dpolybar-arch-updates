@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+function list_updates {
+  /usr/bin/checkupdates
+  /usr/bin/paru -Qqu
+}
+
+updates="$(list_updates)"
+
+if [[ -n $updates  ]]; then
+  echo "$updates" | wc -l
+else
+  echo ''
+fi
+
