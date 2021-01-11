@@ -302,6 +302,9 @@ exec_always --no-startup-id xcape -e 'Control_L=Escape'
 # enable natural scrolling for all mouse devices and sets up tapping for touchpads.
 exec_always --no-startup-id enable-natural-scrolling-and-tapping
 
+# detect appropriate screen layout
+exec --no-startup-id autorandr -c
+
 # # #
 # Polybar
 #
