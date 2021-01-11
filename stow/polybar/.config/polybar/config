@@ -46,19 +46,9 @@ foreground = ${xrdb:color7}
 border-bottom-size  = 8
 border-top-size     = 0
 
-border-left-size  = 0
-border-right-size = 0
-
-border-bottom-color = #000f0f0f
-border-top-color    = ${xrdb:color0}
-
-border-left-color = ${xrdb:color0}
-border-right-colo = ${xrdb:color0}
-
 spacing            = 0
 padding-left       = 2
 padding-right      = 2
-module-margin-left = 0
 
 font-N = <fontconfig pattern>;<vertical offset>
 font-0 = Siji:size=8;0
@@ -85,9 +75,9 @@ modules-right   = workspaces
 
 enable-ipc = true
 
-;--------------------------------------------
-; modules                                   ;
-;--------------------------------------------
+# # #
+# Modules
+#
 [module/padding]
 type               = custom/text
 content            = |
@@ -161,13 +151,15 @@ type     = internal/date
 interval = 1.0
 
 time     = "%H:%M"
-date-alt = "%a %b %d"
-label    = "%date% %time%"
+date-alt = "%a %b %d "
+label    = "%date%%time%"
 
 format            = <label>
 format-background = ${xrdb:color13}
 format-foreground = ${xrdb:color0}
 format-padding    = 1
+
+; label-background = #f00
 
 [module/temperature]
 type     = internal/temperature
@@ -179,7 +171,7 @@ format-padding    = 1
 format-background = ${xrdb:color13}
 format-foreground = ${xrdb:color0}
 
-label            = %temperature-c%
+label = %temperature-c%
 
 [module/battery]
 type          = internal/battery
