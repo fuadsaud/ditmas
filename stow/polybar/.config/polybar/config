@@ -63,7 +63,7 @@ inherit=bar/base
 
 modules-left    = date temperature battery paddinglite
 modules-center  = xwindow
-modules-right   = dnd mic volume wireless-ssid paddinglite workspaces
+modules-right   = dnd mic volume backlight wireless-ssid paddinglite workspaces
 
 [bar/aux]
 inherit=bar/base

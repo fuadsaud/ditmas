@@ -37,9 +37,14 @@ function setup_gnome {
   sudo systemctl enable gdm
 }
 
+function setup_redshift {
+  systemctl --user enable redshift
+}
+
 install_paru
 install_packages
 setup_docker
 setup_gnome
+setup_redshift
 
 log 'arch post-installation finished'

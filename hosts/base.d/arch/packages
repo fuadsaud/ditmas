@@ -1,7 +1,6 @@
 base
 base-devel
-bluez-utils
-chrome-gnome-shell
+bluez-utils chrome-gnome-shell
 chruby
 clojure
 ctags
@@ -41,6 +40,7 @@ os-prober
 powerline
 powerline-fonts-git
 python-pip
+redshift
 ruby-install
 rust
 stow
