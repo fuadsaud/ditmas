@@ -63,7 +63,7 @@ inherit=bar/base
 
 modules-left    = date temperature battery paddinglite
 modules-center  = xwindow
-modules-right   = arch-updates dnd mic volume wireless-ssid paddinglite workspaces
+modules-right   = github arch-updates paddinglite dnd mic volume wireless-ssid paddinglite workspaces
 
 [bar/aux]
 inherit=bar/base
@@ -421,5 +421,24 @@ format-prefix-padding-right = 1
 exec = dpolybar-arch-updates
 
 click-left = $TERMINAL -e paru
+
+[module/github]
+type = internal/github
+
+token               = ${env:GITHUB_ACCESS_TOKEN}
+user                = fuadsaud
+empty-notifications = false
+
+interval = 3600
+
+format-background = ${xrdb:color4}
+format-padding    = 1
+
+format-prefix               = 
+format-prefix-padding-right = 1
+
+label = %notifications%
+
+format-offline =
 
 ; vim: ft=dosini
