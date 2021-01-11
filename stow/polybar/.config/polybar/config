@@ -63,7 +63,7 @@ inherit=bar/base
 
 modules-left    = date temperature battery paddinglite
 modules-center  = xwindow
-modules-right   = dnd mic volume backlight wireless-ssid paddinglite workspaces
+modules-right   = dnd mic volume wireless-ssid paddinglite workspaces
 
 [bar/aux]
 inherit=bar/base
@@ -183,7 +183,7 @@ format-charging-foreground = ${xrdb:color7}
 format-charging-background = ${xrdb:color0}
 format-charging-padding    = 2
 
-format-charging-prefix            = s
+format-charging-prefix            = 
 format-charging-prefix-foreground = ${xrdb:color11}
 
 label-charging            = %percentage%
@@ -400,7 +400,7 @@ format-prefix-padding    = 1
 format-prefix-background = ${xrdb:color5}
 format-prefix-foreground = ${colors.modules_prefix_fg}
 
-label            = %percentage%%
+label            = %percentage%
 label-background = ${colors.modules_bg}
 label-foreground = ${colors.modules_fg}
 label-padding    = 1
