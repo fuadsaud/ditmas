@@ -1,8 +1,6 @@
-; vim: ft=dosini
-;--------------------------------------------
-; colors                                    ;
-;--------------------------------------------
-
+# # #
+# Colors
+#
 [colors]
 
 bar_bg = ${xrdb:color0}
@@ -26,10 +24,10 @@ down_p_bg    = #5e606c
 player_bg = ${xrdb:color6}
 player_fg = ${xrdb:color0}
 
-;--------------------------------------------
-; bars                                      ;
-;--------------------------------------------
-[base/bar]
+# # #
+# Bars
+#
+[bar/base]
 monitor = ${env:MONITOR:}
 
 dpi      = 192
@@ -61,14 +59,14 @@ cursor-click = pointer
 fixed-center = true
 
 [bar/main]
-inherit=base/bar
+inherit=bar/base
 
 modules-left    = date temperature battery paddinglite
 modules-center  = xwindow
 modules-right   = dnd mic volume wireless-ssid paddinglite workspaces
 
 [bar/aux]
-inherit=base/bar
+inherit=bar/base
 modules-left    = playerctl-prev playerctl-play-pause playerctl-next playerctl-metadata
 modules-center  =
 modules-right   = workspaces
@@ -183,7 +181,7 @@ poll-interval = 5
 format-charging            = <label-charging>
 format-charging-foreground = ${xrdb:color7}
 format-charging-background = ${xrdb:color0}
-format-charging-padding    = 1
+format-charging-padding    = 2
 
 format-charging-prefix            = s
 format-charging-prefix-foreground = ${xrdb:color11}
@@ -194,7 +192,7 @@ label-charging-padding    = 1
 format-discharging                   = <label-discharging>
 format-discharging-background        = ${xrdb:color0}
 format-discharging-foreground        = ${xrdb:color7}
-format-discharging-padding           = 1
+format-discharging-padding           = 2
 
 format-discharging-prefix            = 
 format-discharging-prefix-foreground = ${xrdb:color1}
@@ -205,7 +203,7 @@ label-discharging-padding    = 1
 format-full                   = <label-full>
 format-full-background        = ${xrdb:color0}
 format-full-foreground        = ${xrdb:color7}
-format-full-padding           = 3
+format-full-padding           = 2
 
 format-full-prefix            = 
 format-full-prefix-foreground = ${xrdb:color6}
@@ -406,3 +404,5 @@ label            = %percentage%%
 label-background = ${colors.modules_bg}
 label-foreground = ${colors.modules_fg}
 label-padding    = 1
+
+; vim: ft=dosini
