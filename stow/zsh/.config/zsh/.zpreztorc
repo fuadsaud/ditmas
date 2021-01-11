@@ -45,7 +45,8 @@ zstyle ':prezto:load' pmodule \
   'fasd'   \
   'syntax-highlighting' \
   'history-substring-search' \
-  'prompt'
+  'prompt' \
+  'ssh'
 
 #
 # Editor
@@ -122,7 +123,7 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 # zstyle ':prezto:module:ssh-agent' forwarding 'yes'
 
 # Set ssh-agent identities to load.
-# zstyle ':prezto:module:ssh-agent' identities 'id_rsa' 'id_rsa2' 'id_github'
+zstyle ':prezto:module:ssh-agent' identities 'aur'
 
 #
 # Syntax Highlighting

@@ -24,6 +24,7 @@ git
 google-chrome
 hub
 i3
+i3lockr
 inetutils
 jdk-openjdk
 jq
@@ -66,6 +67,7 @@ rofi-dmenu
 ruby-install
 rust
 rxvt-unicode
+scrot
 siji-git
 slack-desktop
 spotify

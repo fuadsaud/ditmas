@@ -32,4 +32,9 @@ enable-natural-scrolling-and-tapping
 
 # # #
 # Load screen layout
-# "$HOME/.config/screenlayout/home-2-way.sh"
+# "$HOME/.config/screenlayout/laptop-only.sh"
+
+# # #
+# Start ssh-agent
+#
+eval $(ssh-agent)

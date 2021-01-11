@@ -113,6 +113,11 @@ map ^ <Nop>
 " yank to EOL
 nnoremap Y y$
 
+" yank/paste to register 0
+onoremap <Leader>y "0y
+xnoremap <Leader>y "0y
+nnoremap <Leader>p "0p
+
 " opens/closes folds
 nnoremap z<Space> zA
 
@@ -141,8 +146,7 @@ nnoremap <Leader>b :FBuffers<CR>
 
 " switch between the last two files
 nnoremap <Leader>c <C-^>
-nnoremap <Return> <C-^>
-nnoremap <Leader><Tab> <C-^>
+nnoremap <Return>  <C-^>
 
 " In the quickfix window, <CR> is used to jump to the error under the
 " cursor, so undefine the mapping there.
@@ -157,11 +161,11 @@ nnoremap <Leader>fd :set fdm=diff<CR>
 
 "invoke fzf with the list of projects configured in g:contabs#project#locations
 "the enabled hotkeys are { 'ctrl-t': 'tabedit', 'ctrl-e, <cr>': 'edit' }
-nnoremap <silent> <Leader>pp :call contabs#project#select()<CR>
+nnoremap <silent> <Leader>fp :call contabs#project#select()<CR>
 
 "invoke fzf with the list of buffers of current tab's workingdir
 "the enabled hotkeys are { 'ctrl-t': 'tabedit', 'ctrl-e, <cr>': 'edit', 'ctrl-v': 'vsp', 'ctrl-x': 'sp' }
-nnoremap <silent> <Leader>pb :call contabs#buffer#select()<CR>
+nnoremap <silent> <Leader>fb :call contabs#buffer#select()<CR>
 
 " re-hardwrap text
 nnoremap <Leader><Return> gqip
@@ -181,16 +185,15 @@ nnoremap <Leader>t :TagbarToggle<CR>
 nnoremap <Leader>U :GundoToggle<CR>
 
 " plug
-nnoremap <Leader>pc :PlugClean<CR>
-nnoremap <Leader>pi :PlugInstall<CR>
-nnoremap <Leader>pu :PlugUpdate<CR>
+nnoremap <Leader>vpc :PlugClean<CR>
+nnoremap <Leader>vpi :PlugInstall<CR>
+nnoremap <Leader>vpu :PlugUpdate<CR>
 
 " delete trailing whitespace
 nnoremap <Leader>w :%s/\s\+$//<CR>:let @/=''<CR>
 
-" yankstack
-nmap <Leader>yp <Plug>yankstack_substitute_older_paste
-nmap <Leader>yP <Plug>yankstack_substitute_newer_paste
+" squeeze multiple blank lines
+nnoremap <Leader>W :%s/\(\n\n\)\n\+/\1/<CR>:let @/=''<CR>
 
 " tabedit interesting dirs
 nnoremap <silent> <Leader>< :vsplit $MYVIMRC<CR>

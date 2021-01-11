@@ -23,6 +23,9 @@ focused_bg = ${xrdb:color10}
 
 down_p_bg    = #5e606c
 
+player_bg = ${xrdb:color6}
+player_fg = ${xrdb:color0}
+
 ;--------------------------------------------
 ; bars                                      ;
 ;--------------------------------------------
@@ -72,12 +75,12 @@ inherit=base/bar
 
 modules-left    = date temperature battery paddinglite
 modules-center  = xwindow
-modules-right   = mic volume wireless-ssid paddinglite workspaces
+modules-right   = dnd mic volume wireless-ssid paddinglite workspaces
 
 [bar/aux]
 inherit=base/bar
-modules-left    = date battery paddinglite
-modules-center  = playerctl-prev playerctl-pp playerctl-next playerctl-metadata
+modules-left    = playerctl-prev playerctl-play-pause playerctl-next playerctl-metadata
+modules-center  =
 modules-right   = workspaces
 
 enable-ipc = true
@@ -162,7 +165,7 @@ date-alt = "%a %b %d"
 label    = "%date% %time%"
 
 format            = <label>
-format-background = ${xrdb:color4}
+format-background = ${xrdb:color13}
 format-foreground = ${xrdb:color0}
 format-padding    = 1
 
@@ -173,70 +176,10 @@ interval = 1
 
 format            = <label>
 format-padding    = 1
-format-background = ${xrdb:color4}
+format-background = ${xrdb:color13}
 format-foreground = ${xrdb:color0}
 
 label            = %temperature-c%
-
-[module/playerctl-metadata]
-type = custom/script
-tail = true
-
-format            = <label>
-format-padding    = 1
-format-background = ${xrdb:color6}
-format-foreground = ${xrdb:color0}
-
-exec = dpolybar-player-metadata-scroll
-
-[module/playerctl-prev]
-type = custom/text
-
-content            = 
-content-background = ${xrdb:color6}
-content-foreground = ${xrdb:color0}
-content-padding    = 1
-
-format = <label>
-
-click-left = playerctl previous
-
-[module/playerctl-play-pause]
-type = custom/script
-
-tail = true
-
-exec = dpolybar-player-status-pp
-
-format            = <label>
-format-background = ${xrdb:color6}
-format-foreground = ${xrdb:color0}
-
-click-left = playerctl play-pause
-
-[module/playerctl-play-pause-legacy]
-type = custom/ipc
-
-format-background = ${xrdb:color9}
-format-foreground = ${xrdb:color0}
-
-hook-0  = echo 
-hook-1  = echo 
-initial = 1
-
-click-left = playerctl play-pause
-
-[module/playerctl-next]
-type = custom/text
-
-content            = 
-content-background = ${xrdb:color6}
-content-foreground = ${xrdb:color0}
-content-padding    = 1
-
-format = <label>
-
-click-left = playerctl next
 
 [module/battery]
 type          = internal/battery
@@ -282,6 +225,66 @@ ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 
+[module/playerctl-metadata]
+type = custom/script
+tail = true
+
+format            = <label>
+format-padding    = 1
+format-background = ${colors.player_bg}
+format-foreground = ${colors.player_fg}
+
+exec = dpolybar-player-metadata-scroll
+
+[module/playerctl-prev]
+type = custom/text
+
+content            = 
+content-background = ${colors.player_bg}
+content-foreground = ${colors.player_fg}
+content-padding    = 1
+
+format = <label>
+
+click-left = playerctl previous
+
+[module/playerctl-play-pause]
+type = custom/script
+
+tail = true
+
+exec = dpolybar-player-status-pp
+
+format            = <label>
+format-background = ${colors.player_bg}
+format-foreground = ${colors.player_fg}
+
+click-left = playerctl play-pause
+
+[module/playerctl-play-pause-legacy]
+type = custom/ipc
+
+format-background = ${xrdb:color9}
+format-foreground = ${xrdb:color0}
+
+hook-0  = echo 
+hook-1  = echo 
+initial = 1
+
+click-left = playerctl play-pause
+
+[module/playerctl-next]
+type = custom/text
+
+content            = 
+content-background = ${colors.player_bg}
+content-foreground = ${colors.player_fg}
+content-padding    = 1
+
+format = <label>
+
+click-left = playerctl next
+
 [module/volume]
 type = internal/pulseaudio
 
@@ -310,9 +313,19 @@ click-right = pavucontrol
 [module/mic]
 type = custom/script
 
-interval   = 1
+interval   = 0.5
 exec       = dpolybar-mic-status
 click-left = pulseaudio-ctl mute-input
+
+format         = <label>
+format-padding = 0
+
+[module/dnd]
+type = custom/script
+
+interval   = 0.5
+exec       = dpolybar-dnd-status
+click-left = dunstctl set-paused toggle
 
 format         = <label>
 format-padding = 0
@@ -375,13 +388,13 @@ label-unfocused-foreground = ${xrdb:color7}
 label-unfocused-padding    = 1
 
 label-visible            = %name%
-label-visible-background = ${xrdb:color0}
+label-visible-background = ${xrdb:color8}
 label-visible-foreground = ${xrdb:color7}
 label-visible-padding    = 1
 
 label-urgent            = %name%
-label-urgent-background = ${xrdb:color0}
-label-urgent-foreground = ${xrdb:color7}
+label-urgent-background = ${xrdb:color9}
+label-urgent-foreground = ${xrdb:color0}
 label-urgent-padding    = 1
 
 [module/backlight]

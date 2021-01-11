@@ -19,6 +19,7 @@ function launch_bar {
 }
 
 function launch_main_bar {
+  MONITOR=eDP-1 launch_bar main
   MONITOR=DP-2 launch_bar main
 }
 
