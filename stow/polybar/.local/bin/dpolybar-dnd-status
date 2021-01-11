@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+function xrdb_color {
+  local query="$1"
+
+  xrdb -query | grep "\*\.${query}:" | cut -f 2
+}
+
+dnd_active=$(dunstctl is-paused)
+
+if [[ ${dnd_active} == "true" ]]; then
+  bg=$(xrdb_color 'background')
+  fg=$(xrdb_color 'color9')
+
+  echo "%{F${fg}}%{B${bg}}  %{B-}%{F-}"
+else
+  bg=$(xrdb_color 'background')
+  fg=$(xrdb_color 'color8')
+
+  echo "%{F${fg}}%{B${bg}}  %{B-}%{F-}"
+fi
