@@ -7,7 +7,9 @@ function list_updates {
 
 updates="$(list_updates)"
 
-if [[ -n $updates  ]]; then
+if [[ $? != 0 ]]; then
+  echo ''
+elif [[ -n $updates  ]]; then
   echo "$updates" | wc -l
 else
   echo ''

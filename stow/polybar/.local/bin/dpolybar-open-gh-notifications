@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+$WEB_BROWSER https://github.com/notifications

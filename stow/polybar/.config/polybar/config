@@ -100,7 +100,7 @@ format-connected-padding    = 2
 format-connected-background = ${colors.modules_bg}
 format-connected-foreground = ${colors.modules_fg}
 
-label-connected               = %{A1:networkmanager_dmenu:}%essid%%{A}
+label-connected = %{A1:networkmanager_dmenu:}%essid%%{A}
 
 ramp-signal-0             = %{A1:networkmanager_dmenu:}%{A}
 ramp-signal-1             = %{A1:networkmanager_dmenu:}%{A}
@@ -412,7 +412,7 @@ interval = 3600
 
 format            = <label>
 format-padding    = 1
-format-background = ${xrdb:color6}
+format-background = ${xrdb:color11}
 format-foreground = ${xrdb:color0}
 
 format-prefix               = 
@@ -425,20 +425,38 @@ click-left = $TERMINAL -e paru
 [module/github]
 type = internal/github
 
-token               = ${env:GITHUB_ACCESS_TOKEN}
+token               = ${env:GITHUB_ACCESS_TOKEN:}
 user                = fuadsaud
 empty-notifications = false
 
-interval = 3600
+interval = 60
 
+format            = %{A1:dpolybar-open-gh-notifications:}<label>%{A}
 format-background = ${xrdb:color4}
+format-foreground = ${xrdb:color0}
 format-padding    = 1
 
-format-prefix               = 
+format-prefix               = %{A1:dpolybar-open-gh-notifications:}%{A}
 format-prefix-padding-right = 1
 
 label = %notifications%
 
 format-offline =
 
+[module/nu-vpn]
+type = custom/script
+
+interval = 10
+
+format = <label>
+format-padding = 1
+format-background = ${xrdb:color11}
+format-foreground = ${xrdb:color0}
+
+format-prefix               = 
+format-prefix-padding-right = 1
+
+exec = dpolybar-nu-vpn status
+
+click-left = dpolybar-nu-vpn toggle
 ; vim: ft=dosini
