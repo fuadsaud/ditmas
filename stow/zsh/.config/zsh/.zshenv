@@ -5,7 +5,13 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-source "${HOME}/.profile"
+if [[ -s "${HOME}/.profile" ]]; then
+  source "${HOME}/.profile"
+fi
+
+if [[ -s "${HOME}/.config/nu/nuenv" ]]; then
+  source "${HOME}/.config/nu/nuenv"
+fi
 
 #
 # Paths
