@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+notify-send "Debug Notify: $1" $2
