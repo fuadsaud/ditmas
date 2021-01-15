@@ -196,13 +196,13 @@ bindsym $mod+Shift+x exec --no-startup-id autorandr -c
 # Screenshot keybindings
 #
 # full screen
-bindsym --release Print       exec "scrot -m $HOME/Pictures/%s_%H%M_%d.%m.%Y_$wx$h.png"
+bindsym --release Print       exec "dscrot --multidisp"
 
 # selection screenshot
-bindsym --release Shift+Print exec "scrot -s $HOME/Pictures/%s_%H%M_%d%m%Y_$wx$h.png"
+bindsym --release Shift+Print exec "dscrot --select"
 
 # window screenshot
-bindsym --release Mod1+Print  exec "scrot -u $HOME/Pictures/%s_%H%M_%d%m%Y_$wx$h.png"
+bindsym --release Mod1+Print  exec "dscrot --focused"
 
 # # #
 # Media key bindings
