@@ -1,5 +1,6 @@
 {:user
- {:dependencies        [[cljdev "0.10.0"]]
+ {:dependencies        [[cljdev "0.10.0"]
+                        [cljfmt "0.7.0"]]
 
   :injections          [(require 'nu)]
 
