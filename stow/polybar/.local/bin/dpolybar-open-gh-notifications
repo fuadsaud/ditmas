@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-$WEB_BROWSER https://github.com/notifications
+source ~/.profile
+
+status=$($WEB_BROWSER https://github.com/notifications)
+
+debug-notify 'gh' "${status}\n$?\nweb: ${WEB_BROWSER}"

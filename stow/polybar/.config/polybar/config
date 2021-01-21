@@ -113,7 +113,7 @@ format-disconnected-prefix-padding-left = 1
 format-disconnected-prefix-background   = ${xrdb:color0}
 format-disconnected-prefix-foreground   = ${xrdb:color7}
 
-label-disconnected               = 
+label-disconnected               = %{A1:networkmanager_dmenu:}%{A}
 label-disconnected-background    = ${xrdb:color1}
 label-disconnected-foreground    = ${xrdb:color7}
 label-disconnected-padding       = 1
@@ -408,7 +408,7 @@ label-padding    = 1
 [module/arch-updates]
 type = custom/script
 
-interval = 3600
+interval = 60
 
 format            = <label>
 format-padding    = 1
