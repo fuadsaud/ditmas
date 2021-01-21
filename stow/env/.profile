@@ -13,7 +13,7 @@
 
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
-elif (( $+commands[xdg-open] )); then
+elif command -v xdg-open >> /dev/null; then
   export BROWSER='xdg-open'
 fi
 
@@ -25,7 +25,7 @@ export TERMINAL='alacritty'
 #
 # Web Browser
 #
-if (( $+commands[google-chrome-stable] )); then
+if command -v google-chrome-stable >> /dev/null; then
   export WEB_BROWSER='google-chrome-stable'
 fi
 
@@ -82,7 +82,7 @@ export PATH=$(tr -d $'\n ' <<< "
 export LESS='-F -g -i -M -R -S -w -X -z-4 --mouse'
 
 # Set the Less input preprocessor.
-if (( $+commands[lesspipe.sh] )); then
+if command -v lesspipe.sh; then
   export LESSOPEN='| /usr/bin/env lesspipe.sh %s 2>&-'
 fi
 
