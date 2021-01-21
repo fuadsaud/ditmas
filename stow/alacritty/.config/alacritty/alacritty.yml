@@ -12,6 +12,11 @@ font:
     family: ProFont for Powerline
     style: Italic
 
+# window:
+#   padding:
+#     x: 10
+#     y: 10
+
 colorschemes:
   monrovia: &monrovia
   # Default colors
