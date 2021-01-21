@@ -11,6 +11,8 @@
 
 set $mod Mod4
 
+set $hypr Mod1+Mod4+Control+Shift
+
 # # #
 # Load Xresources colors
 #
@@ -34,6 +36,11 @@ set_from_resource $color15 color15 #000000
 font pango:ProFont for Powerline 18
 
 # # #
+# window orientation
+#
+# default_orientatin horizontal
+
+# # #
 # style window decorations
 #
 # class                 border   backgr.  text     indicator  child_border
@@ -44,20 +51,16 @@ client.urgent           $color9  $color9  $color0  #900000    #900000
 client.placeholder      #000000  #0c0c0c  #ffffff  #000000    #0c0c0c
 client.background       $color14
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lockr --blur 50 --darken 50 -- nofork
-
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:"
 set $ws2 "2:"
 set $ws3 "3:"
 set $ws4 "4:"
-set $ws5 "5"
+set $ws5 "5:"
 set $ws6 "6:"
 set $ws7 "7:"
-set $ws8 "8"
+set $ws8 "8:"
 set $ws9 "9"
 set $ws10 "10:"
 
@@ -88,6 +91,12 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # move workspaces between monitors
 bindsym $mod+minus move workspace to output right
 bindsym $mod+plus move workspace to output left
+
+# move windows between monitors
+bindsym Mod4+Mod1+Control+Shift+left  move container to output left
+bindsym Mod4+Mod1+Control+Shift+right move container to output right
+bindsym Mod4+Mod1+Control+Shift+up    move container to output up
+bindsym Mod4+Mod1+Control+Shift+down  move container to output down
 
 # define monitors
 set $monitor_built_in "eDP-1"
@@ -287,9 +296,12 @@ bindsym $mod+a focus parent
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-
 # resize mode
 bindsym $mod+r mode "resize"
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lockr --blur 50 --darken 50 -- nofork
 
 # # #
 # Xorg stuff
