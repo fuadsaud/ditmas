@@ -1,16 +1,19 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
+exec 2> /dev/null
+
 function list_updates {
-  /usr/bin/checkupdates
-  /usr/bin/paru -Qqu
+  paru -Qu
 }
 
 updates="$(list_updates)"
 
-if [[ $? != 0 ]]; then
-  echo ''
-elif [[ -n $updates  ]]; then
-  echo "$updates" | wc -l
+status="$?"
+
+if [[ $status -eq 0 ]] && [[ -n $updates ]]; then
+  echo "$status" "$updates" | wc -l
 else
   echo ''
 fi
