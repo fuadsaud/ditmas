@@ -10,7 +10,8 @@ dunst
 env
 feh
 fontconfig
-fonts
+font-industry
+font-siji
 git
 gpg
 i3
