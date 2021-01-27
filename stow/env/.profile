@@ -68,7 +68,8 @@ export PATH=$(tr -d $'\n ' <<< "
   $ANDROID_HOME/platform-tools:
   $HOME/.cargo/bin:
   $BIN_DIR:
-  /usr/local/{bin,sbin}:
+  /usr/local/bin:
+  /usr/local/sbin:
   $PATH
 ")
 
