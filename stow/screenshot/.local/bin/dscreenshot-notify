@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+file_location="${1}"
+
+function open_screenshot {
+  xdg-open "${file_location}"
+}
+
+function open_folder {
+  xdg-open $(dirname "${file_location}")
+}
+
+function notify {
+  local file_location="$1"
+
+  local open_action_label='View screenshot'
+  local default_action="default,${open_action_label}"
+
+  local open_folder_action_name='open-folder'
+  local open_folder_action_label='Open enclosing folder'
+  local open_folder_action="${open_folder_action_name},${open_folder_action_label}"
+
+  local action=$(
+    dunstify \
+      --appname scrot \
+      --urgency low \
+      --action "${default_action}" \
+      --action "${open_folder_action}" \
+      --icon "${file_location}" \
+      'Screenshot taken' "${file_location}"
+  )
+
+  case "${action}" in
+    "default")
+      open_screenshot
+      ;;
+    ${open_folder_action_name})
+      open_folder
+      ;;
+  esac
+}
+
+notify "${file_location}"

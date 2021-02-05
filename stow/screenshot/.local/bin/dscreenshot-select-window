@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+file_location="$(dscreenshot-filename)"
+
+maim -st 9999999 | convert - \( +clone -background black -shadow 80x3+5+5 \) +swap -background none -layers merge +repage "${file_location}"
+
+dscreenshot-notify "${file_location}"

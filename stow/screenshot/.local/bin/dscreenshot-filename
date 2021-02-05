@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+screenshots_dir="${HOME}/Pictures/Screenshots"
+file_location_template="${screenshots_dir}/Screenshot-%F_%H_%M_%S_%z.png"
+file_location=$(date "+${file_location_template}")
+
+mkdir -p "${screenshots_dir}"
+
+echo "${file_location}"

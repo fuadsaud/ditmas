@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+all=(fullscreen current-window select-area select-window)
+
+declare -A labels
+labels=(
+  [fullscreen]=' Full Screen'
+  [current-window]=' Current Window'
+  [select-area]=' Select Area'
+  [select-window]=' Select Window'
+)
+
+declare -A commands
+commands=(
+  [${labels[fullscreen]}]='dscreenshot-fullscreen'
+  [${labels[current-window]}]='dscreenshot-current-window'
+  [${labels[select-area]}]='dscreenshot-select-area'
+  [${labels[select-window]}]='dscreenshot-select-window'
+)
+
+function dmenu_labels {
+  for v in "${labels[@]}"; do
+    echo $v
+  done
+}
+
+selected_value=$(dmenu_labels | rofi -dmenu)
+
+${commands[$selected_value]}
