@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+win="$(xprop -id $(xdotool getactivewindow) | grep "WM_CLASS(STRING)" | cut -d '"' -f 2)"
+
+case "$win" in
+  'Alacritty') xdotool key --clearmodifiers ctrl+shift+v ;;
+  *)           xdotool key --clearmodifiers ctrl+v ;;
+esac

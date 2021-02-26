@@ -228,6 +228,13 @@ bindsym XF86AudioPrev        exec --no-startup-id playerctl previous
 bindsym XF86AudioNext        exec --no-startup-id playerctl next
 
 # # #
+# Pass-through keybindings
+#
+bindsym $mod+a exec --no-startup-id xdotool key --clearmodifiers ctrl+a
+bindsym $mod+c exec --no-startup-id dcopy
+bindsym $mod+v exec --no-startup-id dpaste
+
+# # #
 # i3 keybindings
 #
 bindsym $mod+Shift+c reload
@@ -288,7 +295,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
