@@ -25,6 +25,11 @@ systemctl --user start autostart.target
 picom &
 
 # # #
+# Setup app defaults
+#
+dmime-defaults
+
+# # #
 # Load screen layout
 # "$HOME/.config/screenlayout/laptop-only.sh"
 
