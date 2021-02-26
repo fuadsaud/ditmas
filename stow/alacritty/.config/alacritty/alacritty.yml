@@ -12,6 +12,11 @@ font:
     family: ProFont for Powerline
     style: Italic
 
+cursor:
+  style:
+    shape: Block
+    blinking: On
+
 # window:
 #   padding:
 #     x: 10
