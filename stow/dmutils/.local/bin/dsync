@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-dls | xargs dstow "$@"
+dls | xargs dstow --restow $@
