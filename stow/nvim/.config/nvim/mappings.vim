@@ -141,13 +141,6 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 nnoremap <Leader>a :Ack<Space>
 nnoremap <Leader>A :Ack<Space><C-r><C-w><CR>
 
-" fzf buffers
-nnoremap <Leader>b :FBuffers<CR>
-
-" switch between the last two files
-nnoremap <Leader>c <C-^>
-nnoremap <Return>  <C-^>
-
 " In the quickfix window, <CR> is used to jump to the error under the
 " cursor, so undefine the mapping there.
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
@@ -161,11 +154,18 @@ nnoremap <Leader>fd :set fdm=diff<CR>
 
 "invoke fzf with the list of projects configured in g:contabs#project#locations
 "the enabled hotkeys are { 'ctrl-t': 'tabedit', 'ctrl-e, <cr>': 'edit' }
-nnoremap <silent> <Leader>fp :call contabs#project#select()<CR>
+nnoremap <silent> <Leader><Bslash> :call contabs#project#select()<CR>
 
-"invoke fzf with the list of buffers of current tab's workingdir
-"the enabled hotkeys are { 'ctrl-t': 'tabedit', 'ctrl-e, <cr>': 'edit', 'ctrl-v': 'vsp', 'ctrl-x': 'sp' }
-nnoremap <silent> <Leader>fb :call contabs#buffer#select()<CR>
+"invoke fzf with the list of buffers of current tab's workingdir the enabled hotkeys are { 'ctrl-t': 'tabedit', 'ctrl-e,
+"<cr>': 'edit', 'ctrl-v': 'vsp', 'ctrl-x': 'sp' }
+nnoremap <silent> <Leader>' :call contabs#buffer#select()<CR>
+
+" fzf buffers
+nnoremap <Leader>b :FBuffers<CR>
+
+" switch between the last two files
+nnoremap <Leader>c <C-^>
+nnoremap <Return>  <C-^>
 
 " re-hardwrap text
 nnoremap <Leader><Return> gqip
