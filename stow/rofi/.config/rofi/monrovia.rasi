@@ -1,0 +1,106 @@
+configuration {
+  show-icons: true;
+}
+
+* {
+  monrovia-color0:                      #1f2433;
+  monrovia-color1:                      #8c3432;
+  monrovia-color2:                      #7f4c60;
+  monrovia-color3:                      #538798;
+  monrovia-color4:                      #b55242;
+  monrovia-color5:                      #9e7156;
+  monrovia-color6:                      #60a195;
+  monrovia-color7:                      #d3cbaf;
+  monrovia-color8:                      #375268;
+  monrovia-color9:                      #cb2656;
+  monrovia-color10:                     #a1617a;
+  monrovia-color11:                     #247dae;
+  monrovia-color12:                     #c77366;
+  monrovia-color13:                     #b8937c;
+  monrovia-color14:                     #232839;
+  monrovia-color15:                     #eeeadf;
+
+  monrovia-background-color: #1f243399;
+  monrovia-foreground-color: @monrovia-color7;
+  monrovia-border-color:     @monrovia-color14;
+
+  background-color: @monrovia-background-color;
+  text-color:       @monrovia-foreground-color;
+  border-color:     @monrovia-border-color;
+
+  spacing:          0;
+}
+
+window {
+  location: east;
+  anchor: east;
+  height: 100%;
+  width: 25%;
+  children: [mainbox];
+}
+
+inputbar {
+  border: 0 0 1px 0;
+  children: [prompt,entry];
+}
+
+prompt {
+  padding: 16px;
+  border:  0 1px 0 0;
+}
+
+textbox {
+  background-color: @monrovia-background-color;
+  border:           0 0 1px 0;
+  border-color:     @monrovia-border-color;
+  padding:          8px 100px;
+}
+
+entry {
+  padding: 16px;
+}
+
+listview {
+  cycle:     false;
+  margin:    0;
+  scrollbar: true;
+}
+
+scrollbar {
+  width: 10px;
+
+  handle-width: 10px;
+  handle-color: @monrovia-color5;
+}
+
+element {
+  border:  0 0 1px 0;
+  padding: 16px;
+}
+
+element active {
+  text-color: @monrovia-color6;
+}
+
+element urgent {
+  text-color: @monrovia-color9;
+}
+
+element selected {
+  background-color: #2e343f;
+  /* background-color: @monrovia-color8; */
+}
+
+element-icon {
+  size: 50;
+  expand: false;
+  padding: 0px;
+  margin: 0px;
+}
+
+element-text {
+  padding: 10px 30px;
+  vertical-align: 0.5;
+}
+
+/* vim:ft=css */

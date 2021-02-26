@@ -1,6 +1,6 @@
 configuration {
   modi: "combi,drun,window,power-menu:rofi-power-menu";
-  theme: "DarkBlue";
+  theme: "monrovia";
   font: "ProFont for Powerline 18";
   combi-modi: "window,drun";
 }
