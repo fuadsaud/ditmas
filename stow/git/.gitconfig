@@ -27,6 +27,7 @@
   cry = cherry -v
   current-branch = symbolic-ref HEAD --short
   d  = diff
+  default-branch = "!git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'"
   dc = diff --cached
   dm = "!git show @ --format=short | head -n 2 | tail -n 1 | cut -d ' ' -f 2,3 | xargs git diff"
   dw = diff --word-diff
@@ -34,11 +35,11 @@
   fix = ci --fixup
   fixf = fz-fixup
   fixup = ci --fixup HEAD
-  foo = "!git switch master && git fr && git pm"
+  foo = "!git switch $(git default-branch) && git fr && git pm"
   fuck = "!git add . && git ci -m 'Fuck this shit, I am done for today!' && git p"
   ft = fetch --verbose --tags
   fr = pull --rebase --verbose
-  frm = fr origin master
+  frm = "!git fr origin $(git default-branch)"
   gh-pages = !git checkout --orphan gh-pages && git rm $(git ls-files) -f
   l  = log --graph --abbrev-commit
   la = log --graph --abbrev-commit --all
@@ -51,15 +52,15 @@
   pod = p origin --delete
   pprq = "!git p && hub prq"
   prq = pull-request
-  prune-merged = "!git branch --merged master | grep -v \\* | grep -v master | ifne xargs -rn 1 git branch -d"
+  prune-merged = "!git branch --merged $(git default-branch) | grep -v \\* | grep -v $(git default-branch) | ifne xargs -rn 1 git branch -d"
   r  = rebase
   ra = rebase --abort
   rc = rebase --continue
   rh = reset --hard
   resign = r --gpg-sign --no-ff
   ri = rebase -i
-  rms = rebase master
-  rom = rebase origin/master
+  rms = "!git rebase $(git default-branch)"
+  rom = "!git rebase origin/$(git default-branch)"
   rias = rebase -i --autosquash
   redo = ci --amend --no-edit
   root = rev-parse --show-toplevel
