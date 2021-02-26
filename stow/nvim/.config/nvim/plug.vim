@@ -93,9 +93,9 @@ Plug 'ngmy/vim-rubocop',         { 'for': 'ruby' }
 Plug 'guns/vim-sexp',                              { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 " Plug 'tpope/vim-fireplace',                        { 'for': 'clojure' }
-Plug 'Olical/conjure',                             {'tag': 'v4.0.1'}
-Plug 'tpope/vim-salve',                            { 'for': 'clojure' }
 " Plug 'venantius/vim-cljfmt',                       { 'for': 'clojure' }
+Plug 'Olical/conjure',                             {'tag': 'v4.0.1'}
+Plug 'fuadsaud/vim-salve',                         { 'for': 'clojure', 'branch': 'test-unit' }
 Plug 'fuadsaud/vim-clojure-static',                { 'for': 'clojure' }
 Plug 'fuadsaud/vim-midje',                         { 'for': 'clojure', 'branch': 'fix-lispwords' }
 Plug 'fuadsaud/vim-postman-clj',                   { 'for': 'clojure' }
