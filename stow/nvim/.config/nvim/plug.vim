@@ -60,7 +60,7 @@ Plug 'Shougo/neco-vim'
 
 " text objects
 Plug 'kana/vim-textobj-user'
-Plug 'Julian/vim-textobj-variable-segment'
+Plug 'fuadsaud/vim-textobj-variable-segment'
 Plug 'tommcdo/vim-exchange'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
