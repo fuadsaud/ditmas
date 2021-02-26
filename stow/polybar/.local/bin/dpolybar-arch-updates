@@ -4,8 +4,10 @@ set -euo pipefail
 
 exec 2> /dev/null
 
+pacman_bin=paru
+
 function list_updates {
-  paru -Qu
+  paru -Qqu
 }
 
 updates="$(list_updates)"

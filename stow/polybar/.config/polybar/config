@@ -408,7 +408,7 @@ label-padding    = 1
 [module/arch-updates]
 type = custom/script
 
-interval = 60
+interval = 3600
 
 format            = <label>
 format-padding    = 1
