@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# make caps lock behave like control
+setxkbmap -option ctrl:nocaps
+
+# make right alt the compose key
+setxkbmap -option compose:ralt
+
+# make short-pressed Ctrl behave like Escape
+xcape -e 'Control_L=Escape'
+
+# enable natural scrolling for all mouse devices and sets up tapping for touchpads.
+enable-natural-scrolling-and-tapping
+

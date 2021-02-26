@@ -205,13 +205,13 @@ bindsym $mod+Shift+x exec --no-startup-id autorandr -c
 # Screenshot keybindings
 #
 # full screen
-bindsym --release Print       exec "dscrot --multidisp"
+bindsym --release Print       exec "dscreenshot-fullscreen"
 
 # selection screenshot
-bindsym --release Shift+Print exec "dscrot --select"
+bindsym --release Shift+Print exec "dscreenshot-select-area"
 
 # window screenshot
-bindsym --release Mod1+Print  exec "dscrot --focused"
+bindsym --release Mod1+Print  exec "dscreenshot-select-window"
 
 # # #
 # Media key bindings
@@ -311,19 +311,10 @@ bindsym $mod+r mode "resize"
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lockr --blur 50 --darken 50 -- nofork
 
 # # #
-# Xorg stuff
+# Xorg
 #
-# make caps lock behave like control
-exec_always --no-startup-id setxkbmap -option ctrl:nocaps
-
-# make right alt the compose key
-exec_always --no-startup-id setxkbmap -option compose:ralt
-
-# make short-pressed Ctrl behave like Escape
-exec_always --no-startup-id xcape -e 'Control_L=Escape'
-
-# enable natural scrolling for all mouse devices and sets up tapping for touchpads.
-exec_always --no-startup-id enable-natural-scrolling-and-tapping
+# general config
+exec_always --no-startup-id xrc
 
 # detect appropriate screen layout
 exec --no-startup-id autorandr -c
