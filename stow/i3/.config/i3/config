@@ -51,6 +51,27 @@ client.urgent           $color9  $color9  $color0  #900000    #900000
 client.placeholder      #000000  #0c0c0c  #ffffff  #000000    #0c0c0c
 client.background       $color14
 
+for_window [title=".*"] title_format  %title
+
+# # #
+# i3-gaps
+#
+for_window [class=".*"] border pixel 0
+
+gaps inner 20
+
+# Only enable gaps on a workspace when there is at least one container
+#smart_gaps on
+
+# Activate smart borders (always)
+smart_borders on
+
+# Activate smart borders (only when there are effectively no gaps)
+smart_borders no_gaps
+
+# Hide edge borders only if there is one window with no gaps
+hide_edge_borders smart_no_gaps
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:"
@@ -116,12 +137,15 @@ set $monitor_secondary "HDMI-1"
 # workspace $ws10 output $monitor_secondary $monitor_primary $monitor_built_in
 
 # bind apps to workspaces
-assign [class=".*whatsapp.*"]       $ws2
-assign [class="TelegramDesktop"]    $ws2
-assign [class="pocket-casts-linux"] $ws3
-assign [class="Google-chrome"]      $ws6
-assign [class="Slack"]              $ws7
-assign [class="Alacritty"]          $ws10
+assign [class=".*whatsapp.*"]                             $ws2
+assign [class="TelegramDesktop"]                          $ws2
+assign [class="pocket-casts-linux"]                       $ws3
+assign [instance="crx_jgeocpdicgmkeemopbanhokmhcgcflmi"]  $ws4
+assign [class="Ao"]                                       $ws5
+assign [class="Google-chrome"]                            $ws6
+assign [class="Slack"]                                    $ws7
+assign [class="figma-linux"]                              $ws8
+assign [class="Alacritty"]                                $ws10
 for_window [class="Spotify"] move --no-auto-back-and-forth container to workspace $ws3
 
 # resize window (you can also use the mouse for that)
@@ -156,32 +180,13 @@ mode "resize" {
 # }
 
 # # #
-# i3-gaps
-#
-for_window [class=".*"] border pixel 0
-
-gaps inner 20
-
-# Only enable gaps on a workspace when there is at least one container
-#smart_gaps on
-
-# Activate smart borders (always)
-smart_borders on
-
-# Activate smart borders (only when there are effectively no gaps)
-smart_borders no_gaps
-
-# Hide edge borders only if there is one window with no gaps
-hide_edge_borders smart_no_gaps
-
-# # #
 # Launching keybindings
 #
 # launch terminal
-bindsym $mod+Return exec $TERMINAL
+# bindsym $mod+Return exec $TERMINAL
 
 # launch web browser
-bindsym $mod+Shift+Return exec $WEB_BROWSER
+# bindsym $mod+Shift+Return exec $WEB_BROWSER
 
 # launch plain rofi
 bindsym $mod+d exec --no-startup-id rofi -show
@@ -255,9 +260,9 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
 
 # move focused window
@@ -267,23 +272,23 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+x split h
+bindsym $mod+Return split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+quotedbl split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 bindsym $mod+Tab workspace back_and_forth
@@ -295,10 +300,10 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-# bindsym $mod+a focus parent
+bindsym $mod+Prior focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+Next focus child
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
