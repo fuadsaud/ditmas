@@ -63,7 +63,7 @@ inherit=bar/base
 
 modules-left    = date temperature battery paddinglite
 modules-center  = xwindow
-modules-right   = github arch-updates paddinglite dnd mic volume wireless-ssid paddinglite workspaces
+modules-right   = github arch-updates paddinglite redshift dnd mic volume wireless-ssid paddinglite workspaces
 
 [bar/aux]
 inherit=bar/base
@@ -96,7 +96,7 @@ interface     = wlp2s0
 inherit = module/wireless-network
 
 format-connected            = <ramp-signal><label-connected>
-format-connected-padding    = 2
+format-connected-padding    = 1
 format-connected-background = ${colors.modules_bg}
 format-connected-foreground = ${colors.modules_fg}
 
@@ -300,6 +300,16 @@ label-muted-padding = 1
 
 click-right = pavucontrol
 
+[module/redshift]
+type = custom/script
+
+interval   = 0.5
+exec       = dpolybar-redshift status
+click-left = dpolybar-redshift toggle
+
+format         = <label>
+format-padding = 0
+
 [module/mic]
 type = custom/script
 
@@ -449,14 +459,10 @@ type = custom/script
 interval = 10
 
 format = <label>
-format-padding = 1
-format-background = ${xrdb:color11}
-format-foreground = ${xrdb:color0}
-
-format-prefix               = 
-format-prefix-padding-right = 1
+format-padding = 0
 
 exec = dpolybar-nu-vpn status
 
 click-left = dpolybar-nu-vpn toggle
+
 ; vim: ft=dosini

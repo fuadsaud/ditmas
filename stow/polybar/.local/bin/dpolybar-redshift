@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+function enabled {
+  systemctl --user is-active --quiet redshift
+}
+
+icon=""
+
+if [[ $1 == "status" ]]; then
+  if enabled; then
+    bg=$(xrdb-color 'background')
+    fg=$(xrdb-color 'color9')
+
+    echo "%{F${fg}}%{B${bg}} $icon %{B-}%{F-}"
+  else
+    bg=$(xrdb-color 'background')
+    fg=$(xrdb-color 'color8')
+
+    echo "%{F${fg}}%{B${bg}} $icon %{B-}%{F-}"
+  fi
+elif [[ $1 == "toggle" ]]; then
+  if enabled; then
+    systemctl --user stop redshift
+  else
+    systemctl --user start redshift
+  fi
+fi
