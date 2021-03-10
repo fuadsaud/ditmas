@@ -60,9 +60,12 @@ export ANDROID_HOME="${HOME}/Library/Android/sdk"
 export NVM_DIR="${OPT_DIR}/nvm"
 export QMK_HOME="${SRC_DIR}/fuadsaud/qmk_firmware"
 export GITHUB_ACCESS_TOKEN="$(cat ~/.config/hub | grep oauth_token | cut -f 4 -d ' ')"
+export GOPATH="${SRC_DIR}/go"
+export GO_PATH="${GOPATH}"
 
 # Set the list of directories that Zsh searches for programs.
 export PATH=$(tr -d $'\n ' <<< "
+  $GOPATH/bin:
   $ANDROID_HOME/emulator:
   $ANDROID_HOME/tools:
   $ANDROID_HOME/platform-tools:
