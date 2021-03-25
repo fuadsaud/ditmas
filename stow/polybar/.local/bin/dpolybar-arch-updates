@@ -7,7 +7,7 @@ exec 2> /dev/null
 pacman_bin=paru
 
 function list_updates {
-  paru -Qqu
+  "$pacman_bin" -Qqu
 }
 
 updates="$(list_updates)"
