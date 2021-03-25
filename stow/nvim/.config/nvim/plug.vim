@@ -94,7 +94,7 @@ Plug 'guns/vim-sexp',                              { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 " Plug 'tpope/vim-fireplace',                        { 'for': 'clojure' }
 " Plug 'venantius/vim-cljfmt',                       { 'for': 'clojure' }
-Plug 'Olical/conjure',                             {'tag': 'v4.0.1'}
+Plug 'Olical/conjure'
 Plug 'fuadsaud/vim-salve',                         { 'for': 'clojure', 'branch': 'test-unit' }
 Plug 'fuadsaud/vim-clojure-static',                { 'for': 'clojure' }
 Plug 'fuadsaud/vim-midje',                         { 'for': 'clojure', 'branch': 'fix-lispwords' }
@@ -130,7 +130,11 @@ Plug 'hail2u/vim-css3-syntax',         { 'for': 'css'}
 Plug 'othree/html5.vim',               { 'for': 'html' }
 " Plug 'tpope/vim-markdown',             { 'for': 'markdown'}
 " Plug 'jtratner/vim-flavored-markdown', { 'for': 'markdown'}
-Plug 'plasticboy/vim-markdown',        { 'for': 'markdown' }
+" Plug 'plasticboy/vim-markdown',        { 'for': 'markdown' }
+Plug 'iamcco/markdown-preview.nvim',   { 'for': 'markdown', 'do': 'cd app && yarn install'  }
+
+" graphql
+Plug 'jparise/vim-graphql'
 
 " nginx
 Plug 'chr4/nginx.vim'
