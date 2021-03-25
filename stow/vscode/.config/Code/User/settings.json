@@ -4,8 +4,7 @@
     "editor.cursorBlinking": "smooth",
     "editor.fontFamily": "'ProFontIIx Nerd Font', 'ProFont for Powerline', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.fontLigatures": true,
-    "editor.fontSize": 18,
-    "window.zoomLevel": 1,
+    "editor.fontSize": 20,
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
     "explorer.confirmDelete": false,
@@ -15,5 +14,19 @@
     ],
     "window.menuBarVisibility": "toggle",
     "workbench.activityBar.visible": true,
-    "vim.useSystemClipboard": true
+    "vim.useSystemClipboard": true,
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": false
+    },
+    "window.zoomLevel": 2,
+    "editor.formatOnSave": true
 }
