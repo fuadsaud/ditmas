@@ -2,6 +2,4 @@
 
 notify-send -i display "Display profile" "$AUTORANDR_CURRENT_PROFILE"
 
-sleep 5
-
-i3-msg reload
+( sleep 5; i3-msg reload ) &

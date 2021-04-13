@@ -1,15 +1,15 @@
-output eDP-1
-off
 output DP-1
 off
 output HDMI-2
+off
+output eDP-1
 off
 output HDMI-1
 crtc 2
 mode 1920x1080
 pos 0x0
 rate 60.00
-rotate left
+rotate right
 output DP-2
 crtc 0
 mode 2560x1440
