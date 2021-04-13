@@ -33,22 +33,17 @@ set_from_resource $color13 color13 #000000
 set_from_resource $color14 color14 #000000
 set_from_resource $color15 color15 #000000
 
-font pango:ProFont for Powerline 18
-
-# # #
-# window orientation
-#
-# default_orientatin horizontal
+font pango:Siji, ProFont for Powerline 18
 
 # # #
 # style window decorations
 #
 # class                 border   backgr.  text     indicator  child_border
-client.focused          $color14 $color14 $color5  #2e9ef4    #285577
-client.focused_inactive $color14 $color14 $color8  #484e50    #5f676a
-client.unfocused        $color14 $color14 $color8  #292d2e    #222222
+client.focused          $color14 $color14 $color5  $color6    $color13
+client.focused_inactive $color14 $color14 $color8  #484e50    $color14
+client.unfocused        $color14 $color14 $color8  #292d2e    $color14
 client.urgent           $color9  $color9  $color0  #900000    #900000
-client.placeholder      #000000  #0c0c0c  #ffffff  #000000    #0c0c0c
+client.placeholder      #ff0000  #ff0000  #ffffff  #000000    #ff0000
 client.background       $color14
 
 for_window [title=".*"] title_format  %title
@@ -61,7 +56,7 @@ for_window [class=".*"] border pixel 0
 gaps inner 20
 
 # Only enable gaps on a workspace when there is at least one container
-#smart_gaps on
+# smart_gaps on
 
 # Activate smart borders (always)
 smart_borders on
@@ -139,13 +134,12 @@ set $monitor_secondary "HDMI-1"
 # bind apps to workspaces
 assign [class=".*whatsapp.*"]                             $ws2
 assign [class="TelegramDesktop"]                          $ws2
+assign [instance="crx_jgeocpdicgmkeemopbanhokmhcgcflmi"]  $ws2
 assign [class="pocket-casts-linux"]                       $ws3
-assign [instance="crx_jgeocpdicgmkeemopbanhokmhcgcflmi"]  $ws4
 assign [class="Ao"]                                       $ws5
-assign [class="Google-chrome"]                            $ws6
+# assign [class="Google-chrome"]                            $ws6
 assign [class="Slack"]                                    $ws7
 assign [class="figma-linux"]                              $ws8
-assign [class="Alacritty"]                                $ws10
 for_window [class="Spotify"] move --no-auto-back-and-forth container to workspace $ws3
 
 # resize window (you can also use the mouse for that)
@@ -183,22 +177,26 @@ mode "resize" {
 # Launching keybindings
 #
 # launch terminal
-# bindsym $mod+Return exec $TERMINAL
+bindsym $mod+semicolon exec $TERMINAL
+
+# launch file browser
+# bindsym $mod+slash exec $TERMINAL -e ranger
+bindsym $mod+slash exec nautilus
 
 # launch web browser
-# bindsym $mod+Shift+Return exec $WEB_BROWSER
+bindsym $mod+shift+slash exec $WEB_BROWSER
 
 # launch plain rofi
 bindsym $mod+d exec --no-startup-id rofi -show
+
+# launch plain rofi
+bindsym $mod+Shift+d exec --no-startup-id rofimoji --action copy
 
 # launch clipboard menu
 bindsym $mod+Shift+v exec --no-startup-id rofi-clipster
 
 # launch dunst test script
-bindsym $mod+g exec --no-startup-id ddunst-test
-
-# launch file browser
-bindsym $mod+slash exec $TERMINAL -e ranger
+bindsym $mod+Shift+grave exec --no-startup-id ddunst-test
 
 # lock screen
 bindsym $mod+backslash exec --no-startup-id rofi -show power-menu
@@ -328,3 +326,8 @@ exec --no-startup-id autorandr -c
 # Polybar
 #
 exec_always --no-startup-id dpolybar
+
+# # #
+# Per-workspace Layout
+#
+exec_always --no-startup-id i3-per-workspace-layout
