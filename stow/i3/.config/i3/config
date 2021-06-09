@@ -217,6 +217,12 @@ bindsym --release Shift+Print exec "dscreenshot-select-area"
 bindsym --release Mod1+Print  exec "dscreenshot-select-window"
 
 # # #
+# Backlight / Display Brightness
+#
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+
+# # #
 # Media key bindings
 #
 # volume control
