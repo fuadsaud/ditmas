@@ -28,5 +28,6 @@
         "editor.wordBasedSuggestions": false
     },
     "window.zoomLevel": 2,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "explorer.confirmDragAndDrop": false
 }
