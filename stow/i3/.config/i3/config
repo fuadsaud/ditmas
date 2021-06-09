@@ -72,11 +72,11 @@ hide_edge_borders smart_no_gaps
 set $ws1 "1:"
 set $ws2 "2:"
 set $ws3 "3:"
-set $ws4 "4:"
+set $ws4 "4"
 set $ws5 "5:"
 set $ws6 "6:"
 set $ws7 "7:"
-set $ws8 "8:"
+set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10:"
 
@@ -139,7 +139,7 @@ assign [class="pocket-casts-linux"]                       $ws3
 assign [class="Ao"]                                       $ws5
 # assign [class="Google-chrome"]                            $ws6
 assign [class="Slack"]                                    $ws7
-assign [class="figma-linux"]                              $ws8
+# assign [class="figma-linux"]                              $ws8
 for_window [class="Spotify"] move --no-auto-back-and-forth container to workspace $ws3
 
 # resize window (you can also use the mouse for that)
