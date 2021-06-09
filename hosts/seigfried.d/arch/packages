@@ -1,3 +1,4 @@
+acpilight
 aws-cli
 base
 base-devel
@@ -41,8 +42,8 @@ man-pages
 moreutils
 mtools
 neovim
-networkmanager
 network-manager-applet
+networkmanager
 nodejs
 notion-app
 noto-fonts
@@ -53,6 +54,7 @@ os-prober
 otf-san-francisco
 otf-san-francisco-mono
 otf-san-francisco-pro
+pamixer
 parallel
 powerline
 powerline-fonts-git
