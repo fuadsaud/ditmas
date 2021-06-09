@@ -165,7 +165,7 @@ nnoremap <Leader>b :FBuffers<CR>
 
 " switch between the last two files
 nnoremap <Leader>c <C-^>
-nnoremap <Return>  <C-^>
+" nnoremap <Return>  <C-^>
 
 " re-hardwrap text
 nnoremap <Leader><Return> gqip
