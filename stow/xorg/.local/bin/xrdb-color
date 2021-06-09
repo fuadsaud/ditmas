@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+xrdb -query | grep "\*\.${1}:" | cut -f 2
