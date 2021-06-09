@@ -89,6 +89,7 @@ function setup_device {
 }
 
 setup_device 'Mouse' enable_natural_scrolling
+setup_device 'Logitech G603' enable_natural_scrolling
 
 setup_device 'Touchpad' \
   enable_natural_scrolling \
