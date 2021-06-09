@@ -132,6 +132,8 @@ Plug 'othree/html5.vim',               { 'for': 'html' }
 " Plug 'jtratner/vim-flavored-markdown', { 'for': 'markdown'}
 " Plug 'plasticboy/vim-markdown',        { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim',   { 'for': 'markdown', 'do': 'cd app && yarn install'  }
+Plug 'fuadsaud/vim-slumlord'
+Plug 'aklt/plantuml-syntax'
 
 " graphql
 Plug 'jparise/vim-graphql'
