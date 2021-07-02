@@ -65,10 +65,16 @@ modules-left    = date temperature battery paddinglite github arch-updates
 modules-center  = xwindow
 modules-right   = paddinglite redshift dnd mic volume wireless-ssid nu-vpn paddinglite workspaces
 
+[bar/main-mobile]
+inherit=bar/base
+
+modules-left    = date temperature battery paddinglite github arch-updates
+modules-right   = paddinglite redshift dnd mic volume wireless-ssid nu-vpn paddinglite workspaces
+
 [bar/aux]
 inherit=bar/base
-modules-left    = playerctl-prev playerctl-play-pause playerctl-next playerctl-metadata
-modules-center  =
+modules-left    = date temperature
+modules-center  = playerctl-prev playerctl-play-pause playerctl-next playerctl-metadata
 modules-right   = workspaces
 
 enable-ipc = true
