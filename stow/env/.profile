@@ -58,6 +58,7 @@ export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 export GOPATH="${SRC_DIR}/go"
 export ANDROID_HOME="${HOME}/Library/Android/sdk"
 export NVM_DIR="${OPT_DIR}/nvm"
+export DART_SDK="${OPT_DIR}/sdk-flutter/bin"
 export QMK_HOME="${SRC_DIR}/fuadsaud/qmk_firmware"
 export GITHUB_ACCESS_TOKEN="$(cat ~/.config/hub | grep oauth_token | cut -f 4 -d ' ')"
 export GOPATH="${SRC_DIR}/go"
