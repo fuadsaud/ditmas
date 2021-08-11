@@ -135,12 +135,12 @@ set $monitor_secondary "HDMI-1"
 assign [class=".*whatsapp.*"]                             $ws2
 assign [class="TelegramDesktop"]                          $ws2
 assign [instance="crx_jgeocpdicgmkeemopbanhokmhcgcflmi"]  $ws2
+for_window [class="Spotify"] move --no-auto-back-and-forth container to workspace $ws3
 assign [class="pocket-casts-linux"]                       $ws3
 assign [class="Ao"]                                       $ws5
 # assign [class="Google-chrome"]                            $ws6
 assign [class="Slack"]                                    $ws7
 # assign [class="figma-linux"]                              $ws8
-for_window [class="Spotify"] move --no-auto-back-and-forth container to workspace $ws3
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -177,7 +177,7 @@ mode "resize" {
 # Launching keybindings
 #
 # launch terminal
-bindsym $mod+semicolon exec $TERMINAL
+bindsym $mod+Return exec $TERMINAL
 
 # launch file browser
 # bindsym $mod+slash exec $TERMINAL -e ranger
@@ -199,7 +199,7 @@ bindsym $mod+Shift+v exec --no-startup-id rofi-clipster
 bindsym $mod+Shift+grave exec --no-startup-id ddunst-test
 
 # lock screen
-bindsym $mod+backslash exec --no-startup-id rofi -show power-menu
+bindsym $mod+Shift+e exec --no-startup-id rofi -show power-menu
 
 # detect appropriate X layout
 bindsym $mod+Shift+x exec --no-startup-id autorandr -c
@@ -252,7 +252,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # kill focused window
 bindsym $mod+q kill
@@ -282,10 +282,10 @@ bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+Return split h
+bindsym $mod+backslash split h
 
 # split in vertical orientation
-bindsym $mod+quotedbl split v
+bindsym $mod+bar split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
