@@ -29,5 +29,7 @@
     },
     "window.zoomLevel": 2,
     "editor.formatOnSave": true,
-    "explorer.confirmDragAndDrop": false
+    "explorer.confirmDragAndDrop": false,
+    "dart.debugExternalLibraries": false,
+    "dart.debugSdkLibraries": false
 }
