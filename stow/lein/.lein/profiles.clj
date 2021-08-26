@@ -3,7 +3,8 @@
 
         :plugins        [[lein-ancient "0.6.15"]
                          [lein-pprint "1.2.0"]
-                         [venantius/ultra "0.6.0"]]}
+                         [venantius/ultra "0.6.0"]
+                         [com.jakemccrary/lein-test-refresh "0.24.1"]]}
 
  :repl {:dependencies [[org.clojure/tools.namespace "0.3.1"]
                        [cljfmt "0.6.4"]
