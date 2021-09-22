@@ -1,0 +1,3 @@
+source ~/.xprofile
+
+i3

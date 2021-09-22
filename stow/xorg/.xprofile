@@ -1,6 +1,11 @@
 #!/usr/bin/env sh
 
 # # #
+# Default Xresources
+#
+xrdb -merge "$HOME/.Xresources"
+
+# # #
 # Xresources colorscheme
 #
 xrdb -merge "$SRC_DIR/fuadsaud/Monrovia/terminal-colors/monrovia.Xresources"
@@ -14,6 +19,11 @@ playerctld daemon
 # Restore previous session's wallpaper.
 #
 nitrogen --restore &
+
+# # #
+# Start dunst daemon for notifications support.
+#
+dunst &
 
 # # #
 # Autostart systemctl user services

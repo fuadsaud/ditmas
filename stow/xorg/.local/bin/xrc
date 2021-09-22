@@ -3,12 +3,12 @@
 set -euo pipefail
 
 # make caps lock behave like control
-# setxkbmap -option ctrl:nocaps
-localectl set-x11-keymap us "" "" ctrl:nocaps
+setxkbmap -option ctrl:nocaps
+# localectl set-x11-keymap us "" "" ctrl:nocaps
 
 # make right alt the compose key
-# setxkbmap -option compose:ralt
-localectl set-x11-keymap us "" "" compose:ralt
+setxkbmap -option compose:ralt
+# localectl set-x11-keymap us "" "" compose:ralt
 
 # make short-pressed Ctrl behave like Escape
 xcape -e 'Control_L=Escape'
