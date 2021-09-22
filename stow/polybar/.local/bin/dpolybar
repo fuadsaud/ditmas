@@ -19,15 +19,19 @@ function launch_bar {
 }
 
 function launch_main_bar {
-  MONITOR=eDP-1 launch_bar main-mobile
-  MONITOR=DP-2 launch_bar main
+  MONITOR=HDMI2 launch_bar main
+}
+
+function launch_mobile_bar {
+  MONITOR=eDP1 launch_bar main-mobile
 }
 
 function launch_aux_bar {
-  MONITOR=HDMI-1 launch_bar aux
+  MONITOR=DP1 launch_bar aux
 }
 
 kill_all_bars
 wait_for_bar_shutdown
 launch_main_bar
+launch_mobile_bar
 launch_aux_bar

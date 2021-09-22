@@ -19,7 +19,7 @@ modules_prefix_fg = ${xrdb:color0}
 urgent_bg  = ${xrdb:color1}
 focused_bg = ${xrdb:color10}
 
-down_p_bg    = #5e606c
+down_p_bg = #5e606c
 
 player_bg = ${xrdb:color6}
 player_fg = ${xrdb:color0}
@@ -63,13 +63,13 @@ inherit=bar/base
 
 modules-left    = date temperature battery paddinglite github arch-updates
 modules-center  = xwindow
-modules-right   = paddinglite redshift dnd mic volume wireless-ssid nu-vpn paddinglite workspaces
+modules-right   = paddinglite redshift dnd mic volume wireless-ssid paddinglite workspaces
 
 [bar/main-mobile]
 inherit=bar/base
 
 modules-left    = date temperature battery paddinglite github arch-updates
-modules-right   = paddinglite redshift dnd mic volume wireless-ssid nu-vpn paddinglite workspaces
+modules-right   = paddinglite redshift dnd mic volume wireless-ssid paddinglite workspaces
 
 [bar/aux]
 inherit=bar/base
@@ -96,7 +96,7 @@ content-background = #000f0f0f
 
 [module/wireless-network]
 type          = internal/network
-interface     = wlp2s0
+interface     = wlp3s0
 
 [module/wireless-ssid]
 inherit = module/wireless-network
@@ -458,17 +458,5 @@ format-prefix-padding-right = 1
 label = %notifications%
 
 format-offline =
-
-[module/nu-vpn]
-type = custom/script
-
-interval = 10
-
-format = <label>
-format-padding = 0
-
-exec = dpolybar-nu-vpn status
-
-click-left = dpolybar-nu-vpn toggle
 
 ; vim: ft=dosini
