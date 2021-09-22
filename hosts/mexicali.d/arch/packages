@@ -11,6 +11,7 @@ bluez-utils
 broadcom-wl-dkms
 chruby
 clang
+clipster
 clj-kondo-bin
 cloc
 clojure
