@@ -24,7 +24,7 @@ function notify {
 
   local action=$(
     dunstify \
-      --appname scrot \
+      --appname maim \
       --urgency low \
       --action "${default_action}" \
       --action "${open_folder_action}" \
