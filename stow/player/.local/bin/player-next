@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-playerctl --player=pocket_casts_linux,spotify,chrome,chromium next
+playerctl --player=pocket_casts_linux,psst,spotify,chrome,chromium next
