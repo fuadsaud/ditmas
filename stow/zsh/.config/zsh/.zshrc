@@ -6,10 +6,14 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+function safe_source {
+  if [[ -s $1 ]]; then
+    source $1
+  fi
+}
+
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+safe_source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
 # Customize to your needs...
 
@@ -32,6 +36,6 @@ export LEIN_USE_BOOTCLASSPATH=no
 # source completions
 compctl -g "${HOME}/.rubies/*(:t)" chruby
 
-chruby 2
+chruby 3
 
-PATH="$SRC_DIR/pitch/pitch-app/scripts:$PATH"
+safe_source "${XDG_CONFIG_HOME}/pitch/pitchrc"

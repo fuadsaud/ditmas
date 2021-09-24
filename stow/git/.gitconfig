@@ -1,7 +1,7 @@
 [user]
   name = Fuad Saud
   email = fuadfsaud@gmail.com
-  signingkey = 1396F5D87C2FE45F
+  ; signingkey = 1396F5D87C2FE45F
 [alias]
   a  = add --verbose
   ap = add-pattern
@@ -115,7 +115,7 @@
 [rebase]
   autoStash = true
 [commit]
-  gpgsign = true
+  ; gpgsign = true
 [pull]
   rebase = true
 [advice]
