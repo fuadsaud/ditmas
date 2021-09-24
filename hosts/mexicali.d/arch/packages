@@ -54,6 +54,8 @@ linux-lts
 linux-lts-headers
 linux-macbook
 lvm2
+lxappearance
+maim
 man
 man-db
 man-pages
@@ -68,6 +70,7 @@ nitrogen
 nodejs
 notion-app
 noto-fonts
+noto-fonts-emoji
 npm
 nvm
 openssh
@@ -92,7 +95,6 @@ rofi-power-menu
 ruby-install
 rust
 rxvt-unicode
-scrot
 seahorse
 slack-desktop
 spotify
