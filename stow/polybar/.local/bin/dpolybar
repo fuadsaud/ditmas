@@ -19,16 +19,20 @@ function launch_bar {
 }
 
 function launch_main_bar {
-  MONITOR=HDMI2 launch_bar main
+  local primary_display=$(xrandr | ag primary | cut -d ' ' -f 1)
+
+  MONITOR="${primary_display}" launch_bar main
 }
 
 function launch_mobile_bar {
-  MONITOR=eDP1 launch_bar main-mobile
+  MONITOR=e-DP1 launch_bar main-mobile
 }
 
 function launch_aux_bar {
-  MONITOR=DP1 launch_bar aux
+  MONITOR=HDMI-1 launch_bar aux
 }
+
+export WIRELESS_INTERFACE=$(cat /proc/net/wireless | perl -ne '/(\w+):/ && print $1')
 
 kill_all_bars
 wait_for_bar_shutdown

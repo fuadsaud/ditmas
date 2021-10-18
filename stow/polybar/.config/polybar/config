@@ -53,6 +53,7 @@ font-0 = Siji:size=8;0
 font-1 = scientifica:style=Bold:pixelsize=10;1
 font-2 = Space Mono for Powerline:style=Bold:pixelsize=8;1
 font-3 = Monospace:pixelsize=9;1
+font-4 = Noto Emoji:scale=15:antialias=false;0
 
 cursor-click = pointer
 
@@ -61,7 +62,7 @@ fixed-center = true
 [bar/main]
 inherit=bar/base
 
-modules-left    = date temperature battery paddinglite github arch-updates
+modules-left    = date temperature battery paddinglite github arch-updates paddinglite polypomo
 modules-center  = xwindow
 modules-right   = paddinglite redshift dnd mic volume wireless-ssid paddinglite workspaces
 
@@ -96,7 +97,7 @@ content-background = #000f0f0f
 
 [module/wireless-network]
 type          = internal/network
-interface     = wlp3s0
+interface     = ${env:WIRELESS_INTERFACE:wlp2s0}
 
 [module/wireless-ssid]
 inherit = module/wireless-network
@@ -458,5 +459,23 @@ format-prefix-padding-right = 1
 label = %notifications%
 
 format-offline =
+
+; and add a polypomo module
+[module/polypomo]
+type = custom/script
+
+exec = polypomo
+tail = true
+
+label = %output%
+click-left = polypomo toggle
+click-right = polypomo end
+click-middle = polypomo lock
+scroll-up = polypomo time -60
+scroll-down = polypomo time +60
+
+format-background = ${xrdb:color3}
+format-foreground = ${xrdb:color7}
+format-padding    = 1
 
 ; vim: ft=dosini
