@@ -34,6 +34,4 @@ compctl -g "${HOME}/.rubies/*(:t)" chruby
 
 chruby 2
 
-if [[ -s "${HOME}/.config/nu/nurc" ]]; then
-  source ~/.config/nu/nurc
-fi
+PATH="$SRC_DIR/pitch/pitch-app/scripts:$PATH"
