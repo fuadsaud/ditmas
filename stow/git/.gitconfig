@@ -1,7 +1,7 @@
 [user]
   name = Fuad Saud
   email = fuadfsaud@gmail.com
-  ; signingkey = 1396F5D87C2FE45F
+	signingkey = CA7466191A09D471
 [alias]
   a  = add --verbose
   ap = add-pattern
@@ -88,7 +88,10 @@
 [color]
   ui = auto
 [credential]
-  helper = xplat
+  ; helper = xplat
+  credentialStore = gpg
+	helper = 
+	helper = /usr/bin/git-credential-manager-core
 [core]
   excludesfile = ~/.config/git/ignore
 [diff]
@@ -98,7 +101,7 @@
 [github]
   user = fuadsaud
 [hub]
-  protocol = https
+	protocol = https
 [merge]
   defaultToUpstream = true
 [push]
@@ -115,8 +118,10 @@
 [rebase]
   autoStash = true
 [commit]
-  ; gpgsign = true
+  gpgsign = true
 [pull]
   rebase = true
 [advice]
 	detachedHead = false
+[credential "https://dev.azure.com"]
+	useHttpPath = true
