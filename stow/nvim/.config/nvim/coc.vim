@@ -11,10 +11,10 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 
 " nnoremap <silent> K      :call <SID>show_documentation()<CR>
 nnoremap <silent> K :call CocAction('doHover')<CR>
-nmap <silent> gd    <Plug>(coc-definition)
-nmap <silent> gr    <Plug>(coc-references)
-nmap <Leader>rn     <Plug>(coc-rename)
-nnoremap <silent>   <Leader>ws  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <Leader>ws  :<C-u>CocList -I symbols<cr>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <LocalLeader>rn <Plug>(coc-rename)
 
 " command! -nargs=0 Format :call CocAction('format')
 
@@ -43,7 +43,11 @@ endfunction
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 vmap <leader>f <Plug>(coc-format-selected)
-nmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format)
+
+" format on enter, <cr> could be remapped by other vim plugin
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+"                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 nnoremap crcc :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'cycle-coll', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
 nnoremap crth :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'thread-first', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
@@ -59,7 +63,6 @@ nnoremap cram :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'comm
 nnoremap crcn :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'clean-ns', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
 nnoremap crcp :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'cycle-privacy', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
 nnoremap cris :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'inline-symbol', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
-nnoremap cref :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'extract-function', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1, input('Function name: ')]})<CR>
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
 " vmap <leader>a  <Plug>(coc-codeaction-selected)
@@ -71,8 +74,15 @@ nnoremap cref :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'comm
 " nmap <leader>aq  <Plug>(coc-fix-current)
 " workspace symbols
 
+augroup cocgroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType clojure setl formatexpr=CocAction('formatSelected')
+augroup end
+
 autocmd BufReadCmd,FileReadCmd,SourceCmd jar:file://* call s:LoadClojureContent(expand("<amatch>"))
- function! s:LoadClojureContent(uri)
+
+function! s:LoadClojureContent(uri)
   setfiletype clojure
   let content = CocRequest('clojure-lsp', 'clojure/dependencyContents', {'uri': a:uri})
   call setline(1, split(content, "\n"))

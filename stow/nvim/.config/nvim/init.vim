@@ -169,3 +169,11 @@ let g:rainbow_conf['guifgs'] = [
 " let g:rainbow_conf['guifgs'] = ['Orange4', 'teal', 'DeepPink4', 'DeepSkyBlue4']
 
 let g:sneak#label = 1
+
+" conjure
+
+" support for ANSI coloring in the conjure log
+let g:conjure#log#strip_ansi_escape_sequences_line_limit = 0
+let s:baleia = luaeval("require('baleia').setup { line_starts_at = 3 }")
+autocmd BufWinEnter conjure-log-* call s:baleia.automatically(bufnr('%'))
+

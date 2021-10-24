@@ -10,8 +10,11 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/diagnostic-nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" ansi coloring
+Plug 'm00qek/baleia.nvim', { 'tag': 'v1.1.0' }
+
 " integrations
-Plug 'mileszs/ack.vim'
+" Plug 'mileszs/ack.vim'
 Plug 'wincent/ferret'
 Plug 'tpope/vim-eunuch'
 " Plug 'ludovicchabant/vim-gutentags'
@@ -137,6 +140,9 @@ Plug 'aklt/plantuml-syntax'
 
 " graphql
 Plug 'jparise/vim-graphql'
+
+" dart
+Plug 'dart-lang/dart-vim-plugin'
 
 " nginx
 Plug 'chr4/nginx.vim'
