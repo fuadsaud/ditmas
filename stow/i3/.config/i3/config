@@ -115,9 +115,9 @@ bindsym Mod4+Mod1+Control+Shift+up    move container to output up
 bindsym Mod4+Mod1+Control+Shift+down  move container to output down
 
 # define monitors
-set $monitor_built_in "eDP-1"
-set $monitor_primary "DP-2"
-set $monitor_secondary "HDMI-1"
+# set $monitor_built_in "eDP-1"
+# set $monitor_primary "DP-2"
+# set $monitor_secondary "HDMI-1"
 
 # bind workspaces to monitors
 # workspace $ws1 output $monitor_primary $monitor_secondary $monitor_built_in
@@ -138,9 +138,12 @@ assign [instance="crx_jgeocpdicgmkeemopbanhokmhcgcflmi"]  $ws2
 for_window [class="Spotify"] move --no-auto-back-and-forth container to workspace $ws3
 assign [class="pocket-casts-linux"]                       $ws3
 assign [class="Ao"]                                       $ws5
-# assign [class="Google-chrome"]                            $ws6
 assign [class="Slack"]                                    $ws7
-# assign [class="figma-linux"]                              $ws8
+
+# default some apps to floating windows
+for_window [class="1Password"] floating enable
+for_window [class="zoom"] floating enable
+for_window [class="zoom"] sticky enable
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -282,10 +285,10 @@ bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+backslash split h
+bindsym $mod+Control+h split h
 
 # split in vertical orientation
-bindsym $mod+bar split v
+bindsym $mod+Control+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -302,6 +305,9 @@ bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
+
+# toggle tiling / floating
+bindsym $mod+Control+space sticky toggle
 
 # focus the parent container
 bindsym $mod+Prior focus parent
