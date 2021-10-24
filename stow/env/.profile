@@ -62,6 +62,7 @@ export DART_SDK="${OPT_DIR}/sdk-flutter/bin"
 export QMK_HOME="${SRC_DIR}/fuadsaud/qmk_firmware"
 export GOPATH="${SRC_DIR}/go"
 export GO_PATH="${GOPATH}"
+export PACMAN_BIN="paru"
 
 # Set the list of directories that Zsh searches for programs.
 export PATH=$(tr -d $'\n ' <<< "
