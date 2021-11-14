@@ -82,10 +82,14 @@ let s:additional_configs = [
 \   'colors.vim',
 \   'conjure.vim',
 \   'contabs.vim',
+\   'cmp.vim',
+\   'nvim-autopairs.vim',
 \   'fts.vim',
 \   'fzf.vim',
 \   'lsp.vim',
 \   'mappings.vim',
+\   'telescope.vim',
+\   'treesitter.vim',
 \ ]
 
 for additional_config in s:additional_configs
@@ -120,29 +124,6 @@ let g:netrw_preview=1
 
 let g:splitjoin_ruby_do_block_split = 0
 
-" parentheses
-
-let g:AutoPairsMultilineClose = 0
-let g:AutoPairsFlyMode = 0
-
 let g:sexp_enable_insert_mode_mappings = 0
-
-let g:rainbow_active = 1
-let g:rainbow_conf['guifgs'] = [
-\     '#9E7156',
-\     '#538798',
-\     '#7F4C60',
-\     '#60A195',
-\     '#B55242',
-\     '#247DAE',
-\     '#CB2656',
-\     '#A1617A',
-\     '#8C3432',
-\     '#C77366',
-\     '#B8937C',
-\     '#D3CBAF',
-\ ]
-
-" let g:rainbow_conf['guifgs'] = ['Orange4', 'teal', 'DeepPink4', 'DeepSkyBlue4']
 
 let g:sneak#label = 1
