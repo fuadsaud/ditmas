@@ -118,7 +118,7 @@
 [rebase]
   autoStash = true
 [commit]
-  gpgsign = true
+  gpgsign = false
 [pull]
   rebase = true
 [advice]
