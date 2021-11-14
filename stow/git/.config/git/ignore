@@ -34,7 +34,7 @@ eastwood-report
 .prepl-port
 
 # lsp
-.lsp
+.lsp/.cache
 
 # js
 node_modules
