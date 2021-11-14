@@ -8,6 +8,4 @@ autocmd BufWinEnter conjure-log-* call s:baleia.automatically(bufnr('%'))
 " use <LocalLeader> K to get docstring trough REPL connection
 let g:conjure#mapping#doc_word = "K"
 
-" use <LocalLeader> gd to jump to definition trough REPL connection
-let g:conjure#mapping#def_word = "gd"
-
+let g:conjure#completion#omnifunc = v:false

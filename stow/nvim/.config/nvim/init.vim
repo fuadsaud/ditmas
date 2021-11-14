@@ -80,12 +80,12 @@ let s:additional_configs = [
 \   'ag.vim',
 \   'auto-mk-dir.vim',
 \   'colors.vim',
+\   'conjure.vim',
 \   'contabs.vim',
 \   'fts.vim',
 \   'fzf.vim',
-\   'mappings.vim',
 \   'lsp.vim',
-\   'conjure.vim'
+\   'mappings.vim',
 \ ]
 
 for additional_config in s:additional_configs

@@ -14,10 +14,8 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'm00qek/baleia.nvim', { 'tag': 'v1.1.0' }
 
 " integrations
-" Plug 'mileszs/ack.vim'
 Plug 'wincent/ferret'
 Plug 'tpope/vim-eunuch'
-" Plug 'ludovicchabant/vim-gutentags'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'editorconfig/editorconfig-vim'
 

@@ -178,12 +178,6 @@ map <Leader>S <Plug>Sneak_S
 nnoremap <Leader>si :source $MYVIMRC<CR>
 nnoremap <Leader>so :source %<CR>
 
-" tagbar
-nnoremap <Leader>t :TagbarToggle<CR>
-
-" gundo
-nnoremap <Leader>U :GundoToggle<CR>
-
 " plug
 nnoremap <Leader>vpc :PlugClean<CR>
 nnoremap <Leader>vpi :PlugInstall<CR>
