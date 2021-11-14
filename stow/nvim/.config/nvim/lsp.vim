@@ -1,45 +1,71 @@
-" use <LocalLeader> K to get docstring trough REPL connection
-let g:conjure#mapping#doc_word = "K"
+lua << EOF
+local nvim_lsp = require('lspconfig')
 
-" use K to get docstring trough static analysis
-nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+clojure_lsp_expand_buffer_uri = function()
+  local result = vim.fn.expand('%:p')
 
-" use <LocalLeader> gd to jump to definition trough REPL connection
-let g:conjure#mapping#def_word = "gd"
+  if result == '' then
+    return ''
+  else
+    return 'file://' .. result
+  end
+end
 
-" use gd to jump to definition trough static analysis
-nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-" other LSP mappings
-" please refer to `:help lsp` for a complete list
-" nnoremap <silent> gr  <cmd>lua vim.lsp.buf.references()<CR>
-" nnoremap <silent> g0  <cmd>lua vim.lsp.buf.document_symbol()<CR>
-" nnoremap <silent> gW  <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-" nnoremap <silent> gA  <cmd>lua vim.lsp.buf.code_action()<CR>
-" nnoremap <silent> gIC <cmd>lua vim.lsp.buf.incoming_calls()<CR>
-" nnoremap <silent> gIM <cmd>lua vim.lsp.buf.implementation()<CR>
-" nnoremap <silent> gx  <cmd>lua vim.lsp.buf.rename(vim.fn.input('New name: '))<CR>
-" nnoremap <silent> gTD <cmd>lua vim.lsp.buf.type_definition()<CR>
-" nnoremap <silent> gSH <cmd>lua vim.lsp.buf.signature_help()<CR>
 
-" nnoremap <silent> <LocalLeader>crcc <cmd>lua vim.lsp.buf.execute_command({command='cycle-coll',          arguments={ vim.fn.expand('%:p'), vim.fn.line('.') - 1, vim.fn.col('.') - 1 }})<CR>
-" nnoremap <silent> <LocalLeader>crth <cmd>lua vim.lsp.buf.execute_command({command='thread-first',        arguments={ vim.fn.expand('%:p'), vim.fn.line('.') - 1, vim.fn.col('.') - 1 }})<CR>
-" nnoremap <silent> <LocalLeader>crtt <cmd>lua vim.lsp.buf.execute_command({command='thread-last',         arguments={ vim.fn.expand('%:p'), vim.fn.line('.') - 1, vim.fn.col('.') - 1 }})<CR>
-" nnoremap <silent> <LocalLeader>crtf <cmd>lua vim.lsp.buf.execute_command({command='thread-first-all',    arguments={ vim.fn.expand('%:p'), vim.fn.line('.') - 1, vim.fn.col('.') - 1 }})<CR>
-" nnoremap <silent> <LocalLeader>crtl <cmd>lua vim.lsp.buf.execute_command({command='thread-last-all',     arguments={ vim.fn.expand('%:p'), vim.fn.line('.') - 1, vim.fn.col('.') - 1 }})<CR>
-" nnoremap <silent> <LocalLeader>crml <cmd>lua vim.lsp.buf.execute_command({command='move-to-let',         arguments={ vim.fn.expand('%:p'), vim.fn.line('.') - 1, vim.fn.col('.') - 1, vim.fn.input('Binding name: ') }})<CR>
-" nnoremap <silent> <LocalLeader>cril <cmd>lua vim.lsp.buf.execute_command({command='introduce-let',       arguments={ vim.fn.expand('%:p'), vim.fn.line('.') - 1, vim.fn.col('.') - 1, vim.fn.input('Binding name: ') }})<CR>
-" nnoremap <silent> <LocalLeader>crel <cmd>lua vim.lsp.buf.execute_command({command='expand-let',          arguments={ vim.fn.expand('%:p'), vim.fn.line('.') - 1, vim.fn.col('.') - 1 }})<CR>
-" nnoremap <silent> <LocalLeader>cram <cmd>lua vim.lsp.buf.execute_command({command='add-missing-libspec', arguments={ vim.fn.expand('%:p'), vim.fn.line('.') - 1, vim.fn.col('.') - 1 }})<CR>
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+  local opts = { noremap=true, silent=false }
 
-" disable linting while in insert mode
-let g:diagnostic_insert_delay = 1
+  buf_set_keymap('n', '<C-k>',      '<cmd>lua vim.lsp.buf.signature_help()<CR>',                             opts)
+  buf_set_keymap('n', '<Leader>D',  '<cmd>lua vim.lsp.buf.type_definition()<CR>',                            opts)
+  buf_set_keymap('n', '<Leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',                                opts)
+  buf_set_keymap('n', '<Leader>e',  '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>',               opts)
+  buf_set_keymap('n', '<Leader>f',  '<cmd>lua vim.lsp.buf.formatting()<CR>',                                 opts)
+  buf_set_keymap('n', '<Leader>q',  '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>',                         opts)
+  buf_set_keymap('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>',                                     opts)
+  buf_set_keymap('n', '<Leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>',                       opts)
+  buf_set_keymap('n', '<Leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  buf_set_keymap('n', '<Leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>',                    opts)
+  buf_set_keymap('n', 'K',          '<cmd>lua vim.lsp.buf.hover()<CR>',                                      opts)
+  buf_set_keymap('n', '[d',         '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>',                           opts)
+  buf_set_keymap('n', ']d',         '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>',                           opts)
+  buf_set_keymap('n', 'g0',         '<cmd>lua vim.lsp.buf.document_symbol()<CR>',                            opts)
+  buf_set_keymap('n', 'gD',         '<cmd>lua vim.lsp.buf.declaration()<CR>',                                opts)
+  buf_set_keymap('n', 'gIC',        '<cmd>lua vim.lsp.buf.incoming_calls()<CR>',                             opts)
+  buf_set_keymap('n', 'gW',         '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>',                           opts)
+  buf_set_keymap('n', 'gd',         '<cmd>lua vim.lsp.buf.definition()<CR>',                                 opts)
+  buf_set_keymap('n', 'gi',         '<cmd>lua vim.lsp.buf.implementation()<CR>',                             opts)
+  buf_set_keymap('n', 'gr',         '<cmd>lua vim.lsp.buf.references()<CR>',                                 opts)
 
-" use static analysis engine to autocomplete, but get results also from REPL if
-" it is available
-let g:completion_auto_change_source = 1
-let g:completion_chain_complete_list = {
-\ 'clojure': [
-\   {'complete_items': ['conjure', 'lsp', 'snippet']}
-\ ]
-\}
+  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+
+  -- clojure
+
+  buf_set_keymap('n', '<LocalLeader>crcc', '<cmd>lua vim.lsp.buf.execute_command({command=\'cycle-coll\',          arguments={ clojure_lsp_expand_buffer_uri(), vim.fn.line(\'.\') - 1, vim.fn.col(\'.\') - 1 }})<CR>',                                   opts)
+  buf_set_keymap('n', '<LocalLeader>crcp', '<cmd>lua vim.lsp.buf.execute_command({command=\'cycle-privacy\',       arguments={ clojure_lsp_expand_buffer_uri(), vim.fn.line(\'.\') - 1, vim.fn.col(\'.\') - 1 }})<CR>',                                   opts)
+  buf_set_keymap('n', '<LocalLeader>crth', '<cmd>lua vim.lsp.buf.execute_command({command=\'thread-first\',        arguments={ clojure_lsp_expand_buffer_uri(), vim.fn.line(\'.\') - 1, vim.fn.col(\'.\') - 1 }})<CR>',                                   opts)
+  buf_set_keymap('n', '<LocalLeader>crtt', '<cmd>lua vim.lsp.buf.execute_command({command=\'thread-last\',         arguments={ clojure_lsp_expand_buffer_uri(), vim.fn.line(\'.\') - 1, vim.fn.col(\'.\') - 1 }})<CR>',                                   opts)
+  buf_set_keymap('n', '<LocalLeader>crtf', '<cmd>lua vim.lsp.buf.execute_command({command=\'thread-first-all\',    arguments={ clojure_lsp_expand_buffer_uri(), vim.fn.line(\'.\') - 1, vim.fn.col(\'.\') - 1 }})<CR>',                                   opts)
+  buf_set_keymap('n', '<LocalLeader>crtl', '<cmd>lua vim.lsp.buf.execute_command({command=\'thread-last-all\',     arguments={ clojure_lsp_expand_buffer_uri(), vim.fn.line(\'.\') - 1, vim.fn.col(\'.\') - 1 }})<CR>',                                   opts)
+  buf_set_keymap('n', '<LocalLeader>crml', '<cmd>lua vim.lsp.buf.execute_command({command=\'move-to-let\',         arguments={ clojure_lsp_expand_buffer_uri(), vim.fn.line(\'.\') - 1, vim.fn.col(\'.\') - 1, vim.fn.input(\'Binding name: \') }})<CR>', opts)
+  buf_set_keymap('n', '<LocalLeader>cril', '<cmd>lua vim.lsp.buf.execute_command({command=\'introduce-let\',       arguments={ clojure_lsp_expand_buffer_uri(), vim.fn.line(\'.\') - 1, vim.fn.col(\'.\') - 1, vim.fn.input(\'Binding name: \') }})<CR>', opts)
+  buf_set_keymap('n', '<LocalLeader>crel', '<cmd>lua vim.lsp.buf.execute_command({command=\'expand-let\',          arguments={ clojure_lsp_expand_buffer_uri(), vim.fn.line(\'.\') - 1, vim.fn.col(\'.\') - 1 }})<CR>',                                   opts)
+  buf_set_keymap('n', '<LocalLeader>cram', '<cmd>lua vim.lsp.buf.execute_command({command=\'add-missing-libspec\', arguments={ clojure_lsp_expand_buffer_uri(), vim.fn.line(\'.\') - 1, vim.fn.col(\'.\') - 1 }})<CR>',                                   opts)
+end
+
+
+local servers = { 'clojure_lsp' }
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+end
+
+vim.lsp.set_log_level("debug")
+EOF

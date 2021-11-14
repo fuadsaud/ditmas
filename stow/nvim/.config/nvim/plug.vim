@@ -6,9 +6,9 @@ Plug 'kburdett/vim-nuuid'
 " lsp
 " Plug 'w0rp/ale'
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-Plug 'nvim-lua/diagnostic-nvim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'nvim-lua/completion-nvim'
+" Plug 'nvim-lua/diagnostic-nvim'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " ansi coloring
 Plug 'm00qek/baleia.nvim', { 'tag': 'v1.1.0' }
@@ -53,7 +53,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'junegunn/vim-easy-align'
-Plug 'jiangmiao/auto-pairs'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'sjl/gundo.vim'
@@ -96,7 +95,7 @@ Plug 'ngmy/vim-rubocop',         { 'for': 'ruby' }
 Plug 'guns/vim-sexp',                              { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 " Plug 'tpope/vim-fireplace',                        { 'for': 'clojure' }
-" Plug 'venantius/vim-cljfmt',                       { 'for': 'clojure' }
+Plug 'venantius/vim-cljfmt',                       { 'for': 'clojure' }
 Plug 'Olical/conjure'
 Plug 'fuadsaud/vim-salve',                         { 'for': 'clojure', 'branch': 'test-unit' }
 Plug 'fuadsaud/vim-clojure-static',                { 'for': 'clojure' }
@@ -129,6 +128,7 @@ Plug 'udalov/kotlin-vim',        { 'for': 'kotlin' }
 Plug 'mattn/emmet-vim'
 Plug 'JulesWang/css.vim',              { 'for': 'css'}
 Plug 'ap/vim-css-color',               { 'for': 'css'}
+Plug 'iloginow/vim-stylus',            { 'for': 'styl' }
 Plug 'hail2u/vim-css3-syntax',         { 'for': 'css'}
 Plug 'othree/html5.vim',               { 'for': 'html' }
 " Plug 'tpope/vim-markdown',             { 'for': 'markdown'}
