@@ -3,7 +3,7 @@ let g:contabs#integrations#airline_theme = 'basename'
 let g:contabs#project#locations = [
   \ { 'path': '~/Sources/fuadsaud', 'depth': 1, 'git_only': 0 },
   \ { 'path': '~/Sources/aur', 'depth': 1, 'git_only': 0 },
-  \ { 'path': $NU_HOME, 'depth': 1, 'git_only': 0 },
+  \ { 'path': '~/Sources/pitch', 'depth': 1, 'git_only': 0 },
   \ { 'path': $DITMAS_DIR . '/stow', 'depth': 1, 'git_only': 0 },
   \]
 

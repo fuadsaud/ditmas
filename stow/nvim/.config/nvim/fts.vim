@@ -4,7 +4,6 @@ augroup filetypes
   autocmd FileType cpp        setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType css        setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType scss       setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType go         setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType haskell    setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType html       setlocal ts=2 sts=2 sw=2 expandtab
@@ -15,6 +14,7 @@ augroup filetypes
   autocmd FileType objc       setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType scss.css   setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType styl       setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType yaml       setlocal ts=2 sts=2 sw=2 expandtab
 
   autocmd FileType html,css,markdown EmmetInstall
@@ -26,6 +26,7 @@ augroup filetypes
   autocmd BufNewFile,BufRead *.json.base setfiletype json
   autocmd BufNewFile,BufRead *.rss       setfiletype xml
   autocmd BufNewFile,BufRead *.skim      setfiletype slim
+  autocmd BufNewFile,BufRead *.styl      setfiletype css
 
   " automatic gofmt
   autocmd FileType go nmap <buffer> = <Esc>:Fmt<CR>
