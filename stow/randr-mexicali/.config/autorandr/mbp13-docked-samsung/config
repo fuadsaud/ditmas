@@ -10,10 +10,11 @@ output HDMI2
 crtc 0
 mode 1920x1080
 pos 0x0
-primary
 rate 60.00
 output eDP1
 crtc 1
 mode 2560x1600
 pos 3840x560
+primary
 rate 59.97
+transform 0.699997,0.000000,0.000000,0.000000,0.699997,0.000000,0.000000,0.000000,1.000000
