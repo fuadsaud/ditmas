@@ -19,6 +19,7 @@ git
 google-chrome
 google-drive
 homebrew/cask-fonts/font-comic-neue
+homebrew/cask-fonts/font-profont-nerd-font
 homebrew/cask-fonts/font-fira-code
 homebrew/cask-versions/ableton-live-standard10
 htop
@@ -31,6 +32,7 @@ neovim
 python
 qmk/qmk/qmk
 rar
+ripgrep
 ruby-install
 speedtest-cli
 stow
