@@ -2,7 +2,6 @@ alias bat='docker run -it --rm -e BAT_THEME -e BAT_STYLE -e BAT_TABS -v "$(pwd):
 alias bx="bundle exec"
 alias cdgr="cd \`git root\`"
 alias dsnc="dsync"
-alias git="hub"
 alias mk="make"
 alias n="nvim"
 alias nexus="emulator -avd Nexus_5X_API_28"
