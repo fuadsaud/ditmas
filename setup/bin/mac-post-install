@@ -22,48 +22,6 @@ brew_formulae_file="${current_dir}/../../hosts/${hostname}.d/brew/formulae"
 mapfile -t brew_formulae < <(cat "${brew_formulae_file}")
 
 brew install "${brew_formulae[@]}"
-brew install --HEAD ruby-install
-
-log 'installing homebrew casks'
-
-brew_cask_formulae=(
-  1password
-  docker
-  dropbox
-  figma
-  flux
-  google-chrome
-  google-backup-and-sync
-  iterm2
-  itsycal
-  java
-  karabiner-elements
-  pocket-casts
-  rectangle
-  spotify
-  transmission
-  vlc
-  whatsapp
-
-
-  # music production
-  ableton-live-standard
-  dexed
-
-  # fonts
-  caskroom/fonts/font-fira-sans
-  caskroom/fonts/font-fira-code
-  caskroom/fonts/font-comic-neue
-  caskroom/fonts/font-profont-nerd-font
-
-  # qmk
-  osx-cross/avr/avr-gcc
-  dfu-programmer
-  avr-dude
-  PX4/px4/gcc-arm-none-eabi
-)
-
-brew cask install "${brew_cask_formulae[@]}"
 
 log 'installing mac app store apps'
 
@@ -75,8 +33,7 @@ mac_store_apps=(
   'Microsoft To Do'
   'Daisy Disk'
   'Pixelmator'
-  'Be Focused - Focus Timer'
-  'Pocket'
+  'Pocket Later'
   'Shazam'
 )
 
