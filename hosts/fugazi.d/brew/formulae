@@ -19,8 +19,8 @@ git
 google-chrome
 google-drive
 homebrew/cask-fonts/font-comic-neue
-homebrew/cask-fonts/font-profont-nerd-font
 homebrew/cask-fonts/font-fira-code
+homebrew/cask-fonts/font-profont-nerd-font
 homebrew/cask-versions/ableton-live-standard10
 htop
 iproute2mac
@@ -28,6 +28,7 @@ jq
 karabiner-elements
 leiningen
 mas
+microsoft/git/git-credential-manager-core
 neovim
 python
 qmk/qmk/qmk
