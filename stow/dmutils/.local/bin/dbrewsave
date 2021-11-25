@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+hostname=$(hostname)
+packages_file="${DITMAS_DIR}/hosts/${hostname}.d/brew/formulae"
+
+gsed -e "\$a\\$1" "$packages_file" \
+  | sort -u \
+  | sponge "$packages_file"
