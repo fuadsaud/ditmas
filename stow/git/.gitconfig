@@ -90,8 +90,7 @@
 [credential]
   ; helper = xplat
   credentialStore = gpg
-	helper = 
-	helper = /usr/bin/git-credential-manager-core
+	helper = "!git-credential-manager-core"
 [core]
   excludesfile = ~/.config/git/ignore
 [diff]
