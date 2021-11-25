@@ -5,14 +5,6 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-if [[ -s "${HOME}/.profile" ]]; then
-  source "${HOME}/.profile"
-fi
-
-if [[ -s "${HOME}/.config/nu/nuenv" ]]; then
-  source "${HOME}/.config/nu/nuenv"
-fi
-
 #
 # Paths
 #
@@ -45,8 +37,8 @@ function add_trusted_local_bin_to_path() {
 
 # Make sure add_trusted_local_bin_to_path runs after chruby so we
 # prepend the default chruby gem paths.
-if [[ -n "$ZSH_VERSION" ]]; then
-  if [[ ! "$preexec_functions" == *add_trusted_local_bin_to_path* ]]; then
-    preexec_functions+=("add_trusted_local_bin_to_path")
-  fi
-fi
+# if [[ -n "$ZSH_VERSION" ]]; then
+#   if [[ ! "$preexec_functions" == *add_trusted_local_bin_to_path* ]]; then
+#     preexec_functions+=("add_trusted_local_bin_to_path")
+#   fi
+# fi
