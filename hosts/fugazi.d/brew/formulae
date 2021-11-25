@@ -5,6 +5,7 @@ asciinema
 awscli
 bash
 chruby
+clipy
 clojure
 clojure-lsp
 curl
