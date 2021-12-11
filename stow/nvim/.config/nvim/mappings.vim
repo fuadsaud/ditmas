@@ -139,7 +139,7 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " ack
 nnoremap <Leader>a :Ack<Space>
-nnoremap <Leader>A :Ack<Space><C-r><C-w><CR>
+nnoremap <Leader>A :Ack<Space><C-r><C-a><CR>
 
 " In the quickfix window, <CR> is used to jump to the error under the
 " cursor, so undefine the mapping there.
