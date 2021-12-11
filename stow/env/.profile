@@ -64,7 +64,7 @@ export GOPATH="${SRC_DIR}/go"
 export GO_PATH="${GOPATH}"
 export PACMAN_BIN="paru"
 
-if command -v brew; then
+if command -v brew >> /dev/null; then
   eval "$(brew shellenv)"
 fi
 
