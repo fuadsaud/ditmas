@@ -52,6 +52,7 @@ export SRC_DIR="${HOME}/Sources"
 export BIN_DIR="${HOME}/.local/bin"
 export XDG_DATA_HOME=${XDG_DATA_HOME:-"${HOME}/.local/share"}
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"${HOME}/.config"}
+export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/pass"
 
 export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 export ANDROID_HOME="${HOME}/Library/Android/sdk"
