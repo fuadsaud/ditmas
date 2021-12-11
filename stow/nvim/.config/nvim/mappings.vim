@@ -146,22 +146,21 @@ nnoremap <Leader>A :Ack<Space><C-r><C-a><CR>
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
 " set fold methods
-nnoremap <Leader>ff :set fdm=manual<CR>
-nnoremap <Leader>fi :set fdm=indent<CR>
-nnoremap <Leader>fm :set fdm=marker<CR>
-nnoremap <Leader>fs :set fdm=syntax<CR>
-nnoremap <Leader>fd :set fdm=diff<CR>
+nnoremap <Leader>zf :set fdm=manual<CR>
+nnoremap <Leader>zi :set fdm=indent<CR>
+nnoremap <Leader>zm :set fdm=marker<CR>
+nnoremap <Leader>zs :set fdm=syntax<CR>
+nnoremap <Leader>zd :set fdm=diff<CR>
 
-"invoke fzf with the list of projects configured in g:contabs#project#locations
-"the enabled hotkeys are { 'ctrl-t': 'tabedit', 'ctrl-e, <cr>': 'edit' }
-nnoremap <silent> <Leader><Bslash> :call contabs#project#select()<CR>
+" telescope
+nnoremap <C-p>      <cmd>Telescope find_files   theme=ivy<CR>
+nnoremap <Leader>ff <cmd>Telescope find_files   theme=ivy<CR>
+nnoremap <Leader>fb <cmd>Telescope buffers      theme=ivy<CR>
+nnoremap <Leader>fg <cmd>Telescope live_grep    theme=ivy<CR>
+nnoremap <Leader>fh <cmd>Telescope help_tags    theme=ivy<CR>
+nnoremap <Leader>fc <cmd>Telescope colorschemes theme=ivy<CR>
+nnoremap <Leader>ft <cmd>Telescope treesitter   theme=ivy<CR>
 
-"invoke fzf with the list of buffers of current tab's workingdir the enabled hotkeys are { 'ctrl-t': 'tabedit', 'ctrl-e,
-"<cr>': 'edit', 'ctrl-v': 'vsp', 'ctrl-x': 'sp' }
-nnoremap <silent> <Leader>' :call contabs#buffer#select()<CR>
-
-" fzf buffers
-nnoremap <Leader>b :FBuffers<CR>
 
 " switch between the last two files
 nnoremap <Leader>c <C-^>

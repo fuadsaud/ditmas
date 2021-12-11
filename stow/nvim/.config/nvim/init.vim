@@ -13,7 +13,6 @@ let s:config_files = [
 \   'cmp',
 \   'autopairs',
 \   'fts',
-\   'fzf',
 \   'lsp',
 \   'mappings',
 \   'telescope',
