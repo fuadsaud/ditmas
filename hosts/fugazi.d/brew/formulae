@@ -10,6 +10,7 @@ clojure
 clojure-lsp
 curl
 docker
+docker-compose
 dropbox
 fasd
 figma
@@ -35,6 +36,9 @@ moreutils
 neofetch
 neovim
 nvm
+pass
+pinentry-mac
+pipenv
 pocket-casts
 python
 qmk/qmk/qmk
