@@ -6,7 +6,7 @@ nnoremap <Leader>fh <cmd>Telescope help_tags            theme=dropdown<CR>
 nnoremap <Leader>fs <cmd>Telescope lsp_document_symbols theme=dropdown<CR>
 
 lua << EOF
-require('telescope') -- .load_extension('fzf')
+require('telescope') --.load_extension('fzf')
 
 local actions = require('telescope.actions')
 require('telescope').setup{

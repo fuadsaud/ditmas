@@ -11,7 +11,7 @@ Plug 'm00qek/baleia.nvim', { 'tag': 'v1.1.0' }
 
 " integrations
 Plug 'wincent/ferret'
-Plug 'nvim-telescope/telescope.nvim' | Plug 'nvim-lua/plenary.nvim' " | Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-telescope/telescope.nvim' | Plug 'nvim-lua/plenary.nvim' | Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'tpope/vim-eunuch'
 Plug '/opt/homebrew/opt/fzf' | Plug 'junegunn/fzf.vim'
 
