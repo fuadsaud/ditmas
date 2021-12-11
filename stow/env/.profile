@@ -77,6 +77,7 @@ export PATH=$(tr -d $'\n ' <<< "
   $ANDROID_HOME/platform-tools:
   $HOME/.cargo/bin:
   $BIN_DIR:
+  /opt/homebrew/opt/libpq/bin:$PATH:
   /opt/homebrew/bin:
   /usr/local/bin:
   /usr/local/sbin:
