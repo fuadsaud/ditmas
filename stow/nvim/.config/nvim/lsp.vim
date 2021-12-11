@@ -1,4 +1,5 @@
 lua << EOF
+local util = require 'lspconfig/util'
 local nvim_lsp = require('lspconfig')
 
 clojure_lsp_expand_buffer_uri = function()
@@ -19,7 +20,7 @@ local on_attach = function(client, bufnr)
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
   local opts = { noremap=true, silent=true }
 
-  buf_set_keymap('n', '<C-k>',       "<cmd>lua vim.lsp.buf.signature_help()<CR>",                             opts)
+  buf_set_keymap('n', '<Leader>lk',  "<cmd>lua vim.lsp.buf.signature_help()<CR>",                             opts)
   buf_set_keymap('n', '<Leader>ltd', "<cmd>lua vim.lsp.buf.type_definition()<CR>",                            opts)
   buf_set_keymap('n', '<Leader>lca', "<cmd>lua vim.lsp.buf.code_action()<CR>",                                opts)
   buf_set_keymap('n', '<Leader>le',  "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",               opts)
@@ -42,11 +43,12 @@ local on_attach = function(client, bufnr)
 
   -- telescope
 
-  buf_set_keymap('n', '<Leader>fca', "<cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor())<CR>",       opts)
-  buf_set_keymap('v', '<Leader>fca', "<cmd>lua require('telescope.builtin').lsp_range_code_actions(require('telescope.themes').get_cursor())<CR>", opts)
-  buf_set_keymap('n', '<Leader>fwd', "<cmd>lua require('telescope.builtin').lsp_workspace_diagnostics(require('telescope.themes').get_dropdown({}))<CR>",                                      opts)
-  buf_set_keymap('n', '<Leader>fr',  "<cmd>lua require('telescope.builtin').lsp_references(require('telescope.themes').get_dropdown({}))<CR>",                                                 opts)
-  buf_set_keymap('n', '<Leader>fi',  "<cmd>lua require('telescope.builtin').lsp_implementations(require('telescope.themes').get_dropdown({}))<CR>",                                            opts)
+  buf_set_keymap('n', '<Leader>fca', "<cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor())<CR>",              opts)
+  buf_set_keymap('v', '<Leader>fca', "<cmd>lua require('telescope.builtin').lsp_range_code_actions(require('telescope.themes').get_cursor())<CR>",        opts)
+  buf_set_keymap('n', '<Leader>fwd', "<cmd>lua require('telescope.builtin').lsp_workspace_diagnostics(require('telescope.themes').get_dropdown({}))<CR>", opts)
+  buf_set_keymap('n', '<Leader>fws', "<cmd>lua require('telescope.builtin').lsp_workspace_symbols(require('telescope.themes').get_dropdown({}))<CR>",     opts)
+  buf_set_keymap('n', '<Leader>fr',  "<cmd>lua require('telescope.builtin').lsp_references(require('telescope.themes').get_dropdown({}))<CR>",            opts)
+  buf_set_keymap('n', '<Leader>fi',  "<cmd>lua require('telescope.builtin').lsp_implementations(require('telescope.themes').get_dropdown({}))<CR>",       opts)
 
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 
@@ -70,6 +72,7 @@ local servers = { 'clojure_lsp' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
+    root_dir = util.root_pattern(".git"),
     capabilities = capabilities,
     flags = {
       debounce_text_changes = 150,
