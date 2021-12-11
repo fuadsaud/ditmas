@@ -21,6 +21,7 @@ set splitright
 set title
 set showmatch
 set list
+set listchars=tab:▶-,trail:•,extends:»,precedes:«
 set nobackup
 set undofile
 set lazyredraw
