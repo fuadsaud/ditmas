@@ -1,4 +1,3 @@
-lua << EOF
 local util = require 'lspconfig/util'
 local nvim_lsp = require('lspconfig')
 
@@ -81,4 +80,3 @@ for _, lsp in ipairs(servers) do
 end
 
 vim.lsp.set_log_level("debug")
-EOF

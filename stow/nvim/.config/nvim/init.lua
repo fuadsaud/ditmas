@@ -8,13 +8,8 @@ config_files = {
   'colors',
   'conjure',
   'contabs',
-  'cmp',
-  'autopairs',
   'fts',
-  'lsp',
   'mappings',
-  'telescope',
-  'treesitter',
   'splitjoin',
   'sexp',
   'airline',
@@ -24,3 +19,9 @@ config_files = {
 for _, config_file in ipairs(config_files) do
   vim.cmd('source ./' .. config_file .. '.vim')
 end
+
+require('config.plugin.autopairs')
+require('config.plugin.cmp')
+require('config.plugin.lsp')
+require('config.plugin.telescope')
+require('config.plugin.treesitter')
