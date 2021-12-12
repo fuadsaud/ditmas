@@ -122,7 +122,7 @@ Plug 'aklt/plantuml-syntax'
 Plug 'jparise/vim-graphql'
 
 " lua
-Plug 'tbastos/vim-lua'
+Plug 'euclidianAce/BetterLua.vim'
 
 " prose
 Plug 'dbmrq/vim-ditto'
@@ -131,7 +131,5 @@ Plug 'dbmrq/vim-ditto'
 Plug 'fuadsaud/Monrovia'
 Plug 'noahfrederick/Hemisu'
 Plug 'haishanh/night-owl.vim'
-
-Plug '$HOME/Sources/fuadsaud/vim-potion'
 
 call plug#end()
