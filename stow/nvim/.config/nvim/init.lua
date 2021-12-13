@@ -20,8 +20,8 @@ for _, config_file in ipairs(config_files) do
   vim.cmd('source ./' .. config_file .. '.vim')
 end
 
-require('config.plugin.autopairs')
-require('config.plugin.cmp')
-require('config.plugin.lsp')
-require('config.plugin.telescope')
-require('config.plugin.treesitter')
+require('config.plugins.autopairs')
+require('config.plugins.cmp')
+require('config.plugins.lsp')
+require('config.plugins.telescope')
+require('config.plugins.treesitter')
