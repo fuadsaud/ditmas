@@ -17,7 +17,7 @@ config_files = {
 }
 
 for _, config_file in ipairs(config_files) do
-  vim.cmd('source ./' .. config_file .. '.vim')
+  vim.cmd('source ' .. os.getenv('XDG_CONFIG_HOME') .. '/nvim/' .. config_file .. '.vim')
 end
 
 require('config.plugins.autopairs')
