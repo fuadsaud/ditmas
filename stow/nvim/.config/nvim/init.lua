@@ -3,7 +3,6 @@ config_files = {
   'plug-helpers',
   'plug',
   'ag',
-  'jsx',
   'auto-mk-dir',
   'colors',
   'conjure',

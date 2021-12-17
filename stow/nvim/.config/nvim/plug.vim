@@ -105,7 +105,6 @@ Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 
 " javascript
 Plug 'pangloss/vim-javascript',  { 'for': 'javascript' }
-Plug 'mxw/vim-jsx',              { 'for': 'javascript' }
 
 " css
 Plug 'ap/vim-css-color',               { 'for': 'css'}
