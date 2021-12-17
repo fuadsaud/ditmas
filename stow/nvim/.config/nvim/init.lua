@@ -1,4 +1,3 @@
--- require('config.plug')
 require('config.plugins')
 
 -- For some reason setting this in the after/plugin/airline.vim has no effect;
