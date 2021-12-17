@@ -1,8 +1,30 @@
 (module config.plugins
-  {autoload {packer packer}})
+  {autoload {packer packer
+             a aniseed.core}})
 
-(defn- use [name opts]
-  (packer.use (a.assoc opts 1 name)))
+(defn- load [config-module-name]
+  (lambda [] (pcall require (.. :config.plugin. config-module-name))))
+
+(defn- log [x]
+  (a.println x))
+
+(defn- pair-to-plugin [[name opts]]
+  (a.assoc opts 1 name))
+
+(defn- adapt-requires [opts]
+  (if opts.requires
+    (a.update opts :requires (partial a.map-indexed pair-to-plugin))
+    opts))
+
+(defn- adapt-plugin [[name opts]]
+  (pair-to-plugin [name (adapt-requires opts)]))
+
+(defn- adapt-plugins [plugins]
+  (a.map-indexed adapt-plugin plugins))
+
+(defn use-all [plugins]
+  (each [_ plugin (ipairs (adapt-plugins plugins))]
+    (packer.use plugin)))
 
 (def plugins
   {:wbthomason/packer.nvim {}
@@ -21,7 +43,7 @@
 
    ; fuzzy search
    :nvim-telescope/telescope.nvim {:requires {:nvim-lua/plenary.nvim {}
-                                              :nvim-telescope/telescope-fzf-native {:run "make"}}}
+                                              :nvim-telescope/telescope-fzf-native.nvim {:run "make"}}}
 
    ; filesystem
    :tpope/vim-eunuch {}
@@ -32,13 +54,13 @@
    :p00f/nvim-ts-rainbow {}
 
    ; completion
-   :hrsh7th/nvim-cmp {:requires [:hrsh7th/cmp-nvim-lsp
-                                 :hrsh7th/cmp-buffer
-                                 :hrsh7th/cmp-path
-                                 :hrsh7th/cmp-cmdline
-                                 :hrsh7th/cmp-vsnip
-                                 :hrsh7th/vim-vsnip
-                                 :PaterJason/cmp-conjure]}
+   :hrsh7th/nvim-cmp {:requires {:hrsh7th/cmp-nvim-lsp {}
+                                 :hrsh7th/cmp-buffer {}
+                                 :hrsh7th/cmp-path {}
+                                 :hrsh7th/cmp-cmdline {}
+                                 :hrsh7th/cmp-vsnip {}
+                                 :hrsh7th/vim-vsnip {}
+                                 :PaterJason/cmp-conjure {:after "conjure"}}}
 
    ; ui
    :junegunn/goyo.vim {}
@@ -88,19 +110,21 @@
    :tpope/vim-fugitive {}
    :tpope/vim-rhubarb {}
    :airblade/vim-gitgutter {}
-   :mattn/gist-vim {:requires [:mattn/webapi-vim]}
+   :mattn/gist-vim {:requires {:mattn/webapi-vim {}}}
 
    ; tmux
    :Keithbsmiley/tmux.vim {:ft ["tmux"]}
    :christoomey/vim-tmux-navigator {}
    :edkolev/tmuxline.vim {}
 
+   ; lisp
+   :guns/vim-sexp {:ft ["clojure" "fennel"]}
+   :tpope/vim-sexp-mappings-for-regular-people {:ft ["clojure" "fennel"]}
+   :Olical/conjure {:ft ["clojure" "fennel"]}
+   :eraserhd/parinfer-rust {:ft ["clojure" "fennel"] :run "cargo build --release"}
+
    ; clojure
-   :guns/vim-sexp {:ft ["clojure"]}
-   :tpope/vim-sexp-mappings-for-regular-people {:ft ["clojure"]}
-   :Olical/conjure {:ft ["clojure"]}
    :fuadsaud/vim-salve {:ft ["clojure"]}
-   :eraserhd/parinfer-rust {:ft ["clojure"]}
    :paulojean/sort-quire.vim {:ft ["clojure"]}
 
    ; fennel
@@ -147,5 +171,4 @@
 (defn init []
   (packer.init {:max_jobs 50})
 
-  (each [name opts (pairs plugins)]
-    (packer.use name opts)))
+  (use-all plugins))
