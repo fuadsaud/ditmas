@@ -1,1 +1,1 @@
-let g:tmuxline_preset = 'crosshair'
+let g:tmuxline_preset = 'nightly_fox'
