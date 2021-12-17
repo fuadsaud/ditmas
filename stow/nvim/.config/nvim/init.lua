@@ -1,5 +1,4 @@
-require('config.plugins.bootstrap').run()
--- require('config.plugins').init()
+require('config.plugin.bootstrap').run()
 
 vim.g["aniseed#env"] = {
   module = "config.init",
