@@ -178,9 +178,9 @@ nnoremap <Leader>si :source $MYVIMRC<CR>
 nnoremap <Leader>so :source %<CR>
 
 " plug
-nnoremap <Leader>vpc :PlugClean<CR>
-nnoremap <Leader>vpi :PlugInstall<CR>
-nnoremap <Leader>vpu :PlugUpdate<CR>
+nnoremap <Leader>pc :PackerClean<CR>
+nnoremap <Leader>pi :PackerInstall<CR>
+nnoremap <Leader>pu :PackerUpdate<CR>
 
 " delete trailing whitespace
 nnoremap <Leader>w :%s/\s\+$//<CR>:let @/=''<CR>
