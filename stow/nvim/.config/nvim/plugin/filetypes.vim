@@ -33,7 +33,3 @@ augroup filetypes
   " support for json c
   autocmd FileType json syntax match Comment +\/\/.\+$+
 augroup END
-
-highlight link hspecDescribe Type
-highlight link hspecIt Identifier
-highlight link hspecDescription Comment

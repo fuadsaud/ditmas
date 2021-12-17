@@ -58,4 +58,3 @@ set foldmethod=syntax
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 set omnifunc=syntaxcomplete#Complete
-
