@@ -1,9 +1,8 @@
 (module config.plugins
   {autoload {packer packer
-             a aniseed.core}})
-
-(defn- load [config-module-name]
-  (lambda [] (pcall require (.. :config.plugin. config-module-name))))
+             a aniseed.core
+             string aniseed.string
+             compile aniseed.compile}})
 
 (defn- log [x]
   (a.println x))
@@ -22,7 +21,7 @@
 (defn- adapt-plugins [plugins]
   (a.map-indexed adapt-plugin plugins))
 
-(defn use-all [plugins]
+(fn use-all [plugins]
   (each [_ plugin (ipairs (adapt-plugins plugins))]
     (packer.use plugin)))
 
@@ -33,7 +32,11 @@
 
    :kburdett/vim-nuuid {}
 
-   :neovim/nvim-lspconfig {}
+   :neovim/nvim-lspconfig {:config #(require :config.plugins.lsp)}
+
+
+   :folke/which-key.nvim {:config #(let [which-key (require :which-key)]
+                                     (which-key.setup {}))}
 
    ; ansi coloring
    :m00qek/baleia.nvim {:tag "v1.1.0"}
@@ -43,14 +46,16 @@
 
    ; fuzzy search
    :nvim-telescope/telescope.nvim {:requires {:nvim-lua/plenary.nvim {}
-                                              :nvim-telescope/telescope-fzf-native.nvim {:run "make"}}}
+                                              :nvim-telescope/telescope-fzf-native.nvim {:run "make"}}
+                                   :config #(require :config.plugins.telescope)}
 
    ; filesystem
    :tpope/vim-eunuch {}
    :pbrisbin/vim-mkdir {}
 
    ; syntax
-   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"}
+   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
+                                     :config #(require :config.plugins.treesitter)}
    :p00f/nvim-ts-rainbow {}
 
    ; completion
@@ -60,7 +65,8 @@
                                  :hrsh7th/cmp-cmdline {}
                                  :hrsh7th/cmp-vsnip {}
                                  :hrsh7th/vim-vsnip {}
-                                 :PaterJason/cmp-conjure {:after "conjure"}}}
+                                 :PaterJason/cmp-conjure {:after "conjure"}}
+                      :config #(require :config.plugins.cmp)}
 
    ; ui
    :junegunn/goyo.vim {}
@@ -94,7 +100,7 @@
    :junegunn/vim-easy-align {}
    :AndrewRadev/splitjoin.vim {}
    :sjl/gundo.vim {}
-   :windwp/nvim-autopairs {}
+   :windwp/nvim-autopairs {:config #(require :config.plugins.autopairs)}
 
    ; text objects
    :kana/vim-textobj-user {}
@@ -121,9 +127,11 @@
    :guns/vim-sexp {:ft ["clojure" "fennel"]}
    :tpope/vim-sexp-mappings-for-regular-people {:ft ["clojure" "fennel"]}
    :Olical/conjure {:ft ["clojure" "fennel"]}
-   :eraserhd/parinfer-rust {:ft ["clojure" "fennel"] :run "cargo build --release"}
+   :eraserhd/parinfer-rust {:ft ["clojure" "fennel"]
+                            :run "cargo build --release"}
 
    ; clojure
+   :clojure-vim/clojure.vim {:ft ["clojure"]}
    :fuadsaud/vim-salve {:ft ["clojure"]}
    :paulojean/sort-quire.vim {:ft ["clojure"]}
 
@@ -167,8 +175,15 @@
    :noahfrederick/Hemisu {}
    :haishanh/night-owl.vim {}})
 
+(def- autocmd
+  (string.join "\n" ["augroup packer_user_config"
+                     "autocmd!"
+                     "autocmd BufWritePost plugins.lua source <afile> | PackerCompile"
+                     "augroup end"]))
 
 (defn init []
   (packer.init {:max_jobs 50})
+
+  (vim.cmd autocmd)
 
   (use-all plugins))
