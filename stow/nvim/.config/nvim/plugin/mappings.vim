@@ -1,11 +1,12 @@
 " keymaps
 " interesting unused keys in normal mode:
-"   - <Return> (testing for buffer switch)
+"   - <Return> (testing for running macros)
 "   - + (testing for aux <LocalLeader>)
 "   - _ (testing for aux <Leader>)
 "   - \
 "   - |
-"   - <Del> (testing for :noh)
+"   - <Del>
+"   - Q
 
 "     __               __
 "    / /__  ____ _____/ /__  _____
@@ -47,7 +48,7 @@ nnoremap <M-s-j> <Nop>
 nnoremap <M-s-k> <Nop>
 nnoremap <M-s-l> <Nop>
 
-"     _                      __
+"
 "    (_)___  ________  _____/ /_
 "   / / __ \/ ___/ _ \/ ___/ __/
 "  / / / / (__  )  __/ /  / /_
@@ -60,8 +61,22 @@ inoremap <C-b> <Left>
 inoremap <C-e> <End>
 inoremap <C-f> <Right>
 
-" delete to EOL
-inoremap <C-Del> <C-\><C-O>D
+" emacs kill bindings
+inoremap <C-K> <Esc>lDa
+inoremap <C-U> <Esc>d0xi
+inoremap <C-Y> <Esc>Pa
+inoremap <C-X><C-S> <Esc>:w<CR>a
+
+" write buffer on C-s
+inoremap <C-s> <Esc>:w<CR>
+nnoremap <C-s> :w<CR>
+
+"                       _             __
+"    ____  ____ __   __(_)___ _____ _/ /____
+"   / __ \/ __ `/ | / / / __ `/ __ `/ __/ _ \
+"  / / / / /_/ /| |/ / / /_/ / /_/ / /_/  __/
+" /_/ /_/\__,_/ |___/_/\__, /\__,_/\__/\___/
+"                     /____/
 
 " easier navigation between split windows
 nnoremap <C-j> <C-w>j
@@ -69,26 +84,18 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-" neosnippets
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
+" switch between the last two files
+nnoremap <Leader>c <C-^>
 
-" write buffer on C-s
-inoremap <C-s> <Esc>:w<CR>
-
-" write buffer on C-s
-nnoremap <C-s> :w<CR>
-
-" C-p
-nnoremap <C-p> :FFiles<CR>
+"                          __
+"    ____ ___  ____  ____/ /__  _____
+"   / __ `__ \/ __ \/ __  / _ \/ ___/
+"  / / / / / / /_/ / /_/ /  __(__  )
+" /_/ /_/ /_/\____/\__,_/\___/____/
+"
 
 " enter resize mode
 let g:winresizer_start_key = '<C-_>'
-
-" default / to perl-style regexp's
-nnoremap / /\v
-vnoremap / /\v
 
 " go from insert to normal mode
 inoremap jj <Esc>
@@ -96,8 +103,12 @@ inoremap kk <Esc>
 inoremap jk <Esc>
 inoremap kj <Esc>
 
-" run macros
-nnoremap Q @q
+"                     __  _
+"    ____ ___  ____  / /_(_)___  ____
+"   / __ `__ \/ __ \/ __/ / __ \/ __ \
+"  / / / / / / /_/ / /_/ / /_/ / / / /
+" /_/ /_/ /_/\____/\__/_/\____/_/ /_/
+"
 
 " graphic line nav
 nnoremap j gj
@@ -106,9 +117,25 @@ nnoremap k gk
 " less finger yoga
 noremap H ^
 noremap L $
-" TODO: remove when muscle memory is adapted
+" TODO: remove after muscle memory has adapted
 map $ <Nop>
 map ^ <Nop>
+
+" sneak
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
+map s <Plug>Sneak_s
+map S <Plug>Sneak_S
+
+"                       __
+"    __  ______ _____  / /__
+"   / / / / __ `/ __ \/ //_/
+"  / /_/ / /_/ / / / / ,<
+"  \__, /\__,_/_/ /_/_/|_|
+" /____/
+"
 
 " yank to EOL
 nnoremap Y y$
@@ -118,32 +145,33 @@ onoremap <Leader>y "0y
 xnoremap <Leader>y "0y
 nnoremap <Leader>p "0p
 
-" opens/closes folds
-nnoremap z<Space> zA
-
-" swap default seek mappings by sneak
-map f <Plug>Sneak_f
-map F <Plug>Sneak_F
-map t <Plug>Sneak_t
-map T <Plug>Sneak_T
-
-" easyalign
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-
-nnoremap <LocalLeader>j[ vi[<C-v>$:EasyAlign\ g/^\S/<CR>gv=
-nnoremap <LocalLeader>j{ vi{<C-v>$:EasyAlign\ g/^\S/<CR>gv=
-
 " reselect last pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+"                               __
+"    ________  ____ ___________/ /_
+"   / ___/ _ \/ __ `/ ___/ ___/ __ \
+"  (__  )  __/ /_/ / /  / /__/ / / /
+" /____/\___/\__,_/_/   \___/_/ /_/
+"
+
+" default / to perl-style regexp's
+nnoremap / /\v
+vnoremap / /\v
 
 " ack
 nnoremap <Leader>a :Ack<Space>
 nnoremap <Leader>A :Ack<Space><C-r><C-a><CR>
 
-" In the quickfix window, <CR> is used to jump to the error under the
-" cursor, so undefine the mapping there.
-autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+" remove highligted terms
+nnoremap <silent> <Leader><Esc> :noh<CR>
+
+"     ____      __    __
+"    / __/___  / /___/ /
+"   / /_/ __ \/ / __  /
+"  / __/ /_/ / / /_/ /
+" /_/  \____/_/\__,_/
+"
 
 " set fold methods
 nnoremap <Leader>zf :set fdm=manual<CR>
@@ -151,6 +179,17 @@ nnoremap <Leader>zi :set fdm=indent<CR>
 nnoremap <Leader>zm :set fdm=marker<CR>
 nnoremap <Leader>zs :set fdm=syntax<CR>
 nnoremap <Leader>zd :set fdm=diff<CR>
+
+" opens/closes folds
+nnoremap z<Space> zA
+
+"    __       __
+"   / /____  / /__  ______________  ____  ___
+"  / __/ _ \/ / _ \/ ___/ ___/ __ \/ __ \/ _ \
+" / /_/  __/ /  __(__  ) /__/ /_/ / /_/ /  __/
+" \__/\___/_/\___/____/\___/\____/ .___/\___/
+"                               /_/
+"
 
 " telescope
 nnoremap <C-p>      <cmd>Telescope find_files   theme=ivy<CR>
@@ -161,44 +200,76 @@ nnoremap <Leader>fh <cmd>Telescope help_tags    theme=ivy<CR>
 nnoremap <Leader>fc <cmd>Telescope colorschemes theme=ivy<CR>
 nnoremap <Leader>ft <cmd>Telescope treesitter   theme=ivy<CR>
 
-
-" switch between the last two files
-nnoremap <Leader>c <C-^>
-" nnoremap <Return>  <C-^>
-
-" re-hardwrap text
-nnoremap <Leader><Return> gqip
-
-" sneak
-map <Leader>s <Plug>Sneak_s
-map <Leader>S <Plug>Sneak_S
+"
+"    _________  __  _______________
+"   / ___/ __ \/ / / / ___/ ___/ _ \
+"  (__  ) /_/ / /_/ / /  / /__/  __/
+" /____/\____/\__,_/_/   \___/\___/
+"
 
 " source
 nnoremap <Leader>si :source $MYVIMRC<CR>
 nnoremap <Leader>so :source %<CR>
 
-" plug
+"                       __
+"     ____  ____ ______/ /_____  _____
+"    / __ \/ __ `/ ___/ //_/ _ \/ ___/
+"   / /_/ / /_/ / /__/ ,< /  __/ /
+"  / .___/\__,_/\___/_/|_|\___/_/
+" /_/
+"
+
+" packer
 nnoremap <Leader>pc :PackerClean<CR>
 nnoremap <Leader>pi :PackerInstall<CR>
 nnoremap <Leader>pu :PackerUpdate<CR>
 
+"            __    _ __
+"  _      __/ /_  (_) /____  _________  ____ _________
+" | | /| / / __ \/ / __/ _ \/ ___/ __ \/ __ `/ ___/ _ \
+" | |/ |/ / / / / / /_/  __(__  ) /_/ / /_/ / /__/  __/
+" |__/|__/_/ /_/_/\__/\___/____/ .___/\__,_/\___/\___/
+"                             /_/
+
 " delete trailing whitespace
-nnoremap <Leader>w :%s/\s\+$//<CR>:let @/=''<CR>
+nnoremap <silent> <Leader>w :%s/\s\+$//<CR>:let @/=''<CR>
 
 " squeeze multiple blank lines
-nnoremap <Leader>W :%s/\(\n\n\)\n\+/\1/<CR>:let @/=''<CR>
+nnoremap <silent> <Leader>W :%s/\(\n\n\)\n\+/\1/<CR>:let @/=''<CR>
+
+" re-hardwrap text
+nnoremap <Leader><Return> gqip
+
+" easyalign
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+nnoremap <LocalLeader>j[ vi[<C-v>$:EasyAlign\ g/^\S/<CR>gv=
+nnoremap <LocalLeader>j{ vi{<C-v>$:EasyAlign\ g/^\S/<CR>gv=
+
+"                         _           __
+"     ____  _________    (_)__  _____/ /______
+"    / __ \/ ___/ __ \  / / _ \/ ___/ __/ ___/
+"   / /_/ / /  / /_/ / / /  __/ /__/ /_(__  )
+"  / .___/_/   \____/_/ /\___/\___/\__/____/
+" /_/              /___/
+"
+"
 
 " tabedit interesting dirs
 nnoremap <silent> <Leader>< :vsplit $MYVIMRC<CR>
 nnoremap <silent> <Leader>,v :execute ':TP' fnamemodify(resolve(expand($MYVIMRC)), ':h')<CR>
 nnoremap <silent> <Leader>,z :TP $ZDOTDIR/.zshrc<CR>
 
-" remove highligted terms
-nnoremap <Leader><Space> :noh<CR>
-nnoremap <Del> :noh<CR>
+"               _
+"    ____ ___  (_)_________
+"   / __ `__ \/ / ___/ ___/
+"  / / / / / / (__  ) /__
+" /_/ /_/ /_/_/____/\___/
+"
 
-" copy and move lines
-nnoremap <Leader>+c :+copy.<Left><Left><Left><Left><Left>
-nnoremap <Leader>-c :-copy.<Left><Left><Left><Left><Left>
-nnoremap <Leader>+m :-move.<Left><Left><Left><Left><Left>
-nnoremap <Leader>-m :-move.<Left><Left><Left><Left><Left>
+" run macros
+nnoremap <Return> @
+
+" In the quickfix window, <CR> is used to jump to the error under the
+" cursor, so undefine the mapping there.
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
