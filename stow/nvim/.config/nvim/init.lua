@@ -1,6 +1,9 @@
 require('config.plugins.bootstrap').run()
 
-vim.g["aniseed#env"] = { module = "config.init" }
+vim.g["aniseed#env"] = {
+  module = "config.init",
+  compile = true
+}
 
 -- For some reason setting this in the after/plugin/airline.vim has no effect;
 -- setting it here solves it.
