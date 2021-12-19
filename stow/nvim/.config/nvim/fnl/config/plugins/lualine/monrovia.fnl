@@ -34,7 +34,7 @@
     :c {:fg colors.dark-vanilla :bg colors.yankees-blue}}
 
    :insert
-   {:a {:fg colors.dark-vanilla  :bg colors.cyan-cornflower-blue}
+   {:a {:fg colors.dark-gunmetal  :bg colors.steel-teal}
     :b {:fg colors.dark-vanilla :bg colors.dirt}
     :c {:fg colors.dark-vanilla :bg colors.yankees-blue}}
 
@@ -44,7 +44,7 @@
     :c {:fg colors.dark-vanilla :bg colors.yankees-blue}}
 
    :replace
-   {:a {:fg colors.dark-vanilla  :bg colors.polished-pine}
+   {:a {:fg colors.dark-gunmetal  :bg colors.polished-pine}
     :b {:fg colors.dark-vanilla :bg colors.dirt}
     ::c {:fg colors.dark-vanilla :bg colors.yankees-blue}}
 
