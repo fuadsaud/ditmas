@@ -178,15 +178,7 @@
    :noahfrederick/Hemisu {}
    :haishanh/night-owl.vim {}})
 
-(defn- register-autocmd []
-  (augroup packer_user_config
-    (autocmd
-      :BufWritePost
-      "plugins.lua source <afile> | PackerCompile")))
-
 (defn init []
   (packer.init {:max_jobs 50})
-
-  (register-autocmd)
 
   (use-all plugins))
