@@ -220,9 +220,11 @@ nnoremap <Leader>so :source %<CR>
 "
 
 " packer
-nnoremap <Leader>pc :PackerClean<CR>
+nnoremap <Leader>pc :PackerCompile<CR>
+nnoremap <Leader>px :PackerClean<CR>
 nnoremap <Leader>pi :PackerInstall<CR>
 nnoremap <Leader>pu :PackerUpdate<CR>
+nnoremap <Leader>pu :PackerSync<CR>
 
 "            __    _ __
 "  _      __/ /_  (_) /____  _________  ____ _________
@@ -260,7 +262,28 @@ nnoremap <silent> <Leader>< :vsplit $MYVIMRC<CR>
 nnoremap <silent> <Leader>,v :execute ':TP' fnamemodify(resolve(expand($MYVIMRC)), ':h')<CR>
 nnoremap <silent> <Leader>,z :TP $ZDOTDIR/.zshrc<CR>
 
-"               _
+"           _ __
+"    ____ _(_) /_
+"   / __ `/ / __/
+"  / /_/ / / /_
+"  \__, /_/\__/
+" /____/
+"
+nnoremap <Leader>gst :Git<CR>
+nnoremap <Leader>gci :Git commit<CR>
+nnoremap <Leader>gd  :Git diff<CR>
+nnoremap <Leader>gl  :Git log<CR>
+nnoremap <Leader>gbl :Git blame<CR>
+
+
+nnoremap <Leader>gw :Gwrite<CR>
+nnoremap <Leader>gm :GMove<Space>
+nnoremap <Leader>gr :GRename<Space>
+nnoremap <Leader>gd :GDelete<CR>
+
+nnoremap <Leader>gbr  :GBrowse<CR>
+nnoremap <Leader>gbr! :GBrowse!<CR>
+
 "    ____ ___  (_)_________
 "   / __ `__ \/ / ___/ ___/
 "  / / / / / / (__  ) /__
