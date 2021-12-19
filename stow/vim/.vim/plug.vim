@@ -59,6 +59,9 @@ Plug 'fuadsaud/vim-midje',                         { 'for': 'clojure' }
 Plug 'guns/vim-sexp',                              { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 
+" fennel
+Plug 'mnacamura/vim-fennel-syntax', { 'for': 'fennel' }
+
 "haskell
 Plug 'dag/vim2hs',          { 'for': 'haskell' }
 
