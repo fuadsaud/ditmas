@@ -1,8 +1,8 @@
 (module config.plugins
   {autoload {packer packer
              a aniseed.core
-             string aniseed.string
-             compile aniseed.compile}})
+             nvim aniseed.nvim}
+   require-macros [config.macros]})
 
 (defn- log [x]
   (a.println x))
@@ -75,8 +75,11 @@
    :gregsexton/MatchTag {}
    :nathanaelkane/vim-indent-guides {}
    :jszakmeister/vim-togglecursor {}
-   :vim-airline/vim-airline {}
+   ; :vim-airline/vim-airline {}
    :fuadsaud/vim-airline-themes {}
+
+   :nvim-lualine/lualine.nvim {:requires {:kyazdani42/nvim-web-devicons {}}
+                               :config #(require :config.plugins.lualine)}
 
    ; workspace mgmt
    :m00qek/nvim-contabs {}
@@ -175,15 +178,15 @@
    :noahfrederick/Hemisu {}
    :haishanh/night-owl.vim {}})
 
-(def- autocmd
-  (string.join "\n" ["augroup packer_user_config"
-                     "autocmd!"
-                     "autocmd BufWritePost plugins.lua source <afile> | PackerCompile"
-                     "augroup end"]))
+(defn- register-autocmd []
+  (augroup packer_user_config
+    (autocmd
+      :BufWritePost
+      "plugins.lua source <afile> | PackerCompile")))
 
 (defn init []
   (packer.init {:max_jobs 50})
 
-  (vim.cmd autocmd)
+  (register-autocmd)
 
   (use-all plugins))
