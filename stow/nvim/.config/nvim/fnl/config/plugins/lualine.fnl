@@ -1,7 +1,6 @@
 (module config.plugins.lualine
   {autoload {lualine lualine
-             monrovia config.plugins.lualine.monrovia}})
+             monrovia monrovia.lualine}})
 
-(lualine.setup {:options {:icons-enabled true
-                          :theme monrovia.theme}})
+(lualine.setup {:options {:theme monrovia.theme}})
 

@@ -174,7 +174,9 @@
    :dbmrq/vim-ditto {}
 
    ; colorschemes
-   :fuadsaud/Monrovia {}
+   ; :fuadsaud/Monrovia {:branch "v2"}
+
+   "~/Sources/fuadsaud/Monrovia" {}
    :noahfrederick/Hemisu {}
    :haishanh/night-owl.vim {}})
 
