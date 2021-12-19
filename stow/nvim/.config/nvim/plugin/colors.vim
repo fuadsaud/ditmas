@@ -1,1 +1,1 @@
-colorscheme Monrovia | let g:airline_theme="monrovia"
+colorscheme Monrovia
