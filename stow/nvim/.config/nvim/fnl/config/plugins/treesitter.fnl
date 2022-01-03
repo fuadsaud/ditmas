@@ -1,4 +1,4 @@
-(module config.plugin.treesitter
+(module config.plugins.treesitter
   {autoload {treesitter nvim-treesitter.configs}})
 
 (treesitter.setup {:ensure_installed :maintained
