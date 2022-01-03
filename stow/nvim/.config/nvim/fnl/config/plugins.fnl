@@ -1,29 +1,9 @@
 (module config.plugins
   {autoload {packer packer
              a aniseed.core
-             nvim aniseed.nvim}
+             nvim aniseed.nvim
+             constants config.constants}
    require-macros [config.macros]})
-
-(defn- log [x]
-  (a.println x))
-
-(defn- pair-to-plugin [[name opts]]
-  (a.assoc opts 1 name))
-
-(defn- adapt-requires [opts]
-  (if opts.requires
-    (a.update opts :requires (partial a.map-indexed pair-to-plugin))
-    opts))
-
-(defn- adapt-plugin [[name opts]]
-  (pair-to-plugin [name (adapt-requires opts)]))
-
-(defn- adapt-plugins [plugins]
-  (a.map-indexed adapt-plugin plugins))
-
-(fn use-all [plugins]
-  (each [_ plugin (ipairs (adapt-plugins plugins))]
-    (packer.use plugin)))
 
 (def plugins
   {:wbthomason/packer.nvim {}
@@ -127,10 +107,10 @@
    :edkolev/tmuxline.vim {}
 
    ; lisp
-   :guns/vim-sexp {:ft ["clojure" "fennel"]}
-   :tpope/vim-sexp-mappings-for-regular-people {:ft ["clojure" "fennel"]}
-   :Olical/conjure {:ft ["clojure" "fennel"]}
-   :eraserhd/parinfer-rust {:ft ["clojure" "fennel"]
+   :Olical/conjure {:ft constants.conjure-languages}
+   :guns/vim-sexp {:ft constants.sexp-languages}
+   :tpope/vim-sexp-mappings-for-regular-people {:ft constants.sexp-languages}
+   :eraserhd/parinfer-rust {:ft constants.sexp-languages
                             :run "cargo build --release"}
 
    ; clojure
@@ -179,6 +159,27 @@
    "~/Sources/fuadsaud/Monrovia" {}
    :noahfrederick/Hemisu {}
    :haishanh/night-owl.vim {}})
+
+(defn- log [x]
+  (a.println x))
+
+(defn- pair-to-plugin [[name opts]]
+  (a.assoc opts 1 name))
+
+(defn- adapt-requires [opts]
+  (if opts.requires
+    (a.update opts :requires (partial a.map-indexed pair-to-plugin))
+    opts))
+
+(defn- adapt-plugin [[name opts]]
+  (pair-to-plugin [name (adapt-requires opts)]))
+
+(defn- adapt-plugins [plugins]
+  (a.map-indexed adapt-plugin plugins))
+
+(defn- use-all [plugins]
+  (each [_ plugin (ipairs (adapt-plugins plugins))]
+    (packer.use plugin)))
 
 (defn init []
   (packer.init {:max_jobs 50})
