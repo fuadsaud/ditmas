@@ -62,7 +62,7 @@ inoremap <C-e> <End>
 inoremap <C-f> <Right>
 
 " emacs kill bindings
-inoremap <C-K> <Esc>lDa
+" inoremap <C-K> <Esc>lDa
 inoremap <C-U> <Esc>d0xi
 inoremap <C-Y> <Esc>Pa
 inoremap <C-X><C-S> <Esc>:w<CR>a
@@ -122,12 +122,12 @@ map $ <Nop>
 map ^ <Nop>
 
 " sneak
-map f <Plug>Sneak_f
-map F <Plug>Sneak_F
-map t <Plug>Sneak_t
-map T <Plug>Sneak_T
-map s <Plug>Sneak_s
-map S <Plug>Sneak_S
+map f        <Plug>Sneak_f
+map F        <Plug>Sneak_F
+map t        <Plug>Sneak_t
+map T        <Plug>Sneak_T
+map <Bslash> <Plug>Sneak_s
+map \|       <Plug>Sneak_S
 
 "                       __
 "    __  ______ _____  / /__
@@ -224,7 +224,8 @@ nnoremap <Leader>pc :PackerCompile<CR>
 nnoremap <Leader>px :PackerClean<CR>
 nnoremap <Leader>pi :PackerInstall<CR>
 nnoremap <Leader>pu :PackerUpdate<CR>
-nnoremap <Leader>pu :PackerSync<CR>
+nnoremap <Leader>py :PackerSync<CR>
+nnoremap <Leader>ps :PackerStatus<CR>
 
 "            __    _ __
 "  _      __/ /_  (_) /____  _________  ____ _________
