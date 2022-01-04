@@ -36,6 +36,7 @@
    ; syntax
    :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
                                      :config #(require :config.plugins.treesitter)}
+   :sheerun/vim-polyglot {}
    :p00f/nvim-ts-rainbow {}
 
    ; completion
@@ -45,8 +46,11 @@
                                  :hrsh7th/cmp-cmdline {}
                                  :hrsh7th/cmp-vsnip {}
                                  :hrsh7th/vim-vsnip {}
+                                 :hrsh7th/vim-vsnip-integ {}
+                                 :rafamadriz/friendly-snippets {}
                                  :PaterJason/cmp-conjure {:after "conjure"}}
                       :config #(require :config.plugins.cmp)}
+
 
    ; ui
    :junegunn/goyo.vim {}
@@ -95,14 +99,12 @@
    :vim-scripts/AnsiEsc.vim {}
 
    ; git
-   :tpope/vim-git {}
    :tpope/vim-fugitive {}
    :tpope/vim-rhubarb {}
    :airblade/vim-gitgutter {}
    :mattn/gist-vim {:requires {:mattn/webapi-vim {}}}
 
    ; tmux
-   :Keithbsmiley/tmux.vim {:ft ["tmux"]}
    :christoomey/vim-tmux-navigator {}
    :edkolev/tmuxline.vim {}
 
@@ -114,27 +116,14 @@
                             :run "cargo build --release"}
 
    ; clojure
-   :clojure-vim/clojure.vim {:ft ["clojure"]}
    :fuadsaud/vim-salve {:ft ["clojure"]}
    :paulojean/sort-quire.vim {:ft ["clojure"]}
-
-   ; fennel
-   :bakpakin/fennel.vim {}
-
-   ; haskell
-   :dag/vim2hs {:ft ["haskell"]}
-   :raichoo/haskell-vim {:ft ["haskell"]}
-   :hspec/hspec.vim {:ft ["haskell"]}
 
    ; python
    :hynek/vim-python-pep8-indent {:ft ["python"]}
 
-   ; javascript
-   :pangloss/vim-javascript {:ft ["javascript"]}
-
    ; css
    :ap/vim-css-color {:ft ["css"]}
-   :iloginow/vim-stylus {:ft ["styl"]}
 
    ; markdown
    :iamcco/markdown-preview.nvim {:ft ["markdown"]
@@ -142,20 +131,12 @@
 
    ; plantuml
    :fuadsaud/vim-slumlord {}
-   :aklt/plantuml-syntax {}
-
-   ; graphql
-   :jparise/vim-graphql {}
-
-   ; lua
-   :euclidianAce/BetterLua.vim {}
 
    ; prose
    :dbmrq/vim-ditto {}
 
    ; colorschemes
    ; :fuadsaud/Monrovia {:branch "v2"}
-
    "~/Sources/fuadsaud/Monrovia" {}
    :noahfrederick/Hemisu {}
    :haishanh/night-owl.vim {}})
@@ -185,3 +166,6 @@
   (packer.init {:max_jobs 50})
 
   (use-all plugins))
+
+(comment
+  (init))
