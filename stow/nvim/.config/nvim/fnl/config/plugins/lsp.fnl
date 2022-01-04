@@ -4,7 +4,10 @@
              cmp_lsp cmp_nvim_lsp}})
 
 (let [on_attach (fn [client bufnr]
-                  (let [buf_set_keymap (fn [mode mapping target] (nvim.buf_set_keymap bufnr {:noremap true}))]
+                  (let [buf_set_keymap (fn [mode mapping target] (nvim.buf_set_keymap bufnr mode mapping target {:noremap true}))
+                        buf_set_option (fn [opt val] (nvim.buf_set_option bufnr opt val))]
+
+                    (buf_set_option "omnifunc" "v:lua.vim.lsp.omnifunc")
                     (vim.cmd "command! Format execute 'lua vim.lsp.buf.formatting()")
 
                     ; TODO: maybe move to a data structure
@@ -37,6 +40,7 @@
                     (buf_set_keymap :n "<Leader>fws"  "<cmd>lua require('telescope.builtin').lsp_workspace_symbols(require('telescope.themes').get_dropdown({}))<CR>")
                     (buf_set_keymap :n "<Leader>fr"   "<cmd>lua require('telescope.builtin').lsp_references(require('telescope.themes').get_dropdown({}))<CR>")
                     (buf_set_keymap :n "<Leader>fi"   "<cmd>lua require('telescope.builtin').lsp_implementations(require('telescope.themes').get_dropdown({}))<CR>")
+
                     ; clojure
 
                     (buf_set_keymap :n "<LocalLeader>cc" "<cmd>lua vim.lsp.buf.execute_command({command='cycle-coll',          arguments={ clojure_lsp_expand_buffer_uri(), vim.fn.line('.') - 1, vim.fn.col('.') - 1 }})<CR>")
@@ -66,7 +70,19 @@
                   vim.lsp.handlers.signature_help
                   {:border "single"})}
 
-      capabilities (cmp_lsp.update_capabilities (vim.lsp.protocol.make_client_capabilities))]
-  (lsp.clojure_lsp.setup {:on_attach on_attach
-                          :handlers handlers
-                          :capabilities capabilities}))
+      capabilities (cmp_lsp.update_capabilities (vim.lsp.protocol.make_client_capabilities))
+
+      default_server_config {:on_attach on_attach
+                             :handlers handlers
+                             :capabilities capabilities}]
+
+  ; enable snippets via the lsp client
+  (tset capabilities :textDocument :completion :completionItem :snippetSupport true)
+
+  ; TODO: break up per-server on_attach fn
+  (lsp.clojure_lsp.setup default_server_config)
+  (lsp.html.setup default_server_config)
+  (lsp.cssls.setup default_server_config)
+  (lsp.jsonls.setup default_server_config)
+  (lsp.eslint.setup default_server_config)
+  (lsp.tsserver.setup default_server_config))
