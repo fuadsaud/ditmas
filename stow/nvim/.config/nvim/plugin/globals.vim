@@ -55,6 +55,6 @@ set foldnestmax=10
 set foldmethod=syntax
 
 " completion
-set completeopt=menuone,noinsert,noselect
+set completeopt=menu,menuone,noselect
 set shortmess+=c
 set omnifunc=syntaxcomplete#Complete
