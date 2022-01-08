@@ -183,23 +183,6 @@ nnoremap <Leader>zd :set fdm=diff<CR>
 " opens/closes folds
 nnoremap z<Space> zA
 
-"    __       __
-"   / /____  / /__  ______________  ____  ___
-"  / __/ _ \/ / _ \/ ___/ ___/ __ \/ __ \/ _ \
-" / /_/  __/ /  __(__  ) /__/ /_/ / /_/ /  __/
-" \__/\___/_/\___/____/\___/\____/ .___/\___/
-"                               /_/
-"
-
-" telescope
-nnoremap <C-p>      <cmd>Telescope find_files   theme=ivy<CR>
-nnoremap <Leader>ff <cmd>Telescope find_files   theme=ivy<CR>
-nnoremap <Leader>fb <cmd>Telescope buffers      theme=ivy<CR>
-nnoremap <Leader>fg <cmd>Telescope live_grep    theme=ivy<CR>
-nnoremap <Leader>fh <cmd>Telescope help_tags    theme=ivy<CR>
-nnoremap <Leader>fc <cmd>Telescope colorschemes theme=ivy<CR>
-nnoremap <Leader>ft <cmd>Telescope treesitter   theme=ivy<CR>
-
 "
 "    _________  __  _______________
 "   / ___/ __ \/ / / / ___/ ___/ _ \
@@ -249,6 +232,23 @@ nmap ga <Plug>(EasyAlign)
 nnoremap <LocalLeader>j[ vi[<C-v>$:EasyAlign\ g/^\S/<CR>gv=
 nnoremap <LocalLeader>j{ vi{<C-v>$:EasyAlign\ g/^\S/<CR>gv=
 
+"    __       __
+"   / /____  / /__  ______________  ____  ___
+"  / __/ _ \/ / _ \/ ___/ ___/ __ \/ __ \/ _ \
+" / /_/  __/ /  __(__  ) /__/ /_/ / /_/ /  __/
+" \__/\___/_/\___/____/\___/\____/ .___/\___/
+"                               /_/
+"
+
+" telescope
+nnoremap <C-p>      <cmd>Telescope find_files   theme=ivy<CR>
+nnoremap <Leader>ff <cmd>Telescope find_files   theme=ivy<CR>
+nnoremap <Leader>fb <cmd>Telescope buffers      theme=ivy<CR>
+nnoremap <Leader>fg <cmd>Telescope live_grep    theme=ivy<CR>
+nnoremap <Leader>fh <cmd>Telescope help_tags    theme=ivy<CR>
+nnoremap <Leader>fc <cmd>Telescope colorschemes theme=ivy<CR>
+nnoremap <Leader>ft <cmd>Telescope treesitter   theme=ivy<CR>
+
 "                         _           __
 "     ____  _________    (_)__  _____/ /______
 "    / __ \/ ___/ __ \  / / _ \/ ___/ __/ ___/
@@ -262,6 +262,16 @@ nnoremap <LocalLeader>j{ vi{<C-v>$:EasyAlign\ g/^\S/<CR>gv=
 nnoremap <silent> <Leader>< :vsplit $MYVIMRC<CR>
 nnoremap <silent> <Leader>,v :execute ':TP' fnamemodify(resolve(expand($MYVIMRC)), ':h')<CR>
 nnoremap <silent> <Leader>,z :TP $ZDOTDIR/.zshrc<CR>
+
+" FIXME: use telescope for contabs projects
+
+"invoke fzf with the list of projects configured in g:contabs#project#locations
+"the enabled hotkeys are { 'ctrl-t': 'tabedit', 'ctrl-e, <cr>': 'edit' }
+nnoremap <silent> <Leader>p :call contabs#project#select()<CR>
+
+"invoke fzf with the list of buffers of current tab's workingdir
+"the enabled hotkeys are { 'ctrl-t': 'tabedit', 'ctrl-e, <cr>': 'edit', 'ctrl-v': 'vsp', 'ctrl-x': 'sp' }
+nnoremap <silent> <Leader>b :call contabs#buffer#select()<CR>
 
 "           _ __
 "    ____ _(_) /_
