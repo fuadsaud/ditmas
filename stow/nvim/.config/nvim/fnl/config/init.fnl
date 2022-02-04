@@ -1,4 +1,4 @@
-(module config.init)
+(module config.init
+  {autoload {plugins config.plugins}})
 
-(let [plugins (require :config.plugins)]
-  (plugins.init))
+(plugins.init)

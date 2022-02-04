@@ -3,9 +3,8 @@
              a aniseed.core
              constants config.constants}})
 
-(defn setup []
+(defn config []
   (autopairs.setup {:disable_filetype (a.concat ["TelescopePrompt" "vim"]
                                                 constants.sexp-languages)}))
-
 (comment
   constants.sexp-languages)

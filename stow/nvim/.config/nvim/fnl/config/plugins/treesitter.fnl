@@ -1,7 +1,7 @@
 (module config.plugins.treesitter
   {autoload {treesitter nvim-treesitter.configs}})
 
-(defn setup []
+(defn config []
   (treesitter.setup {:ensure_installed :maintained
                      :sync_install false
                      :indent {:enable true}

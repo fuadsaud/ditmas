@@ -2,5 +2,5 @@
   {autoload {lualine lualine
              monrovia monrovia.lualine}})
 
-(defn setup []
+(defn config []
   (lualine.setup {:options {:theme monrovia.theme}}))

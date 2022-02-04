@@ -2,7 +2,7 @@
   {autoload {telescope telescope
              actions telescope.actions}})
 
-(defn setup []
+(defn config []
   (telescope.load_extension "fzf")
 
   (telescope.setup

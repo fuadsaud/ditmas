@@ -7,7 +7,7 @@
    :conjure "conj"
    :nvim_lsp "lsp"})
 
-(defn setup []
+(defn config []
   (cmp.setup {:formatting
               {:format (fn [entry item]
                         (set item.menu (or (. cmp-src-menu-items entry.source.name) ""))
