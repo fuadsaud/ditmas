@@ -36,7 +36,6 @@
   fixf = fz-fixup
   fixup = ci --fixup HEAD
   foo = "!git switch $(git default-branch) && git fr && git pm"
-  fuck = "!git add . && git ci -m 'Fuck this shit, I am done for today!' && git p"
   ft = fetch --verbose --tags
   fr = pull --rebase --verbose
   frm = "!git fr origin $(git default-branch)"
@@ -57,7 +56,7 @@
   ra = rebase --abort
   rc = rebase --continue
   rh = reset --hard
-  resign = r --gpg-sign --no-ff
+  re-sign = r --gpg-sign --no-ff
   ri = rebase -i
   rms = "!git rebase $(git default-branch)"
   rom = "!git rebase origin/$(git default-branch)"
