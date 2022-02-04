@@ -1,12 +1,12 @@
 " keymaps
 " interesting unused keys in normal mode:
-"   - <Return> (testing for running macros)
+"   - <Return> (testing for :)
 "   - + (testing for aux <LocalLeader>)
-"   - _ (testing for aux <Leader>)
+"   - _
 "   - \
 "   - |
 "   - <Del>
-"   - Q
+"   - Q (testing for running macros)
 
 "     __               __
 "    / /__  ____ _____/ /__  _____
@@ -15,9 +15,9 @@
 " /_/\___/\__,_/\__,_/\___/_/
 "
 
-let mapleader = '_'
+map <Space> <Nop>
+let mapleader = ' '
 let maplocalleader = '+'
-map <Space> _
 map <Backspace> +
 
 "          __    __
@@ -146,7 +146,7 @@ xnoremap <Leader>y "0y
 nnoremap <Leader>p "0p
 
 " reselect last pasted text
-nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+noremap gV `[v`]
 
 "                               __
 "    ________  ____ ___________/ /_
@@ -223,9 +223,6 @@ nnoremap <silent> <Leader>w :%s/\s\+$//<CR>:let @/=''<CR>
 " squeeze multiple blank lines
 nnoremap <silent> <Leader>W :%s/\(\n\n\)\n\+/\1/<CR>:let @/=''<CR>
 
-" re-hardwrap text
-nnoremap <Leader><Return> gqip
-
 " easyalign
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
@@ -247,6 +244,8 @@ nnoremap <Leader>fb <cmd>Telescope buffers      theme=ivy<CR>
 nnoremap <Leader>fg <cmd>Telescope live_grep    theme=ivy<CR>
 nnoremap <Leader>fh <cmd>Telescope help_tags    theme=ivy<CR>
 nnoremap <Leader>fc <cmd>Telescope colorschemes theme=ivy<CR>
+nnoremap <Leader>fd <cmd>Telescope diagnostics  theme=ivy bufnr=0<CR>
+nnoremap <Leader>fwd <cmd>Telescope diagnostics theme=ivy<CR>
 nnoremap <Leader>ft <cmd>Telescope treesitter   theme=ivy<CR>
 
 "                         _           __
@@ -295,6 +294,19 @@ nnoremap <Leader>gd :GDelete<CR>
 nnoremap <Leader>gbr  :GBrowse<CR>
 nnoremap <Leader>gbr! :GBrowse!<CR>
 
+"        ___                              __  _
+"   ____/ (_)___ _____ _____  ____  _____/ /_(_)_________
+"  / __  / / __ `/ __ `/ __ \/ __ \/ ___/ __/ / ___/ ___/
+" / /_/ / / /_/ / /_/ / / / / /_/ (__  ) /_/ / /__(__  )
+" \__,_/_/\__,_/\__, /_/ /_/\____/____/\__/_/\___/____/
+"              /____/
+"
+
+nnoremap [d         <cmd>lua vim.diagnostic.goto_prev()<CR>
+nnoremap ]d         <cmd>lua vim.diagnostic.goto_next()<CR>
+nnoremap <Leader>df <cmd>lua vim.diagnostic.open_float()<CR>
+nnoremap <Leader>dl <cmd>lua vim.diagnostic.setloclist()<CR>
+
 "    ____ ___  (_)_________
 "   / __ `__ \/ / ___/ ___/
 "  / / / / / / (__  ) /__
@@ -302,14 +314,16 @@ nnoremap <Leader>gbr! :GBrowse!<CR>
 "
 
 " run macros
-nnoremap <Return> @
+nnoremap Q @
 
 " In the quickfix window, <CR> is used to jump to the error under the
 " cursor, so undefine the mapping there.
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
+noremap <Return> :
+
 " vsnips
 
 " Expand
-imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+imap <expr> <C-j> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>'
+smap <expr> <C-j> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>'
