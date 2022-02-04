@@ -31,9 +31,9 @@ a.out
 eastwood-report
 .eastwood
 .prepl-port
+**/.lsp/.cache
+**/.clj-kondo/.cache
 
-# lsp
-.lsp/.cache
 
 # js
 node_modules
