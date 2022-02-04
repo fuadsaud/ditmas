@@ -39,10 +39,11 @@ alias sf='fasd -sif'     # interactive file selection
 alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # cd with interactive selection
 alias j="fasd_jump"
-alias nv="fasd_edit"
+alias nf="fasd_edit"
 
 function path { print -l "${PATH}"; }
 
 function nd { nvim "+cd ${DITMAS_DIR}"; }
 function nz { nvim "+cd ${ZDOTDIR}"; }
 function nw { nvim $(which ${1}) }
+function nv { nvim "+cd ${XDG_CONFIG_HOME}/nvim" }
