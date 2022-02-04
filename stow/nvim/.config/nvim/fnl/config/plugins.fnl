@@ -5,6 +5,12 @@
              constants config.constants}
    require-macros [config.macros]})
 
+(defn- require-config-module [name]
+  (require (a.str :config.plugins. name)))
+
+(defn- setup [name]
+  (-> name require-config-module (. :setup)))
+
 (def plugins
   {:wbthomason/packer.nvim {}
 
@@ -12,11 +18,10 @@
 
    :kburdett/vim-nuuid {}
 
-   :neovim/nvim-lspconfig {:config #(require :config.plugins.lsp)}
+   :neovim/nvim-lspconfig {:config (setup :lsp)}
 
 
-   :folke/which-key.nvim {:config #(let [which-key (require :which-key)]
-                                     (which-key.setup {}))}
+   :folke/which-key.nvim {:config (setup :which-key)}
 
    ; ansi coloring
    :m00qek/baleia.nvim {:tag "v1.1.0"}
@@ -27,7 +32,7 @@
    ; fuzzy search
    :nvim-telescope/telescope.nvim {:requires {:nvim-lua/plenary.nvim {}
                                               :nvim-telescope/telescope-fzf-native.nvim {:run "make"}}
-                                   :config #(require :config.plugins.telescope)}
+                                   :config (setup :telescope)}
 
    ; filesystem
    :tpope/vim-eunuch {}
@@ -35,7 +40,7 @@
 
    ; syntax
    :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
-                                     :config #(require :config.plugins.treesitter)}
+                                     :config (setup :treesitter)}
    :sheerun/vim-polyglot {}
    :p00f/nvim-ts-rainbow {}
 
@@ -49,7 +54,7 @@
                                  :hrsh7th/vim-vsnip-integ {}
                                  :rafamadriz/friendly-snippets {}
                                  :PaterJason/cmp-conjure {:after "conjure"}}
-                      :config #(require :config.plugins.cmp)}
+                      :config (setup :cmp)}
 
 
    ; ui
@@ -63,7 +68,7 @@
    :fuadsaud/vim-airline-themes {}
 
    :nvim-lualine/lualine.nvim {:requires {:kyazdani42/nvim-web-devicons {}}
-                               :config #(require :config.plugins.lualine)}
+                               :config (setup :lualine)}
 
    ; workspace mgmt
    :m00qek/nvim-contabs {}
@@ -87,7 +92,7 @@
    :junegunn/vim-easy-align {}
    :AndrewRadev/splitjoin.vim {}
    :sjl/gundo.vim {}
-   :windwp/nvim-autopairs {:config #(require :config.plugins.autopairs)}
+   :windwp/nvim-autopairs {:config (setup :autopairs)}
 
    ; text objects
    :kana/vim-textobj-user {}
@@ -123,7 +128,7 @@
    :hynek/vim-python-pep8-indent {:ft ["python"]}
 
    ; css
-   :ap/vim-css-color {:ft ["css"]}
+   :ap/vim-css-color {}
 
    ; markdown
    :iamcco/markdown-preview.nvim {:ft ["markdown"]
