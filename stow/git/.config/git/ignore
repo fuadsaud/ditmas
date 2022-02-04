@@ -29,7 +29,6 @@ a.out
 
 # clojure
 eastwood-report
-.clj-kondo
 .eastwood
 .prepl-port
 
