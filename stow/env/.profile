@@ -49,16 +49,14 @@ export HOUDINI_DIR="${HOME}/.ditmas"
 export DITMAS_DIR="${HOME}/.ditmas"
 export STOW_DIR="${DITMAS_DIR}/stow"
 export SRC_DIR="${HOME}/Sources"
-export BIN_DIR="${HOME}/.local/bin"
+export LOCAL_BIN_DIR="${HOME}/.local/bin"
 export XDG_DATA_HOME=${XDG_DATA_HOME:-"${HOME}/.local/share"}
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"${HOME}/.config"}
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/pass"
 
 export HOMEBREW_CASK_OPTS='--appdir=/Applications'
-export ANDROID_HOME="${HOME}/Library/Android/sdk"
 export NVM_DIR="${XDG_DATA_HOME}/nvm"
 export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
-export DART_SDK="${XDG_DATA_HOME}/sdk-flutter/bin"
 export QMK_HOME="${SRC_DIR}/fuadsaud/qmk_firmware"
 export GOPATH="${SRC_DIR}/go"
 export GO_PATH="${GOPATH}"
@@ -71,13 +69,9 @@ fi
 # Set the list of directories that Zsh searches for programs.
 export PATH=$(tr -d $'\n ' <<< "
   $GOPATH/bin:
-  $ANDROID_HOME/emulator:
-  $ANDROID_HOME/tools:
-  $ANDROID_HOME/tools/bin:
-  $ANDROID_HOME/platform-tools:
   $HOME/.cargo/bin:
-  $BIN_DIR:
-  /opt/homebrew/opt/libpq/bin:$PATH:
+  $LOCAL_BIN_DIR:
+  /opt/homebrew/opt/libpq/bin:
   /opt/homebrew/bin:
   /usr/local/bin:
   /usr/local/sbin:
