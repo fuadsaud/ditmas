@@ -6,6 +6,7 @@ awscli
 bash
 chruby
 clipy
+borkdude/brew/clj-kondo
 clojure
 clojure-lsp
 curl
@@ -53,6 +54,7 @@ tmux
 trash
 tree
 vim
+watch
 watchexec
 youtube-dl
 zoom
