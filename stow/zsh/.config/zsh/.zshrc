@@ -49,3 +49,5 @@ safe_source "${XDG_CONFIG_HOME}/pitch/pitchrc"
 compctl -g "${HOME}/.rubies/*(:t)" chruby
 
 chruby 3
+
+nvm use default

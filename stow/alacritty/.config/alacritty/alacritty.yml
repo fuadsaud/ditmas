@@ -1,16 +1,16 @@
 font:
   size: 20
   normal:
-    family: ProFont fo rPowerline
-    style: Regular
+    family: ProFontIIx Nerd Font
+    style: Book
 
   bold:
-    family: ProFont for Powerline
-    style: Bold
+    family: ProFontIIx Nerd Font
+    style: Book
 
   italic:
-    family: ProFont for Powerline
-    style: Italic
+    family: ProFontIIx Nerd Font
+    style: Book
 
 cursor:
   style:

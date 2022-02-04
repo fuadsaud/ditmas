@@ -45,3 +45,4 @@ function path { print -l "${PATH}"; }
 
 function nd { nvim "+cd ${DITMAS_DIR}"; }
 function nz { nvim "+cd ${ZDOTDIR}"; }
+function nw { nvim $(which ${1}) }
