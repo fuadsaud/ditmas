@@ -59,6 +59,7 @@ parallel
 powerline
 powerline-fonts-git
 python-pip
+ripgrep
 rlwrap
 ruby-install
 rust
@@ -70,7 +71,6 @@ sudo
 telegram-desktop
 terminus-font
 termite
-the_silver_searcher
 tmux
 tree
 ttf-dejavu
