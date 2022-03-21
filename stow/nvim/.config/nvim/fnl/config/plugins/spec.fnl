@@ -41,10 +41,11 @@
    :pbrisbin/vim-mkdir {}
 
    ; syntax
-   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
-                                     :config (config-str :treesitter)}
+   ; :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
+   ;                                   :config (config-str :treesitter)}
    :sheerun/vim-polyglot {}
-   :p00f/nvim-ts-rainbow {}
+   ; :p00f/nvim-ts-rainbow {}
+   :luochen1990/rainbow {:config (config-str :rainbow)}
 
    ; completion
    :hrsh7th/nvim-cmp {:requires {:hrsh7th/cmp-nvim-lsp {}
@@ -93,7 +94,9 @@
    :junegunn/vim-easy-align {}
    :AndrewRadev/splitjoin.vim {}
    :sjl/gundo.vim {}
-   :windwp/nvim-autopairs {:config (config-str :autopairs)}
+   ; :windwp/nvim-autopairs {:config (config-str :autopairs)}
+   ; :rstacruz/vim-closer {}
+   :cohama/lexima.vim {}
 
    ; text objects
    :kana/vim-textobj-user {}

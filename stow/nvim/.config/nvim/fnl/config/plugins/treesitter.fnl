@@ -3,6 +3,7 @@
 
 (defn config []
   (treesitter.setup {:ensure_installed :maintained
+                     :ignore_install ["norg"]
                      :sync_install false
                      :indent {:enable true}
                      :highlight {:enable true
