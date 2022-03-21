@@ -1,5 +1,4 @@
 alacritty
-ag
 assorted-scripts
 bash
 clojure
@@ -13,6 +12,7 @@ karabiner
 lein
 macutils
 nvim
+rg
 ruby
 screen
 tmux
