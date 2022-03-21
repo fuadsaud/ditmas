@@ -73,8 +73,6 @@ export PATH=$(tr -d $'\n ' <<< "
   $LOCAL_BIN_DIR:
   /opt/homebrew/opt/libpq/bin:
   /opt/homebrew/bin:
-  /usr/local/bin:
-  /usr/local/sbin:
   $PATH
 ")
 
