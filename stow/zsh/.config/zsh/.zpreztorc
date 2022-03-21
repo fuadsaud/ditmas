@@ -34,7 +34,6 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'archive' \
   'tmux' \
-  'git' \
   'gpg' \
   'osx' \
   'pacman' \
