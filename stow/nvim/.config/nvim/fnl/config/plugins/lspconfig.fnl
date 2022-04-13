@@ -9,6 +9,8 @@
   (let [default_server_opts {:on_attach shared.on_attach
                              :handlers shared.handlers
                              :capabilities (shared.capabilities)}]
+
+    (print "lspconfig")
     (lspconfig.clojure_lsp.setup (clojure.opts default_server_opts))
     (lspconfig.html.setup default_server_opts)
     (lspconfig.cssls.setup default_server_opts)

@@ -2,11 +2,13 @@
   {autoload {nvim aniseed.nvim
              cmp_lsp cmp_nvim_lsp}})
 
-(defn on-attach [client bufnr]
+(defn on_attach [client bufnr]
   (let [buf-set-keymap (fn [mode mapping target] (nvim.buf_set_keymap bufnr mode mapping target {:noremap true}))
         buf-set-option (fn [opt val] (nvim.buf_set_option bufnr opt val))]
     (buf-set-option "omnifunc" "v:lua.vim.lsp.omnifunc")
     ; (vim.cmd "command! Format execute 'lua vim.lsp.buf.formatting()'")
+
+    (print "passou no lsp shared")
 
     ; references
     (buf-set-keymap :n "K"           "<cmd>lua vim.lsp.buf.hover()<CR>")
@@ -21,7 +23,7 @@
     (buf-set-keymap :n "gi"          "<cmd>lua vim.lsp.buf.implementation()<CR>")
 
     (buf-set-keymap :n "<Leader>lca" "<cmd>lua vim.lsp.buf.code_action()<CR>")
-    (buf-set-keymap :n "<Leader>l="  "<cmd>lua vim.lsp.buf.formatting()<CR>")
+    (buf-set-keymap :n "<Leader>lf"  "<cmd>lua vim.lsp.buf.formatting()<CR>")
     (buf-set-keymap :n "<Leader>lr"  "<cmd>lua vim.lsp.buf.rename()<CR>")
     (buf-set-keymap :n "<Leader>lwa" "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>")
     (buf-set-keymap :n "<Leader>lwl" "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")

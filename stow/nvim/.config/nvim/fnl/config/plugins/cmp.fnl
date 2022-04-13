@@ -29,5 +29,6 @@
                                           [{:name :buffer}])})
 
   (cmp.setup.cmdline "/" {:sources [{:name :buffer}]})
-  (cmp.setup.cmdline ":" {:sources (cmp.config.sources [{:name :path}]
+  (cmp.setup.cmdline ":" {:sources (cmp.config.sources [{:name :path
+                                                         :option {:trailing_slash true}}]
                                                       [{:name :cmdline}])}))
