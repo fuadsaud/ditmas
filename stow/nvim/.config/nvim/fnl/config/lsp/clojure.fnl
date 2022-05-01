@@ -10,6 +10,8 @@
 
 (defn- on_attach [client bufnr]
   (let [buf-set-keymap (fn [mode mapping target] (nvim.buf_set_keymap bufnr mode mapping target {:noremap true}))]
+    (print "Running config.lsp.clojure/on_attach")
+
     (buf_set_keymap :n "<LocalLeader>cc" "<cmd>lua vim.lsp.buf.execute_command({command='cycle-coll',          arguments={ require('config.plugins.lsp').expand_path_uri(), vim.fn.line('.') - 1, vim.fn.col('.') - 1 }})<CR>")
     (buf_set_keymap :n "<LocalLeader>cp" "<cmd>lua vim.lsp.buf.execute_command({command='cycle-privacy',       arguments={ require('config.plugins.lsp').expand_path_uri(), vim.fn.line('.') - 1, vim.fn.col('.') - 1 }})<CR>")
     (buf_set_keymap :n "<LocalLeader>th" "<cmd>lua vim.lsp.buf.execute_command({command='thread-first',        arguments={ require('config.plugins.lsp').expand_path_uri(), vim.fn.line('.') - 1, vim.fn.col('.') - 1 }})<CR>")

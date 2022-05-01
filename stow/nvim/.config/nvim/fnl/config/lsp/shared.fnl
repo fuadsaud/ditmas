@@ -8,7 +8,7 @@
     (buf-set-option "omnifunc" "v:lua.vim.lsp.omnifunc")
     ; (vim.cmd "command! Format execute 'lua vim.lsp.buf.formatting()'")
 
-    (print "passou no lsp shared")
+    (print "Running config.lsp.shared.on_attach")
 
     ; references
     (buf-set-keymap :n "K"           "<cmd>lua vim.lsp.buf.hover()<CR>")
@@ -30,11 +30,12 @@
     (buf-set-keymap :n "<Leader>lwr" "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>")
 
     ; telescope
-    (buf-set-keymap :n "<Leader>fca"  "<cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor())<CR>")
-    (buf-set-keymap :v "<Leader>frca" "<cmd>lua require('telescope.builtin').lsp_range_code_actions(require('telescope.themes').get_cursor())<CR>")
-    (buf-set-keymap :n "<Leader>fws"  "<cmd>lua require('telescope.builtin').lsp_workspace_symbols(require('telescope.themes').get_dropdown({}))<CR>")
-    (buf-set-keymap :n "<Leader>fr"   "<cmd>lua require('telescope.builtin').lsp_references(require('telescope.themes').get_dropdown({}))<CR>")
-    (buf-set-keymap :n "<Leader>fi"   "<cmd>lua require('telescope.builtin').lsp_implementations(require('telescope.themes').get_dropdown({}))<CR>")))
+    (buf-set-keymap :n "<Leader>fca"  "<cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_ivy())<CR>")
+    (buf-set-keymap :v "<Leader>frca" "<cmd>lua require('telescope.builtin').lsp_range_code_actions(require('telescope.themes').get_ivy())<CR>")
+    (buf-set-keymap :n "<Leader>fws"  "<cmd>lua require('telescope.builtin').lsp_workspace_symbols(require('telescope.themes').get_ivy({}))<CR>")
+    (buf-set-keymap :n "<Leader>fds"  "<cmd>lua require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_ivy({}))<CR>")
+    (buf-set-keymap :n "<Leader>fr"   "<cmd>lua require('telescope.builtin').lsp_references(require('telescope.themes').get_ivy({}))<CR>")
+    (buf-set-keymap :n "<Leader>fi"   "<cmd>lua require('telescope.builtin').lsp_implementations(require('telescope.themes').get_ivy({}))<CR>")))
 
 (def handlers
   {"textDocument/publishDiagnostics"

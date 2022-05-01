@@ -21,7 +21,9 @@
 
    :kburdett/vim-nuuid {}
 
-   :neovim/nvim-lspconfig {:config (config-str :lspconfig)}
+   :williamboman/nvim-lsp-installer {}
+   :neovim/nvim-lspconfig {:config (config-str :lspconfig)
+                           :after :nvim-lsp-installer}
 
    :folke/which-key.nvim {:config (config-str :which-key)}
 
