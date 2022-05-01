@@ -47,7 +47,7 @@
    ;                                   :config (config-str :treesitter)}
    :sheerun/vim-polyglot {}
    ; :p00f/nvim-ts-rainbow {}
-   :luochen1990/rainbow {}
+   :luochen1990/rainbow {:config (config-str :rainbow)}
 
    ; completion
    :hrsh7th/nvim-cmp {:requires {:hrsh7th/cmp-nvim-lsp {}
