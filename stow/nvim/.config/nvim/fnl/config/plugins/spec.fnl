@@ -26,7 +26,7 @@
    :folke/which-key.nvim {:config (config-str :which-key)}
 
    ; ansi coloring
-   :m00qek/baleia.nvim {:tag "v1.1.0"}
+   :m00qek/baleia.nvim {:tag "v1.1.0" :config (config-str :baleia)}
 
    ; integrations
    :wincent/ferret {}
