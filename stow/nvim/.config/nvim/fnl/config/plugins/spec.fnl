@@ -41,6 +41,7 @@
    ; filesystem
    :tpope/vim-eunuch {}
    :pbrisbin/vim-mkdir {}
+   :lambdalisue/suda.vim {}
 
    ; syntax
    ; :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
