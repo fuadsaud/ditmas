@@ -5,10 +5,9 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    # <home-manager/nixos>
+  imports = [
+      ./hardware-configuration.nix
+      ./home-manager.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -73,9 +72,12 @@
     };
   };
 
+  programs.light.enable = true;
+  programs.dconf.enable = true;
+
   # Configure keymap in X11
   services.xserver.layout = "us";
-  services.xserver.xkbOptions = "caps:escape"; # map caps to escape.
+  services.xserver.xkbOptions = "caps:nocaps, ctrl:swap_lalt_lctl";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -108,6 +110,7 @@
     extraGroups = [
       "wheel" # Enable ‘sudo’ for the user.
       "networkmanager"
+      "video" # Enable backlight control
     ];
 
     packages = with pkgs; [
@@ -140,12 +143,6 @@
     ];
  };
 
-  # home-manager.users.fuad = { pkgs, ... }: {
-  #   home.packages = [
-  #     pkgs.dunst
-  #   ];
-  # };
-
   programs.zsh.enable = true;
 
   users.defaultUserShell = pkgs.zsh;
@@ -156,7 +153,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ 
+  environment.systemPackages = with pkgs; [
     git
     gnome3.gnome-tweaks
     killall
@@ -168,6 +165,7 @@
   fonts.fonts = with pkgs; [
     profont
     scientifica
+    siji
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -225,6 +223,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
-
 }
 
