@@ -53,6 +53,7 @@ export LOCAL_BIN_DIR="${HOME}/.local/bin"
 export XDG_DATA_HOME=${XDG_DATA_HOME:-"${HOME}/.local/share"}
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"${HOME}/.config"}
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/pass"
+export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgreprc"
 
 export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 export NVM_DIR="${XDG_DATA_HOME}/nvm"
