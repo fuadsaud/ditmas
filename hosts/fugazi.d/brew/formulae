@@ -5,7 +5,6 @@ asdf
 awscli
 bash
 borkdude/brew/clj-kondo
-chruby
 clipy
 clojure
 clojure-lsp
