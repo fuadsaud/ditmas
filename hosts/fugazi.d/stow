@@ -12,6 +12,7 @@ karabiner
 lein
 macutils
 nvim
+ripgrep
 ruby
 screen
 tmux

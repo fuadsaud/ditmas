@@ -3,9 +3,9 @@ PX4/px4/gcc-arm-none-eabi
 asciinema
 awscli
 bash
+borkdude/brew/clj-kondo
 chruby
 clipy
-borkdude/brew/clj-kondo
 clojure
 clojure-lsp
 curl
@@ -44,11 +44,14 @@ pocket-casts
 python
 qmk/qmk/qmk
 rar
+raycast
 rectangle
 ripgrep
 ruby-install
 speedtest-cli
 stow
+terminal-ngrok
+terminal-notifier
 tmux
 trash
 tree
