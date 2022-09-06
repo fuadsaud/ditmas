@@ -1,6 +1,7 @@
 1password
 PX4/px4/gcc-arm-none-eabi
 asciinema
+asdf
 awscli
 bash
 borkdude/brew/clj-kondo
@@ -36,7 +37,6 @@ microsoft/git/git-credential-manager-core
 moreutils
 neofetch
 neovim
-nvm
 pass
 pinentry-mac
 pipenv

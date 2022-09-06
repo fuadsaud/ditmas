@@ -39,15 +39,13 @@ setopt globdots
 
 autoload bashcompinit; bashcompinit
 
+safe_source "${ZDOTDIR:-$HOME}/completion.zsh"
 safe_source "${ZDOTDIR:-$HOME}/fasd.zsh"
 safe_source "${ZDOTDIR:-$HOME}/fzf.zsh"
 safe_source "${ZDOTDIR:-$HOME}/colors.zsh"
 safe_source "${ZDOTDIR:-$HOME}/aliases.zsh"
 safe_source "${XDG_CONFIG_HOME}/pitch/pitchrc"
 
-# source completions
-compctl -g "${HOME}/.rubies/*(:t)" chruby
+safe_source "$(brew --prefix asdf)/libexec/asdf.sh" # fix for linux
 
 chruby 3
-
-nvm use default

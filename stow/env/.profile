@@ -63,10 +63,6 @@ export GOPATH="${SRC_DIR}/go"
 export GO_PATH="${GOPATH}"
 export PACMAN_BIN="paru"
 
-if command -v brew >> /dev/null; then
-  eval "$(brew shellenv)"
-fi
-
 # Set the list of directories that Zsh searches for programs.
 export PATH=$(tr -d $'\n ' <<< "
   $GOPATH/bin:
