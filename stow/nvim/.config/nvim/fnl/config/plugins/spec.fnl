@@ -122,6 +122,7 @@
    ; lisp
    :Olical/conjure {:ft constants.conjure-languages}
    :guns/vim-sexp {:ft constants.sexp-languages}
+                   ; :config (config-str :sexp)}
    :tpope/vim-sexp-mappings-for-regular-people {:ft constants.sexp-languages}
    :eraserhd/parinfer-rust {:ft constants.sexp-languages
                             :run "cargo build --release"}
