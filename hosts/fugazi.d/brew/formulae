@@ -9,6 +9,7 @@ clipy
 clojure
 clojure-lsp
 curl
+direnv
 docker
 docker-compose
 dropbox

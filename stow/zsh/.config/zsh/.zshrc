@@ -44,8 +44,7 @@ safe_source "${ZDOTDIR:-$HOME}/fasd.zsh"
 safe_source "${ZDOTDIR:-$HOME}/fzf.zsh"
 safe_source "${ZDOTDIR:-$HOME}/colors.zsh"
 safe_source "${ZDOTDIR:-$HOME}/aliases.zsh"
-safe_source "${XDG_CONFIG_HOME}/pitch/pitchrc"
 
 safe_source "$(brew --prefix asdf)/libexec/asdf.sh" # fix for linux
 
-chruby 3
+eval "$(direnv hook zsh)"
