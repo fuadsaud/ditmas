@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+git worktree list | fzf | cut -d ' ' -f 1

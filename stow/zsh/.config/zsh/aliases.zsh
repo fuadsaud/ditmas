@@ -2,6 +2,7 @@ alias a="rg"
 alias bat='docker run -it --rm -e BAT_THEME -e BAT_STYLE -e BAT_TABS -v "$(pwd):/myapp" danlynn/bat'
 alias bx="bundle exec"
 alias cdgr="cd \`git root\`"
+alias cdgw='cd $(git fz-worktree-path)'
 alias dsnc="dsync"
 alias g="git"
 alias gg="gt"
