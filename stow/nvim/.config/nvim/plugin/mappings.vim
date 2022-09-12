@@ -121,14 +121,6 @@ noremap L $
 map $ <Nop>
 map ^ <Nop>
 
-" sneak
-map f        <Plug>Sneak_f
-map F        <Plug>Sneak_F
-map t        <Plug>Sneak_t
-map T        <Plug>Sneak_T
-map <Bslash> <Plug>Sneak_s
-map \|       <Plug>Sneak_S
-
 "                       __
 "    __  ______ _____  / /__
 "   / / / / __ `/ __ \/ //_/
@@ -307,6 +299,7 @@ nnoremap ]d         <cmd>lua vim.diagnostic.goto_next()<CR>
 nnoremap <Leader>df <cmd>lua vim.diagnostic.open_float()<CR>
 nnoremap <Leader>dl <cmd>lua vim.diagnostic.setloclist()<CR>
 
+"
 "    ____ ___  (_)_________
 "   / __ `__ \/ / ___/ ___/
 "  / / / / / / (__  ) /__

@@ -21,6 +21,9 @@
 
    :kburdett/vim-nuuid {}
 
+
+   :tpope/vim-scriptease {}
+
    :williamboman/nvim-lsp-installer {}
    :neovim/nvim-lspconfig {:config (config-str :lspconfig)
                            :after :nvim-lsp-installer}
@@ -28,6 +31,7 @@
    :folke/which-key.nvim {:config (config-str :which-key)}
 
    ; ansi coloring
+   :vim-scripts/AnsiEsc.vim {}
    :m00qek/baleia.nvim {:tag "v1.1.0" :config (config-str :baleia)}
 
    ; integrations
@@ -70,7 +74,6 @@
    :gregsexton/MatchTag {}
    :nathanaelkane/vim-indent-guides {}
    :jszakmeister/vim-togglecursor {}
-   :fuadsaud/vim-airline-themes {}
 
    :nvim-lualine/lualine.nvim {:requires {:kyazdani42/nvim-web-devicons {}}
                                :config (config-str :lualine)}
@@ -83,8 +86,7 @@
    :tpope/vim-vinegar {}
    :tpope/vim-projectionist {}
    :justinmk/vim-gtfo {}
-   :justinmk/vim-sneak {}
-   :easymotion/vim-easymotion {}
+   :ggandor/lightspeed.nvim {}
 
    ; text manipulation
    :tpope/vim-abolish {}
@@ -97,7 +99,7 @@
    :junegunn/vim-easy-align {}
    :AndrewRadev/splitjoin.vim {}
    :sjl/gundo.vim {}
-   :cohama/lexima.vim {}
+   :jiangmiao/auto-pairs {}
 
    ; text objects
    :kana/vim-textobj-user {}
@@ -106,7 +108,6 @@
    :michaeljsmith/vim-indent-object {}
    :nelstrom/vim-textobj-rubyblock {:ft ["ruby"]}
    :wellle/targets.vim {}
-   :vim-scripts/AnsiEsc.vim {}
 
    ; git
    :tpope/vim-fugitive {}
