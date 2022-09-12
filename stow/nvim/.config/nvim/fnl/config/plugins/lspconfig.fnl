@@ -17,7 +17,8 @@
    :cssls default-server-opts
    :jsonls default-server-opts
    :eslint default-server-opts
-   :tsserver default-server-opts})
+   :tsserver default-server-opts
+   :bashls default-server-opts})
 
 (comment
   (lspconfig.clojure_lsp.setup (. server->config :clojure_lsp))
