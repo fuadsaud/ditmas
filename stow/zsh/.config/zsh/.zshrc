@@ -12,6 +12,24 @@ function safe_source {
   fi
 }
 
+function safe_run {
+  if command -v "$1" >> /dev/null; then
+    $@
+  else
+    return 127
+  fi
+}
+
+export HISTFILE="$HOME/.cache/zsh/history"
+
+# Reading ~/.profile here ensures:
+#
+# - both login and non-login shells will load it
+# - it will be loaded after /etc/zprofile, which on mac runs path_helper
+if [[ -s "${HOME}/.profile" ]]; then
+  source "${HOME}/.profile"
+fi
+
 # Source Prezto.
 safe_source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
