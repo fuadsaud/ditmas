@@ -20,6 +20,14 @@ function safe_run {
   fi
 }
 
+function load_asdf {
+  if is-darwin; then
+    safe_source "$(brew --prefix asdf)/libexec/asdf.sh"
+  else
+    safe_source /opt/asdf-vm/asdf.sh
+  fi
+}
+
 export HISTFILE="$HOME/.cache/zsh/history"
 
 # Reading ~/.profile here ensures:
@@ -47,7 +55,7 @@ safe_source "${ZDOTDIR:-$HOME}/colors.zsh"
 safe_source "${ZDOTDIR:-$HOME}/aliases.zsh"
 safe_source "${ZDOTDIR:-$HOME}/completions.zsh"
 
-safe_source "$(brew --prefix asdf)/libexec/asdf.sh" # fix for linux
+load_asdf
 
 eval "$(direnv hook zsh)"
 
