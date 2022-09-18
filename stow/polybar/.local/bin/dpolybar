@@ -25,17 +25,17 @@ function launch_main_bar {
 }
 
 function launch_mobile_bar {
-  MONITOR=e-DP1 launch_bar main-mobile
+  MONITOR=eDP1 launch_bar main-mobile
 }
 
 function launch_aux_bar {
-  MONITOR=HDMI-1 launch_bar aux
+  MONITOR=HDMI2 launch_bar aux
 }
 
 export WIRELESS_INTERFACE=$(cat /proc/net/wireless | perl -ne '/(\w+):/ && print $1')
 
 kill_all_bars
 wait_for_bar_shutdown
-launch_main_bar
+# launch_main_bar
 launch_mobile_bar
 launch_aux_bar

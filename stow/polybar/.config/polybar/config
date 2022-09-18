@@ -62,19 +62,19 @@ fixed-center = true
 [bar/main]
 inherit=bar/base
 
-modules-left    = date temperature battery paddinglite github arch-updates paddinglite polypomo
+modules-left    = date temperature battery paddinglite arch-updates paddinglite polypomo
 modules-center  = xwindow
 modules-right   = paddinglite redshift dnd mic volume wireless-ssid paddinglite workspaces
 
 [bar/main-mobile]
 inherit=bar/base
 
-modules-left    = date temperature battery paddinglite github arch-updates
+modules-left    = date temperature battery paddinglite arch-updates polypomo
 modules-right   = paddinglite redshift dnd mic volume wireless-ssid paddinglite workspaces
 
 [bar/aux]
 inherit=bar/base
-modules-left    = date temperature
+modules-left    = date
 modules-center  = playerctl-prev playerctl-play-pause playerctl-next playerctl-metadata
 modules-right   = workspaces
 
@@ -97,7 +97,7 @@ content-background = #000f0f0f
 
 [module/wireless-network]
 type          = internal/network
-interface     = ${env:WIRELESS_INTERFACE:wlp2s0}
+interface     = ${env:WIRELESS_INTERFACE:wlp3s0}
 
 [module/wireless-ssid]
 inherit = module/wireless-network
@@ -172,9 +172,9 @@ type     = internal/temperature
 interval = 1
 
 format            = <label>
-format-padding    = 1
-format-background = ${xrdb:color13}
-format-foreground = ${xrdb:color0}
+format-padding    = 2
+format-background = ${xrdb:color0}
+format-foreground = ${xrdb:color7}
 
 label = %temperature-c%
 
@@ -188,7 +188,7 @@ poll-interval = 5
 format-charging            = <label-charging>
 format-charging-foreground = ${xrdb:color7}
 format-charging-background = ${xrdb:color0}
-format-charging-padding    = 2
+format-charging-padding    = 1
 
 format-charging-prefix            = 
 format-charging-prefix-foreground = ${xrdb:color11}
@@ -199,7 +199,7 @@ label-charging-padding    = 1
 format-discharging                   = <label-discharging>
 format-discharging-background        = ${xrdb:color0}
 format-discharging-foreground        = ${xrdb:color7}
-format-discharging-padding           = 2
+format-discharging-padding           = 1
 
 format-discharging-prefix            = 
 format-discharging-prefix-foreground = ${xrdb:color1}
@@ -210,7 +210,7 @@ label-discharging-padding    = 1
 format-full                   = <label-full>
 format-full-background        = ${xrdb:color0}
 format-full-foreground        = ${xrdb:color7}
-format-full-padding           = 2
+format-full-padding           = 1
 
 format-full-prefix            = 
 format-full-prefix-foreground = ${xrdb:color6}
