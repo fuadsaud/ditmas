@@ -230,7 +230,7 @@ nnoremap <LocalLeader>j{ vi{<C-v>$:EasyAlign\ g/^\S/<CR>gv=
 "
 
 " telescope
-nnoremap <C-p>      <cmd>Telescope find_files   theme=ivy<CR>
+nnoremap <C-p>      <cmd>Telescope git_files    theme=ivy<CR>
 nnoremap <Leader>ff <cmd>Telescope find_files   theme=ivy<CR>
 nnoremap <Leader>fb <cmd>Telescope buffers      theme=ivy<CR>
 nnoremap <Leader>fg <cmd>Telescope live_grep    theme=ivy<CR>
@@ -296,7 +296,7 @@ nnoremap <Leader>gbr! :GBrowse!<CR>
 
 nnoremap [d         <cmd>lua vim.diagnostic.goto_prev()<CR>
 nnoremap ]d         <cmd>lua vim.diagnostic.goto_next()<CR>
-nnoremap <Leader>df <cmd>lua vim.diagnostic.open_float()<CR>
+nnoremap <Leader>df <cmd>lua vim.diagnostic.open_float({source=true})<CR>
 nnoremap <Leader>dl <cmd>lua vim.diagnostic.setloclist()<CR>
 
 "

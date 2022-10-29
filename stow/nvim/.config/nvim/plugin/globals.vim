@@ -7,7 +7,7 @@ set noshowmode
 set showcmd
 set clipboard=unnamedplus
 set mouse=a
-set relativenumber
+" set relativenumber
 set number
 set cursorline
 set colorcolumn=80,100,120
@@ -38,7 +38,7 @@ set shiftround
 set smarttab
 set expandtab
 set backspace=indent,eol,start
-set textwidth=120
+" set textwidth=120
 
 " searching
 set hlsearch

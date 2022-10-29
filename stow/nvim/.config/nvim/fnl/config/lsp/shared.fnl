@@ -6,7 +6,6 @@
   (let [buf-set-keymap (fn [mode mapping target] (nvim.buf_set_keymap bufnr mode mapping target {:noremap true}))
         buf-set-option (fn [opt val] (nvim.buf_set_option bufnr opt val))]
     (buf-set-option "omnifunc" "v:lua.vim.lsp.omnifunc")
-    ; (vim.cmd "command! Format execute 'lua vim.lsp.buf.formatting()'")
 
     (print "Running config.lsp.shared.on_attach")
 
@@ -38,14 +37,7 @@
     (buf-set-keymap :n "<Leader>fi"   "<cmd>lua require('telescope.builtin').lsp_implementations(require('telescope.themes').get_ivy({}))<CR>")))
 
 (def handlers
-  {"textDocument/publishDiagnostics"
-   (vim.lsp.with
-     vim.lsp.diagnostic.on_publish_diagnostics
-     {:severity_sort true
-      :update_in_insert false
-      :underline true
-      :virtual_text false})
-   "textDocument/hover"
+  {"textDocument/hover"
    (vim.lsp.with
      vim.lsp.handlers.hover
      {:border "single"})
@@ -55,7 +47,7 @@
      {:border "single"})})
 
 (defn capabilities []
-  (let [capabilities (cmp_lsp.update_capabilities (vim.lsp.protocol.make_client_capabilities))]
+  (let [capabilities (cmp_lsp.default_capabilities)]
     ; enable snippets via the lsp client
     (tset capabilities :textDocument :completion :completionItem :snippetSupport true)
     capabilities))

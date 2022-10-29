@@ -1,4 +1,6 @@
 (module config.init
-  {autoload {plugins config.plugins}})
+  {autoload {diagnostic config.diagnostic
+             plugins config.plugins}})
 
+(diagnostic.init)
 (plugins.init)
