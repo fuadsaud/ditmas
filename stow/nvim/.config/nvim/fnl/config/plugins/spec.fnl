@@ -1,6 +1,5 @@
 (module config.plugins.spec
-  {autoload {packer packer
-             a aniseed.core
+  {autoload {a aniseed.core
              nvim aniseed.nvim
              constants config.constants}
    require-macros [config.macros]})
@@ -21,12 +20,11 @@
 
    :kburdett/vim-nuuid {}
 
-
    :tpope/vim-scriptease {}
 
-   :williamboman/nvim-lsp-installer {}
    :neovim/nvim-lspconfig {:config (config-str :lspconfig)
-                           :after :nvim-lsp-installer}
+                           :requires {:williamboman/mason-lspconfig.nvim {}
+                                      :williamboman/mason.nvim {}}}
 
    :folke/which-key.nvim {:config (config-str :which-key)}
 
@@ -37,20 +35,14 @@
    ; integrations
    :wincent/ferret {}
 
-   ; fuzzy search
-   :nvim-telescope/telescope.nvim {:requires {:nvim-lua/plenary.nvim {}
-                                              :nvim-telescope/telescope-fzf-native.nvim {:run "make"}
-                                              :nvim-telescope/telescope-ui-select.nvim {}}
-                                   :config (config-str :telescope)}
-
    ; filesystem
    :tpope/vim-eunuch {}
    :pbrisbin/vim-mkdir {}
    :lambdalisue/suda.vim {}
 
    ; syntax
-   ; :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
-   ;                                   :config (config-str :treesitter)}
+   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
+                                     :config (config-str :treesitter)}
    :sheerun/vim-polyglot {}
    ; :p00f/nvim-ts-rainbow {}
    :luochen1990/rainbow {:config (config-str :rainbow)}
@@ -79,6 +71,15 @@
    :nvim-lualine/lualine.nvim {:requires {:kyazdani42/nvim-web-devicons {}}
                                :config (config-str :lualine)}
 
+   :folke/trouble.nvim {:requires {:kyazdani42/nvim-web-devicons {}}
+                        :config (config-str :trouble)}
+   ; fuzzy search
+   :nvim-telescope/telescope.nvim {:requires {:nvim-lua/plenary.nvim {}
+                                              :nvim-telescope/telescope-fzf-native.nvim {:run "make"}
+                                              :nvim-telescope/telescope-ui-select.nvim {}}
+                                   :config (config-str :telescope)}
+
+
    ; workspace mgmt
    :m00qek/nvim-contabs {}
 
@@ -100,7 +101,7 @@
    :junegunn/vim-easy-align {}
    :AndrewRadev/splitjoin.vim {}
    :sjl/gundo.vim {}
-   :jiangmiao/auto-pairs {}
+   :windwp/nvim-autopairs {:config (config-str :autopairs)}
 
    ; text objects
    :kana/vim-textobj-user {}
@@ -121,12 +122,11 @@
    :edkolev/tmuxline.vim {}
 
    ; lisp
-   :Olical/conjure {:ft constants.conjure-languages}
-   :guns/vim-sexp {:ft constants.sexp-languages}
-                   ; :config (config-str :sexp)}
-   :tpope/vim-sexp-mappings-for-regular-people {:ft constants.sexp-languages}
-   :eraserhd/parinfer-rust {:ft constants.sexp-languages
-                            :run "cargo build --release"}
+   :Olical/conjure {}
+   :guns/vim-sexp {} ; :config (config-str :sexp)}
+
+   :tpope/vim-sexp-mappings-for-regular-people {}
+   :eraserhd/parinfer-rust {:run "cargo build --release"}
 
    ; clojure
    :fuadsaud/vim-salve {:ft ["clojure"]}
@@ -151,5 +151,6 @@
    ; colorschemes
    ; :fuadsaud/Monrovia {:branch "v2"}
    "~/Sources/fuadsaud/Monrovia" {}
+   :rose-pine/neovim {:as :rose-pine}
    :noahfrederick/Hemisu {}
    :haishanh/night-owl.vim {}})

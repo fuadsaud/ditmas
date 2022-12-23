@@ -230,7 +230,7 @@ nnoremap <LocalLeader>j{ vi{<C-v>$:EasyAlign\ g/^\S/<CR>gv=
 "
 
 " telescope
-nnoremap <C-p>      <cmd>Telescope git_files    theme=ivy<CR>
+nnoremap <C-p>      <cmd>Telescope find_files   theme=ivy<CR>
 nnoremap <Leader>ff <cmd>Telescope find_files   theme=ivy<CR>
 nnoremap <Leader>fb <cmd>Telescope buffers      theme=ivy<CR>
 nnoremap <Leader>fg <cmd>Telescope live_grep    theme=ivy<CR>
@@ -330,3 +330,9 @@ imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab
 smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
 imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+
+nnoremap <Leader>xx <cmd>TroubleToggle<cr>
+nnoremap <Leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
+nnoremap <Leader>xd <cmd>TroubleToggle document_diagnostics<cr>
+nnoremap <Leader>xq <cmd>TroubleToggle quickfix<cr>
+nnoremap <Leader>xl <cmd>TroubleToggle loclist<cr>

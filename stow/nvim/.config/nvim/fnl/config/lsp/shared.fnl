@@ -15,6 +15,7 @@
     (buf-set-keymap :n "<Leader>ltd" "<cmd>lua vim.lsp.buf.type_definition()<CR>")
     (buf-set-keymap :n "<Leader>lic" "<cmd>lua vim.lsp.buf.incoming_calls()<CR>")
     (buf-set-keymap :n "gr"          "<cmd>lua vim.lsp.buf.references()<CR>")
+    (buf-set-keymap :n "gR"          "<cmd>TroubleToggle lsp_references<CR>")
     (buf-set-keymap :n "gd"          "<cmd>lua vim.lsp.buf.definition()<CR>")
     (buf-set-keymap :n "g0"          "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
     (buf-set-keymap :n "gD"          "<cmd>lua vim.lsp.buf.declaration()<CR>")
@@ -22,7 +23,7 @@
     (buf-set-keymap :n "gi"          "<cmd>lua vim.lsp.buf.implementation()<CR>")
 
     (buf-set-keymap :n "<Leader>lca" "<cmd>lua vim.lsp.buf.code_action()<CR>")
-    (buf-set-keymap :n "<Leader>lf"  "<cmd>lua vim.lsp.buf.formatting()<CR>")
+    (buf-set-keymap :n "<Leader>lf"  "<cmd>lua vim.lsp.buf.format()<CR>")
     (buf-set-keymap :n "<Leader>lr"  "<cmd>lua vim.lsp.buf.rename()<CR>")
     (buf-set-keymap :n "<Leader>lwa" "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>")
     (buf-set-keymap :n "<Leader>lwl" "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
