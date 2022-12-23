@@ -76,7 +76,8 @@
    ; fuzzy search
    :nvim-telescope/telescope.nvim {:requires {:nvim-lua/plenary.nvim {}
                                               :nvim-telescope/telescope-fzf-native.nvim {:run "make"}
-                                              :nvim-telescope/telescope-ui-select.nvim {}}
+                                              :nvim-telescope/telescope-ui-select.nvim {}
+                                              :nvim-telescope/telescope-file-browser.nvim {}}
                                    :config (config-str :telescope)}
 
 
