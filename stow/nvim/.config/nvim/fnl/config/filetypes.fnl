@@ -1,5 +1,5 @@
 (module config.filetypes
-  {require-macros [config.macros]})
+  {require-macros [lib.macros]})
 
 (defn init []
   (augroup :filetypes

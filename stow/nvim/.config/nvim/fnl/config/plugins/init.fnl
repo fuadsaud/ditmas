@@ -1,19 +1,13 @@
-(module config.plugins.spec
+(module config.plugins
   {autoload {a aniseed.core
              nvim aniseed.nvim
-             constants config.constants}
-   require-macros [config.macros]})
-
-(defn- require-config-module [name]
-  (require (a.str :config.plugins. name)))
-
-(defn- config [name]
-  (-> name require-config-module (. :config)))
+             packer lib.packer
+             constants config.constants}})
 
 (defn- config-str [name]
   (string.format "require('config.plugins.%s').config()" name))
 
-(def plugins
+(def plugins-spec
   {:wbthomason/packer.nvim {}
 
    :Olical/aniseed {:branch :develop}
@@ -41,11 +35,14 @@
    :lambdalisue/suda.vim {}
 
    ; syntax
+   :sheerun/vim-polyglot {}
+   :luochen1990/rainbow {:config (config-str :rainbow)}
    :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
                                      :config (config-str :treesitter)}
-   :sheerun/vim-polyglot {}
-   ; :p00f/nvim-ts-rainbow {}
-   :luochen1990/rainbow {:config (config-str :rainbow)}
+   :p00f/nvim-ts-rainbow {:requires {:nvim-tresitter/nvim-tresitter {}}}
+   :nvim-treesitter/playground {:requires {:nvim-tresitter/nvim-tresitter {}}}
+
+   :norcalli/nvim-colorizer.lua {:config (config-str :colorizer)}
 
    ; completion
    :hrsh7th/nvim-cmp {:requires {:hrsh7th/cmp-nvim-lsp {}
@@ -102,7 +99,8 @@
    :junegunn/vim-easy-align {}
    :AndrewRadev/splitjoin.vim {}
    :sjl/gundo.vim {}
-   :windwp/nvim-autopairs {:config (config-str :autopairs)}
+   ; :windwp/nvim-autopairs {:config (config-str :autopairs)}
+   :windwp/nvim-ts-autotag {:requires {:nvim-tresitter/nvim-treesitter {}}}
 
    ; text objects
    :kana/vim-textobj-user {}
@@ -124,8 +122,7 @@
 
    ; lisp
    :Olical/conjure {}
-   :guns/vim-sexp {} ; :config (config-str :sexp)}
-
+   :guns/vim-sexp {:config (config-str :sexp)}
    :tpope/vim-sexp-mappings-for-regular-people {}
    :eraserhd/parinfer-rust {:run "cargo build --release"}
 
@@ -135,9 +132,6 @@
 
    ; python
    :hynek/vim-python-pep8-indent {:ft ["python"]}
-
-   ; css
-   :ap/vim-css-color {}
 
    ; markdown
    :iamcco/markdown-preview.nvim {:ft ["markdown"]
@@ -155,3 +149,9 @@
    :rose-pine/neovim {:as :rose-pine}
    :noahfrederick/Hemisu {}
    :haishanh/night-owl.vim {}})
+
+(defn init []
+  (packer.init plugins-spec))
+
+(comment
+  (init))

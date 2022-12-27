@@ -1,36 +1,154 @@
 (module config.plugins
-  {autoload {packer packer
-             spec config.plugins.spec
-             a aniseed.core
+  {autoload {a aniseed.core
              nvim aniseed.nvim
-             constants config.constants}
-   require-macros [config.macros]})
+             packer lib.packer
+             constants config.constants}})
 
-(defn- log [x]
-  (a.println x))
+(defn- config-str [name]
+  (string.format "require('config.plugins.%s').config()" name))
 
-(defn- pair-to-plugin [[name opts]]
-  (a.assoc opts 1 name))
+(def plugins-spec
+  {:wbthomason/packer.nvim {}
 
-(defn- adapt-requires [opts]
-  (if opts.requires
-    (a.update opts :requires (partial a.map-indexed pair-to-plugin))
-    opts))
+   :Olical/aniseed {:branch :develop}
 
-(defn- adapt-plugin [[name opts]]
-  (pair-to-plugin [name (adapt-requires opts)]))
+   :kburdett/vim-nuuid {}
 
-(defn- adapt-plugins [plugins]
-  (a.map-indexed adapt-plugin plugins))
+   :tpope/vim-scriptease {}
 
-(defn- use-all [plugins]
-  (each [_ plugin (ipairs (adapt-plugins plugins))]
-    (packer.use plugin)))
+   :neovim/nvim-lspconfig {:config (config-str :lspconfig)
+                           :requires {:williamboman/mason-lspconfig.nvim {}
+                                      :williamboman/mason.nvim {}}}
+
+   :folke/which-key.nvim {:config (config-str :which-key)}
+
+   ; ansi coloring
+   :vim-scripts/AnsiEsc.vim {}
+   :m00qek/baleia.nvim {:tag "v1.1.0" :config (config-str :baleia)}
+
+   ; integrations
+   :wincent/ferret {}
+
+   ; filesystem
+   :tpope/vim-eunuch {}
+   :pbrisbin/vim-mkdir {}
+   :lambdalisue/suda.vim {}
+
+   ; syntax
+   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
+                                     :config (config-str :treesitter)}
+   :sheerun/vim-polyglot {}
+   ; :p00f/nvim-ts-rainbow {}
+   :luochen1990/rainbow {:config (config-str :rainbow)}
+
+   ; completion
+   :hrsh7th/nvim-cmp {:requires {:hrsh7th/cmp-nvim-lsp {}
+                                 :hrsh7th/cmp-buffer {}
+                                 :hrsh7th/cmp-path {}
+                                 :hrsh7th/cmp-cmdline {}
+                                 :hrsh7th/cmp-vsnip {}
+                                 :hrsh7th/vim-vsnip {}
+                                 :hrsh7th/vim-vsnip-integ {}
+                                 :rafamadriz/friendly-snippets {}
+                                 :PaterJason/cmp-conjure {:after :conjure}}
+                      :config (config-str :cmp)}
+
+
+   ; ui
+   :junegunn/goyo.vim {}
+   :milkypostman/vim-togglelist {}
+   :simeji/winresizer {}
+   :gregsexton/MatchTag {}
+   :nathanaelkane/vim-indent-guides {}
+   :jszakmeister/vim-togglecursor {}
+
+   :nvim-lualine/lualine.nvim {:requires {:kyazdani42/nvim-web-devicons {}}
+                               :config (config-str :lualine)}
+
+   :folke/trouble.nvim {:requires {:kyazdani42/nvim-web-devicons {}}
+                        :config (config-str :trouble)}
+   ; fuzzy search
+   :nvim-telescope/telescope.nvim {:requires {:nvim-lua/plenary.nvim {}
+                                              :nvim-telescope/telescope-fzf-native.nvim {:run "make"}
+                                              :nvim-telescope/telescope-ui-select.nvim {}
+                                              :nvim-telescope/telescope-file-browser.nvim {}}
+                                   :config (config-str :telescope)}
+
+
+   ; workspace mgmt
+   :m00qek/nvim-contabs {}
+
+   ; navigation
+   :vim-scripts/a.vim {}
+   :tpope/vim-vinegar {}
+   :tpope/vim-projectionist {}
+   :justinmk/vim-gtfo {}
+   :ggandor/lightspeed.nvim {}
+
+   ; text manipulation
+   :tpope/vim-abolish {}
+   :tpope/vim-surround {}
+   :tpope/vim-ragtag {}
+   :tpope/vim-repeat {}
+   :tpope/vim-unimpaired {}
+   :tpope/vim-commentary {}
+   :tpope/vim-endwise {}
+   :junegunn/vim-easy-align {}
+   :AndrewRadev/splitjoin.vim {}
+   :sjl/gundo.vim {}
+   :windwp/nvim-autopairs {:config (config-str :autopairs)}
+
+   ; text objects
+   :kana/vim-textobj-user {}
+   :fuadsaud/vim-textobj-variable-segment {}
+   :tommcdo/vim-exchange {}
+   :michaeljsmith/vim-indent-object {}
+   :nelstrom/vim-textobj-rubyblock {:ft ["ruby"]}
+   :wellle/targets.vim {}
+
+   ; git
+   :tpope/vim-fugitive {}
+   :tpope/vim-rhubarb {}
+   :airblade/vim-gitgutter {}
+   :mattn/gist-vim {:requires {:mattn/webapi-vim {}}}
+
+   ; tmux
+   :christoomey/vim-tmux-navigator {}
+   :edkolev/tmuxline.vim {}
+
+   ; lisp
+   :Olical/conjure {}
+   :guns/vim-sexp {} ; :config (config-str :sexp)}
+
+   :tpope/vim-sexp-mappings-for-regular-people {}
+   :eraserhd/parinfer-rust {:run "cargo build --release"}
+
+   ; clojure
+   :fuadsaud/vim-salve {:ft ["clojure"]}
+   :paulojean/sort-quire.vim {:ft ["clojure"]}
+
+   ; python
+   :hynek/vim-python-pep8-indent {:ft ["python"]}
+
+   ; css
+   :ap/vim-css-color {}
+
+   ; markdown
+   :iamcco/markdown-preview.nvim {:ft ["markdown"]
+                                  :run "cd app && yarn install"}
+
+   ; plantuml
+   :fuadsaud/vim-slumlord {}
+
+   ; prose
+   :dbmrq/vim-ditto {}
+
+   ; colorschemes
+   ; :fuadsaud/Monrovia {:branch "v2"}
+   "~/Sources/fuadsaud/Monrovia" {}
+   :rose-pine/neovim {:as :rose-pine}
+   :noahfrederick/Hemisu {}
+   :haishanh/night-owl.vim {}})
 
 (defn init []
-  (packer.init {:max_jobs 50})
-
-  (use-all spec.plugins))
-
-(comment
-  (init))
+  (packer.init plugins-spec))

@@ -4,7 +4,7 @@
              shared config.lsp.shared
              lspconfig lspconfig
              util lspconfig.util}
-   require-macros [config.macros]})
+   require-macros [lib.macros]})
 
 (defn- on_attach [client bufnr]
   (augroup :eslint-fix-on-save

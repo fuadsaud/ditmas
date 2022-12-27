@@ -1,5 +1,6 @@
 (module config.diagnostic
-  {require-macros [config.macros]})
+  {autoload {highlight lib.highlight}
+   require-macros [lib.macros]})
 
 (def- signs {:Error "!"
              :Warn  "*"
@@ -16,10 +17,13 @@
   (highlight.make-italic :DiagnosticInfo)
   (highlight.make-italic :DiagnosticHint))
 
-(augroup :config_diagnostic
+(augroup :config-diagnostic
   (autocmd :ColorScheme "*" update-highlights))
 
 (defn init []
+  (update-highlights)
+
   (vim.diagnostic.config
     {:update_in_insert true
+     :virtual_text {:prefix "•"}
      :severity_sort true}))
