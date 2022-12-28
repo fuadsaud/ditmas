@@ -103,7 +103,7 @@
 
 
    ; workspace mgmt
-   :m00qek/nvim-contabs {}
+   :m00qek/nvim-contabs {:requires {:junegunn/fzf {}}}
 
    ; navigation
    :vim-scripts/a.vim {}
