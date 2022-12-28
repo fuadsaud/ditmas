@@ -37,9 +37,35 @@
    ; syntax
    :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
                                      :config (config-str :treesitter)}
+   :p00f/nvim-ts-rainbow {:require {:nvim-treesitter/nvim-treesitter {}}}
+
    :sheerun/vim-polyglot {}
-   ; :p00f/nvim-ts-rainbow {}
    :luochen1990/rainbow {:config (config-str :rainbow)}
+
+   :norcalli/nvim-colorizer.lua {:config (config-str :colorizer)}
+
+   ; text manipulation
+   :tpope/vim-abolish {}
+   :tpope/vim-surround {}
+   :tpope/vim-ragtag {}
+   :tpope/vim-repeat {}
+   :tpope/vim-unimpaired {}
+   :tpope/vim-commentary {}
+   :tpope/vim-endwise {}
+   :junegunn/vim-easy-align {}
+   :AndrewRadev/splitjoin.vim {:config (config-str :splitjoin)}
+   :sjl/gundo.vim {}
+   :windwp/nvim-autopairs {:config (config-str :autopairs)}
+   :windwp/nvim-ts-autotag {:requires {:nvim-treesitter/nvim-treesitter {}}}
+
+   ; text objects
+   :kana/vim-textobj-user {}
+   :fuadsaud/vim-textobj-variable-segment {}
+   :tommcdo/vim-exchange {}
+   :michaeljsmith/vim-indent-object {}
+   :nelstrom/vim-textobj-rubyblock {:ft ["ruby"]}
+   :wellle/targets.vim {}
+
 
    ; completion
    :hrsh7th/nvim-cmp {:requires {:hrsh7th/cmp-nvim-lsp {}
@@ -85,27 +111,6 @@
    :justinmk/vim-gtfo {}
    :ggandor/lightspeed.nvim {}
 
-   ; text manipulation
-   :tpope/vim-abolish {}
-   :tpope/vim-surround {}
-   :tpope/vim-ragtag {}
-   :tpope/vim-repeat {}
-   :tpope/vim-unimpaired {}
-   :tpope/vim-commentary {}
-   :tpope/vim-endwise {}
-   :junegunn/vim-easy-align {}
-   :AndrewRadev/splitjoin.vim {}
-   :sjl/gundo.vim {}
-   :windwp/nvim-autopairs {:config (config-str :autopairs)}
-
-   ; text objects
-   :kana/vim-textobj-user {}
-   :fuadsaud/vim-textobj-variable-segment {}
-   :tommcdo/vim-exchange {}
-   :michaeljsmith/vim-indent-object {}
-   :nelstrom/vim-textobj-rubyblock {:ft ["ruby"]}
-   :wellle/targets.vim {}
-
    ; git
    :tpope/vim-fugitive {}
    :tpope/vim-rhubarb {}
@@ -130,9 +135,6 @@
    ; python
    :hynek/vim-python-pep8-indent {:ft ["python"]}
 
-   ; css
-   :ap/vim-css-color {}
-
    ; markdown
    :iamcco/markdown-preview.nvim {:ft ["markdown"]
                                   :run "cd app && yarn install"}
@@ -152,3 +154,6 @@
 
 (defn init []
   (packer.init plugins-spec))
+
+(comment
+  (init))
