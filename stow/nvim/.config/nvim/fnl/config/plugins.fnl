@@ -97,16 +97,16 @@
    ; fuzzy search
    :nvim-telescope/telescope.nvim {:requires {:nvim-lua/plenary.nvim {}
                                               :nvim-telescope/telescope-fzf-native.nvim {:run "make"}
-                                              :nvim-telescope/telescope-ui-select.nvim {}
-                                              :nvim-telescope/telescope-file-browser.nvim {}}
+                                              :nvim-telescope/telescope-ui-select.nvim {}}
                                    :config (config-str :telescope)}
-
 
    ; workspace mgmt
    :m00qek/nvim-contabs {:requires {:junegunn/fzf {}}}
+   :nvim-telescope/telescope-project.nvim {}
 
    ; navigation
    :vim-scripts/a.vim {}
+   :nvim-telescope/telescope-file-browser.nvim {}
    :tpope/vim-vinegar {}
    :tpope/vim-projectionist {}
    :justinmk/vim-gtfo {}

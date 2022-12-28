@@ -3,6 +3,7 @@
              diagnostic config.diagnostic
              filetypes config.filetypes
              netrw config.netrw
+             rhizome config.rhizome
              plugins config.plugins}})
 
 (def modules
@@ -10,7 +11,8 @@
    diagnostic
    filetypes
    netrw
-   plugins])
+   plugins
+   rhizome])
 
 (each [_ mod (ipairs modules)]
   (mod.init))
