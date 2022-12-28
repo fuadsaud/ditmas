@@ -45,7 +45,8 @@
    :norcalli/nvim-colorizer.lua {:config (config-str :colorizer)}
 
    ; text manipulation
-   :tpope/vim-abolish {}
+   :tpope/vim-abolish {:cond "true" ; see https://github.com/wbthomason/packer.nvim/issues/393
+                       :config (config-str :abolish)}
    :tpope/vim-surround {}
    :tpope/vim-ragtag {}
    :tpope/vim-repeat {}
