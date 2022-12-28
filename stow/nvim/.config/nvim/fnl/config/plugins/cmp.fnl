@@ -1,9 +1,10 @@
 (module config.plugins.cmp
-  {autoload {cmp cmp}})
+  {autoload {cmp cmp
+             luasnip luasnip}})
 
 (def- cmp-src-menu-items
   {:buffer "buff"
-   :vsnip "vsnip"
+   :luasnip "luasnip"
    :conjure "conj"
    :nvim_lsp "lsp"})
 
@@ -13,7 +14,7 @@
                         (set item.menu (or (. cmp-src-menu-items entry.source.name) ""))
                         item)}
 
-              :snippet {:expand (fn [args] ((. vim.fn "vsnip#anonymous") args.body))}
+              :snippet {:expand (fn [args] (luasnip.lsp_expand args.body))}
 
               :mapping {:<C-p> (cmp.mapping.select_prev_item)
                         :<C-n> (cmp.mapping.select_next_item)
@@ -25,7 +26,7 @@
                         :<CR> (cmp.mapping.confirm {:select false})}
 
               :sources (cmp.config.sources [{:name :nvim_lsp}
-                                            {:name :vsnip}
+                                            {:name :luasnip}
                                             {:name :conjure}
                                             {:name :buffer}])})
 

@@ -2,9 +2,15 @@
   {autoload {colors config.colors
              diagnostic config.diagnostic
              filetypes config.filetypes
+             netrw config.netrw
              plugins config.plugins}})
 
-(colors.init)
-(diagnostic.init)
-(filetypes.init)
-(plugins.init)
+(def modules
+  [colors
+   diagnostic
+   filetypes
+   netrw
+   plugins])
+
+(each [_ mod (ipairs modules)]
+  (mod.init))

@@ -37,7 +37,7 @@
    ; syntax
    :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
                                      :config (config-str :treesitter)}
-   :p00f/nvim-ts-rainbow {:require {:nvim-treesitter/nvim-treesitter {}}}
+   :p00f/nvim-ts-rainbow {}
 
    :sheerun/vim-polyglot {}
    :luochen1990/rainbow {:config (config-str :rainbow)}
@@ -56,7 +56,7 @@
    :AndrewRadev/splitjoin.vim {:config (config-str :splitjoin)}
    :sjl/gundo.vim {}
    :windwp/nvim-autopairs {:config (config-str :autopairs)}
-   :windwp/nvim-ts-autotag {:requires {:nvim-treesitter/nvim-treesitter {}}}
+   :windwp/nvim-ts-autotag {}
 
    ; text objects
    :kana/vim-textobj-user {}
@@ -66,19 +66,19 @@
    :nelstrom/vim-textobj-rubyblock {:ft ["ruby"]}
    :wellle/targets.vim {}
 
+   ; snippets
+   :L3MON4D3/LuaSnip {:config (config-str :luasnip)
+                      :requires {:saadparwaiz1/cmp_luasnip {}
+                                 :rafamadriz/friendly-snippets {}}}
+
 
    ; completion
    :hrsh7th/nvim-cmp {:requires {:hrsh7th/cmp-nvim-lsp {}
                                  :hrsh7th/cmp-buffer {}
                                  :hrsh7th/cmp-path {}
                                  :hrsh7th/cmp-cmdline {}
-                                 :hrsh7th/cmp-vsnip {}
-                                 :hrsh7th/vim-vsnip {}
-                                 :hrsh7th/vim-vsnip-integ {}
-                                 :rafamadriz/friendly-snippets {}
                                  :PaterJason/cmp-conjure {:after :conjure}}
                       :config (config-str :cmp)}
-
 
    ; ui
    :junegunn/goyo.vim {}
@@ -123,7 +123,7 @@
 
    ; lisp
    :Olical/conjure {}
-   :guns/vim-sexp {} ; :config (config-str :sexp)}
+   :guns/vim-sexp {:config (config-str :sexp)}
 
    :tpope/vim-sexp-mappings-for-regular-people {}
    :eraserhd/parinfer-rust {:run "cargo build --release"}

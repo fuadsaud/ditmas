@@ -230,15 +230,15 @@ nnoremap <LocalLeader>j{ vi{<C-v>$:EasyAlign\ g/^\S/<CR>gv=
 "
 
 " telescope
-nnoremap <C-p>      <cmd>Telescope find_files   theme=ivy<CR>
-nnoremap <Leader>ff <cmd>Telescope find_files   theme=ivy<CR>
-nnoremap <Leader>fb <cmd>Telescope buffers      theme=ivy<CR>
-nnoremap <Leader>fg <cmd>Telescope live_grep    theme=ivy<CR>
-nnoremap <Leader>fh <cmd>Telescope help_tags    theme=ivy<CR>
-nnoremap <Leader>fc <cmd>Telescope colorschemes theme=ivy<CR>
-nnoremap <Leader>fd <cmd>Telescope diagnostics  theme=ivy bufnr=0<CR>
-nnoremap <Leader>fwd <cmd>Telescope diagnostics theme=ivy<CR>
-nnoremap <Leader>ft <cmd>Telescope treesitter   theme=ivy<CR>
+nnoremap <C-p>       <cmd>Telescope find_files   theme=ivy<CR>
+nnoremap <Leader>ff  <cmd>Telescope find_files   theme=ivy<CR>
+nnoremap <Leader>fb  <cmd>Telescope buffers      theme=ivy<CR>
+nnoremap <Leader>fg  <cmd>Telescope live_grep    theme=ivy<CR>
+nnoremap <Leader>fh  <cmd>Telescope help_tags    theme=ivy<CR>
+nnoremap <Leader>fc  <cmd>Telescope colorschemes theme=ivy<CR>
+nnoremap <Leader>fd  <cmd>Telescope diagnostics  theme=ivy bufnr=0<CR>
+nnoremap <Leader>fwd <cmd>Telescope diagnostics  theme=ivy<CR>
+nnoremap <Leader>ft  <cmd>Telescope treesitter   theme=ivy<CR>
 
 "                         _           __
 "     ____  _________    (_)__  _____/ /______
@@ -299,6 +299,29 @@ nnoremap ]d         <cmd>lua vim.diagnostic.goto_next()<CR>
 nnoremap <Leader>df <cmd>lua vim.diagnostic.open_float({source=true})<CR>
 nnoremap <Leader>dl <cmd>lua vim.diagnostic.setloclist()<CR>
 
+"    __                   __    __
+"   / /__________  __  __/ /_  / /__
+"  / __/ ___/ __ \/ / / / __ \/ / _ \
+" / /_/ /  / /_/ / /_/ / /_/ / /  __/
+" \__/_/   \____/\__,_/_.___/_/\___/
+"
+
+nnoremap <Leader>xx <cmd>TroubleToggle<cr>
+nnoremap <Leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
+nnoremap <Leader>xd <cmd>TroubleToggle document_diagnostics<cr>
+nnoremap <Leader>xq <cmd>TroubleToggle quickfix<cr>
+nnoremap <Leader>xl <cmd>TroubleToggle loclist<cr>
+
+"    __                      _ __  __
+"   / /_________  ___  _____(_) /_/ /____  _____
+"  / __/ ___/ _ \/ _ \/ ___/ / __/ __/ _ \/ ___/
+" / /_/ /  /  __/  __(__  ) / /_/ /_/  __/ /
+" \__/_/   \___/\___/____/_/\__/\__/\___/_/
+"
+
+nnoremap <Leader>th <cmd>TSHighlightCapturesUnderCursor<cr>
+nnoremap <Leader>tn <cmd>TSNodeUnderCursor<cr>
+
 "
 "    ____ ___  (_)_________
 "   / __ `__ \/ / ___/ ___/
@@ -315,24 +338,15 @@ autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
 noremap <Return> :
 
-" vsnips
+" luasnip
+" press <Tab> to expand or jump in a snippet. These can also be mapped separately
+" via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
+imap <silent><expr> <C-j> luasnip#expandable() ? '<Plug>luasnip-expand-snippet' : '<C-j>'
+imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<C-j>'
+inoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<CR>
+snoremap <silent> <Tab>   <cmd>lua require('luasnip').jump(1)<CR>
+snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<CR>
 
-" Expand
-imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-
-" Expand or jump
-imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-
-" Jump forward or backward
-imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-
-nnoremap <Leader>xx <cmd>TroubleToggle<cr>
-nnoremap <Leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
-nnoremap <Leader>xd <cmd>TroubleToggle document_diagnostics<cr>
-nnoremap <Leader>xq <cmd>TroubleToggle quickfix<cr>
-nnoremap <Leader>xl <cmd>TroubleToggle loclist<cr>
+" For changing choices in choiceNodes (not strictly necessary for a basic setup).
+imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'

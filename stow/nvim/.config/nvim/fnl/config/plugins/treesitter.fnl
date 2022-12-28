@@ -22,4 +22,7 @@
 
      :rainbow
      {:enable true
-      :extended_mode true}}))
+      :extended_mode true}
+
+     :autotag
+     {:enable true}}))
