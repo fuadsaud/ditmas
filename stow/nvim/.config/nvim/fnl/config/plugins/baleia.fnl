@@ -1,6 +1,5 @@
 (module config.plugins.baleia
-  {autoload {baleia baleia}
-   require-macros [lib.macros]})
+  {autoload {baleia baleia}})
 
 (defn config []
   (baleia.setup {}))
