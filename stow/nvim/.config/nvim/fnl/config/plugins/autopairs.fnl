@@ -5,5 +5,5 @@
 
 (defn config []
   (autopairs.setup {:check_ts true
-                    :disabled_filetype (a.concat ["TelescopePrompt"]
-                                                 constants.sexp-languages)}))
+                    :disable_filetype (a.concat ["TelescopePrompt"]
+                                                constants.sexp-languages)}))
