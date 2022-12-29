@@ -95,14 +95,18 @@
    :folke/trouble.nvim {:requires {:kyazdani42/nvim-web-devicons {}}
                         :config (config-str :trouble)}
    ; fuzzy search
-   :nvim-telescope/telescope.nvim {:requires {:nvim-lua/plenary.nvim {}
+   :nvim-telescope/telescope.nvim {:after [:fuadsaud/rhizome.nvim]
+                                   :requires {:nvim-lua/plenary.nvim {}
                                               :nvim-telescope/telescope-fzf-native.nvim {:run "make"}
                                               :nvim-telescope/telescope-ui-select.nvim {}}
                                    :config (config-str :telescope)}
 
    ; workspace mgmt
    :m00qek/nvim-contabs {:requires {:junegunn/fzf {}}}
-   :fuadsaud/rhizome.nvim {:config (config-str :rhizome)}
+   ; :fuadsaud/rhizome.nvim {:config (config-str :rhizome)}
+   "~/Sources/fuadsaud/rhizome.nvim" {:as :fuadsaud/rhizome.nvim
+                                      :config (config-str :rhizome)}
+
    :nvim-telescope/telescope-project.nvim {}
 
    ; navigation
