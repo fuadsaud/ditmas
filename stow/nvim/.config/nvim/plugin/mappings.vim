@@ -253,11 +253,8 @@ nnoremap <Leader>ft  <cmd>Telescope treesitter   theme=ivy<CR>
 nnoremap <silent> <Leader>,v <cmd>lua require("rhizome").open_in_new_tab(vim.fn.fnamemodify(vim.fn.resolve(vim.fn.expand(os.getenv("MYVIMRC"))), ':h'))<CR>
 nnoremap <silent> <Leader>,z <cmd>lua require("rhizome").open_in_new_tab(os.getenv("ZDOTDIR"))<CR>
 
-nnoremap <silent> <Leader>p <cmd>lua require("rhizome").open_root_picker()<CR>
-
-"invoke fzf with the list of buffers of current tab's workingdir
-"the enabled hotkeys are { 'ctrl-t': 'tabedit', 'ctrl-e, <cr>': 'edit', 'ctrl-v': 'vsp', 'ctrl-x': 'sp' }
-nnoremap <silent> <Leader>b :call contabs#buffer#select()<CR>
+nnoremap <silent> <Leader>p :Telescope rhizome roots<CR>
+nnoremap <silent> <Leader>b :Telescope buffers only_cwd=true<CR>
 
 "           _ __
 "    ____ _(_) /_

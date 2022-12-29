@@ -102,8 +102,6 @@
                                    :config (config-str :telescope)}
 
    ; workspace mgmt
-   :m00qek/nvim-contabs {:requires {:junegunn/fzf {}}}
-   ; :fuadsaud/rhizome.nvim {:config (config-str :rhizome)}
    "~/Sources/fuadsaud/rhizome.nvim" {:as :fuadsaud/rhizome.nvim
                                       :config (config-str :rhizome)}
 
