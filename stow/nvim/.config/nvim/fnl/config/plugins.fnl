@@ -102,6 +102,7 @@
 
    ; workspace mgmt
    :m00qek/nvim-contabs {:requires {:junegunn/fzf {}}}
+   :fuadsaud/rhizome.nvim {:config (config-str :rhizome)}
    :nvim-telescope/telescope-project.nvim {}
 
    ; navigation

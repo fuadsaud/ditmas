@@ -250,15 +250,10 @@ nnoremap <Leader>ft  <cmd>Telescope treesitter   theme=ivy<CR>
 "
 
 " tabedit interesting dirs
-nnoremap <silent> <Leader>< :vsplit $MYVIMRC<CR>
-nnoremap <silent> <Leader>,v :execute ':TP' fnamemodify(resolve(expand($MYVIMRC)), ':h')<CR>
-nnoremap <silent> <Leader>,z :TP $ZDOTDIR/.zshrc<CR>
+nnoremap <silent> <Leader>,v <cmd>lua require("rhizome").open_in_new_tab(vim.fn.fnamemodify(vim.fn.resolve(vim.fn.expand(os.getenv("MYVIMRC"))), ':h'))<CR>
+nnoremap <silent> <Leader>,z <cmd>lua require("rhizome").open_in_new_tab(os.getenv("ZDOTDIR"))<CR>
 
-" FIXME: use telescope for contabs projects
-
-"invoke fzf with the list of projects configured in g:contabs#project#locations
-"the enabled hotkeys are { 'ctrl-t': 'tabedit', 'ctrl-e, <cr>': 'edit' }
-nnoremap <silent> <Leader>p :call contabs#project#select()<CR>
+nnoremap <silent> <Leader>p <cmd>lua require("rhizome").open_root_picker()<CR>
 
 "invoke fzf with the list of buffers of current tab's workingdir
 "the enabled hotkeys are { 'ctrl-t': 'tabedit', 'ctrl-e, <cr>': 'edit', 'ctrl-v': 'vsp', 'ctrl-x': 'sp' }
@@ -342,7 +337,7 @@ noremap <Return> :
 " press <Tab> to expand or jump in a snippet. These can also be mapped separately
 " via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
 imap <silent><expr> <C-j> luasnip#expandable() ? '<Plug>luasnip-expand-snippet' : '<C-j>'
-imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<C-j>'
+imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
 inoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<CR>
 snoremap <silent> <Tab>   <cmd>lua require('luasnip').jump(1)<CR>
 snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<CR>

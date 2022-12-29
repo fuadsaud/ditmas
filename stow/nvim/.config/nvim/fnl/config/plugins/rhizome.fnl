@@ -1,5 +1,5 @@
-(module config.rhizome
-  {autoload {rhizome plugins.rhizome}})
+(module config.plugins.rhizome
+  {autoload {rhizome rhizome}})
 
 (defn init []
   (rhizome.setup {:roots [{:path "~/Source/fuadsaud/Monrovia"}
