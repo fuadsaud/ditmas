@@ -19,3 +19,5 @@ stow/zsh/.config/zsh/.zsh_history
 emacs.d/elpa
 
 tags
+
+.nerepl-port
