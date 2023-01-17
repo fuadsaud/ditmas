@@ -1,17 +1,17 @@
 AllCops:
-  TargetRubyVersion: 2.2
+  TargetRubyVersion: 2.6
 
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: consistent_comma
 
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: consistent_comma
 
 Style/BlockDelimiters:
   EnforcedStyle: semantic
-
-Style/BracesAroundHashParameters:
-  EnforcedStyle: context_dependent
 
 Metrics/LineLength:
   Max: 100
