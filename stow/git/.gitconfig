@@ -1,7 +1,13 @@
 [user]
   name = Fuad Saud
   email = fuadfsaud@gmail.com
-  signingkey = CA7466191A09D471
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKbxja4iuYJ+bj51l99cotO6KoTNUcpgehYAI5ZOWLX1
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[commit]
+  gpgsign = true
 [alias]
   a  = add --verbose
   ap = add-pattern
@@ -85,16 +91,16 @@
   untracked = ls-files --others --exclude-standard
   wc = whatchanged --graph --abbrev-commit
   wip = ci -m '•••••<[WIP]>•••••'
-  wta = woktree add
+  wta = worktree add
   wtr = worktree remove
 [color]
   ui = auto
 [credential]
   ; helper = xplat
-	credentialStore = gpg
+  credentialStore = gpg
   helper = "!git-credential-manager-core"
-	helper = 
-	helper = /usr/local/share/gcm-core/git-credential-manager-core
+  helper = 
+  helper = /usr/local/share/gcm-core/git-credential-manager
 [core]
   excludesfile = ~/.config/git/ignore
 [diff]
@@ -111,8 +117,6 @@
   default = current
 [gitsh]
   defaultCommand = status -sb
-[gpg]
-  program = gpg
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
@@ -120,15 +124,13 @@
   required = true
 [rebase]
   autoStash = true
-[commit]
-  gpgsign = false
 [pull]
   rebase = true
 [advice]
   detachedHead = false
-[credential "https://dev.azure.com"]
-  useHttpPath = true
 [core]
   pager = delta
 [interactive]
   diffFilter = delta --color-only
+[credential "https://dev.azure.com"]
+  useHttpPath = true
