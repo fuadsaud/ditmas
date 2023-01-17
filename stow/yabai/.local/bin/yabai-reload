@@ -2,6 +2,5 @@
 
 brew services stop yabai
 sudo yabai --uninstall-sa
-sudo yabai --install-sa
 sudo yabai --load-sa
 brew services start yabai
