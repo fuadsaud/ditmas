@@ -1,5 +1,6 @@
 1password
 PX4/px4/gcc-arm-none-eabi
+arc
 asciinema
 asdf
 awscli
@@ -19,6 +20,7 @@ figma
 fzf
 gh
 git
+gnu-sed
 google-chrome
 google-drive
 gpg2
