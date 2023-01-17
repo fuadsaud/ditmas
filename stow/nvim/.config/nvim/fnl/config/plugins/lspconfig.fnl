@@ -7,7 +7,7 @@
              mason-lspconfig mason-lspconfig
              mason mason
              nvim aniseed.nvim}
-   require-macros [config.macros]})
+   require-macros [lib.macros]})
 
 (def default-server-opts
   {:on_attach shared.on_attach
