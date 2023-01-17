@@ -26,7 +26,7 @@
     (buf-set-keymap :n "<Leader>lf"  "<cmd>lua vim.lsp.buf.format()<CR>")
     (buf-set-keymap :n "<Leader>lr"  "<cmd>lua vim.lsp.buf.rename()<CR>")
     (buf-set-keymap :n "<Leader>lwa" "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>")
-    (buf-set-keymap :n "<Leader>lwl" "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
+    (buf-set-keymap :n "<Leader>lwl" "<cmd>lua vim.inspect(vim.lsp.buf.list_workspace_folders()<CR>")
     (buf-set-keymap :n "<Leader>lwr" "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>")
 
     ; telescope
