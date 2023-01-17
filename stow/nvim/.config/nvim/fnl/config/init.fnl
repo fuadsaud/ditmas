@@ -6,11 +6,11 @@
              plugins config.plugins}})
 
 (def modules
-  [colors
+  [plugins
+   colors
    diagnostic
    filetypes
-   netrw
-   plugins])
+   netrw])
 
 (each [_ mod (ipairs modules)]
   (mod.init))
