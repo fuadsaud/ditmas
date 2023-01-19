@@ -17,6 +17,7 @@ nvim
 ripgrep
 ruby
 screen
+ssh
 tmux
 vim
 vscode
