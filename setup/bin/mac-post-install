@@ -10,32 +10,37 @@ log 'installing homebrew'
 
 if [[ ! -x "$(command -v brew)" ]]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-log 'installing homebrew formulae'
+log 'installing homebrew stuff'
 
 brew update
+brew install bash
 
 hostname="$(hostname)"
-brew_formulae_file="${current_dir}/../../hosts/${hostname}.d/brew/formulae"
+# brew_formulae_file="${current_dir}/../../hosts/${hostname}.d/brew/formulae"
+brewfile="${current_dir}/../../hosts/${hostname}.d/Brewfile"
 
-mapfile -t brew_formulae < <(cat "${brew_formulae_file}")
+# mapfile -t brew_formulae < <(cat "${brew_formulae_file}")
+
+brew bundle install --file "${brewfile}"
 
 brew install "${brew_formulae[@]}"
 
-log 'installing mac app store apps'
+# log 'installing mac app store apps'
 
-mac_store_apps=(
-  'Telegram'
-  'Slack'
-  'Amphetamine'
-  'Key Codes'
-  'Microsoft To Do'
-  'Daisy Disk'
-  'Pixelmator'
-  'Pocket Later'
-  'Shazam'
-)
+#mac_store_apps=(
+#  'Telegram'
+#  'Slack'
+#  'Amphetamine'
+#  #'Key Codes'
+#  #'Microsoft To Do'
+#  #'Daisy Disk'
+#  #'Pixelmator'
+#  'Shazam'
+#)
 
 for appname in "${mac_store_apps[@]}"; do
   log "Installing ${appname}"
@@ -75,3 +80,9 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 # Automatically illuminate built-in MacBook keyboard in low light
 defaults write com.apple.BezelServices kDim -bool true
+
+
+asdf plugin add ruby
+asdf plugin add nodejs
+asdf plugin add java
+asdf plugin add cloure
