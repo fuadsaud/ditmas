@@ -1,8 +1,12 @@
 stow/clojure/.config/clojure/.cpcache
 stow/clojure/.config/clojure/tools
 
+stow/karabiner/.config/karabiner/automatic_backups
 stow/lein/.lein/repl-history
 stow/lein/.lein/self-installs
+
+stow/ssh/.ssh/*
+!stow/ssh/.ssh/config
 
 stow/vim/.vim/plugged
 stow/vim/.vim/autoload/plug.vim
@@ -16,8 +20,4 @@ stow/zsh/.config/zsh/.zcompdump.zwc
 stow/zsh/.config/zsh/.zhistory
 stow/zsh/.config/zsh/.zsh_history
 
-emacs.d/elpa
-
-tags
-
-.nerepl-port
+.nrepl-port
