@@ -33,7 +33,7 @@
   cry = cherry -v
   current-branch = symbolic-ref HEAD --short
   d  = diff
-  default-branch = "!git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'"
+  default-branch = "!git remote show origin | grep 'HEAD branch' | cut -d ' ' -f 5"
   dc = diff --cached
   dm = "!git show @ --format=short | head -n 2 | tail -n 1 | cut -d ' ' -f 2,3 | xargs git diff"
   dw = diff --word-diff
@@ -50,7 +50,6 @@
   la = log --graph --abbrev-commit --all
   m  = merge --verbose
   nau = update-index --no-assume-unchanged
-  nu-sha = "!git sha @ | cut -c -7 | tr -d '\n'"
   p  = push --verbose --progress
   pf = p --force-with-lease
   pm = prune-merged
@@ -72,7 +71,6 @@
   rs = restore
   sd = stash drop
   sed  = "!git ls-files | xargs sed -i"
-  sha = rev-parse --short
   shaf = fz-sha
   showf = fz-show
   showm = "!git show @ --format=full | tail -n +2 | head -n 1 | cut -d ':' -f 2 | awk 'BEGIN{FS=" ";OFS="..."} {t1=$1;$1=$2;$2=t1;print}'"

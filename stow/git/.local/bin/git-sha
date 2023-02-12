@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+set -euo pipefail
+
+REF=${1:-HEAD}
+
+git rev-parse "${REF}"
