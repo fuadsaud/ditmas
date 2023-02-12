@@ -11,6 +11,8 @@ stow/lein/.lein/self-installs
 
 stow/ssh/.ssh/*
 !stow/ssh/.ssh/config
+!stow/ssh/.ssh/known_hosts
+!stow/ssh/.ssh/allowed_signers
 
 stow/vim/.vim/plugged
 stow/vim/.vim/autoload/plug.vim
