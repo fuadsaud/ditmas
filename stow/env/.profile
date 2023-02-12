@@ -63,7 +63,11 @@ export GOPATH="${SRC_DIR}/go"
 export GO_PATH="${GOPATH}"
 export PACMAN_BIN="paru"
 
-# Set the list of directories that Zsh searches for programs.
+#
+# Paths
+#
+
+# Set the list of directories to search for programs.
 export PATH=$(tr -d $'\n ' <<< "
   $GOPATH/bin:
   $HOME/.cargo/bin:
@@ -72,6 +76,11 @@ export PATH=$(tr -d $'\n ' <<< "
   /opt/homebrew/sbin:
   /opt/homebrew/bin:
   $PATH
+")
+
+export FPATH=$(tr -d $'\n ' <<< "
+  $(brew --prefix)/share/zsh/site-functions:
+  $FPATH
 ")
 
 #

@@ -30,4 +30,3 @@ elif (( $+commands[fortune] )); then
 
   print
 fi
-

@@ -12,6 +12,7 @@ alias nexus="emulator -avd Nexus_5X_API_28"
 alias nvplug="nvim +PlugInstall +qall"
 alias p="paru"
 alias pacs="sudo pacman -S"
+alias pm="pulumi"
 alias qmkxf="qmk flash -kb xd75 -km fuad -bl dfu"
 alias qmkef="qmk flash -kb ergodash/rev1 -km fuad"
 alias rk="rake"
@@ -44,9 +45,9 @@ alias rm="${aliases[rm]:-rm} -v"
 alias j="fasd_jump"
 alias nf="fasd_edit"
 
-function path { print -l "${PATH}"; }
+function path { print -l $path; }
 
 function nd { nvim "+cd ${DITMAS_DIR}"; }
 function nz { nvim "+cd ${ZDOTDIR}"; }
-function nw { nvim $(which ${1}) }
-function nv { nvim "+cd ${XDG_CONFIG_HOME}/nvim" }
+function nw { nvim $(which ${1}); }
+function nv { nvim "+cd ${XDG_CONFIG_HOME}/nvim"; }
