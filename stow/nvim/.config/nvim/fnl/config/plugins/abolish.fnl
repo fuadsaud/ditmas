@@ -1,7 +1,8 @@
 (module config.plugins.abolish)
 
 (local mappings
-  {"notoin" "notion"})
+  {"notoin" "notion"
+   "envi{n,}roment" "environment"})
 
 (defn config []
   (print "blah!")
