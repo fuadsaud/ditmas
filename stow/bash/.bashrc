@@ -1,18 +1,3 @@
-function load_chruby {
-  local chruby_dir="$(dirname $(dirname $(which chruby-exec)))"
-
-  source "${chruby_dir}/share/chruby/chruby.sh"
-  source "${chruby_dir}/share/chruby/auto.sh"
-
-  chruby 2
-}
-
-function load_nvm {
-  export NVM_DIR="${HOME}/.nvm"
-  [ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"  # This loads nvm
-  [ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion"  # This loads nvm bash_completion
-}
-
 function load_fzf {
   [ -f ~/.fzf.bash ] && source "${HOME}/.fzf.bash"
 }
@@ -31,11 +16,7 @@ fasd_cd() {
   fi
 }
 
-alias g=git
 source "${XDG_CONFIG_HOME}/zsh/aliases.zsh"
 source "${XDG_CONFIG_HOME}/zsh/fasd.zsh"
-source "${XDG_CONFIG_HOME}/nu/nurc"
 
-load_chruby
-load_nvm
 load_fzf
