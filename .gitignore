@@ -1,7 +1,11 @@
 stow/clojure/.config/clojure/.cpcache
 stow/clojure/.config/clojure/tools
 
+stow/gpg/.gnupg/*
+!stow/gpg/.gnupg/gpg-agent.conf
+
 stow/karabiner/.config/karabiner/automatic_backups
+
 stow/lein/.lein/repl-history
 stow/lein/.lein/self-installs
 
