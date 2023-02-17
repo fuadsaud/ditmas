@@ -37,7 +37,7 @@
    ; syntax
    :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
                                      :config (config-str :treesitter)}
-   :p00f/nvim-ts-rainbow {}
+   :mrjones2014/nvim-ts-rainbow {}
 
    :sheerun/vim-polyglot {}
    :luochen1990/rainbow {:config (config-str :rainbow)}
