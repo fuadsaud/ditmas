@@ -2,4 +2,5 @@ nodejs 18.8.0
 java openjdk-18.0.2.1
 clojure 1.11.1.1105
 python 3.11.1
-ruby truffleruby+graalvm-22.2.0
+ruby 3.2.0
+babashka 1.1.173
