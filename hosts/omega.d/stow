@@ -5,6 +5,7 @@ assorted-scripts
 bash
 clojure
 ctags
+direnv
 dmutils
 env
 git
