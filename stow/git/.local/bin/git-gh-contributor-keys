@@ -1,0 +1,60 @@
+#!/usr/bin/env bb
+
+(require '[babashka.process :refer [process]])
+(require '[babashka.http-client :as http])
+(require '[cheshire.core :as json])
+(require '[clojure.string :as string])
+(require '[clojure.set :as set])
+; (import '[java.net URLEncoder])
+
+(defn username [email]
+  (some-> (http/get (str "https://api.github.com/search/users?q=" email)
+                    {:headers {"Accept" "application/vnd.github.v3+json"}})
+          :body
+          (json/parse-string true)
+          :items
+          first
+          :login))
+
+(defn user-signing-keys [username]
+  (-> (http/get (str "https://github.com/" username ".keys"))
+      :body
+      string/split-lines))
+
+(def contributor-emails
+  (-> (process "git log"
+               "--since='2021-11-14'"
+               "--format=%G? %aE")
+      (process "sort -u")
+      (process "grep -v '^N'")
+      (process "cut -d ' ' -f 2")
+      :out
+      slurp
+      string/split-lines
+      set))
+
+(defn resolve-usernames [emails]
+  (reduce (fn [users email]
+              (if-let [username* (username email)]
+                (update users username* #(update % :emails set/union #{email}))
+                users))
+          {}
+          emails))
+
+(defn +signing-keys [user-email-mapping]
+  (reduce-kv (fn [users username user]
+               (assoc users username (assoc user :signing-keys (user-signing-keys username))))
+             {}
+             user-email-mapping))
+
+(defn display
+  [users]
+  (doseq [[username {:keys [emails signing-keys]}] users]
+    (println username)
+    (doseq [signing-key signing-keys]
+      (println (str (string/join emails) " " signing-key)))))
+
+(-> contributor-emails
+    resolve-usernames
+    +signing-keys
+    display)
