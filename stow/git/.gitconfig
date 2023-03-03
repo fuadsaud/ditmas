@@ -115,6 +115,7 @@
   defaultToUpstream = true
 [push]
   default = current
+  autoSetupRemote = true
 [gitsh]
   defaultCommand = status -sb
 [filter "lfs"]
