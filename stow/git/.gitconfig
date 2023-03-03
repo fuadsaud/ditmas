@@ -11,6 +11,7 @@
   gpgsign = true
 [alias]
   a  = add --verbose
+  af = fz-add
   ap = add-pattern
   au = add --update
   br = branch

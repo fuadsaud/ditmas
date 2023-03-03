@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+git ls-files -m -o --exclude-standard $(git root) | fzf -m --print0 | xargs -0 -o -t git add
