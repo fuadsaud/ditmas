@@ -53,6 +53,7 @@
    :tpope/vim-unimpaired {}
    :tpope/vim-commentary {}
    :tpope/vim-endwise {}
+   ; :tpope/vim-rsi {}
    :junegunn/vim-easy-align {}
    :AndrewRadev/splitjoin.vim {:config (config-str :splitjoin)}
    :sjl/gundo.vim {}
@@ -78,6 +79,7 @@
                                  :hrsh7th/cmp-buffer {}
                                  :hrsh7th/cmp-path {}
                                  :hrsh7th/cmp-cmdline {}
+                                 :hrsh7th/cmp-nvim-lsp-signature-help {}
                                  :PaterJason/cmp-conjure {:after :conjure}}
                       :config (config-str :cmp)}
 
@@ -120,7 +122,7 @@
    ; git
    :tpope/vim-fugitive {}
    :tpope/vim-rhubarb {}
-   :airblade/vim-gitgutter {}
+   :lewis6991/gitsigns.nvim {:config (config-str :gitsigns)}
    :mattn/gist-vim {:requires {:mattn/webapi-vim {}}}
 
    ; tmux

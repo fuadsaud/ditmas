@@ -1,6 +1,7 @@
 (module config.lsp.shared
   {autoload {nvim aniseed.nvim
-             cmp_lsp cmp_nvim_lsp}})
+             cmp_lsp cmp_nvim_lsp}
+   require-macros [lib.macros]})
 
 (defn on_attach [client bufnr]
   (let [buf-set-keymap (fn [mode mapping target] (nvim.buf_set_keymap bufnr mode mapping target {:noremap true}))
@@ -12,6 +13,7 @@
     ; references
     (buf-set-keymap :n "K"           "<cmd>lua vim.lsp.buf.hover()<CR>")
     (buf-set-keymap :n "<Leader>lk"  "<cmd>lua vim.lsp.buf.signature_help()<CR>")
+    (buf-set-keymap :i "<C-_>"       "<cmd>lua vim.lsp.buf.signature_help()<CR>")
     (buf-set-keymap :n "<Leader>ltd" "<cmd>lua vim.lsp.buf.type_definition()<CR>")
     (buf-set-keymap :n "<Leader>lic" "<cmd>lua vim.lsp.buf.incoming_calls()<CR>")
     (buf-set-keymap :n "gr"          "<cmd>lua vim.lsp.buf.references()<CR>")
@@ -35,7 +37,10 @@
     (buf-set-keymap :n "<Leader>fws"  "<cmd>lua require('telescope.builtin').lsp_workspace_symbols(require('telescope.themes').get_ivy({}))<CR>")
     (buf-set-keymap :n "<Leader>fds"  "<cmd>lua require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_ivy({}))<CR>")
     (buf-set-keymap :n "<Leader>fr"   "<cmd>lua require('telescope.builtin').lsp_references(require('telescope.themes').get_ivy({}))<CR>")
-    (buf-set-keymap :n "<Leader>fi"   "<cmd>lua require('telescope.builtin').lsp_implementations(require('telescope.themes').get_ivy({}))<CR>")))
+    (buf-set-keymap :n "<Leader>fi"   "<cmd>lua require('telescope.builtin').lsp_implementations(require('telescope.themes').get_ivy({}))<CR>")
+
+    (augroup :lsp-format-on-save
+      (autocmd :BufWritePre :<buffer> "lua vim.lsp.buf.format({ async = false })"))))
 
 (def handlers
   {"textDocument/hover"

@@ -6,7 +6,8 @@
   {:buffer "buff"
    :luasnip "luasnip"
    :conjure "conj"
-   :nvim_lsp "lsp"})
+   :nvim_lsp "lsp"
+   :nvim_lsp_signature_help "signature"})
 
 (defn config []
   (cmp.setup {:formatting
@@ -26,6 +27,7 @@
                         :<CR> (cmp.mapping.confirm {:select false})}
 
               :sources (cmp.config.sources [{:name :nvim_lsp}
+                                            {:name :nvim_lsp_signature_help}
                                             {:name :luasnip}
                                             {:name :conjure}
                                             {:name :buffer}])})
