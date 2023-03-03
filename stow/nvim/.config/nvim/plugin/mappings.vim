@@ -62,13 +62,11 @@ inoremap <C-e> <End>
 inoremap <C-f> <Right>
 
 " emacs kill bindings
-" inoremap <C-K> <Esc>lDa
-inoremap <C-U> <Esc>d0xi
+inoremap <C-K> <Esc>lDa
 inoremap <C-Y> <Esc>Pa
-inoremap <C-X><C-S> <Esc>:w<CR>a
 
 " write buffer on C-s
-inoremap <C-s> <Esc>:w<CR>
+inoremap <C-s> <Esc>:w<CR>a
 nnoremap <C-s> :w<CR>
 
 "                       _             __
