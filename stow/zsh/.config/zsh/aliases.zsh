@@ -1,14 +1,11 @@
-alias a="rg"
 alias bat='docker run -it --rm -e BAT_THEME -e BAT_STYLE -e BAT_TABS -v "$(pwd):/myapp" danlynn/bat'
 alias bx="bundle exec"
 alias cdgr="cd \`git root\`"
 alias cdgw='cd $(git fz-worktree-path)'
-alias dsnc="dsync"
 alias g="git"
 alias gg="gt"
 alias mk="make"
 alias n="nvim"
-alias nexus="emulator -avd Nexus_5X_API_28"
 alias nvplug="nvim +PlugInstall +qall"
 alias p="paru"
 alias pacs="sudo pacman -S"
@@ -33,15 +30,6 @@ alias ln="${aliases[ln]:-ln} -v"
 alias mv="${aliases[mv]:-mv} -v"
 alias rm="${aliases[rm]:-rm} -v"
 
-
-# alias a='fasd -a'        # any
-# alias s='fasd -si'       # show / search / select
-# alias d='fasd -d'        # directory
-# alias f='fasd -f'        # file
-# alias sd='fasd -sid'     # interactive directory selection
-# alias sf='fasd -sif'     # interactive file selection
-# alias z='fasd_cd -d'     # cd, same functionality as j in autojump
-# alias zz='fasd_cd -d -i' # cd with interactive selection
 alias j="fasd_jump"
 alias nf="fasd_edit"
 
