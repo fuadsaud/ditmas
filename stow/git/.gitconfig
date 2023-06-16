@@ -15,8 +15,8 @@
   ap = add-pattern
   au = add --update
   br = branch
+  bc = switch --create
   brw = browse
-  cb = switch --create
   ci = commit --verbose
   cia = ci --all
   cinc = ci -m ':nail_care:'
@@ -69,6 +69,7 @@
   rom = "!git rebase origin/$(git default-branch)"
   rias = rebase -i --autosquash
   redo = ci --amend --no-edit
+  restage = update-index --again
   root = rev-parse --show-toplevel
   rs = restore
   sd = stash drop
@@ -82,8 +83,10 @@
   sp = stash pop
   ss = stash show -p
   st  = status --short --branch
+  ssv = stash save
   sw = switch
   swc = switch --create
+  swm = switch --merge
   t = tag
   uiau = update-index --assume-unchanged
   undo = reset HEAD~1
@@ -135,3 +138,5 @@
   diffFilter = delta --color-only
 [credential "https://dev.azure.com"]
   useHttpPath = true
+[init]
+  defaultBranch = main
