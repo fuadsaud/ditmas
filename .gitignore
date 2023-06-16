@@ -2,6 +2,7 @@
 
 stow/clojure/.config/clojure/.cpcache
 stow/clojure/.config/clojure/tools
+stow/clojure/.config/clojure/.clj-kondo/.cache
 
 stow/gpg/.gnupg/*
 !stow/gpg/.gnupg/gpg-agent.conf
