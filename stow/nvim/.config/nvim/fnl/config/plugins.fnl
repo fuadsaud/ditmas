@@ -18,7 +18,9 @@
 
    :neovim/nvim-lspconfig {:config (config-str :lspconfig)
                            :requires {:williamboman/mason-lspconfig.nvim {}
-                                      :williamboman/mason.nvim {}}}
+                                      :williamboman/mason.nvim {:run ":MasonUpdate"}
+                                      :jose-elias-alvarez/null-ls.nvim {:requires {:nvim-lua/plenary.nvim {}}}
+                                      :lukas-reineke/lsp-format.nvim {}}}
 
    :folke/which-key.nvim {:config (config-str :which-key)}
 
@@ -105,6 +107,10 @@
 
    :folke/trouble.nvim {:requires {:kyazdani42/nvim-web-devicons {}}
                         :config (config-str :trouble)}
+
+   :folke/todo-comments.nvim {:requires {:nvim-lua/plenary.nvim {}}
+                              :config (config-str :todo-comments)}
+
    ; fuzzy search
    :nvim-telescope/telescope.nvim {:requires {:nvim-lua/plenary.nvim {}
                                               :nvim-telescope/telescope-fzf-native.nvim {:run "make"}
@@ -112,18 +118,20 @@
                                    :config (config-str :telescope)}
 
    ; navigation
-   :vim-scripts/a.vim {}
    :nvim-telescope/telescope-file-browser.nvim {}
    :tpope/vim-vinegar {}
    :tpope/vim-projectionist {}
    :justinmk/vim-gtfo {}
-   :ggandor/lightspeed.nvim {}
+   :ggandor/leap.nvim {:config (config-str :leap)}
 
    ; git
    :tpope/vim-fugitive {}
    :tpope/vim-rhubarb {}
    :lewis6991/gitsigns.nvim {:config (config-str :gitsigns)}
    :mattn/gist-vim {:requires {:mattn/webapi-vim {}}}
+
+   ; terminal
+   :nikvdp/neomux {}
 
    ; tmux
    :christoomey/vim-tmux-navigator {}

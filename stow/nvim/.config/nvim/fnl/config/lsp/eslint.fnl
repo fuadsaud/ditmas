@@ -1,9 +1,5 @@
 (module config.lsp.eslint
-  {autoload {nvim aniseed.nvim
-             a aniseed.core
-             shared config.lsp.shared
-             lspconfig lspconfig
-             util lspconfig.util}
+  {autoload {a aniseed.core}
    require-macros [lib.macros]})
 
 (defn- on_attach [client bufnr]
@@ -14,5 +10,4 @@
 (defn opts [default-server-opts]
   (a.merge default-server-opts {:on_attach (fn [client bufnr]
                                              (on_attach client bufnr)
-                                             (default-server-opts.on_attach client bufnr))
-                                :root_dir (util.root_pattern ".git")}))
+                                             (default-server-opts.on_attach client bufnr))}))
