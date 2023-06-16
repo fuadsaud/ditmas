@@ -82,8 +82,11 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-" switch between the last two files
+" switch between the last two buffers
 nnoremap <Leader>c <C-^>
+map <X1Release> <C-o>
+map <X2Release> <C-i>
+
 
 "                          __
 "    ____ ___  ____  ____/ /__  _____
@@ -148,10 +151,6 @@ noremap gV `[v`]
 " default / to perl-style regexp's
 nnoremap / /\v
 vnoremap / /\v
-
-" ack
-nnoremap <Leader>a :Ack<Space>
-nnoremap <Leader>A :Ack<Space><C-r><C-a><CR>
 
 " remove highligted terms
 nnoremap <silent> <Leader><Esc> :noh<CR>
@@ -336,5 +335,5 @@ snoremap <silent> <Tab>   <cmd>lua require('luasnip').jump(1)<CR>
 snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<CR>
 
 " For changing choices in choiceNodes (not strictly necessary for a basic setup).
-imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+imap <silent><expr> <C-e> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-e>'
+smap <silent><expr> <C-e> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-e>'
