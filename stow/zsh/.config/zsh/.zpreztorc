@@ -35,6 +35,7 @@ zstyle ':prezto:load' pmodule \
   'archive' \
   'tmux' \
   'gpg' \
+  'git' \
   'osx' \
   'pacman' \
   'node' \
@@ -63,6 +64,7 @@ zstyle ':prezto:module:editor' key-bindings 'vi'
 
 # Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
 # zstyle ':prezto:module:git:status:ignore' submodules 'all'
+zstyle ':prezto:module:git:alias' skip 'yes'
 
 #
 # GNU Utility
