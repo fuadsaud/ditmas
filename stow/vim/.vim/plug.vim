@@ -8,8 +8,9 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-abolish'
 
+Plug 'sheerun/vim-polyglot'
+
 " git
-Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
@@ -43,39 +44,16 @@ Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 Plug 'wellle/targets.vim'
 
 " tmux
-Plug 'Keithbsmiley/tmux.vim', { 'for': 'tmux' }
-Plug 'LnL7/vim-tslime'
 Plug 'christoomey/vim-tmux-navigator'
-
-" ruby
-Plug 'vim-ruby/vim-ruby'
 
 " clojure
 Plug 'tpope/vim-fireplace'
-Plug 'guns/vim-clojure-static',                    { 'for': 'clojure' }
-Plug 'guns/vim-clojure-highlight',                 { 'for': 'clojure' }
 Plug 'tpope/vim-salve',                            { 'for': 'clojure' }
-Plug 'fuadsaud/vim-midje',                         { 'for': 'clojure' }
 Plug 'guns/vim-sexp',                              { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 
-" fennel
-Plug 'mnacamura/vim-fennel-syntax', { 'for': 'fennel' }
-
-"haskell
-Plug 'dag/vim2hs',          { 'for': 'haskell' }
-
 " python
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
-
-" javascript
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-
-" markup
-Plug 'hail2u/vim-css3-syntax',         { 'for': 'css'}
-Plug 'othree/html5.vim',               { 'for': 'html' }
-Plug 'tpope/vim-markdown',             { 'for': 'markdown'}
-Plug 'jtratner/vim-flavored-markdown', { 'for': 'markdown'}
 
 " colorschemes
 Plug 'fuadsaud/Monrovia'
