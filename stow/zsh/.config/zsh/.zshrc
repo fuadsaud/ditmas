@@ -23,12 +23,11 @@ unsetopt correct
 setopt interactivecomments
 setopt globdots
 
-autoload bashcompinit; bashcompinit
-
 safe_source "${ZDOTDIR:-$HOME}/fasd.zsh"
 safe_source "${ZDOTDIR:-$HOME}/fzf.zsh"
 safe_source "${ZDOTDIR:-$HOME}/colors.zsh"
 safe_source "${ZDOTDIR:-$HOME}/aliases.zsh"
+safe_source "${ZDOTDIR:-$HOME}/completions.zsh"
 
 safe_source "$(brew --prefix asdf)/libexec/asdf.sh" # fix for linux
 
