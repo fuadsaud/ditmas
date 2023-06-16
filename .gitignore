@@ -25,5 +25,6 @@ stow/zsh/.config/zsh/.zcompcache
 stow/zsh/.config/zsh/.zcompdump.zwc
 stow/zsh/.config/zsh/.zhistory
 stow/zsh/.config/zsh/.zsh_history
+stow/zsh/.config/zsh/.zsh_sessions
 
 .nrepl-port
