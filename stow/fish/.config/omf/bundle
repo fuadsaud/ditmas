@@ -1,2 +1,6 @@
+package gi
+theme boxfish
 theme default
 theme nai
+theme pie
+theme sashimi
