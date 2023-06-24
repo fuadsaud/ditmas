@@ -16,7 +16,7 @@
 
    :tpope/vim-scriptease {}
 
-   :neovim/nvim-lspconfig {:config (config-str :lspconfig)
+   :neovim/nvim-lspconfig {:config (config-str :lsp)
                            :requires {:williamboman/mason-lspconfig.nvim {}
                                       :williamboman/mason.nvim {:run ":MasonUpdate"}
                                       :jose-elias-alvarez/null-ls.nvim {:requires {:nvim-lua/plenary.nvim {}}}
