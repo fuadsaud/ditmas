@@ -7,7 +7,7 @@
 (def specs
   {; meta
    :tpope/vim-scriptease {}
-   :folke/which-key.nvim {:main :config.plugins.which-key}
+   :folke/which-key.nvim {:config true}
    :Olical/aniseed {:branch "develop"}
    :Olical/conjure {:dependencies {:m00qek/baleia.nvim {:config true
                                                         :tag "v1.3.0"}}}
@@ -96,11 +96,11 @@
 
    ; todos
    :folke/todo-comments.nvim {:dependencies {:nvim-lua/plenary.nvim {}}
-                              :main :config.plugins.todo-comments}
+                              :config true}
 
    ; diagnostics
    :folke/trouble.nvim {:dependencies {:kyazdani42/nvim-web-devicons {}}
-                        :main :config.plugins.trouble}
+                        :config true}
 
    ; completion
    :hrsh7th/nvim-cmp {:dependencies {:PaterJason/cmp-conjure {}

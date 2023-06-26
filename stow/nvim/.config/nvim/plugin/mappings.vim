@@ -1,6 +1,5 @@
 " keymaps
 " interesting unused keys in normal mode:
-"   - <Return> (testing for :)
 "   - + (testing for aux <LocalLeader>)
 "   - _
 "   - \
@@ -75,12 +74,6 @@ nnoremap <C-s> :w<CR>
 "  / / / / /_/ /| |/ / / /_/ / /_/ / /_/  __/
 " /_/ /_/\__,_/ |___/_/\__, /\__,_/\__/\___/
 "                     /____/
-
-" easier navigation between split windows
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
 
 " switch between the last two buffers
 nnoremap <Leader>c <C-^>
@@ -182,22 +175,6 @@ nnoremap z<Space> zA
 " source
 nnoremap <Leader>si :source $MYVIMRC<CR>
 nnoremap <Leader>so :source %<CR>
-
-"                       __
-"     ____  ____ ______/ /_____  _____
-"    / __ \/ __ `/ ___/ //_/ _ \/ ___/
-"   / /_/ / /_/ / /__/ ,< /  __/ /
-"  / .___/\__,_/\___/_/|_|\___/_/
-" /_/
-"
-
-" packer
-nnoremap <Leader>pc :PackerCompile<CR>
-nnoremap <Leader>px :PackerClean<CR>
-nnoremap <Leader>pi :PackerInstall<CR>
-nnoremap <Leader>pu :PackerUpdate<CR>
-nnoremap <Leader>py :PackerSync<CR>
-nnoremap <Leader>ps :PackerStatus<CR>
 
 "            __    _ __
 "  _      __/ /_  (_) /____  _________  ____ _________
