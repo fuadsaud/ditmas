@@ -129,7 +129,14 @@
 
    :tsserver default-server-opts
 
-   :lua_ls (a.assoc-in default-server-opts [:settings :Lua :diagnostics :globals] [:vim])
+   :lua_ls (a.merge
+             default-server-opts
+             {:settings {:Lua {:diagnostics {:globals [:vim]}}}})
+
+   ; :fennel_language_server (a.merge
+   ;                           default-server-opts
+   ;                           {:settings {:fennel {:workspace {:library (vim.api.nvim_list_runtime_paths)}
+   ;                                                :diagnostics {:globals [:vim]}}}})
 
    :bashls default-server-opts})
 
