@@ -1,7 +1,7 @@
 (module config.plugins.telescope
   {autoload {telescope telescope}})
 
-(defn config []
+(defn setup []
   (telescope.load_extension "fzf")
   (telescope.load_extension "ui-select")
   (telescope.load_extension "file_browser")

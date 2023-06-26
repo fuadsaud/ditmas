@@ -2,7 +2,7 @@
   {autoload {a aniseed.core
              gitsigns gitsigns}})
 
-(defn config []
+(defn setup []
   (gitsigns.setup
     {:on_attach
      (fn [bufnr]

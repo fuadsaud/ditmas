@@ -8,7 +8,9 @@
              null-ls null-ls
              nvim aniseed.nvim
              telescope-builtin telescope.builtin
-             telescope-themes telescope.themes}})
+             telescope-themes telescope.themes}
+
+   require-macros [lib.macros]})
 
 (defn format
   [bufnr]
@@ -19,11 +21,11 @@
 
 (def default-server-opts
   {:on_attach (fn [client bufnr]
-                (print (a.str "Running config.lsp.shared/on_attach" {:client client.name}))
+                (vim.notify (a.str "Running config.lsp.shared/on_attach" {:client client.name}))
 
                 (let [buf-set-option (fn [opt val] (nvim.buf_set_option bufnr opt val))
                       buf-set-keymap-fn (fn [mode mapping target-fn]
-                                          (vim.keymap.set mode mapping target-fn {:buffer bufrn
+                                          (vim.keymap.set mode mapping target-fn {:buffer bufnr
                                                                                   :noremap true}))]
                   (buf-set-option "omnifunc" "v:lua.vim.lsp.omnifunc")
 
@@ -34,7 +36,7 @@
                   (buf-set-keymap-fn :n :<Leader>ltd  #(vim.lsp.buf.type_definition))
                   (buf-set-keymap-fn :n :<Leader>lic  #(vim.lsp.buf.incoming_calls))
                   (buf-set-keymap-fn :n :gr           #(vim.lsp.buf.references))
-                  (buf-set-keymap-fn :n :gR           #(vim.cmd {:cmd :TroubleToggle :args  :lsp_references}))
+                  (buf-set-keymap-fn :n :gR           #(vim.cmd {:cmd :TroubleToggle :args :lsp_references}))
                   (buf-set-keymap-fn :n :gd           #(vim.lsp.buf.definition))
                   (buf-set-keymap-fn :n :g0           #(vim.lsp.buf.document_symbol))
                   (buf-set-keymap-fn :n :gD           #(vim.lsp.buf.declaration))
@@ -50,17 +52,17 @@
 
                   ; telescope
                   (let [telescope-theme (telescope-themes.get_ivy)]
-                    (buf-set-keymap-fn :n :<Leader>fws  #(telescope-builtin.lsp_workspace_symbols telescope-theme))
-                    (buf-set-keymap-fn :n :<Leader>fds  #(telescope-builtin.lsp_document_symbols telescope-theme))
-                    (buf-set-keymap-fn :n :<Leader>fr   #(telescope-builtin.lsp_references telescope-theme))
-                    (buf-set-keymap-fn :n :<Leader>fi   #(telescope-builtin.lsp_implementations telescope-theme)))
+                    (buf-set-keymap-fn :n :<Leader>fws #(telescope-builtin.lsp_workspace_symbols telescope-theme))
+                    (buf-set-keymap-fn :n :<Leader>fds #(telescope-builtin.lsp_document_symbols telescope-theme))
+                    (buf-set-keymap-fn :n :<Leader>fr  #(telescope-builtin.lsp_references telescope-theme))
+                    (buf-set-keymap-fn :n :<Leader>fi  #(telescope-builtin.lsp_implementations telescope-theme)))
 
                   (let [group (vim.api.nvim_create_augroup "lsp-format-on-save" {})]
                     (vim.api.nvim_clear_autocmds {:group group :buffer bufnr})
 
-                    (vim.api.nvim_create_autocmd :BufWritePre {:group group}
-                                                              :buffer bufnr
-                                                              :callback #(format bufnr)))))
+                    (vim.api.nvim_create_autocmd :BufWritePre {:group group
+                                                                      :buffer bufnr
+                                                                      :callback #(format bufnr)}))))
 
    :handlers {"textDocument/hover"
               (vim.lsp.with
@@ -71,27 +73,29 @@
                 vim.lsp.handlers.signature_help
                 {:border "single"})}
 
-   :capabilities (a.assoc-in
-                   (cmp_lsp.default_capabilities)
-                   [:textDocument :completion :completionItem :snippetSupport]
-                   true)})
+   :capabilities (-> (a.merge {} (cmp_lsp.default_capabilities)) ; clone table
+                     (a.assoc-in
+                      [:textDocument :completion :completionItem :snippetSupport]
+                      true))})
 
 (def server->config
-  {:clojure_lsp (a.update
+  {:clojure_lsp (a.merge
                   default-server-opts
-                  :on_attach
-                  (fn [default-on-attach]
+                  {:on_attach
                     (fn [client bufnr]
                       (let [buf-set-keymap (fn [mode mapping target] (nvim.buf_set_keymap bufnr mode mapping target {:noremap true}))
                             buf-set-keymap-fn (fn [mode mapping target-fn]
-                                                (vim.keymap.set mode mapping target-fn {:buffer bufrn
-                                                                                        :noremap true}))]
-                        (print "Running config.plugins.lsp.clojure/on_attach")
+                                                (vim.keymap.set mode mapping target-fn {:buffer bufnr
+                                                                                        :noremap true}))
+
+                            expand-path-uri (fn [] (a.str "file://" (vim.fn.expand "%:p")))]
+
+                        (vim.notify "Running config.plugins.lsp.clojure/on_attach")
 
                         (let [execute-command (fn [command-name extra-args]
                                                 (vim.lsp.buf.execute_command
                                                   {:command command-name}
-                                                  :arguments (a.concat [(expand_path_uri)
+                                                  :arguments (a.concat [(expand-path-uri)
                                                                         (- (vim.fn.line ".") 1)
                                                                         (- (vim.fn.col ".") 1)
                                                                         extra-args])))]
@@ -107,7 +111,7 @@
                           (buf-set-keymap-fn :n :<LocalLeader>ml #(execute-command :move-to-let         [(vim.fn.input "Binding name: ")]))
                           (buf-set-keymap-fn :n :<LocalLeader>il #(execute-command :introduce-let       [(vim.fn.input "Binding name: ")]))
 
-                          (default-on-attach client bufnr))))))
+                          (default-server-opts.on_attach client bufnr))))})
 
    :html default-server-opts
 
@@ -115,16 +119,17 @@
 
    :jsonls default-server-opts
 
-   :eslint (a.update
+   :eslint (a.merge
              default-server-opts
-             :on_attach
-             (fn [default-on-attach]
-               (fn [client bufnr]
-                (augroup :eslint-fix-on-save
-                  (autocmd :BufWritePre "*.tsx,*.ts,*.jsx,*.js" "EslintFixAll"))
-                (default-on-attach client bufnr))))
+             {:on_attach
+              (fn [client bufnr]
+               (augroup :eslint-fix-on-save
+                 (autocmd :BufWritePre "*.tsx,*.ts,*.jsx,*.js" "EslintFixAll"))
+               (default-server-opts.on_attach client bufnr))})
 
    :tsserver default-server-opts
+
+   :lua_ls (a.assoc-in default-server-opts [:settings :Lua :diagnostics :globals] [:vim])
 
    :bashls default-server-opts})
 
@@ -136,22 +141,22 @@
   (null-ls.setup
     {:sources [null-ls.builtins.formatting.prettier
                null-ls.builtins.code_actions.gitsigns]
-     :on_attach on_attach
+     :on_attach default-server-opts.on_attach
      :debug true})
 
-  (print (string.format "config.plugins.lspconfig/config: setup finished for [%s]" "null-ls")))
+  (vim.notify (string.format "config.plugins.lspconfig/config: setup finished for [%s]" "null-ls")))
 
 (defn setup-lspconfig []
   (each [server-name config (pairs server->config)]
     ((. lspconfig server-name :setup) config)
 
-    (print (string.format "config.plugins.lspconfig/config: setup finished for [%s]" server-name))))
+    (vim.notify (string.format "config.plugins.lspconfig/config: setup finished for [%s]" server-name))))
 
 (defn setup-lsp-format []
   (lsp-format.setup {:exclude [:tsserver]}))
 
-(defn config []
-  (print "config.plugins.lspconfig/config")
+(defn setup []
+  (vim.notify "config.plugins.lspconfig/config")
 
   (setup-mason)
   (setup-null-ls)

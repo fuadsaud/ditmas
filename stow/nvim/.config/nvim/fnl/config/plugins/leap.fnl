@@ -1,5 +1,5 @@
 (module config.plugins.leap
   {autoload {leap leap}})
 
-(defn config []
+(defn setup []
   (leap.add_default_mappings))

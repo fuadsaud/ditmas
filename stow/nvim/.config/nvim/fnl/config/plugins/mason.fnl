@@ -2,7 +2,7 @@
   {autoload {mason mason
              mason-lspcofnig mason-lspcofnig}})
 
-(defn config []
+(defn setup []
   (mason.setup {})
 
   (mason-lspconfig/setup

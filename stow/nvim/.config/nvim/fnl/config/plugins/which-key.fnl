@@ -3,5 +3,5 @@
              a aniseed.core
              which-key which-key}})
 
-(defn config []
+(defn setup []
   (which-key.setup {}))

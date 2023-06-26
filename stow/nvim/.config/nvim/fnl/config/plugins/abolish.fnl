@@ -4,6 +4,6 @@
   {"notoin" "notion"
    "envi{n,}roment" "environment"})
 
-(defn config []
+(defn setup []
   (each [from to (pairs mappings)]
     (vim.cmd {:cmd :Abolish :args [from to]})))

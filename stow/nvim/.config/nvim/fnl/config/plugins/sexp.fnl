@@ -2,7 +2,7 @@
   {autoload {string aniseed.string
              constants config.constants}})
 
-(defn config []
+(defn setup []
   (print "Running config.plugins.sexp/config")
 
   (set vim.g.sexp_filetypes (->> constants.sexp-languages (string.join ",")))

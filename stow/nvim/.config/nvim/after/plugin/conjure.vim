@@ -4,8 +4,8 @@ let g:conjure#client#clojure#nrepl#test#runner = "kaocha"
 let g:conjure#client#clojure#nrepl#test#call_suffix="{:kaocha/color? true}"
 let g:conjure#log#strip_ansi_escape_sequences_line_limit = 0
 
-let s:baleia = luaeval("require('baleia').setup { line_starts_at = 3 }")
-autocmd BufWinEnter conjure-log-* call s:baleia.automatically(bufnr('%'))
+" let s:baleia = luaeval("require('baleia').setup { line_starts_at = 3 }")
+" autocmd BufWinEnter conjure-log-* call s:baleia.automatically(bufnr('%'))
 
 let g:conjure#mapping#doc_word = "<LocalLeader>K"
 let g:conjure#mapping#def_word = "<LocalLeader>gd"

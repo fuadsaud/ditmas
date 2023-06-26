@@ -2,7 +2,7 @@
   {autoload {treesitter nvim-treesitter.configs}})
 
 
-(defn config []
+(defn setup []
   (treesitter.setup
     {:ensure_installed :all
      :ignore_install [:norg]

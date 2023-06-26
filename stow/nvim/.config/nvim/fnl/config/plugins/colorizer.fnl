@@ -1,5 +1,9 @@
 (module config.plugins.colorizer
   {autoload {colorizer colorizer}})
 
-(defn config []
+(defn setup []
+  (vim.notify "Running config.plugins.colorizer/setup")
+
+  (set vim.opt.termguicolors true)
+
   (colorizer.setup {}))

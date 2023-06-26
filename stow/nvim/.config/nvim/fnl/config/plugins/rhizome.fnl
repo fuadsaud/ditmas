@@ -1,7 +1,7 @@
 (module config.plugins.rhizome
   {autoload {rhizome rhizome}})
 
-(defn config []
+(defn setup []
   (rhizome.setup {:roots [{:path "~/Sources/fuadsaud/Monrovia"}
                           {:path "~/Sources/fuadsaud/fuadsaud.github.io"}
                           {:path "~/.ditmas"}

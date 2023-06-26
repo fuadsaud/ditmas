@@ -1,5 +1,5 @@
 (module config.plugins.todo-comments
   {autoload {todo-comments todo-comments}})
 
-(defn config []
+(defn setup []
   (todo-comments.setup {}))

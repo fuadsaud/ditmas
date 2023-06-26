@@ -9,7 +9,7 @@
    :nvim_lsp "lsp"
    :nvim_lsp_signature_help "signature"})
 
-(defn config []
+(defn setup []
   (cmp.setup {:formatting
               {:format (fn [entry item]
                         (set item.menu (or (. cmp-src-menu-items entry.source.name) ""))

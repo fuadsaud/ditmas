@@ -2,7 +2,7 @@
   {autoload {trouble trouble
              which-key which-key}})
 
-(defn config []
+(defn setup []
   (print "Running config.plugins.trouble/config")
 
   (trouble.setup {}))

@@ -5,6 +5,8 @@
              netrw config.netrw
              plugins config.plugins}})
 
+(vim.loader.enable)
+
 (def modules
   [plugins
    colors
