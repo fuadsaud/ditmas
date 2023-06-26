@@ -9,8 +9,8 @@
    :tpope/vim-scriptease {}
    :folke/which-key.nvim {:main :config.plugins.which-key}
    :Olical/aniseed {:branch "develop"}
-   :Olical/conjure {:dependencies {:m00qek/baleia.nvim {;:main :config.plugins.baleia
-                                                         :tag "v1.3.0"}}}
+   :Olical/conjure {:dependencies {:m00qek/baleia.nvim {:config true
+                                                        :tag "v1.3.0"}}}
 
    ; lsp
    :neovim/nvim-lspconfig {:main :config.plugins.lsp
