@@ -11,6 +11,7 @@
    :Olical/aniseed {:branch "develop"}
    :Olical/conjure {:dependencies {:m00qek/baleia.nvim {:config true
                                                         :tag "v1.3.0"}}}
+   :folke/neodev.nvim {}
 
    ; lsp
    :neovim/nvim-lspconfig {:main :config.plugins.lsp
@@ -83,7 +84,6 @@
                            :dir "~/Sources/fuadsaud/rhizome.nvim"
                            :name "rhizome.nvim"
                            :main :config.plugins.rhizome}
-   :m00qek/nvim-contabs {:dependencies {:junegunn/fzf {}}}
 
    ; snippets
    :L3MON4D3/LuaSnip {:dependencies {:rafamadriz/friendly-snippets {}
@@ -117,7 +117,6 @@
    :gregsexton/MatchTag {}
    :jszakmeister/vim-togglecursor {}
    :junegunn/goyo.vim {}
-   :milkypostman/vim-togglelist {}
    :nathanaelkane/vim-indent-guides {}
    :simeji/winresizer {}
    :nvim-lualine/lualine.nvim {:dependencies {:kyazdani42/nvim-web-devicons {}}

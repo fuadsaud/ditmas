@@ -146,7 +146,7 @@ nnoremap / /\v
 vnoremap / /\v
 
 " remove highligted terms
-nnoremap <silent> <Leader><Esc> :noh<CR>
+nnoremap <silent> <Leader><Esc> <cmd>noh<CR>
 
 "     ____      __    __
 "    / __/___  / /___/ /
@@ -156,11 +156,11 @@ nnoremap <silent> <Leader><Esc> :noh<CR>
 "
 
 " set fold methods
-nnoremap <Leader>zf :set fdm=manual<CR>
-nnoremap <Leader>zi :set fdm=indent<CR>
-nnoremap <Leader>zm :set fdm=marker<CR>
-nnoremap <Leader>zs :set fdm=syntax<CR>
-nnoremap <Leader>zd :set fdm=diff<CR>
+nnoremap <Leader>zf <cmd>set fdm=manual<CR>
+nnoremap <Leader>zi <cmd>set fdm=indent<CR>
+nnoremap <Leader>zm <cmd>set fdm=marker<CR>
+nnoremap <Leader>zs <cmd>set fdm=syntax<CR>
+nnoremap <Leader>zd <cmd>set fdm=diff<CR>
 
 " opens/closes folds
 nnoremap z<Space> zA
@@ -173,8 +173,8 @@ nnoremap z<Space> zA
 "
 
 " source
-nnoremap <Leader>si :source $MYVIMRC<CR>
-nnoremap <Leader>so :source %<CR>
+nnoremap <Leader>si <cmd>source $MYVIMRC<CR>
+nnoremap <Leader>so <cmd>source %<CR>
 
 "            __    _ __
 "  _      __/ /_  (_) /____  _________  ____ _________
@@ -184,10 +184,10 @@ nnoremap <Leader>so :source %<CR>
 "                             /_/
 
 " delete trailing whitespace
-nnoremap <silent> <Leader>w :%s/\s\+$//<CR>:let @/=''<CR>
+nnoremap <silent> <Leader>w <cmd>%s/\s\+$//<CR>:let @/=''<CR>
 
 " squeeze multiple blank lines
-nnoremap <silent> <Leader>W :%s/\(\n\n\)\n\+/\1/<CR>:let @/=''<CR>
+nnoremap <silent> <Leader>W <cmd>%s/\(\n\n\)\n\+/\1/<CR>:let @/=''<CR>
 
 " easyalign
 xmap ga <Plug>(EasyAlign)
@@ -227,8 +227,8 @@ nnoremap <Leader>ft  <cmd>Telescope treesitter   theme=ivy<CR>
 nnoremap <silent> <Leader>,v <cmd>lua require("rhizome").open_in_new_tab(vim.fn.fnamemodify(vim.fn.resolve(vim.fn.expand(os.getenv("MYVIMRC"))), ':h'))<CR>
 nnoremap <silent> <Leader>,z <cmd>lua require("rhizome").open_in_new_tab(os.getenv("ZDOTDIR"))<CR>
 
-nnoremap <silent> <Leader>p :Telescope rhizome roots<CR>
-nnoremap <silent> <Leader>b :Telescope buffers only_cwd=true<CR>
+nnoremap <silent> <Leader>p <cmd>Telescope rhizome roots<CR>
+nnoremap <silent> <Leader>b <cmd>Telescope buffers only_cwd=true<CR>
 
 "           _ __
 "    ____ _(_) /_
@@ -237,20 +237,20 @@ nnoremap <silent> <Leader>b :Telescope buffers only_cwd=true<CR>
 "  \__, /_/\__/
 " /____/
 "
-nnoremap <Leader>gst :Git<CR>
-nnoremap <Leader>gci :Git commit<CR>
-nnoremap <Leader>gd  :Git diff<CR>
-nnoremap <Leader>gl  :Git log<CR>
-nnoremap <Leader>gbl :Git blame<CR>
+nnoremap <Leader>gst <cmd>Git<CR>
+nnoremap <Leader>gci <cmd>Git commit<CR>
+nnoremap <Leader>gd  <cmd>Git diff<CR>
+nnoremap <Leader>gl  <cmd>Git log<CR>
+nnoremap <Leader>gbl <cmd>Git blame<CR>
 
 
-nnoremap <Leader>gw :Gwrite<CR>
-nnoremap <Leader>gm :GMove<Space>
-nnoremap <Leader>gr :GRename<Space>
-nnoremap <Leader>gd :GDelete<CR>
+nnoremap <Leader>gw <cmd>Gwrite<CR>
+nnoremap <Leader>gm <cmd>GMove<Space>
+nnoremap <Leader>gr <cmd>GRename<Space>
+nnoremap <Leader>gd <cmd>GDelete<CR>
 
-nnoremap <Leader>gbr  :GBrowse<CR>
-nnoremap <Leader>gbr! :GBrowse!<CR>
+nnoremap <Leader>gbr  <cmd>GBrowse<CR>
+nnoremap <Leader>gbr! <cmd>GBrowse!<CR>
 
 "        ___                              __  _
 "   ____/ (_)___ _____ _____  ____  _____/ /_(_)_________
@@ -272,11 +272,11 @@ nnoremap <Leader>dl <cmd>lua vim.diagnostic.setloclist()<CR>
 " \__/_/   \____/\__,_/_.___/_/\___/
 "
 
-nnoremap <Leader>xx <cmd>TroubleToggle<cr>
-nnoremap <Leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
-nnoremap <Leader>xd <cmd>TroubleToggle document_diagnostics<cr>
-nnoremap <Leader>xq <cmd>TroubleToggle quickfix<cr>
-nnoremap <Leader>xl <cmd>TroubleToggle loclist<cr>
+nnoremap <Leader>xx <cmd>TroubleToggle<CR>
+nnoremap <Leader>xw <cmd>TroubleToggle workspace_diagnostics<CR>
+nnoremap <Leader>xd <cmd>TroubleToggle document_diagnostics<CR>
+nnoremap <Leader>xq <cmd>TroubleToggle quickfix<CR>
+nnoremap <Leader>xl <cmd>TroubleToggle loclist<CR>
 
 "    __                      _ __  __
 "   / /_________  ___  _____(_) /_/ /____  _____
@@ -285,8 +285,8 @@ nnoremap <Leader>xl <cmd>TroubleToggle loclist<cr>
 " \__/_/   \___/\___/____/_/\__/\__/\___/_/
 "
 
-nnoremap <Leader>th <cmd>TSHighlightCapturesUnderCursor<cr>
-nnoremap <Leader>tn <cmd>TSNodeUnderCursor<cr>
+nnoremap <Leader>th <cmd>TSHighlightCapturesUnderCursor<CR>
+nnoremap <Leader>tn <cmd>TSNodeUnderCursor<CR>
 
 "
 "    ____ ___  (_)_________
@@ -298,11 +298,22 @@ nnoremap <Leader>tn <cmd>TSNodeUnderCursor<cr>
 " run macros
 nnoremap Q @
 
-" In the quickfix window, <CR> is used to jump to the error under the
-" cursor, so undefine the mapping there.
-autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+"     __
+"    / /___ _____  __  __
+"   / / __ `/_  / / / / /
+"  / / /_/ / / /_/ /_/ /
+" /_/\__,_/ /___/\__, /
+"               /____/
 
-" luasnip
+nnoremap <Leader><Bslash> <cmd>Lazy<CR>
+
+"     __                       _
+"    / /_  ______ __________  (_)___
+"   / / / / / __ `/ ___/ __ \/ / __ \
+"  / / /_/ / /_/ (__  ) / / / / /_/ /
+" /_/\__,_/\__,_/____/_/ /_/_/ .___/
+"                           /_/
+"
 " press <Tab> to expand or jump in a snippet. These can also be mapped separately
 " via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
 imap <silent><expr> <C-j> luasnip#expandable() ? '<Plug>luasnip-expand-snippet' : '<C-j>'
@@ -314,3 +325,16 @@ snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<CR>
 " For changing choices in choiceNodes (not strictly necessary for a basic setup).
 imap <silent><expr> <C-e> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-e>'
 smap <silent><expr> <C-e> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-e>'
+
+"                _      __   _____
+"   ____ ___  __(_)____/ /__/ __(_)  __
+"  / __ `/ / / / / ___/ //_/ /_/ / |/_/
+" / /_/ / /_/ / / /__/ ,< / __/ />  <
+" \__, /\__,_/_/\___/_/|_/_/ /_/_/|_|
+"   /_/
+
+nnoremap <Leader>q <cmd>lua require('lib.qfloc').toggle('c')<CR>
+
+" In the quickfix window, <CR> is used to jump to the error under the
+" cursor, so undefine the mapping there.
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>

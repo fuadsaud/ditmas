@@ -5,6 +5,7 @@
              lsp-format lsp-format
              mason mason
              mason-lspconfig mason-lspconfig
+             neodev neodev
              null-ls null-ls
              nvim aniseed.nvim
              telescope-builtin telescope.builtin
@@ -162,10 +163,14 @@
 (defn setup-lsp-format []
   (lsp-format.setup {:exclude [:tsserver]}))
 
+(defn setup-neodev []
+  (neodev.setup {}))
+
 (defn setup []
   (vim.notify "config.plugins.lspconfig/config")
 
   (setup-mason)
+  (setup-neodev)
   (setup-null-ls)
   (setup-lspconfig))
   ; (setup-lsp-format))
