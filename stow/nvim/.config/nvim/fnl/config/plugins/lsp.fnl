@@ -22,7 +22,7 @@
 
 (def default-server-opts
   {:on_attach (fn [client bufnr]
-                (vim.notify (a.str "Running config.lsp.shared/on_attach" {:client client.name}))
+                (print (a.str "Running config.lsp.shared/on_attach" {:client client.name}))
 
                 (let [buf-set-option (fn [opt val] (nvim.buf_set_option bufnr opt val))
                       buf-set-keymap-fn (fn [mode mapping target-fn]
@@ -84,22 +84,21 @@
                   default-server-opts
                   {:on_attach
                     (fn [client bufnr]
-                      (let [buf-set-keymap (fn [mode mapping target] (nvim.buf_set_keymap bufnr mode mapping target {:noremap true}))
-                            buf-set-keymap-fn (fn [mode mapping target-fn]
+                      (let [buf-set-keymap-fn (fn [mode mapping target-fn]
                                                 (vim.keymap.set mode mapping target-fn {:buffer bufnr
                                                                                         :noremap true}))
 
                             expand-path-uri (fn [] (a.str "file://" (vim.fn.expand "%:p")))]
 
-                        (vim.notify "Running config.plugins.lsp.clojure/on_attach")
+                        (print "Running config.plugins.lsp.clojure/on_attach")
 
                         (let [execute-command (fn [command-name extra-args]
                                                 (vim.lsp.buf.execute_command
-                                                  {:command command-name}
-                                                  :arguments (a.concat [(expand-path-uri)
-                                                                        (- (vim.fn.line ".") 1)
-                                                                        (- (vim.fn.col ".") 1)
-                                                                        extra-args])))]
+                                                  {:command command-name
+                                                   :arguments (a.concat [(expand-path-uri)
+                                                                         (- (vim.fn.line ".") 1)
+                                                                         (- (vim.fn.col ".") 1)
+                                                                         extra-args])}))]
 
                           (buf-set-keymap-fn :n :<LocalLeader>cc #(execute-command :cycle-coll          []))
                           (buf-set-keymap-fn :n :<LocalLeader>cp #(execute-command :cycle-privacy       []))
@@ -126,7 +125,8 @@
               (fn [client bufnr]
                (augroup :eslint-fix-on-save
                  (autocmd :BufWritePre "*.tsx,*.ts,*.jsx,*.js" "EslintFixAll"))
-               (default-server-opts.on_attach client bufnr))})
+               (default-server-opts.on_attach client bufnr))
+              :settings {:rulesCustomizations [{:rule "prettier/prettier" :severity "off"}]}})
 
    :tsserver default-server-opts
 
@@ -152,13 +152,13 @@
      :on_attach default-server-opts.on_attach
      :debug true})
 
-  (vim.notify (string.format "config.plugins.lspconfig/config: setup finished for [%s]" "null-ls")))
+  (print (string.format "config.plugins.lspconfig/config: setup finished for [%s]" "null-ls")))
 
 (defn setup-lspconfig []
   (each [server-name config (pairs server->config)]
     ((. lspconfig server-name :setup) config)
 
-    (vim.notify (string.format "config.plugins.lspconfig/config: setup finished for [%s]" server-name))))
+    (print (string.format "config.plugins.lspconfig/config: setup finished for [%s]" server-name))))
 
 (defn setup-lsp-format []
   (lsp-format.setup {:exclude [:tsserver]}))
@@ -167,7 +167,7 @@
   (neodev.setup {}))
 
 (defn setup []
-  (vim.notify "config.plugins.lspconfig/config")
+  (print "config.plugins.lspconfig/config")
 
   (setup-mason)
   (setup-neodev)
