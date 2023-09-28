@@ -111,9 +111,6 @@ nnoremap k gk
 " less finger yoga
 noremap H ^
 noremap L $
-" TODO: remove after muscle memory has adapted
-map $ <Nop>
-map ^ <Nop>
 
 "                       __
 "    __  ______ _____  / /__
@@ -326,6 +323,7 @@ snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<CR>
 imap <silent><expr> <C-e> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-e>'
 smap <silent><expr> <C-e> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-e>'
 
+imap <C-n> <cmd>lua require('cmp').complete()<CR>
 "                _      __   _____
 "   ____ ___  __(_)____/ /__/ __(_)  __
 "  / __ `/ / / / / ___/ //_/ /_/ / |/_/
