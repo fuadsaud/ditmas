@@ -3,7 +3,7 @@
              constants config.constants}})
 
 (defn setup []
-  (print "Running config.plugins.sexp/config")
+  (vim.notify "Running config.plugins.sexp/config")
 
   (set vim.g.sexp_filetypes (->> constants.sexp-languages (string.join ",")))
   (set vim.g.sexp_enable_insert_mode_mappings 0))

@@ -1,7 +1,7 @@
 (module config.plugins.rainbow)
 
 (defn setup []
-  (print "config.plugins.rainbow/config")
+  (vim.notify "config.plugins.rainbow/config")
 
   (vim.api.nvim_set_var :rainbow_active 1))
 

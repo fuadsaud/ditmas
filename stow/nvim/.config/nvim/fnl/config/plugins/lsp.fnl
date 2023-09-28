@@ -9,20 +9,38 @@
              null-ls null-ls
              nvim aniseed.nvim
              telescope-builtin telescope.builtin
-             telescope-themes telescope.themes}
+             telescope-themes telescope.themes
+             typescript typescript
+             typescript-null-ls-code-actions typescript.extensions.null-ls.code-actions}
 
    require-macros [lib.macros]})
 
+(defn log [message]
+  (vim.notify message))
+
 (defn format
   [bufnr]
+  (log "lsp format")
   (vim.lsp.buf.format {:bufnr bufnr
                        ; disable tsserver so it doesn't conflict with prettier (via null-ls)
-                       :filter (fn [client] (not (= client.name "tsserver")))
+                       :filter (fn [client]
+                                 (vim.notify (a.str "FILTER CLIENT: " client.name))
+                                 (not (= client.name "tsserver")))
                        :async true}))
 
 (def default-server-opts
   {:on_attach (fn [client bufnr]
-                (print (a.str "Running config.lsp.shared/on_attach" {:client client.name}))
+                (log (a.str "Running config.lsp.shared/on_attach" {:client client.name}))
+
+                (when client.server_capabilities.inlayHintProvider
+                  (vim.lsp.inlay_hint bufnr true))
+
+                (let [group (vim.api.nvim_create_augroup "lsp-format-on-save" {})]
+                  (vim.api.nvim_clear_autocmds {:group group :buffer bufnr})
+
+                  (vim.api.nvim_create_autocmd :BufWritePre {:group group
+                                                                    :buffer bufnr
+                                                                    :callback #(format bufnr)}))
 
                 (let [buf-set-option (fn [opt val] (nvim.buf_set_option bufnr opt val))
                       buf-set-keymap-fn (fn [mode mapping target-fn]
@@ -33,7 +51,7 @@
                   ; references
                   (buf-set-keymap-fn :n :K            #(vim.lsp.buf.hover))
                   (buf-set-keymap-fn :n :<Leader>lk   #(vim.lsp.buf.signature_help))
-                  (buf-set-keymap-fn :i :<C-_>        #(vim.lsp.buf.signature_help))
+                  (buf-set-keymap-fn :i :<C-Z>        #(vim.lsp.buf.signature_help))
                   (buf-set-keymap-fn :n :<Leader>ltd  #(vim.lsp.buf.type_definition))
                   (buf-set-keymap-fn :n :<Leader>lic  #(vim.lsp.buf.incoming_calls))
                   (buf-set-keymap-fn :n :gr           #(vim.lsp.buf.references))
@@ -43,6 +61,7 @@
                   (buf-set-keymap-fn :n :gD           #(vim.lsp.buf.declaration))
                   (buf-set-keymap-fn :n :gW           #(vim.lsp.buf.workspace_symbol))
                   (buf-set-keymap-fn :n :gi           #(vim.lsp.buf.implementation))
+                  (buf-set-keymap-fn :n :gca          #(vim.lsp.buf.code_action))
 
                   (buf-set-keymap-fn :n :<Leader>lca #(vim.lsp.buf.code_action))
                   (buf-set-keymap-fn :n :<Leader>lf  #(format bufnr))
@@ -56,14 +75,8 @@
                     (buf-set-keymap-fn :n :<Leader>fws #(telescope-builtin.lsp_workspace_symbols telescope-theme))
                     (buf-set-keymap-fn :n :<Leader>fds #(telescope-builtin.lsp_document_symbols telescope-theme))
                     (buf-set-keymap-fn :n :<Leader>fr  #(telescope-builtin.lsp_references telescope-theme))
-                    (buf-set-keymap-fn :n :<Leader>fi  #(telescope-builtin.lsp_implementations telescope-theme)))
+                    (buf-set-keymap-fn :n :<Leader>fi  #(telescope-builtin.lsp_implementations telescope-theme)))))
 
-                  (let [group (vim.api.nvim_create_augroup "lsp-format-on-save" {})]
-                    (vim.api.nvim_clear_autocmds {:group group :buffer bufnr})
-
-                    (vim.api.nvim_create_autocmd :BufWritePre {:group group
-                                                                      :buffer bufnr
-                                                                      :callback #(format bufnr)}))))
 
    :handlers {"textDocument/hover"
               (vim.lsp.with
@@ -90,7 +103,7 @@
 
                             expand-path-uri (fn [] (a.str "file://" (vim.fn.expand "%:p")))]
 
-                        (print "Running config.plugins.lsp.clojure/on_attach")
+                        (log "Running config.plugins.lsp.clojure/on_attach")
 
                         (let [execute-command (fn [command-name extra-args]
                                                 (vim.lsp.buf.execute_command
@@ -119,6 +132,8 @@
 
    :jsonls default-server-opts
 
+   :yamlls default-server-opts
+
    :eslint (a.merge
              default-server-opts
              {:on_attach
@@ -127,8 +142,6 @@
                  (autocmd :BufWritePre "*.tsx,*.ts,*.jsx,*.js" "EslintFixAll"))
                (default-server-opts.on_attach client bufnr))
               :settings {:rulesCustomizations [{:rule "prettier/prettier" :severity "off"}]}})
-
-   :tsserver default-server-opts
 
    :lua_ls (a.merge
              default-server-opts
@@ -148,17 +161,20 @@
 (defn setup-null-ls []
   (null-ls.setup
     {:sources [null-ls.builtins.formatting.prettier
-               null-ls.builtins.code_actions.gitsigns]
+               null-ls.builtins.code_actions.gitsigns
+               null_ls.builtins.diagnostics.stylelint
+               typescript-null-ls-code-actions]
+
      :on_attach default-server-opts.on_attach
      :debug true})
 
-  (print (string.format "config.plugins.lspconfig/config: setup finished for [%s]" "null-ls")))
+  (log (string.format "config.plugins.lspconfig/config: setup finished for [%s]" "null-ls")))
 
 (defn setup-lspconfig []
   (each [server-name config (pairs server->config)]
     ((. lspconfig server-name :setup) config)
 
-    (print (string.format "config.plugins.lspconfig/config: setup finished for [%s]" server-name))))
+    (log (string.format "config.plugins.lspconfig/config: setup finished for [%s]" server-name))))
 
 (defn setup-lsp-format []
   (lsp-format.setup {:exclude [:tsserver]}))
@@ -166,11 +182,30 @@
 (defn setup-neodev []
   (neodev.setup {}))
 
+(defn setup-tsserver []
+  (typescript.setup {:server (a.merge
+                               default-server-opts
+                               {:settings {:javascript {:inlayHints {:includeInlayEnumMemberValueHints true
+                                                                     :includeInlayFunctionLikeReturnTypeHints true
+                                                                     :includeInlayFunctionParameterTypeHints true
+                                                                     :includeInlayParameterNameHints :all ; 'none' | 'literals' | 'all';
+                                                                     :includeInlayParameterNameHintsWhenArgumentMatchesName true
+                                                                     :includeInlayPropertyDeclarationTypeHints true
+                                                                     :includeInlayVariableTypeHints true}}
+                                           :typescript {:inlayHints {:includeInlayEnumMemberValueHints true
+                                                                     :includeInlayFunctionLikeReturnTypeHints true
+                                                                     :includeInlayFunctionParameterTypeHints true
+                                                                     :includeInlayParameterNameHints :all ; 'none' | 'literals' | 'all';
+                                                                     :includeInlayParameterNameHintsWhenArgumentMatchesName true
+                                                                     :includeInlayPropertyDeclarationTypeHints true
+                                                                     :includeInlayVariableTypeHints true}}}})}))
+
 (defn setup []
-  (print "config.plugins.lspconfig/config")
+  (log "config.plugins.lspconfig/config")
 
   (setup-mason)
   (setup-neodev)
+  (setup-tsserver)
   (setup-null-ls)
   (setup-lspconfig))
   ; (setup-lsp-format))

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-brew services stop yabai
-sudo yabai --uninstall-sa
-sudo yabai --load-sa
-brew services start yabai
+set -euo pipefail
+
+yabai --stop-service
+yabai --start-service

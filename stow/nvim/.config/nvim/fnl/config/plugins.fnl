@@ -1,27 +1,32 @@
 (module config.plugins
   {autoload {a aniseed.core
              lazy lazy
-             nvim aniseed.nvim
-             constants config.constants}})
+             nvim aniseed.nvim}})
 
 (def specs
   {; meta
    :tpope/vim-scriptease {}
    :folke/which-key.nvim {:config true}
+   :folke/neodev.nvim {}
    :Olical/aniseed {:branch "develop"}
    :Olical/conjure {:dependencies {:m00qek/baleia.nvim {:config true
                                                         :tag "v1.3.0"}}}
-   :folke/neodev.nvim {}
+
+   ; undo
+   :simnalamburt/vim-mundo {}
 
    ; lsp
    :neovim/nvim-lspconfig {:main :config.plugins.lsp
                            :dependencies {:jose-elias-alvarez/null-ls.nvim {:dependencies {:nvim-lua/plenary.nvim {}}}
+                                          :jose-elias-alvarez/typescript.nvim {}
                                           :lukas-reineke/lsp-format.nvim {}
                                           :williamboman/mason-lspconfig.nvim {:dependencies {:williamboman/mason.nvim {}}}
                                           :williamboman/mason.nvim {:build ":MasonUpdate"}}}
 
    ; search
    :wincent/ferret {}
+   :nvim-pack/nvim-spectre {:dependencies {:nvim-lua/plenary.nvim {}}
+                            :config true}
 
    ; ansi coloring
    :vim-scripts/AnsiEsc.vim {}
@@ -40,9 +45,8 @@
    :sheerun/vim-polyglot {}
    :nvim-treesitter/nvim-treesitter {:build ":TSUpdate"
                                      :main :config.plugins.treesitter}
-   :luochen1990/rainbow {:main :config.plugins.rainbow}
-   :mrjones2014/nvim-ts-rainbow {}
    :norcalli/nvim-colorizer.lua {:main :config.plugins.colorizer}
+   :HiPhish/rainbow-delimiters.nvim {:dependencies {:nvim-treesitter/nvim-treesitter {}}}
 
    ; text manipulation
    :tpope/vim-abolish {:main :config.plugins.abolish}
@@ -52,9 +56,12 @@
    :tpope/vim-repeat {}
    :tpope/vim-surround {}
    :tpope/vim-unimpaired {}
+   :JoosepAlviste/nvim-ts-context-commentstring {:config true
+                                                 :dependencies {:nvim-treesitter/nvim-treesitter {}
+                                                                :tpope/vim-commentary {}}}
    :AndrewRadev/splitjoin.vim {:main :config.plugins.splitjoin}
    :windwp/nvim-autopairs {:main :config.plugins.autopairs}
-   :windwp/nvim-ts-autotag {}
+   :windwp/nvim-ts-autotag {:dependencies {:nvim-treesitter/nvim-treesitter {}}}
    :junegunn/vim-easy-align {}
    :tommcdo/vim-exchange {}
 
@@ -62,13 +69,15 @@
    :fuadsaud/vim-textobj-variable-segment {:dependencies {:kana/vim-textobj-user {}}}
    :kana/vim-textobj-user {}
    :michaeljsmith/vim-indent-object {}
-   :nelstrom/vim-textobj-rubyblock {:ft [:ruby]}
+   :nelstrom/vim-textobj-rubyblock {:ft :ruby}
    :wellle/targets.vim {}
 
    ; sexp
-   :guns/vim-sexp {:main :config.plugins.sexp}
-   :tpope/vim-sexp-mappings-for-regular-people {}
+   :guns/vim-sexp {:main :config.plugins.sexp
+                   :dependencies {:tpope/vim-sexp-mappings-for-regular-people {}}
+                   :enabled false}
    :eraserhd/parinfer-rust {:build "cargo build --release"}
+   :PaterJason/nvim-treesitter-sexp {:config true :enabled true}
 
    ; git
    :tpope/vim-fugitive {}
@@ -118,6 +127,12 @@
    :gregsexton/MatchTag {}
    :jszakmeister/vim-togglecursor {}
    :junegunn/goyo.vim {}
+   :f-person/auto-dark-mode.nvim {:config true}
+   :folke/noice.nvim {:event :VeryLazy
+                      :main :config.plugins.noice
+                      :dependencies {:MunifTanjim/nui.nvim {}}}
+   :gelguy/wilder.nvim {:main :config.plugins.wilder :enabled false}
+
    :nathanaelkane/vim-indent-guides {}
    :simeji/winresizer {}
    :nvim-lualine/lualine.nvim {:dependencies {:kyazdani42/nvim-web-devicons {}}

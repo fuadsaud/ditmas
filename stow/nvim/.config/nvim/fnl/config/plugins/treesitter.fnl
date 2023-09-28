@@ -1,11 +1,12 @@
 (module config.plugins.treesitter
-  {autoload {treesitter nvim-treesitter.configs}})
+  {autoload {treesitter nvim-treesitter.configs
+             ts_context_commentstring ts_context_commentstring}})
 
 
 (defn setup []
   (treesitter.setup
     {:ensure_installed :all
-     :ignore_install [:norg]
+     :ignore_install [:norg :scfg]
 
      :indent
      {:enable true}
@@ -19,10 +20,6 @@
                 :node_incremental "gvk"
                 :node_decremental "gvj"
                 :scope_incremental "gvK"}}
-
-     :rainbow
-     {:enable true
-      :extended_mode true}
 
      :autotag
      {:enable true}}))

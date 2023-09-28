@@ -4,4 +4,6 @@
 
 (defn setup []
   (luasnip.filetype_extend "javascript" ["react" "html"])
+  (luasnip.filetype_extend "typescript" ["javascript"])
+
   (from_vscode.lazy_load))

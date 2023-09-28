@@ -6,7 +6,7 @@
   (gitsigns.setup
     {:on_attach
      (fn [bufnr]
-       (print "Running config.plugins.gitsigns/on_attach")
+       (vim.notify "Running config.plugins.gitsigns/on_attach")
 
        (let [buf-set-keymap-fn (fn [mode mapping target-fn opts]
                                  (vim.keymap.set mode mapping target-fn (a.merge {:buffer bufnr
