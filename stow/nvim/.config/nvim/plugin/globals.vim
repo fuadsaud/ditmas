@@ -20,7 +20,6 @@ set list
 set listchars=tab:▶-,trail:•,extends:»,precedes:«
 set nobackup
 set undofile
-set lazyredraw
 set wildmenu
 set wildmode=longest,full
 set fillchars=vert:│
