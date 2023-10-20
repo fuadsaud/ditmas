@@ -19,16 +19,6 @@
 (defn log [message]
   (vim.notify message))
 
-(defn format
-  [bufnr]
-  (log "lsp format")
-  (vim.lsp.buf.format {:bufnr bufnr
-                       ; disable tsserver so it doesn't conflict with prettier (via null-ls)
-                       :filter (fn [client]
-                                 (vim.notify (a.str "FILTER CLIENT: " client.name))
-                                 (not (= client.name "tsserver")))
-                       :async true}))
-
 (def default-server-opts
   {:on_attach (fn [client bufnr]
                 (log (a.str "Running config.lsp.shared/on_attach" {:client client.name}))
