@@ -22,4 +22,4 @@
                 :scope_incremental "gvK"}}
 
      :autotag
-     {:enable true}}))
+     {:enable false}}))

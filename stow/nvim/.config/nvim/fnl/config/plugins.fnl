@@ -23,6 +23,10 @@
                                           :williamboman/mason-lspconfig.nvim {:dependencies {:williamboman/mason.nvim {}}}
                                           :williamboman/mason.nvim {:build ":MasonUpdate"}}}
 
+   :creativenull/efmls-configs-nvim {:dependencies {:neovim/nvim-lspconfig {}}}
+   :smjonas/inc-rename.nvim {:config true}
+
+
    ; search
    :wincent/ferret {}
    :nvim-pack/nvim-spectre {:dependencies {:nvim-lua/plenary.nvim {}}
@@ -36,10 +40,16 @@
    :tpope/vim-vinegar {}
    :pbrisbin/vim-mkdir {}
    :lambdalisue/suda.vim {}
-   :nvim-telescope/telescope-file-browser.nvim {:dependencies {:nvim-telescope/telescope.nvim {}}}
-   :nvim-telescope/telescope-project.nvim {:dependencies {:nvim-telescope/telescope.nvim {}}}
-   :nvim-telescope/telescope-fzf-native.nvim {:build "make"
-                                              :dependencies {:nvim-telescope/telescope.nvim {}}}
+   :nvim-telescope/telescope-file-browser.nvim {:dependencies {}}
+   :nvim-telescope/telescope-project.nvim {:dependencies {}}
+   :nvim-telescope/telescope-fzf-native.nvim {:build "make"}
+
+   ; projects
+   :tpope/vim-projectionist {}
+   :fuadsaud/rhizome.nvim {:main :config.plugins.rhizome}
+                           ; :dev true
+                           ; :dir "~/Sources/fuadsaud/rhizome.nvim"
+                           ; :name "rhizome.nvim"}
 
    ; syntax
    :sheerun/vim-polyglot {}
@@ -87,13 +97,6 @@
    ; gist
    :mattn/gist-vim {:dependencies {:mattn/webapi-vim {}}}
 
-   ; projects
-   :tpope/vim-projectionist {}
-   :fuadsaud/rhizome.nvim {:dev true
-                           :dir "~/Sources/fuadsaud/rhizome.nvim"
-                           :name "rhizome.nvim"
-                           :main :config.plugins.rhizome}
-
    ; snippets
    :L3MON4D3/LuaSnip {:dependencies {:rafamadriz/friendly-snippets {}
                                      :saadparwaiz1/cmp_luasnip {}}
@@ -138,8 +141,14 @@
    :nvim-lualine/lualine.nvim {:dependencies {:kyazdani42/nvim-web-devicons {}}
                                :config true
                                :main :config.plugins.lualine}
+
    :nvim-telescope/telescope-ui-select.nvim {:dependencies {:nvim-telescope/telescope.nvim {}}}
-   :nvim-telescope/telescope.nvim {:dependencies {:nvim-lua/plenary.nvim {}}
+   :nvim-telescope/telescope.nvim {:dependencies {:nvim-lua/plenary.nvim {}
+                                                  :nvim-telescope-ui-select.nvim {}
+                                                  :fuadsaud/rhizome.nvim {}
+                                                  :nvim-telescope/telescope-file-browser.nvim {}
+                                                  :nvim-telescope/telescope-project.nvim {}
+                                                  :nvim-telescope/telescope-fzf-native.nvim {}}
                                    :main :config.plugins.telescope}
 
 

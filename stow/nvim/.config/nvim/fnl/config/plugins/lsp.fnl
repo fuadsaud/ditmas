@@ -1,6 +1,7 @@
 (module config.plugins.lsp
   {autoload {a aniseed.core
              cmp_lsp cmp_nvim_lsp
+             efmls-configs-defaults efmls-configs.defaults
              lspconfig lspconfig
              lsp-format lsp-format
              mason mason
@@ -35,12 +36,14 @@
                 (when client.server_capabilities.inlayHintProvider
                   (vim.lsp.inlay_hint bufnr true))
 
-                (let [group (vim.api.nvim_create_augroup "lsp-format-on-save" {})]
-                  (vim.api.nvim_clear_autocmds {:group group :buffer bufnr})
+                (lsp-format.on_attach client bufnr)
 
-                  (vim.api.nvim_create_autocmd :BufWritePre {:group group
-                                                                    :buffer bufnr
-                                                                    :callback #(format bufnr)}))
+                ; (let [group (vim.api.nvim_create_augroup "lsp-format-on-save" {})]
+                ;   (vim.api.nvim_clear_autocmds {:group group :buffer bufnr})
+
+                ;   (vim.api.nvim_create_autocmd :BufWritePre {:group group
+                ;                                                     :buffer bufnr
+                ;                                                     :callback #(format bufnr)}))
 
                 (let [buf-set-option (fn [opt val] (nvim.buf_set_option bufnr opt val))
                       buf-set-keymap-fn (fn [mode mapping target-fn]
@@ -64,7 +67,7 @@
                   (buf-set-keymap-fn :n :gca          #(vim.lsp.buf.code_action))
 
                   (buf-set-keymap-fn :n :<Leader>lca #(vim.lsp.buf.code_action))
-                  (buf-set-keymap-fn :n :<Leader>lf  #(format bufnr))
+                  (buf-set-keymap-fn :n :<Leader>lf  #(vim.lsp.buf.format))
                   (buf-set-keymap-fn :n :<Leader>lr  #(vim.lsp.buf.rename))
                   (buf-set-keymap-fn :n :<Leader>lwa #(vim.lsp.buf.add_workspace_folder))
                   (buf-set-keymap-fn :n :<Leader>lwl #(vim.inspect (vim.lsp.buf.list_workspace_folders)))
@@ -134,6 +137,19 @@
 
    :yamlls default-server-opts
 
+   :emmet_language_server default-server-opts
+
+   :cssmodules_ls (a.merge
+                    default-server-opts
+                    {:on_attach
+                     (fn [client bufnr]
+                       (set client.server_capabilities.defintionProvider false)
+                       (default-server-opts.on_attach client bufnr))})
+
+   :stylelint_lsp (a.merge
+                    default-server-opts
+                    {:settings {:stylelintplus {:autoFixOnFormat true}}})
+
    :eslint (a.merge
              default-server-opts
              {:on_attach
@@ -146,6 +162,12 @@
    :lua_ls (a.merge
              default-server-opts
              {:settings {:Lua {:diagnostics {:globals [:vim]}}}})
+
+   ; :efm (a.merge
+   ;        default-server-opts
+   ;        {:settings {:languages (vim.tbl_keys (efmls-configs-defaults.languages))}
+   ;         :init_options {:documentFormatting true
+   ;                        :documentRangeFormatting true}})
 
    ; :fennel_language_server (a.merge
    ;                           default-server-opts
@@ -207,5 +229,5 @@
   (setup-neodev)
   (setup-tsserver)
   (setup-null-ls)
-  (setup-lspconfig))
-  ; (setup-lsp-format))
+  (setup-lspconfig)
+  (setup-lsp-format))
