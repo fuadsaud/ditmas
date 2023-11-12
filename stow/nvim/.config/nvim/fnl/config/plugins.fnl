@@ -37,7 +37,11 @@
 
    ; filesystem
    :tpope/vim-eunuch {}
-   :tpope/vim-vinegar {}
+   :stevearc/oil.nvim {:config {:keymaps {:<C-p> false
+                                          :<C-x> :actions.preview
+
+                                          :<C-s> false
+                                          :<C-v> :actions.select_vsplit}}}
    :pbrisbin/vim-mkdir {}
    :lambdalisue/suda.vim {}
    :nvim-telescope/telescope-file-browser.nvim {:dependencies {}}
@@ -142,10 +146,11 @@
                                :config true
                                :main :config.plugins.lualine}
 
-   :nvim-telescope/telescope-ui-select.nvim {:dependencies {:nvim-telescope/telescope.nvim {}}}
+   :nvim-telescope/telescope-ui-select.nvim {:dependencies {}
+                                             :commit "b0015e6e4b46a64192c64b68dec9a9ac5a4e5690"}
    :nvim-telescope/telescope.nvim {:dependencies {:nvim-lua/plenary.nvim {}
-                                                  :nvim-telescope-ui-select.nvim {}
                                                   :fuadsaud/rhizome.nvim {}
+                                                  :nvim-telescope/telescope-ui-select.nvim {}
                                                   :nvim-telescope/telescope-file-browser.nvim {}
                                                   :nvim-telescope/telescope-project.nvim {}
                                                   :nvim-telescope/telescope-fzf-native.nvim {}}

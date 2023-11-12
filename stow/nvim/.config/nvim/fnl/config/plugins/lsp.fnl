@@ -28,20 +28,12 @@
 
                 (lsp-format.on_attach client bufnr)
 
-                ; (let [group (vim.api.nvim_create_augroup "lsp-format-on-save" {})]
-                ;   (vim.api.nvim_clear_autocmds {:group group :buffer bufnr})
-
-                ;   (vim.api.nvim_create_autocmd :BufWritePre {:group group
-                ;                                                     :buffer bufnr
-                ;                                                     :callback #(format bufnr)}))
-
                 (let [buf-set-option (fn [opt val] (nvim.buf_set_option bufnr opt val))
                       buf-set-keymap-fn (fn [mode mapping target-fn]
                                           (vim.keymap.set mode mapping target-fn {:buffer bufnr
                                                                                   :noremap true}))]
                   (buf-set-option "omnifunc" "v:lua.vim.lsp.omnifunc")
 
-                  ; references
                   (buf-set-keymap-fn :n :K            #(vim.lsp.buf.hover))
                   (buf-set-keymap-fn :n :<Leader>lk   #(vim.lsp.buf.signature_help))
                   (buf-set-keymap-fn :i :<C-Z>        #(vim.lsp.buf.signature_help))
@@ -54,16 +46,15 @@
                   (buf-set-keymap-fn :n :gD           #(vim.lsp.buf.declaration))
                   (buf-set-keymap-fn :n :gW           #(vim.lsp.buf.workspace_symbol))
                   (buf-set-keymap-fn :n :gi           #(vim.lsp.buf.implementation))
-                  (buf-set-keymap-fn :n :gca          #(vim.lsp.buf.code_action))
 
-                  (buf-set-keymap-fn :n :<Leader>lca #(vim.lsp.buf.code_action))
+                  (buf-set-keymap-fn :n :<Leader>la  #(vim.lsp.buf.code_action))
+                  (buf-set-keymap-fn :n :<Leader>lk  #(vim.lsp.buf.code_action))
                   (buf-set-keymap-fn :n :<Leader>lf  #(vim.lsp.buf.format))
                   (buf-set-keymap-fn :n :<Leader>lr  #(vim.lsp.buf.rename))
                   (buf-set-keymap-fn :n :<Leader>lwa #(vim.lsp.buf.add_workspace_folder))
                   (buf-set-keymap-fn :n :<Leader>lwl #(vim.inspect (vim.lsp.buf.list_workspace_folders)))
                   (buf-set-keymap-fn :n :<Leader>lwr #(vim.lsp.buf.remove_workspace_folder))
 
-                  ; telescope
                   (let [telescope-theme (telescope-themes.get_ivy)]
                     (buf-set-keymap-fn :n :<Leader>fws #(telescope-builtin.lsp_workspace_symbols telescope-theme))
                     (buf-set-keymap-fn :n :<Leader>fds #(telescope-builtin.lsp_document_symbols telescope-theme))
@@ -172,7 +163,7 @@
 
 (defn setup-null-ls []
   (null-ls.setup
-    {:sources [null-ls.builtins.formatting.prettier
+    {:sources [;null-ls.builtins.formatting.prettier
                null-ls.builtins.code_actions.gitsigns
                null_ls.builtins.diagnostics.stylelint
                typescript-null-ls-code-actions]
@@ -189,7 +180,7 @@
     (log (string.format "config.plugins.lspconfig/config: setup finished for [%s]" server-name))))
 
 (defn setup-lsp-format []
-  (lsp-format.setup {:exclude [:tsserver]}))
+  (lsp-format.setup {:exclude [:tsserver :jsonls]}))
 
 (defn setup-neodev []
   (neodev.setup {}))

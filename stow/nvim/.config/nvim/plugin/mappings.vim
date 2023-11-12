@@ -336,3 +336,5 @@ nnoremap <Leader>q <cmd>lua require('lib.qfloc').toggle('c')<CR>
 " In the quickfix window, <CR> is used to jump to the error under the
 " cursor, so undefine the mapping there.
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+
+nnoremap - <cmd>Oil<CR>
