@@ -98,12 +98,6 @@
   wtr = worktree remove
 [color]
   ui = auto
-[credential]
-  ; helper = xplat
-  credentialStore = gpg
-  helper = "!git-credential-manager-core"
-  helper = 
-  helper = /usr/local/share/gcm-core/git-credential-manager
 [core]
   excludesfile = ~/.config/git/ignore
 [diff]
@@ -136,7 +130,7 @@
   pager = delta
 [interactive]
   diffFilter = delta --color-only
-[credential "https://dev.azure.com"]
-  useHttpPath = true
 [init]
   defaultBranch = main
+[credential "https://dev.azure.com"]
+	useHttpPath = true
