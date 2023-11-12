@@ -63,12 +63,16 @@ export GOPATH="${SRC_DIR}/go"
 export GO_PATH="${GOPATH}"
 export PACMAN_BIN="paru"
 
+# this is a bit dirty, but bbin will likely change the default dir (https://github.com/babashka/bbin/issues/35)
+local babashka_bbin_dir="${HOME}/.local/share/.babashka/bbin/bin"
+
 #
 # Paths
 #
 
 # Set the list of directories to search for programs.
 export PATH=$(tr -d $'\n ' <<< "
+  $babashka_bbin_dir:
   $GOPATH/bin:
   $HOME/.cargo/bin:
   $LOCAL_BIN_DIR:
