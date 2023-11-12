@@ -205,4 +205,4 @@ colorschemes:
         foreground: "#6e6a86"
         background: "#1f1d2e"
 
-colors: *rose-pine
+colors: *rose-pine-dawn

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if defaults read -g AppleInterfaceStyle | grep Dark 2>&1 >>/dev/null; then
+  alacritty-dark
+else
+  alacritty-light
+fi

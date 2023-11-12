@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+THEME="$1"
+CONFIG_PATH=$(realpath "$XDG_CONFIG_HOME/alacritty/alacritty.yml")
+
+sed -i "" -e "s#^colors: \*.*#colors: *${THEME}#g" $CONFIG_PATH
