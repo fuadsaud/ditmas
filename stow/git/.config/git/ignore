@@ -4,7 +4,7 @@ _Store
 ._*
 .Spotlight-V100
 .Trashes
-Icon?
+Icon\?
 ehthumbs.db
 Thumbs.db
 coverage
@@ -36,6 +36,11 @@ eastwood-report
 /.clj-kondo/**
 !/.clj-kondo/.config
 /.cpcache
+.clerk
 
 # js
 node_modules
+
+.env
+
+/worktree
