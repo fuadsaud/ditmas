@@ -18,70 +18,68 @@ cursor:
     blinking: On
 
 # window:
-#   padding:
-#     x: 10
-#     y: 10
+#   dynamic_padding: true
+
 colorschemes:
   monrovia:
     # Default colors
     &monrovia
     primary:
-      background: '0x1f2433'
-      foreground: '0xd3cbaf'
+      background: "0x1f2433"
+      foreground: "0xd3cbaf"
 
     # Normal colors
     normal:
-      black: '0x1f2433'
-      red: '0x8c3432'
-      green: '0x7f4c60'
-      yellow: '0x538798'
-      blue: '0xb55242'
-      magenta: '0x9e7156'
-      cyan: '0x60a195'
-      white: '0xd3cbaf'
+      black: "0x1f2433"
+      red: "0x8c3432"
+      green: "0x7f4c60"
+      yellow: "0x538798"
+      blue: "0xb55242"
+      magenta: "0x9e7156"
+      cyan: "0x60a195"
+      white: "0xd3cbaf"
 
     # Bright colors
     bright:
-      black: '0x375268'
-      red: '0xcb2656'
-      green: '0xa1617a'
-      yellow: '0x247dae'
-      blue: '0xc77366'
-      magenta: '0xb8937c'
-      cyan: '0x232839'
-      white: '0xeeeadf'
+      black: "0x375268"
+      red: "0xcb2656"
+      green: "0xa1617a"
+      yellow: "0x247dae"
+      blue: "0xc77366"
+      magenta: "0xb8937c"
+      cyan: "0x232839"
+      white: "0xeeeadf"
 
   hemisu-light:
     # Default colors
     &hemisu-light
     primary:
-      background: '0xffffff'
-      foreground: '0x282828'
+      background: "0xffffff"
+      foreground: "0x282828"
 
     # Normal colors
     normal:
-      black: '0x777777'
-      red: '0xff0055'
-      green: '0x82b414'
-      yellow: '0x503d15'
-      blue: '0x00729b'
-      magenta: '0x5c345f'
-      cyan: '0x538192'
-      white: '0x999999'
+      black: "0x777777"
+      red: "0xff0055"
+      green: "0x82b414"
+      yellow: "0x503d15"
+      blue: "0x00729b"
+      magenta: "0x5c345f"
+      cyan: "0x538192"
+      white: "0x999999"
 
     # Bright colors
     bright:
-      black: '0x999999'
-      red: '0xd65e76'
-      green: '0x9dc700'
-      yellow: '0x957656'
-      blue: '0x9eb3cd'
-      magenta: '0xa284a5'
-      cyan: '0x85b2ab'
-      white: '0xbbbbbb'
+      black: "0x999999"
+      red: "0xd65e76"
+      green: "0x9dc700"
+      yellow: "0x957656"
+      blue: "0x9eb3cd"
+      magenta: "0xa284a5"
+      cyan: "0x85b2ab"
+      white: "0xbbbbbb"
 
-  rose-pine-dawn:
-    &rose-pine-dawn
+  rose-pine-dawn: &rose-pine-dawn
     primary:
       background: "0xfaf4ed"
       foreground: "0x575279"
@@ -123,8 +121,7 @@ colorschemes:
         foreground: "#9893a5"
         background: "#fffaf3"
 
-  rose-pine-moon:
-    &rose-pine-moon
+  rose-pine-moon: &rose-pine-moon
     primary:
       background: "0x232136"
       foreground: "0xe0def4"
@@ -166,8 +163,7 @@ colorschemes:
         foreground: "#6e6a86"
         background: "#2a273f"
 
-  rose-pine:
-    &rose-pine
+  rose-pine: &rose-pine
     primary:
       background: "0x191724"
       foreground: "0xe0def4"
@@ -209,4 +205,4 @@ colorschemes:
         foreground: "#6e6a86"
         background: "#1f1d2e"
 
-colors: *rose-pine-dawn
+colors: *rose-pine
