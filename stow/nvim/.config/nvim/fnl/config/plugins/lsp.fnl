@@ -150,10 +150,10 @@
    ;         :init_options {:documentFormatting true
    ;                        :documentRangeFormatting true}})
 
-   ; :fennel_language_server (a.merge
-   ;                           default-server-opts
-   ;                           {:settings {:fennel {:workspace {:library (vim.api.nvim_list_runtime_paths)}
-   ;                                                :diagnostics {:globals [:vim]}}}})
+   :fennel_language_server (a.merge
+                             default-server-opts
+                             {:settings {:fennel {:workspace {:library (vim.api.nvim_list_runtime_paths)}
+                                                  :diagnostics {:globals [:vim]}}}})
 
    :bashls default-server-opts})
 
