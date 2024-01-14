@@ -13,8 +13,11 @@
 (local typescript (autoload :typescript))
 (local typescript-null-ls-code-actions (autoload :typescript.extensions.null-ls.code-actions))
 
-(fn log [message])
-  ;(vim.notify message))
+(local verbose? false)
+
+(fn log [message]
+  (when verbose?
+    (vim.notify message)))
 
 (local default-server-opts
   {:on_attach (fn [client bufnr]
@@ -142,10 +145,10 @@
    ;         :init_options {:documentFormatting true
    ;                        :documentRangeFormatting true}})
 
-   ; :fennel_language_server (nfnl-core.merge
-   ;                           default-server-opts
-   ;                           {:settings {:fennel {:workspace {:library (vim.api.nvim_list_runtime_paths)}
-   ;                                                :diagnostics {:globals [:vim]}}}})
+   :fennel_language_server (nfnl-core.merge
+                             default-server-opts
+                             {:settings {:fennel {:workspace {:library (vim.api.nvim_list_runtime_paths)}
+                                                  :diagnostics {:globals [:vim]}}}})
 
    :bashls default-server-opts})
 
