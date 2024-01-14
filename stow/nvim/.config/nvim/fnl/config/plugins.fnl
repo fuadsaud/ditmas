@@ -9,6 +9,7 @@
    :folke/which-key.nvim {:config true}
    :folke/neodev.nvim {}
    :Olical/aniseed {:branch "develop"}
+   :Olical/nfnl {}
    :Olical/conjure {:dependencies {:m00qek/baleia.nvim {:config true
                                                         :tag "v1.3.0"}}}
 
