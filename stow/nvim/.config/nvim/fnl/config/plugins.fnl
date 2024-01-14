@@ -140,7 +140,10 @@
                       :dependencies {:MunifTanjim/nui.nvim {}}}
    :gelguy/wilder.nvim {:main :config.plugins.wilder :enabled false}
 
-   :nathanaelkane/vim-indent-guides {}
+   :lukas-reineke/indent-blankline.nvim {:main :ibl :opts {:indent {:highlight [:CursorColumn :Whitespace] :char ""}
+                                                           :whitespace {:highlight [:CursorColumn :Whitespace]
+                                                                        :remove_blankline_trail false}
+                                                           :scope {:enabled false}}}
    :simeji/winresizer {}
    :nvim-lualine/lualine.nvim {:dependencies {:kyazdani42/nvim-web-devicons {}}
                                :config true
