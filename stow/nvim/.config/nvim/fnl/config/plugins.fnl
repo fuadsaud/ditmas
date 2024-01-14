@@ -7,7 +7,6 @@
    :tpope/vim-scriptease {}
    :folke/which-key.nvim {:config true}
    :folke/neodev.nvim {}
-   :Olical/aniseed {:branch "develop"}
    :Olical/nfnl {}
    :Olical/conjure {:main :config.plugins.conjure
                     :dependencies {:m00qek/baleia.nvim {:config true
@@ -146,7 +145,8 @@
                                                                         :remove_blankline_trail false}
                                                            :scope {:enabled false}}}
    :simeji/winresizer {}
-   :nvim-lualine/lualine.nvim {:dependencies {:kyazdani42/nvim-web-devicons {}}
+   :nvim-lualine/lualine.nvim {:dependencies {:kyazdani42/nvim-web-devicons {}
+                                              :fuadsaud/rhizome.nvim {}}
                                :config true
                                :main :config.plugins.lualine}
 
@@ -181,8 +181,8 @@
    :haishanh/night-owl.vim {}
    :rose-pine/neovim {:name :rose-pine}
    :noahfrederick/Hemisu {}
-   :fuadsaud/Monrovia {:dev true
-                       :dir "~/Sources/fuadsaud/Monrovia"}})
+   :fuadsaud/Monrovia {:dev true}})
+                       ; :dir "~/Sources/fuadsaud/Monrovia"}})
 
 (fn prepare [specs]
   (let [prepare-one
@@ -200,6 +200,7 @@
 (fn init []
   (lazy.setup
     (prepare specs)
-    {:checker {:enabled true}}))
+    {:checker {:enabled true}
+     :dev {:path "~/Sources/fuadsaud"}}))
 
 {: init}
