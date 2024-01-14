@@ -1,22 +1,22 @@
-(module config.plugins.cmp
-  {autoload {a aniseed.core
-             cmp cmp
-             luasnip luasnip}})
+(local {: autoload} (require :nfnl.module))
+(local luasnip (autoload :luasnip))
+(local cmp (autoload :cmp))
+; (local nfnl-core (require :nfnl.core))
 
-(def- cmp-src-menu-items
+(local cmp-src-menu-items
   {:buffer "buff"
    :luasnip "luasnip"
    :conjure "conj"
    :nvim_lsp "lsp"
    :nvim_lsp_signature_help "signature"})
 
-(defn delay [f t]
-  (let [timer (vim.loop.new_timer)]
-    (timer:start t 0 (vim.schedule_wrap (fn []
-                                          (f)
-                                          (timer:stop))))))
+; (fn delay [f t]
+;   (let [timer (vim.loop.new_timer)]
+;     (timer:start t 0 (vim.schedule_wrap (fn []
+;                                           (f)
+;                                           (timer:stop))))))
 
-(defn setup []
+(fn setup []
   (cmp.setup
     {:preselect cmp.PreselectMode.None
 
@@ -77,10 +77,12 @@
   ;       cmdline-mapping-override {:<Tab> {:c #(tab-mapping :forward)}
   ;                                 :<S-Tab> {:c #(tab-mapping :backward)}}
 
-  ;       custom-mapping (a.merge cmdline-mapping cmdline-mapping-override)]
+  ;       custom-mapping (nfnl-core.merge cmdline-mapping cmdline-mapping-override)]
 
   ;   (cmp.setup.cmdline ":"
   ;                      {:mapping custom-mapping
   ;                       :sources (cmp.config.sources [{:name :path
   ;                                                      :option {:trailing_slash true}}]
   ;                                                    [{:name :cmdline}])})))
+
+{: setup}

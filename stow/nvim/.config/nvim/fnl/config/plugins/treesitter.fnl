@@ -1,9 +1,7 @@
-(module config.plugins.treesitter
-  {autoload {treesitter nvim-treesitter.configs
-             ts_context_commentstring ts_context_commentstring}})
+(local {: autoload} (require :nfnl.module))
+(local treesitter (autoload :nvim-treesitter.configs))
 
-
-(defn setup []
+(fn setup []
   (treesitter.setup
     {:ensure_installed :all
      :ignore_install [:norg :scfg]
@@ -23,3 +21,5 @@
 
      :autotag
      {:enable false}}))
+
+{: setup}

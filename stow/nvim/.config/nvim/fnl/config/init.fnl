@@ -1,18 +1,11 @@
-(module config.init
-  {autoload {colors config.colors
-             diagnostic config.diagnostic
-             filetypes config.filetypes
-             netrw config.netrw
-             plugins config.plugins}})
-
 (vim.loader.enable)
 
-(def modules
-  [plugins
-   colors
-   diagnostic
-   filetypes
-   netrw])
+(local modules
+  [:config.plugins
+   :config.colors
+   :config.diagnostic
+   :config.filetypes
+   :config.netrw])
 
-(each [_ mod (ipairs modules)]
-  (mod.init))
+(each [_ module-name (ipairs modules)]
+  (: (require module-name) :init))

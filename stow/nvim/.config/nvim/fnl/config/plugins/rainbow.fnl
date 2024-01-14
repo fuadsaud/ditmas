@@ -1,6 +1,4 @@
-(module config.plugins.rainbow)
-
-(defn setup []
+(fn setup []
   (vim.notify "config.plugins.rainbow/config")
 
   (vim.api.nvim_set_var :rainbow_active 1))
@@ -16,3 +14,5 @@
   ;               "#8C3432"
   ;               "#C77366"]]
   ;   (vim.api.nvim_set_var :rainbow_conf {:guifgs colors})))
+
+{: setup}

@@ -1,8 +1,8 @@
-(module config.colors)
-
-(def colorscheme
+(local colorscheme
   ; :monrovia)
   :rose-pine)
 
-(defn init []
+(fn init []
   (vim.cmd {:cmd :colorscheme :args [colorscheme]}))
+
+{: init}

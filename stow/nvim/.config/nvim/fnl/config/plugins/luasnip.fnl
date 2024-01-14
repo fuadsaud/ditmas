@@ -1,9 +1,11 @@
-(module config.plugins.luasnip
-  {autoload {luasnip luasnip
-             from_vscode luasnip.loaders.from_vscode}})
+(local {: autoload} (require :nfnl.module))
+(local luasnip (autoload :luasnip))
+(local from_vscode (autoload :luasnip.loaders.from_vscode))
 
-(defn setup []
+(fn setup []
   (luasnip.filetype_extend "javascript" ["react" "html"])
   (luasnip.filetype_extend "typescript" ["javascript"])
 
   (from_vscode.lazy_load))
+
+{: setup}

@@ -1,16 +1,16 @@
-(module config.plugins
-  {autoload {a aniseed.core
-             lazy lazy
-             nvim aniseed.nvim}})
+(local {: autoload} (require :nfnl.module))
+(local lazy (autoload :lazy))
+(local nfnl-core (autoload :nfnl.core))
 
-(def specs
+(local specs
   {; meta
    :tpope/vim-scriptease {}
    :folke/which-key.nvim {:config true}
    :folke/neodev.nvim {}
    :Olical/aniseed {:branch "develop"}
    :Olical/nfnl {}
-   :Olical/conjure {:dependencies {:m00qek/baleia.nvim {:config true
+   :Olical/conjure {:main :config.plugins.conjure
+                    :dependencies {:m00qek/baleia.nvim {:config true
                                                         :tag "v1.3.0"}}}
 
    ; undo
@@ -184,10 +184,10 @@
    :fuadsaud/Monrovia {:dev true
                        :dir "~/Sources/fuadsaud/Monrovia"}})
 
-(defn prepare [specs]
+(fn prepare [specs]
   (let [prepare-one
         (fn [[plugin-id plugin-spec]]
-          (a.merge plugin-spec
+          (nfnl-core.merge plugin-spec
                    {1 plugin-id
                     :config (when (and (. plugin-spec :main)
                                        (not (. plugin-spec :opts))
@@ -195,9 +195,11 @@
                               true)
                     :dependencies (when (. plugin-spec :dependencies)
                                     (prepare (. plugin-spec :dependencies)))}))]
-    (a.map prepare-one (a.kv-pairs specs))))
+    (nfnl-core.map prepare-one (nfnl-core.kv-pairs specs))))
 
-(defn init []
+(fn init []
   (lazy.setup
     (prepare specs)
     {:checker {:enabled true}}))
+
+{: init}

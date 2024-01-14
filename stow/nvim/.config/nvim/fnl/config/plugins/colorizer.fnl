@@ -1,9 +1,11 @@
-(module config.plugins.colorizer
-  {autoload {colorizer colorizer}})
+(local {: autoload} (require :nfnl.module))
+(local colorizer (autoload :colorizer))
 
-(defn setup []
+(fn setup []
   (vim.notify "Running config.plugins.colorizer/setup")
 
   (set vim.o.termguicolors true)
 
   (colorizer.setup {}))
+
+{: setup}

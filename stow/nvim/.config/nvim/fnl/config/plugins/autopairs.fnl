@@ -1,9 +1,11 @@
-(module config.plugins.auto-pairs
-  {autoload {a aniseed.core
-             autopairs nvim-autopairs
-             constants config.constants}})
+(local {: autoload} (require :nfnl.module))
+(local nfnl-core (autoload :nfnl.core))
+(local autopairs (autoload :nvim-autopairs))
+(local constants (autoload :config.constants))
 
-(defn setup []
+(fn setup []
   (autopairs.setup {:check_ts true
-                    :disable_filetype (a.concat ["TelescopePrompt"]
+                    :disable_filetype (nfnl-core.concat ["TelescopePrompt"]
                                                 constants.sexp-languages)}))
+
+{: setup}

@@ -1,17 +1,18 @@
-(module config.plugins.gitsigns
-  {autoload {a aniseed.core
-             gitsigns gitsigns}})
+(local {: autoload} (require :nfnl.module))
+(local gitsigns (autoload :gitsigns))
+(local nfnl-core (autoload :nfnl.core))
 
-(defn setup []
+(fn setup []
   (gitsigns.setup
     {:on_attach
      (fn [bufnr]
        (vim.notify "Running config.plugins.gitsigns/on_attach")
 
        (let [buf-set-keymap-fn (fn [mode mapping target-fn opts]
-                                 (vim.keymap.set mode mapping target-fn (a.merge {:buffer bufnr
-                                                                                  :noremap true}
-                                                                               opts)))]
+                                 (vim.keymap.set mode mapping target-fn (nfnl-core.merge
+                                                                          {:buffer bufnr
+                                                                           :noremap true}
+                                                                          opts)))]
 
          (buf-set-keymap-fn :n "]c" (fn []
                                       (if vim.wo.diff
@@ -44,3 +45,5 @@
          (buf-set-keymap-fn :n "<Leader>td" gitsigns.toggle_deleted)
 
          (buf-set-keymap-fn [:o :x] "ih" ":<C-U>Gitsigns select_hunk<CR>")))}))
+
+{: setup}

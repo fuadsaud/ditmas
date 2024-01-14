@@ -1,6 +1,3 @@
-(module config.filetypes
-  {require-macros [lib.macros]})
-
 (local filetypes
   {:html
    (fn []
@@ -12,9 +9,14 @@
      (set vim.g.clojure_fold 1)
      (set vim.g.clojure_align_multiline_strings 1)
 
-     (augroup :babashka_filetype
-              (autocmd "BufEnter,BufNew" "*.bb" :setfiletype :clojure)))})
+     (local babashka-filetype-group (vim.api.nvim_create_augroup :babashka-filetype {:clear true}))
+     (vim.api.nvim_create_autocmd [:BufEnter :BufNew]
+                                  {:pattern "*.bb"
+                                   :command ":setfiletype clojure"
+                                   :group babashka-filetype-group}))})
 
-(defn init []
+(fn init []
   (each [_ filetype-fn (pairs filetypes)]
     (filetype-fn)))
+
+{: init}

@@ -1,11 +1,10 @@
-(module config.plugins.lualine
-  {autoload {lualine lualine
-             a aniseed.core
-             rhizome rhizome
-             lazy-status lazy.status
-             monrovia monrovia.lualine}})
+(local {: autoload} (require :nfnl.module))
+(local lualine (autoload :lualine))
+(local rhizome (autoload :rhizome))
+(local lazy-status (autoload :lazy.status))
+(local nfnl-core (autoload :nfnl.core))
 
-(defn setup []
+(fn setup []
   (set vim.opt.laststatus 3)
 
   (let [filename {1 :filename
@@ -15,14 +14,14 @@
                          (if (= "[" (p:sub 1 1))
                             p
                             (let [segments (vim.split p "/")
-                                  filename (a.last segments)
-                                  segments-to-shorten (a.butlast segments)]
-                              (if (= 1 (a.count segments))
+                                  filename (nfnl-core.last segments)
+                                  segments-to-shorten (nfnl-core.butlast segments)]
+                              (if (= 1 (nfnl-core.count segments))
                                 (table.concat segments)
                                 (-> segments-to-shorten
-                                    (->> (a.map (fn [segment] (segment:sub 1 1))))
+                                    (->> (nfnl-core.map (fn [segment] (segment:sub 1 1))))
                                     (table.concat "/")
-                                    (a.str "/" filename))))))}
+                                    (nfnl-core.str "/" filename))))))}
         lazy {1 lazy-status.updates
               :cond lazy-status.has_updates}
 
@@ -41,3 +40,5 @@
                                :lualine_y [:encoding :fileformat :filetype]
                                :lualine_z [:progress :location tabs]}})
     (vim.cmd "set showtabline=0")))
+
+{: setup}

@@ -1,5 +1,7 @@
-(module config.plugins.leap
-  {autoload {leap leap}})
+(local {: autoload} (require :nfnl.module))
+(local leap (autoload :leap))
 
-(defn setup []
+(fn setup []
   (leap.add_default_mappings))
+
+{: setup}

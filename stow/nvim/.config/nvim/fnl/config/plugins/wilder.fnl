@@ -1,5 +1,7 @@
-(module config.plugins.wilder
-  {autoload {wilder wilder}})
+(local {: autoload} (require :nfnl.module))
+(local wilder (autoload :wilder))
 
-(defn setup []
+(fn setup []
   (wilder.setup {:modes [":" "/" "?"]}))
+
+{: setup}
