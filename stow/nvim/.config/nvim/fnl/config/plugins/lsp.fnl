@@ -13,8 +13,8 @@
 (local typescript (autoload :typescript))
 (local typescript-null-ls-code-actions (autoload :typescript.extensions.null-ls.code-actions))
 
-(fn log [message]
-  (vim.notify message))
+(fn log [message])
+  ;(vim.notify message))
 
 (local default-server-opts
   {:on_attach (fn [client bufnr]

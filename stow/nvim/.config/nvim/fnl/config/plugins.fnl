@@ -108,7 +108,6 @@
 
    ; tmux
    :christoomey/vim-tmux-navigator {}
-   :edkolev/tmuxline.vim {}
 
    ; todos
    :folke/todo-comments.nvim {:dependencies {:nvim-lua/plenary.nvim {}}
