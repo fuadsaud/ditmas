@@ -49,7 +49,7 @@
    :nvim-telescope/telescope-fzf-native.nvim {:build "make"}
 
    ; projects
-   :tpope/vim-projectionist {}
+   :tpope/vim-projectionist {:main :config.plugins.projectionist}
    :fuadsaud/rhizome.nvim {:main :config.plugins.rhizome}
                            ; :dev true
                            ; :dir "~/Sources/fuadsaud/rhizome.nvim"
