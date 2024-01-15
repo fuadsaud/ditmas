@@ -31,7 +31,4 @@ end
 bootstrap("folke", "lazy.nvim", { ref = "stable" })
 bootstrap("Olical", "nfnl", {})
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = "+"
-
 require("config.init")

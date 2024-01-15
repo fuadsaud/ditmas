@@ -15,8 +15,6 @@
 "
 
 map <Space> <Nop>
-let mapleader = ' '
-let maplocalleader = '+'
 map <Backspace> +
 
 "          __    __
