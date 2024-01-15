@@ -1,7 +1,8 @@
 (vim.loader.enable)
 
 (local modules
-  [:config.plugins
+  [:config.options
+   :config.plugins
    :config.colors
    :config.diagnostic
    :config.filetypes

@@ -28,7 +28,7 @@
 
 
    ; search
-   :wincent/ferret {}
+   :wincent/ferret {:main :config.plugins.ferret}
    :nvim-pack/nvim-spectre {:dependencies {:nvim-lua/plenary.nvim {}}
                             :config true}
 
