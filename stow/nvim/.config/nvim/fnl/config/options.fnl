@@ -1,62 +1,66 @@
+(local options
+  {:shell (os.getenv :SHELL)
+   
+   :encoding :utf-8
+   
+   :visualbell true
+   :showmode false
+   :showmatch true
+   :title true
+   
+   :number true
+   :relativenumber true
+   
+   :cursorline true
+   :colorcolumn [80 100 120]
+   
+   :fillchars {:vert "│"}
+   :list true
+   :listchars {:tab "▶-"
+               :trail "•"
+               :extends "»"
+               :precedes "«"}
+   
+   :splitbelow true
+   :splitright true
+   
+   :clipboard :unnamedplus
+   :wildmode [:longest :full]
+   
+   :mouse :a
+   
+   :swapfile false
+   :undofile true
+   
+   ;; whitespace
+   :autoindent true
+   :copyindent true
+   :wrap false
+   :tabstop 2
+   :softtabstop 2
+   :shiftwidth 2
+   :shiftround true
+   
+   ;; searching
+   :ignorecase true
+   :smartcase true
+   :gdefault true
+   :inccommand :split
+   
+   ;; folding
+   :foldlevelstart 10
+   :foldnestmax 10
+   :foldmethod :syntax
+   
+   ;; completion
+   :completeopt [:menu :menuone :noselect]
+   :shortmess #($1:append {:c true})})
+   
 (fn init []
-  (print "HEYO")
-  (set vim.opt.shell (os.getenv :SHELL))
-
-  (set vim.opt.encoding :utf-8)
-
-  (set vim.opt.visualbell true)
-  (set vim.opt.showmode false)
-  (set vim.opt.showmatch true)
-  (set vim.opt.title true)
-
-  (set vim.opt.number true)
-  (set vim.opt.relativenumber true)
-
-  (set vim.opt.cursorline true)
-  (set vim.opt.colorcolumn [80 100 120])
-  (set vim.opt.fillchars {:vert "│"})
-  (set vim.opt.list true)
-  (set vim.opt.listchars {:tab "▶-"
-                          :trail "•"
-                          :extends "»"
-                          :precedes "«"})
-
-  (set vim.opt.splitbelow true)
-  (set vim.opt.splitright true)
-
-  (set vim.opt.clipboard :unnamedplus)
-
-  (set vim.opt.wildmode [:longest :full])
-
-  (set vim.opt.mouse :a)
-
-  (set vim.opt.swapfile false)
-  (set vim.opt.undofile true)
-
-  ;; whitespace
-  (set vim.opt.autoindent true)
-  (set vim.opt.copyindent true)
-  (set vim.opt.wrap false)
-
-  (set vim.opt.tabstop 2)
-  (set vim.opt.softtabstop 2)
-  (set vim.opt.shiftwidth 2)
-  (set vim.opt.shiftround true)
-
-  ;; searching
-  (set vim.opt.ignorecase true)
-  (set vim.opt.smartcase true)
-  (set vim.opt.gdefault true)
-  (set vim.opt.inccommand :split)
-
-  ;; folding
-  (set vim.opt.foldlevelstart 10)
-  (set vim.opt.foldnestmax 10)
-  (set vim.opt.foldmethod :syntax)
-
-  ;; completion
-  (set vim.opt.completeopt [:menu :menuone :noselect])
-  (vim.opt.shortmess:append {:c true}))
+  (each [option value (pairs options)]
+    (if (= :function (type value))
+      (value (. vim.opt option))
+      (tset vim.opt option value))))
 
 
 {: init}
