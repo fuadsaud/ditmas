@@ -272,6 +272,7 @@ nnoremap <Leader>xw <cmd>TroubleToggle workspace_diagnostics<CR>
 nnoremap <Leader>xd <cmd>TroubleToggle document_diagnostics<CR>
 nnoremap <Leader>xq <cmd>TroubleToggle quickfix<CR>
 nnoremap <Leader>xl <cmd>TroubleToggle loclist<CR>
+nnoremap gR <cmd>TroubleToggle lsp_references<CR>
 
 "    __                      _ __  __
 "   / /_________  ___  _____(_) /_/ /____  _____
