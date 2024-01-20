@@ -1,3 +1,6 @@
 [submodule "zsh/.config/zsh/.zprezto"]
 	path = stow/zsh/.config/zsh/.zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
+[submodule "stow/alacritty/.local/share/alacritty/themes/alacritty-theme"]
+	path = stow/alacritty/.local/share/alacritty/themes/alacritty-theme
+	url = https://github.com/alacritty/alacritty-theme
