@@ -45,7 +45,6 @@ if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
 fi
 
-export HOUDINI_DIR="${HOME}/.ditmas"
 export DITMAS_DIR="${HOME}/.ditmas"
 export STOW_DIR="${DITMAS_DIR}/stow"
 export SRC_DIR="${HOME}/Sources"
@@ -64,7 +63,7 @@ export GO_PATH="${GOPATH}"
 export PACMAN_BIN="paru"
 
 # this is a bit dirty, but bbin will likely change the default dir (https://github.com/babashka/bbin/issues/35)
-local babashka_bbin_dir="${HOME}/.local/share/.babashka/bbin/bin"
+babashka_bbin_dir="${HOME}/.local/share/.babashka/bbin/bin"
 
 #
 # Paths
@@ -97,9 +96,8 @@ export FPATH=$(tr -d $'\n ' <<< "
 export LESS='-g -i -M -R -S -w -X -z-4'
 
 # Set the Less input preprocessor.
-# Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
-if (( $#commands[(i)lesspipe(|.sh)] )); then
-  export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
+if command -v lesspipe.sh >> /dev/null; then
+  eval "$(lesspipe.sh)"
 fi
 
 #

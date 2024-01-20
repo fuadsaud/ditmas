@@ -3,9 +3,9 @@ alias bx="bundle exec"
 alias cdgr="cd \`git root\`"
 alias cdgw='cd $(git fz-worktree-path)'
 alias g="git"
+alias j="z"
 alias mk="make"
 alias n="nvim"
-alias nvplug="nvim +PlugInstall +qall"
 alias p="paru"
 alias pacs="sudo pacman -S"
 alias pm="pulumi"
@@ -17,7 +17,6 @@ alias sysu="systemctl --user"
 alias te="teamocil --edit"
 alias th="teamocil --here"
 alias vi="vim"
-alias vplug="vim +PlugInstall +qall"
 alias w1="watch -n 1"
 alias w5="watch -n 5"
 alias w10="watch -n 10"
@@ -30,9 +29,6 @@ alias yta="yt -x --audio-format mp3"
 # alias ln="${aliases[ln]:-ln} -v"
 # alias mv="${aliases[mv]:-mv} -v"
 # alias rm="${aliases[rm]:-rm} -v"
-
-# alias j="fasd_jump"
-# alias nf="fasd_edit"
 
 # function path { print -l $path; }
 
