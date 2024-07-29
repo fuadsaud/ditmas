@@ -8,10 +8,12 @@ ctags
 direnv
 dmutils
 env
+fish
 git
 gpg
 idea
 karabiner
+kitty
 lein
 macutils
 nvim
