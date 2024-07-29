@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+yabai -m config layout bsp
+
+yabai -m config top_padding    10
+yabai -m config bottom_padding 10
+yabai -m config left_padding   10
+yabai -m config right_padding  10
+yabai -m config window_gap     10
+
+yabai -m rule --add app="^Slack$" space=^1
+yabai -m rule --add app="^WhatsApp$" space=^2
+yabai -m rule --add app="^Telegram$" space=^2
+yabai -m rule --add app="^Spotify$" space=^3
+yabai -m rule --add app="^Kitty$" space=^5
+yabai -m rule --add app="^Arc$" space=^9
+
+# yabai -m config external_bar all:20:0

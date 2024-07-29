@@ -4,3 +4,4 @@ set -euo pipefail
 
 yabai --stop-service
 yabai --start-service
+sudo yabai --load-sa
