@@ -200,7 +200,6 @@ nnoremap <LocalLeader>j{ vi{<C-v>$:EasyAlign\ g/^\S/<CR>gv=
 
 " telescope
 nnoremap <C-p>       <cmd>Telescope find_files   theme=ivy<CR>
-nnoremap <Leader>ff  <cmd>Telescope find_files   theme=ivy<CR>
 nnoremap <Leader>fb  <cmd>Telescope buffers      theme=ivy<CR>
 nnoremap <Leader>fg  <cmd>Telescope live_grep    theme=ivy<CR>
 nnoremap <Leader>fh  <cmd>Telescope help_tags    theme=ivy<CR>
@@ -208,6 +207,7 @@ nnoremap <Leader>fc  <cmd>Telescope colorschemes theme=ivy<CR>
 nnoremap <Leader>fd  <cmd>Telescope diagnostics  theme=ivy bufnr=0<CR>
 nnoremap <Leader>fwd <cmd>Telescope diagnostics  theme=ivy<CR>
 nnoremap <Leader>ft  <cmd>Telescope treesitter   theme=ivy<CR>
+nnoremap <Leader>ff  <cmd>Telescope file_browser theme=ivy path=%:p:h select_buffer=true<CR>
 
 "                         _           __
 "     ____  _________    (_)__  _____/ /______
@@ -267,12 +267,15 @@ nnoremap <Leader>dl <cmd>lua vim.diagnostic.setloclist()<CR>
 " \__/_/   \____/\__,_/_.___/_/\___/
 "
 
-nnoremap <Leader>xx <cmd>TroubleToggle<CR>
-nnoremap <Leader>xw <cmd>TroubleToggle workspace_diagnostics<CR>
-nnoremap <Leader>xd <cmd>TroubleToggle document_diagnostics<CR>
-nnoremap <Leader>xq <cmd>TroubleToggle quickfix<CR>
-nnoremap <Leader>xl <cmd>TroubleToggle loclist<CR>
-nnoremap gR <cmd>TroubleToggle lsp_references<CR>
+nnoremap <Leader>xx <cmd>Trouble diagnostics toggle<CR>
+nnoremap <Leader>xX <cmd>Trouble diagnostics toggle filter.buf=0<CR>
+nnoremap <Leader>xd <cmd>Trouble lsp toggle focus=false win.position=right<CR>
+nnoremap <Leader>xs <cmd>Trouble symbols toggle focus=false<CR>
+nnoremap <Leader>xq <cmd>Trouble qflist toggle<CR>
+nnoremap <Leader>xl <cmd>Trouble loclist toggle<CR>
+
+nnoremap ]x <cmd>lua require("trouble").next({skip_groups = true, jump = true});<CR>
+nnoremap [x <cmd>lua require("trouble").previous({skip_groups = true, jump = true});<CR>
 
 "    __                      _ __  __
 "   / /_________  ___  _____(_) /_/ /____  _____
@@ -293,6 +296,8 @@ nnoremap <Leader>tn <cmd>TSNodeUnderCursor<CR>
 
 " run macros
 nnoremap Q @
+nnoremap <Leader>lspi <cmd>LspInfo<CR>
+nnoremap <Leader>lspr <cmd>LspRestart<CR>
 
 "     __
 "    / /___ _____  __  __

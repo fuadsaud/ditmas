@@ -20,11 +20,14 @@
                            :dependencies {:jose-elias-alvarez/null-ls.nvim {:dependencies {:nvim-lua/plenary.nvim {}}}
                                           :jose-elias-alvarez/typescript.nvim {}
                                           :lukas-reineke/lsp-format.nvim {}
+                                          :pmizio/typescript-tools.nvim {:dependencies {:nvim-lua/plenary.nvim {}
+                                                                                        :neovim/nvim-lspconfig {}}}
                                           :williamboman/mason-lspconfig.nvim {:dependencies {:williamboman/mason.nvim {}}}
                                           :williamboman/mason.nvim {:build ":MasonUpdate"}}}
 
    :creativenull/efmls-configs-nvim {:dependencies {:neovim/nvim-lspconfig {}}}
    :smjonas/inc-rename.nvim {:config true}
+
 
 
    ; search
@@ -37,11 +40,7 @@
 
    ; filesystem
    :tpope/vim-eunuch {}
-   :stevearc/oil.nvim {:config {:keymaps {:<C-p> false
-                                          :<C-x> :actions.preview
-
-                                          :<C-s> false
-                                          :<C-v> :actions.select_vsplit}}}
+   :stevearc/oil.nvim {:main :config.plugins.oil}
    :pbrisbin/vim-mkdir {}
    :lambdalisue/suda.vim {}
    :nvim-telescope/telescope-file-browser.nvim {:dependencies {}}
@@ -158,6 +157,7 @@
                                                   :nvim-telescope/telescope-project.nvim {}
                                                   :nvim-telescope/telescope-fzf-native.nvim {}}
                                    :main :config.plugins.telescope}
+   :stevearc/dressing.nvim {:config true}
 
 
    ; clojure

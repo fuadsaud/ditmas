@@ -12,6 +12,7 @@
 (local telescope-themes (autoload :telescope.themes))
 (local typescript (autoload :typescript))
 (local typescript-null-ls-code-actions (autoload :typescript.extensions.null-ls.code-actions))
+(local typescript-tools (autoload :typescript-tools))
 
 (local verbose? false)
 
@@ -23,8 +24,10 @@
   {:on_attach (fn [client bufnr]
                 (log (nfnl-core.str "Running config.lsp.shared/on_attach" {:client client.name}))
 
-                (when client.server_capabilities.inlayHintProvider
-                  (vim.lsp.inlay_hint bufnr true))
+                (vim.lsp.inlay_hint.enable true)
+
+                (when (= client.name "eslint")
+                  (tset client :server_capabilities :documentFormattingProvider true))
 
                 (lsp-format.on_attach client bufnr)
 
@@ -35,9 +38,10 @@
                   (buf-set-option "omnifunc" "v:lunfnl-core.vim.lsp.omnifunc")
 
                   (buf-set-keymap-fn :n :K            #(vim.lsp.buf.hover))
-                  (buf-set-keymap-fn :n :<Leader>lk   #(vim.lsp.buf.signature_help))
+                  (buf-set-keymap-fn :n :<Leader>k    #(vim.lsp.buf.signature_help))
                   (buf-set-keymap-fn :i :<C-Z>        #(vim.lsp.buf.signature_help))
                   (buf-set-keymap-fn :n :<Leader>lic  #(vim.lsp.buf.incoming_calls))
+                  (buf-set-keymap-fn :n :<Leader>loc  #(vim.lsp.buf.outgoing_calls))
                   (buf-set-keymap-fn :n :gr           #(vim.lsp.buf.references))
                   (buf-set-keymap-fn :n :gR           #(vim.cmd {:cmd :TroubleToggle :args :lsp_references}))
                   (buf-set-keymap-fn :n :gd           #(vim.lsp.buf.definition))
@@ -47,19 +51,23 @@
                   (buf-set-keymap-fn :n :gW           #(vim.lsp.buf.workspace_symbol))
                   (buf-set-keymap-fn :n :gi           #(vim.lsp.buf.implementation))
 
-                  (buf-set-keymap-fn :n :<Leader>la  #(vim.lsp.buf.code_action))
                   (buf-set-keymap-fn :n :<Leader>lk  #(vim.lsp.buf.code_action))
                   (buf-set-keymap-fn :n :<Leader>lf  #(vim.lsp.buf.format))
                   (buf-set-keymap-fn :n :<Leader>lr  #(vim.lsp.buf.rename))
                   (buf-set-keymap-fn :n :<Leader>lwa #(vim.lsp.buf.add_workspace_folder))
                   (buf-set-keymap-fn :n :<Leader>lwl #(vim.inspect (vim.lsp.buf.list_workspace_folders)))
                   (buf-set-keymap-fn :n :<Leader>lwr #(vim.lsp.buf.remove_workspace_folder))
+                  (buf-set-keymap-fn :n :<Leader>lihe #(vim.lsp.inlay_hint.enable true))
+                  (buf-set-keymap-fn :n :<Leader>lihd #(vim.lsp.inlay_hint.enable false))
+
 
                   (let [telescope-theme (telescope-themes.get_ivy)]
                     (buf-set-keymap-fn :n :<Leader>fws #(telescope-builtin.lsp_workspace_symbols telescope-theme))
                     (buf-set-keymap-fn :n :<Leader>fds #(telescope-builtin.lsp_document_symbols telescope-theme))
                     (buf-set-keymap-fn :n :<Leader>fr  #(telescope-builtin.lsp_references telescope-theme))
-                    (buf-set-keymap-fn :n :<Leader>fi  #(telescope-builtin.lsp_implementations telescope-theme)))))
+                    (buf-set-keymap-fn :n :<Leader>fi  #(telescope-builtin.lsp_implementations telescope-theme))
+                    (buf-set-keymap-fn :n :<Leader>flic  #(telescope-builtin.lsp_incoming_calls telescope-theme))
+                    (buf-set-keymap-fn :n :<Leader>floc  #(telescope-builtin.lsp_outgoing_calls telescope-theme)))))
 
 
    :handlers {"textDocument/hover"
@@ -92,10 +100,10 @@
                         (let [execute-command (fn [command-name extra-args]
                                                 (vim.lsp.buf.execute_command
                                                   {:command command-name
-                                                   :arguments (nfnl-core.concat [(expand-path-uri)]
-                                                                       (- (vim.fn.line ".") 1)
-                                                                       (- (vim.fn.col ".") 1)
-                                                                       extra-args)}))]
+                                                   :arguments (nfnl-core.concat [(expand-path-uri)
+                                                                                 (- (vim.fn.line ".") 1)
+                                                                                 (- (vim.fn.col ".") 1)
+                                                                                 extra-args])}))]
 
                           (buf-set-keymap-fn :n :<LocalLeader>cc #(execute-command :cycle-coll          []))
                           (buf-set-keymap-fn :n :<LocalLeader>cp #(execute-command :cycle-privacy       []))
@@ -150,7 +158,9 @@
                              {:settings {:fennel {:workspace {:library (vim.api.nvim_list_runtime_paths)}
                                                   :diagnostics {:globals [:vim]}}}})
 
-   :bashls default-server-opts})
+   :bashls default-server-opts
+
+   :taplo default-server-opts})
 
 (fn setup-mason []
   (mason.setup {})
@@ -158,7 +168,7 @@
 
 (fn setup-null-ls []
   (null-ls.setup
-    {:sources [;null-ls.builtins.formatting.prettier
+    {:sources [null-ls.builtins.formatting.prettier
                null-ls.builtins.code_actions.gitsigns
                null-ls.builtins.diagnostics.stylelint
                typescript-null-ls-code-actions]
@@ -175,28 +185,31 @@
     (log (string.format "config.plugins.lspconfig/config: setup finished for [%s]" server-name))))
 
 (fn setup-lsp-format []
-  (lsp-format.setup {:exclude [:tsserver :jsonls]}))
+  (lsp-format.setup {:exclude [:tsserver :jsonls :cssls]}))
 
 (fn setup-neodev []
   (neodev.setup {}))
 
 (fn setup-tsserver []
-  (typescript.setup {:server (nfnl-core.merge
-                               default-server-opts
-                               {:settings {:javascript {:inlayHints {:includeInlayEnumMemberValueHints true
-                                                                     :includeInlayFunctionLikeReturnTypeHints true
-                                                                     :includeInlayFunctionParameterTypeHints true
-                                                                     :includeInlayParameterNameHints :all ; 'none' | 'literals' | 'all';
-                                                                     :includeInlayParameterNameHintsWhenArgumentMatchesName true
-                                                                     :includeInlayPropertyDeclarationTypeHints true
-                                                                     :includeInlayVariableTypeHints true}}
-                                           :typescript {:inlayHints {:includeInlayEnumMemberValueHints true
-                                                                     :includeInlayFunctionLikeReturnTypeHints true
-                                                                     :includeInlayFunctionParameterTypeHints true
-                                                                     :includeInlayParameterNameHints :all ; 'none' | 'literals' | 'all';
-                                                                     :includeInlayParameterNameHintsWhenArgumentMatchesName true
-                                                                     :includeInlayPropertyDeclarationTypeHints true
-                                                                     :includeInlayVariableTypeHints true}}}})}))
+  (let [settings {:inlayHints {:includeInlayEnumMemberValueHints true
+                               :includeInlayFunctionLikeReturnTypeHints true
+                               :includeInlayFunctionParameterTypeHints true
+                               :includeInlayPropertyDeclarationTypeHints true
+                               :includeInlayParameterNameHints :all
+                               :includeInlayParameterNameHintsWhenArgumentMatchesName true
+                               :includeInlayVariableTypeHints true
+                               :includeInlayVariableTypeHintsWhenArgumentMatchesName true}
+                  :implementationsCodeLens {:enabled true}
+                  :referencesCodeLens {:enabled true
+                                       :showOnAllFunctions true}}]
+    (typescript.setup {:server (nfnl-core.merge
+                                 default-server-opts
+                                 {:settings {:javascript settings
+                                             :typescript settings}})})))
+
+(fn setup-typescript-tools []
+  (typescript-tools.setup {:expose_as_code_action "all"
+                           :code_lens "all"}))
 
 (fn setup []
   (log "config.plugins.lspconfig/config")
@@ -204,6 +217,7 @@
   (setup-mason)
   (setup-neodev)
   (setup-tsserver)
+  (setup-typescript-tools)
   (setup-null-ls)
   (setup-lspconfig)
   (setup-lsp-format))

@@ -1,7 +1,7 @@
 (vim.loader.enable)
 
 (set vim.g.mapleader " ")
-(set vim.g.maplocalleaer "+")
+(set vim.g.maplocalleader "+")
 
 (local modules
   [:config.options
