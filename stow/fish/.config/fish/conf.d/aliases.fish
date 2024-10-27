@@ -1,16 +1,21 @@
 alias bat='docker run -it --rm -e BAT_THEME -e BAT_STYLE -e BAT_TABS -v "$(pwd):/myapp" danlynn/bat'
 alias bx="bundle exec"
-alias cdgr="cd \`git root\`"
-alias cdgw='cd $(git fz-worktree-path)'
+alias cdgr="cd (git root)"
+alias cdgw='cd (git fz-worktree-path)'
+alias dc="docker compose"
 alias g="git"
 alias j="z"
 alias mk="make"
 alias n="nvim"
+alias npmr="npm run"
 alias p="paru"
+alias pbc="pbcopy"
+alias pbp="pbpaste"
 alias pacs="sudo pacman -S"
 alias pm="pulumi"
-alias qmkxf="qmk flash -kb xd75 -km fuad -bl dfu"
+alias qmkcf="qmk flash -kb crkbd -km fuad -bl dfu"
 alias qmkef="qmk flash -kb ergodash/rev1 -km fuad"
+alias qmkxf="qmk flash -kb xd75 -km fuad -bl dfu"
 alias rk="rake"
 alias sys="sudo systemctl"
 alias sysu="systemctl --user"
@@ -28,7 +33,7 @@ alias yta="yt -x --audio-format mp3"
 # alias cp="${aliases[cp]:-cp} -v"
 # alias ln="${aliases[ln]:-ln} -v"
 # alias mv="${aliases[mv]:-mv} -v"
-# alias rm="${aliases[rm]:-rm} -v"
+alias rm="rm -i"
 
 # function path { print -l $path; }
 
