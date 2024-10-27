@@ -29,7 +29,7 @@
                 (when (= client.name "eslint")
                   (tset client :server_capabilities :documentFormattingProvider true))
 
-                (lsp-format.on_attach client bufnr)
+                ; (lsp-format.on_attach client bufnr)
 
                 (let [buf-set-option (fn [opt val] (vim.api.nvim_buf_set_option bufnr opt val))
                       buf-set-keymap-fn (fn [mode mapping target-fn]
@@ -47,7 +47,7 @@
                   (buf-set-keymap-fn :n :gd           #(vim.lsp.buf.definition))
                   (buf-set-keymap-fn :n :g0           #(vim.lsp.buf.document_symbol))
                   (buf-set-keymap-fn :n :gD           #(vim.lsp.buf.declaration))
-                  (buf-set-keymap-fn :n :gtd          #(vim.lsp.buf.type_definition))
+                  (buf-set-keymap-fn :n :gy           #(vim.lsp.buf.type_definition))
                   (buf-set-keymap-fn :n :gW           #(vim.lsp.buf.workspace_symbol))
                   (buf-set-keymap-fn :n :gi           #(vim.lsp.buf.implementation))
 

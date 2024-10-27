@@ -65,7 +65,7 @@ inoremap <C-Y> <Esc>Pa
 " write buffer on C-s
 inoremap <C-s> <Esc>:w<CR>a
 nnoremap <C-s> :w<CR>
-nnoremap g<C-s> :w<CR>  
+nnoremap g<C-s> :Gwrite<CR>
 
 "                       _             __
 "    ____  ____ __   __(_)___ _____ _/ /____
