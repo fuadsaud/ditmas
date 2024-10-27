@@ -55,6 +55,7 @@
   p  = push --verbose --progress
   pf = p --force-with-lease
   pm = prune-merged
+  pn = p --no-verify
   pod = p origin --delete
   pprq = "!git p && hub prq"
   prq = pull-request
@@ -82,10 +83,12 @@
   snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
   sp = stash pop
   ss = stash show -p
+  ssf = fz-stash-show
   st  = status --short --branch
   ssv = stash save
   sw = switch
   swc = switch --create
+  swd = switch --detach
   swm = switch --merge
   t = tag
   uiau = update-index --assume-unchanged
@@ -93,7 +96,7 @@
   unstage = reset HEAD
   untracked = ls-files --others --exclude-standard
   wc = whatchanged --graph --abbrev-commit
-  wip = ci -m '•••••<[WIP]>•••••'
+  wip = ci --message '•••••<[WIP]>•••••' --no-verify
   wta = worktree add
   wtr = worktree remove
 [color]
@@ -132,5 +135,8 @@
   diffFilter = delta --color-only
 [init]
   defaultBranch = main
+[credential]
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true

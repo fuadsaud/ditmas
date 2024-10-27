@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+# git stash list |
+# fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+#     --bind "ctrl-m:execute:
+#               (grep -o '[a-f0-9]\{7\}' | head -1 |
+#               xargs -I % sh -c 'git stash show --color=always % | less -R') << 'FZF-EOF'
+#               {}
+# FZF-EOF"
+
+git stash list \
+    --color=always \
+    "$@" |
+
+    fzf \
+    --ansi \
+    --reverse \
+    --tiebreak=index \
+    --no-sort \
+    --bind=ctrl-s:toggle-sort \
+    --preview 'f() { set -- $(echo -- "$@" | grep -o "[a-f0-9]\{7\}"); [ $# -eq 0 ] || git stash show --color=always $1 | less -R; }; f {}'
