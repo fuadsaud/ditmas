@@ -65,6 +65,7 @@ inoremap <C-Y> <Esc>Pa
 " write buffer on C-s
 inoremap <C-s> <Esc>:w<CR>a
 nnoremap <C-s> :w<CR>
+nnoremap g<C-s> :w<CR>  
 
 "                       _             __
 "    ____  ____ __   __(_)___ _____ _/ /____
@@ -204,7 +205,7 @@ nnoremap <Leader>fb  <cmd>Telescope buffers      theme=ivy<CR>
 nnoremap <Leader>fg  <cmd>Telescope live_grep    theme=ivy<CR>
 nnoremap <Leader>fh  <cmd>Telescope help_tags    theme=ivy<CR>
 nnoremap <Leader>fc  <cmd>Telescope colorschemes theme=ivy<CR>
-nnoremap <Leader>fd  <cmd>Telescope diagnostics  theme=ivy bufnr=0<CR>
+nnoremap <Leader>fdd <cmd>Telescope diagnostics  theme=ivy bufnr=0<CR>
 nnoremap <Leader>fwd <cmd>Telescope diagnostics  theme=ivy<CR>
 nnoremap <Leader>ft  <cmd>Telescope treesitter   theme=ivy<CR>
 nnoremap <Leader>ff  <cmd>Telescope file_browser theme=ivy path=%:p:h select_buffer=true<CR>
@@ -342,3 +343,5 @@ nnoremap <Leader>q <cmd>lua require('lib.qfloc').toggle('c')<CR>
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
 nnoremap - <cmd>Oil<CR>
+
+nnoremap <Leader>gf :hide :edit %:h/
