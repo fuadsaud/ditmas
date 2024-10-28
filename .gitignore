@@ -21,7 +21,6 @@ stow/vim/.vim/autoload/plug.vim
 stow/vim/.vim/.netrwhist
 stow/nvim/.config/nvim/.netrwhist
 stow/nvim/.config/nvim/Ditto
-stow/nvim/.config/nvim/lua
 
 stow/zsh/.config/zsh/.zcompdump
 stow/zsh/.config/zsh/.zcompcache
