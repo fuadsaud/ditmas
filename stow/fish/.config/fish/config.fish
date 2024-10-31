@@ -1,8 +1,6 @@
 if status is-interactive; and not set -q TMUX
     fenv source ~/.profile
 
-    source "$(brew --prefix asdf)/libexec/asdf.fish"
-
     fish_vi_key_bindings
 
     if string match -q -- 'tmux*' $TERM
@@ -10,5 +8,7 @@ if status is-interactive; and not set -q TMUX
     end
 
   neofetch
+
+  jump shell fish | source
 end
 

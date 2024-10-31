@@ -1,6 +1,4 @@
 package foreign-env
-package gi
-package z
 theme boxfish
 theme default
 theme nai

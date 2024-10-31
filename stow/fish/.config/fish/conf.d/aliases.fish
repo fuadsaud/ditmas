@@ -1,10 +1,13 @@
-alias bat='docker run -it --rm -e BAT_THEME -e BAT_STYLE -e BAT_TABS -v "$(pwd):/myapp" danlynn/bat'
+function fish-reload-config
+  source ~/.config/fish/**/*.fish
+end
+
+alias bbig="brew bundle install --global"
 alias bx="bundle exec"
 alias cdgr="cd (git root)"
-alias cdgw='cd (git fz-worktree-path)'
+alias cdgw="cd (git fz-worktree-path)"
 alias dc="docker compose"
 alias g="git"
-alias j="z"
 alias mk="make"
 alias n="nvim"
 alias npmr="npm run"
@@ -27,7 +30,7 @@ alias w5="watch -n 5"
 alias w10="watch -n 10"
 alias w15="watch -n 15"
 alias w30="watch -n 30"
-alias yt="youtube-dl -o '%(title)s-%(id)s.%(ext)s'"
+alias yt="yt-dlp -o '%(title)s-%(id)s.%(ext)s'"
 alias yta="yt -x --audio-format mp3"
 
 # alias cp="${aliases[cp]:-cp} -v"
@@ -35,9 +38,22 @@ alias yta="yt -x --audio-format mp3"
 # alias mv="${aliases[mv]:-mv} -v"
 alias rm="rm -i"
 
-# function path { print -l $path; }
+function nd
+  nvim "+cd $DITMAS_DIR"
+end
 
-# function nd { nvim "+cd ${DITMAS_DIR}"; }
-# function nz { nvim "+cd ${ZDOTDIR}"; }
-# function nw { nvim $(which ${1}); }
-# function nv { nvim "+cd ${XDG_CONFIG_HOME}/nvim"; }
+function ndh
+  nvim "+cd $DITMAS_HOST_DIR"
+end
+
+function nf
+  nvim "+cd $XDG_CONFIG_HOME/fish" "$XDG_CONFIG_HOME/fish/config.fish"
+end
+
+function nv
+  nvim "+cd $XDG_CONFIG_HOME/nvim"
+end
+
+function nw
+  nvim (which $1)
+end
