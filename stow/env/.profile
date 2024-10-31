@@ -46,6 +46,7 @@ if [[ -z "$LANG" ]]; then
 fi
 
 export DITMAS_DIR="${HOME}/.ditmas"
+export DITMAS_HOST_DIR="${DITMAS_DIR}/hosts/$(hostname).d"
 export STOW_DIR="${DITMAS_DIR}/stow"
 export SRC_DIR="${HOME}/Sources"
 export LOCAL_BIN_DIR="${HOME}/.local/bin"
@@ -54,13 +55,18 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"${HOME}/.config"}
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/pass"
 export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgreprc"
 
-export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 export NVM_DIR="${XDG_DATA_HOME}/nvm"
 export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
 export QMK_HOME="${SRC_DIR}/fuadsaud/qmk_firmware"
 export GOPATH="${SRC_DIR}/go"
 export GO_PATH="${GOPATH}"
 export PACMAN_BIN="paru"
+
+#
+# Homebrew
+#
+export HOMEBREW_CASK_OPTS='--appdir=/Applications'
+export HOMEBREW_BUNDLE_FILE_GLOBAL="${DITMAS_HOST_DIR}/Brewfile"
 
 # this is a bit dirty, but bbin will likely change the default dir (https://github.com/babashka/bbin/issues/35)
 babashka_bbin_dir="${HOME}/.local/share/.babashka/bbin/bin"

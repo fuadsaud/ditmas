@@ -2,7 +2,4 @@
 
 set -euo pipefail
 
-hostname=$(hostname)
-brewfile="${DITMAS_DIR}/hosts/${hostname}.d/Brewfile"
-
-$EDITOR "${brewfile}"
+$EDITOR "${HOMEBREW_BUNDLE_FILE_GLOBAL}"

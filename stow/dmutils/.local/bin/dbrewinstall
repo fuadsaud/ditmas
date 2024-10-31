@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-set -euo pipefail
-
-hostname=$(hostname)
-brewfile="${DITMAS_DIR}/hosts/${hostname}.d/Brewfile"
-
-brew bundle install --file "${brewfile}"
