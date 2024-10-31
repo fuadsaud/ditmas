@@ -1,8 +1,11 @@
-function fish-reload-config
-  source ~/.config/fish/**/*.fish
-end
+abbr -a fish-reload-config 'source ~/.config/fish/**/*.fish'
 
-alias bbig="brew bundle install --global"
+alias bc="brew cleanup"
+alias bi="brew install"
+alias br="brew remove"
+alias dbi="brew bundle install --global"
+alias dbc="brew bundle cleanup --global --force"
+alias dbd="brew bundle dump --global --force"
 alias bx="bundle exec"
 alias cdgr="cd (git root)"
 alias cdgw="cd (git fz-worktree-path)"
