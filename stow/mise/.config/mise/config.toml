@@ -1,2 +1,7 @@
 [tools]
 node = "latest"
+java = "latest"
+clojure = "latest"
+python = "latest"
+ruby = "latest"
+babashka = "latest"
