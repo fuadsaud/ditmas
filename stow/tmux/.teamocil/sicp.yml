@@ -1,0 +1,6 @@
+name: sicp
+windows:
+  - name: editor
+    root: ~/Sources/fuadsaud/sicp
+    panes:
+      - nvim

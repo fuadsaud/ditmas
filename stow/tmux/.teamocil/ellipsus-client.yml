@@ -1,0 +1,14 @@
+name: ellipsus-client
+windows:
+  - name: editor
+    root: ~/Sources/ellipsus/ellipsus-client/web
+    layout: main-vertical
+    focus: true
+    panes:
+      - commands:
+          - nvim
+        focus: true
+  - name: run
+    root: ~/Sources/ellipsus/ellipsus-client/web
+    panes:
+      - npm run dev

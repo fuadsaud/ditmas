@@ -1,0 +1,17 @@
+name: ellipsus-service
+windows:
+  - name: editor
+    root: ~/Sources/ellipsus/ellipsus-service
+    layout: main-vertical
+    focus: true
+    panes:
+      - commands:
+          - nvim
+        focus: true
+      - make dcx-test-watch
+      - git status
+  - name: run
+    root: ~/Sources/ellipsus/ellipsus-service
+    layout: main-horizontal
+    panes:
+      - make dcx-start

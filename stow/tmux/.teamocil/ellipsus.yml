@@ -1,0 +1,56 @@
+name: ellipsus
+windows:
+  - name: service
+    root: ~/Sources/ellipsus/ellipsus-service
+    layout: main-vertical
+    focus: true
+    panes:
+      - commands:
+          - nvim
+        focus: true
+      - commands:
+          - make dcx-test-watch
+      - commands:
+          - make dcx-start
+      - commands:
+          - git fetch
+          - git status
+
+  - name: synchronizer
+    root: ~/Sources/ellipsus/synchronizer
+    layout: main-vertical
+    panes:
+      - commands:
+          - nvim
+        focus: true
+      - commands:
+          - make dcx-start
+      - commands:
+          - git fetch
+          - git status
+
+  - name: client
+    root: ~/Sources/ellipsus/ellipsus-client
+    layout: main-vertical
+    panes:
+      - commands:
+          - nvim
+        focus: true
+      - commands:
+          - cd web
+          - npm run dev
+      - commands:
+          - cd web
+          - git fetch
+          - git status
+
+  - name: infra
+    root: ~/Sources/ellipsus/infra
+    layout: main-vertical
+    panes:
+      - commands:
+          - nvim
+        focus: true
+      - commands:
+          - git fetch
+          - git status

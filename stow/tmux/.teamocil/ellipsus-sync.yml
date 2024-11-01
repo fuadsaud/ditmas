@@ -1,0 +1,14 @@
+name: ellipsus-sync
+windows:
+  - name: editor
+    root: ~/Sources/ellipsus/ellipsus-sync
+    layout: main-vertical
+    focus: true
+    panes:
+      - commands:
+          - nvim
+        focus: true
+  - name: run
+    root: ~/Sources/ellipsus/ellipsus-sync
+    panes:
+      - npm run dev
