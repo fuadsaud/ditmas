@@ -108,23 +108,6 @@
                     "identifiers": {
                         "is_keyboard": true,
                         "product_id": 666,
-                        "vendor_id": 76
-                    },
-                    "simple_modifications": [
-                        {
-                            "from": { "key_code": "grave_accent_and_tilde" },
-                            "to": [{ "key_code": "non_us_backslash" }]
-                        },
-                        {
-                            "from": { "key_code": "non_us_backslash" },
-                            "to": [{ "key_code": "grave_accent_and_tilde" }]
-                        }
-                    ]
-                },
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "product_id": 666,
                         "vendor_id": 1452
                     },
                     "simple_modifications": [
@@ -135,7 +118,8 @@
                     ]
                 }
             ],
-            "name": "ISO International"
+            "name": "ISO International",
+            "virtual_hid_keyboard": { "keyboard_type_v2": "iso" }
         }
     ]
 }
