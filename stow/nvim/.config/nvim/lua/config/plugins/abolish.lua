@@ -1,5 +1,5 @@
 -- [nfnl] Compiled from fnl/config/plugins/abolish.fnl by https://github.com/Olical/nfnl, do not edit.
-local mappings = {notoin = "notion", ["envi{n,}roment"] = "environment"}
+local mappings = {notoin = "notion", ["envi{n,}roment"] = "environment", dicionary = "dictionary"}
 local function setup()
   for from, to in pairs(mappings) do
     vim.cmd({cmd = "Abolish", args = {from, to}})

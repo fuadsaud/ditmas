@@ -126,6 +126,7 @@ nnoremap Y y$
 onoremap <Leader>y "0y
 xnoremap <Leader>y "0y
 nnoremap <Leader>p "0p
+xnoremap <Leader>p "0p
 
 " reselect last pasted text
 noremap gV `[v`]
@@ -343,5 +344,6 @@ nnoremap <Leader>q <cmd>lua require('lib.qfloc').toggle('c')<CR>
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
 nnoremap - <cmd>Oil<CR>
+nnoremap <Leader>fr :Format2<CR>
 
 nnoremap <Leader>gf :hide :edit %:h/

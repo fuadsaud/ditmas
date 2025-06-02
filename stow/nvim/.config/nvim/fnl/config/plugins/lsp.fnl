@@ -13,6 +13,7 @@
 (local typescript (autoload :typescript))
 (local typescript-null-ls-code-actions (autoload :typescript.extensions.null-ls.code-actions))
 (local typescript-tools (autoload :typescript-tools))
+(local format-ts-errors (autoload :format-ts-errors))
 
 (local verbose? false)
 
@@ -52,6 +53,7 @@
                   (buf-set-keymap-fn :n :gi           #(vim.lsp.buf.implementation))
 
                   (buf-set-keymap-fn :n :<Leader>lk  #(vim.lsp.buf.code_action))
+                  (buf-set-keymap-fn :n :\           #(vim.lsp.buf.code_action))
                   (buf-set-keymap-fn :n :<Leader>lf  #(vim.lsp.buf.format))
                   (buf-set-keymap-fn :n :<Leader>lr  #(vim.lsp.buf.rename))
                   (buf-set-keymap-fn :n :<Leader>lwa #(vim.lsp.buf.add_workspace_folder))
@@ -168,10 +170,10 @@
 
 (fn setup-null-ls []
   (null-ls.setup
-    {:sources [null-ls.builtins.formatting.prettier
+    {:sources [;null-ls.builtins.formatting.prettier
                null-ls.builtins.code_actions.gitsigns
-               null-ls.builtins.diagnostics.stylelint
-               typescript-null-ls-code-actions]
+               null-ls.builtins.diagnostics.stylelint]
+               ; typescript-null-ls-code-actions]
 
      :on_attach default-server-opts.on_attach
      :debug true})
@@ -185,12 +187,12 @@
     (log (string.format "config.plugins.lspconfig/config: setup finished for [%s]" server-name))))
 
 (fn setup-lsp-format []
-  (lsp-format.setup {:exclude [:tsserver :jsonls :cssls]}))
+  (lsp-format.setup {:exclude [:ts_ls :jsonls :cssls]}))
 
 (fn setup-neodev []
   (neodev.setup {}))
 
-(fn setup-tsserver []
+(fn setup-typescript []
   (let [settings {:inlayHints {:includeInlayEnumMemberValueHints true
                                :includeInlayFunctionLikeReturnTypeHints true
                                :includeInlayFunctionParameterTypeHints true
@@ -209,6 +211,21 @@
 
 (fn setup-typescript-tools []
   (typescript-tools.setup {:expose_as_code_action "all"
+                           :handlers {:textDocument/publishDiagnostics
+                                      (fn [a result ctx config]
+                                        (when (not= nil result.diagnostics)
+                                          (let [updated-entries (icollect [_ entry (ipairs result.diagnostics)]
+                                                                         (let [formatter (. format-ts-errors entry.code)]
+                                                                           (nfnl-core.update entry :message
+                                                                                             (fn [message]
+                                                                                               (if false ; formatter is truncating some messages 😭
+                                                                                                (formatter message)
+                                                                                                message)))))]
+                                            (vim.lsp.diagnostic.on_publish_diagnostics
+                                              a
+                                              (nfnl-core.assoc result :diagnostics updated-entries)
+                                              ctx
+                                              config))))}
                            :code_lens "all"}))
 
 (fn setup []
@@ -216,10 +233,9 @@
 
   (setup-mason)
   (setup-neodev)
-  (setup-tsserver)
-  (setup-typescript-tools)
-  (setup-null-ls)
   (setup-lspconfig)
-  (setup-lsp-format))
+  (setup-typescript-tools)
+  (setup-null-ls))
+  ; (setup-lsp-format))
 
 {: setup}

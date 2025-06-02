@@ -17,9 +17,10 @@
 
    ; lsp
    :neovim/nvim-lspconfig {:main :config.plugins.lsp
-                           :dependencies {:jose-elias-alvarez/null-ls.nvim {:dependencies {:nvim-lua/plenary.nvim {}}}
+                           :dependencies {:nvimtools/none-ls.nvim {:dependencies {:nvim-lua/plenary.nvim {}}}
                                           :jose-elias-alvarez/typescript.nvim {}
                                           :lukas-reineke/lsp-format.nvim {}
+                                          :davidosomething/format-ts-errors.nvim {}
                                           :pmizio/typescript-tools.nvim {:dependencies {:nvim-lua/plenary.nvim {}
                                                                                         :neovim/nvim-lspconfig {}}}
                                           :williamboman/mason-lspconfig.nvim {:dependencies {:williamboman/mason.nvim {}}}
@@ -28,7 +29,8 @@
    :creativenull/efmls-configs-nvim {:dependencies {:neovim/nvim-lspconfig {}}}
    :smjonas/inc-rename.nvim {:config true}
 
-
+   ; formatting
+   :stevearc/conform.nvim {:main :config.plugins.conform}
 
    ; search
    :wincent/ferret {:main :config.plugins.ferret}
@@ -89,8 +91,9 @@
    :guns/vim-sexp {:main :config.plugins.sexp
                    :dependencies {:tpope/vim-sexp-mappings-for-regular-people {}}
                    :enabled false}
+   :PaterJason/nvim-treesitter-sexp {:config true :enabled false}
+   :julienvincent/nvim-paredit {:config true :enabled true}
    :eraserhd/parinfer-rust {:build "cargo build --release"}
-   :PaterJason/nvim-treesitter-sexp {:config true :enabled true}
 
    ; git
    :tpope/vim-fugitive {}
