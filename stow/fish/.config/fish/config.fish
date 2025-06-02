@@ -1,4 +1,5 @@
-if status is-interactive; and not set -q TMUX
+if status is-interactive
+  if not set -q TMUX
     fenv source ~/.profile
 
     fish_vi_key_bindings
@@ -8,7 +9,7 @@ if status is-interactive; and not set -q TMUX
     end
 
   neofetch
+  end
 
   jump shell fish | source
 end
-
