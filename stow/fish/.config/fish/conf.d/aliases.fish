@@ -1,4 +1,5 @@
 abbr -a fish-reload-config 'source ~/.config/fish/**/*.fish'
+abbr -a mkdir 'mkdir -p'
 
 alias bc="brew cleanup"
 alias bi="brew install"
@@ -11,6 +12,7 @@ alias cdgr="cd (git root)"
 alias cdgw="cd (git fz-worktree-path)"
 alias dc="docker compose"
 alias g="git"
+alias gt="git town"
 alias mk="make"
 alias n="nvim"
 alias npmr="npm run"
