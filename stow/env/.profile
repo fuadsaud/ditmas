@@ -20,7 +20,7 @@ fi
 #
 # TTY
 #
-export TERMINAL='alacritty'
+export TERMINAL='kitty'
 
 #
 # Web Browser
@@ -119,3 +119,5 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
+
+export SSH_AUTH_SOCK="~/.1password/agent.sock"
