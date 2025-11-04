@@ -17,6 +17,7 @@ karabiner
 kitty
 lein
 macutils
+mise
 nvim
 ripgrep
 ruby
@@ -27,4 +28,3 @@ vim
 vscode
 xplatutils
 yabai
-zsh
