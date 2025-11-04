@@ -5,6 +5,7 @@ clojure = "latest"
 python = "latest"
 ruby = "latest"
 babashka = "latest"
+sops = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
