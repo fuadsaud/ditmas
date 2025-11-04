@@ -1,1 +1,0 @@
-/Users/fuad/.local/share/omf/themes/chevron/fish_prompt.fish

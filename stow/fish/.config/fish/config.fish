@@ -8,7 +8,7 @@ if status is-interactive
         set -g fish_vi_force_cursor 1
     end
 
-  neofetch
+    hyfetch
   end
 
   jump shell fish | source
