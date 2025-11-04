@@ -3,8 +3,9 @@ local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local conform = autoload("conform")
 local js_formatters = {"prettier", lsp_format = "last"}
+local css_formatters = {"stylelint", lsp_format = "last"}
 local function setup()
-  conform.setup({formatters_by_ft = {javascript = js_formatters, typescript = js_formatters, javascriptreact = js_formatters, typescriptreact = js_formatters}, default_format_opts = {lsp_format = "fallback"}, log_level = vim.log.levels.INFO, format_on_save = {timeout_ms = 3000}})
+  conform.setup({formatters_by_ft = {javascript = js_formatters, typescript = js_formatters, javascriptreact = js_formatters, typescriptreact = js_formatters, css = css_formatters, scss = css_formatters}, default_format_opts = {lsp_format = "fallback"}, log_level = vim.log.levels.DEBUG, format_on_save = {timeout_ms = 3000}, formatters = {prettier = {prepend_args = {"--no-semi", "--single-quote"}}}})
   local function _2_(args)
     local range = nil
     if (args.count ~= ( - 1)) then

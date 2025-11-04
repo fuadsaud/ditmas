@@ -6,16 +6,25 @@
 
                       :lsp_format :last})
 
+(local css-formatters {1 :stylelint
+
+                       :lsp_format :last})
+
 (fn setup []
   (conform.setup {:formatters_by_ft {:javascript js-formatters
                                      :typescript js-formatters
                                      :javascriptreact js-formatters
-                                     :typescriptreact js-formatters}
+                                     :typescriptreact js-formatters
+
+                                     :css css-formatters
+                                     :scss css-formatters}
 
                   :default_format_opts {:lsp_format :fallback}
 
-                  :log_level vim.log.levels.INFO
-                  :format_on_save {:timeout_ms 3000}})
+                  :log_level vim.log.levels.DEBUG
+                  :format_on_save {:timeout_ms 3000}
+
+                  :formatters {:prettier {:prepend_args ["--no-semi" "--single-quote"]}}})
 
   (vim.api.nvim_create_user_command :ConformBuffer
                                     (fn [args]

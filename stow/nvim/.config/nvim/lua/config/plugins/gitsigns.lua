@@ -1,11 +1,13 @@
--- [nfnl] Compiled from fnl/config/plugins/gitsigns.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/config/plugins/gitsigns.fnl
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local gitsigns = autoload("gitsigns")
 local nfnl_core = autoload("nfnl.core")
+local telescope = autoload("telescope")
 local function setup()
   local function _2_(bufnr)
     vim.notify("Running config.plugins.gitsigns/on_attach")
+    telescope.load_extension("git_signs")
     local buf_set_keymap_fn
     local function _3_(mode, mapping, target_fn, opts)
       return vim.keymap.set(mode, mapping, target_fn, nfnl_core.merge({buffer = bufnr, noremap = true}, opts))

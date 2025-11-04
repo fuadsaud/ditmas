@@ -14,10 +14,10 @@
 
      :incremental_selection
      {:enable true
-      :keymaps {:init_selection "gvv"
-                :node_incremental "gvk"
-                :node_decremental "gvj"
-                :scope_incremental "gvK"}}
+      :keymaps {:init_selection "<CR>"
+                :node_incremental "<Tab>"
+                :node_decremental "<S-Tab>"
+                :scope_incremental "<CR>"}}
 
      :autotag
      {:enable false}}))

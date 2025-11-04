@@ -1,12 +1,15 @@
 (local {: autoload} (require :nfnl.module))
 (local gitsigns (autoload :gitsigns))
 (local nfnl-core (autoload :nfnl.core))
+(local telescope (autoload :telescope))
 
 (fn setup []
   (gitsigns.setup
     {:on_attach
      (fn [bufnr]
        (vim.notify "Running config.plugins.gitsigns/on_attach")
+
+       (telescope.load_extension "git_signs")
 
        (let [buf-set-keymap-fn (fn [mode mapping target-fn opts]
                                  (vim.keymap.set mode mapping target-fn (nfnl-core.merge

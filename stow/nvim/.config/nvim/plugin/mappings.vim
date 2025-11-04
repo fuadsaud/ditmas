@@ -210,6 +210,8 @@ nnoremap <Leader>fdd <cmd>Telescope diagnostics  theme=ivy bufnr=0<CR>
 nnoremap <Leader>fwd <cmd>Telescope diagnostics  theme=ivy<CR>
 nnoremap <Leader>ft  <cmd>Telescope treesitter   theme=ivy<CR>
 nnoremap <Leader>ff  <cmd>Telescope file_browser theme=ivy path=%:p:h select_buffer=true<CR>
+nnoremap <Leader>fh  <cmd>Telescope git_signs    theme=ivy<CR>
+nnoremap <Leader>k  <cmd>Telescope commands    theme=ivy<CR>
 
 "                         _           __
 "     ____  _________    (_)__  _____/ /______
@@ -224,8 +226,8 @@ nnoremap <Leader>ff  <cmd>Telescope file_browser theme=ivy path=%:p:h select_buf
 nnoremap <silent> <Leader>,v <cmd>lua require("rhizome").open_in_new_tab(vim.fn.fnamemodify(vim.fn.resolve(vim.fn.expand(os.getenv("MYVIMRC"))), ':h'))<CR>
 nnoremap <silent> <Leader>,z <cmd>lua require("rhizome").open_in_new_tab(os.getenv("ZDOTDIR"))<CR>
 
-nnoremap <silent> <Leader>p <cmd>Telescope rhizome roots<CR>
-nnoremap <silent> <Leader>b <cmd>Telescope buffers only_cwd=true<CR>
+nnoremap <silent> <Leader>rhp <cmd>Telescope rhizome roots<CR>
+nnoremap <silent> <Leader>rhb <cmd>Telescope buffers only_cwd=true<CR>
 
 "           _ __
 "    ____ _(_) /_

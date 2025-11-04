@@ -1,17 +1,13 @@
 (local {: autoload} (require :nfnl.module))
 (local nfnl-core (autoload :nfnl.core))
 (local cmp_lsp (autoload :cmp_nvim_lsp))
-; (local efmls-configs-defaults (autoload :efmls-configs.defaults))
-(local lspconfig (autoload :lspconfig))
 (local lsp-format (autoload :lsp-format))
 (local mason (autoload :mason))
 (local mason-lspconfig (autoload :mason-lspconfig))
 (local neodev (autoload :neodev))
-(local null-ls (autoload :null-ls))
 (local telescope-builtin (autoload :telescope.builtin))
 (local telescope-themes (autoload :telescope.themes))
 (local typescript (autoload :typescript))
-(local typescript-null-ls-code-actions (autoload :typescript.extensions.null-ls.code-actions))
 (local typescript-tools (autoload :typescript-tools))
 (local format-ts-errors (autoload :format-ts-errors))
 
@@ -149,12 +145,6 @@
              default-server-opts
              {:settings {:Lua {:diagnostics {:globals [:vim]}}}})
 
-   ; :efm (nfnl-core.merge
-   ;        default-server-opts
-   ;        {:settings {:languages (vim.tbl_keys (efmls-configs-defaults.languages))}
-   ;         :init_options {:documentFormatting true
-   ;                        :documentRangeFormatting true}})
-
    :fennel_language_server (nfnl-core.merge
                              default-server-opts
                              {:settings {:fennel {:workspace {:library (vim.api.nvim_list_runtime_paths)}
@@ -166,28 +156,17 @@
 
 (fn setup-mason []
   (mason.setup {})
-  (mason-lspconfig.setup {:automatic_installation true}))
-
-(fn setup-null-ls []
-  (null-ls.setup
-    {:sources [;null-ls.builtins.formatting.prettier
-               null-ls.builtins.code_actions.gitsigns
-               null-ls.builtins.diagnostics.stylelint]
-               ; typescript-null-ls-code-actions]
-
-     :on_attach default-server-opts.on_attach
-     :debug true})
+  (mason-lspconfig.setup {:automatic_installation true})
 
   (log (string.format "config.plugins.lspconfig/config: setup finished for [%s]" "null-ls")))
 
 (fn setup-lspconfig []
   (each [server-name config (pairs server->config)]
-    ((. lspconfig server-name :setup) config)
+    (vim.lsp.config server-name config)
+    (vim.lsp.enable server-name)
+    ;((. lspconfig server-name :setup) config)
 
     (log (string.format "config.plugins.lspconfig/config: setup finished for [%s]" server-name))))
-
-(fn setup-lsp-format []
-  (lsp-format.setup {:exclude [:ts_ls :jsonls :cssls]}))
 
 (fn setup-neodev []
   (neodev.setup {}))
@@ -234,8 +213,6 @@
   (setup-mason)
   (setup-neodev)
   (setup-lspconfig)
-  (setup-typescript-tools)
-  (setup-null-ls))
-  ; (setup-lsp-format))
+  (setup-typescript-tools))
 
 {: setup}

@@ -16,15 +16,17 @@
    :simnalamburt/vim-mundo {}
 
    ; lsp
+   :williamboman/mason-lspconfig.nvim {:dependencies {:williamboman/mason.nvim {}
+                                                      :neovim/nvim-lspconfig {}}
+                                       :main :config.plugins.mason-lspconfig}
+   :williamboman/mason.nvim {:build ":MasonUpdate"}
    :neovim/nvim-lspconfig {:main :config.plugins.lsp
                            :dependencies {:nvimtools/none-ls.nvim {:dependencies {:nvim-lua/plenary.nvim {}}}
                                           :jose-elias-alvarez/typescript.nvim {}
                                           :lukas-reineke/lsp-format.nvim {}
                                           :davidosomething/format-ts-errors.nvim {}
                                           :pmizio/typescript-tools.nvim {:dependencies {:nvim-lua/plenary.nvim {}
-                                                                                        :neovim/nvim-lspconfig {}}}
-                                          :williamboman/mason-lspconfig.nvim {:dependencies {:williamboman/mason.nvim {}}}
-                                          :williamboman/mason.nvim {:build ":MasonUpdate"}}}
+                                                                                        :neovim/nvim-lspconfig {}}}}}
 
    :creativenull/efmls-configs-nvim {:dependencies {:neovim/nvim-lspconfig {}}}
    :smjonas/inc-rename.nvim {:config true}
@@ -98,7 +100,11 @@
    ; git
    :tpope/vim-fugitive {}
    :tpope/vim-rhubarb {}
-   :lewis6991/gitsigns.nvim {:main :config.plugins.gitsigns}
+   :lewis6991/gitsigns.nvim {:main :config.plugins.gitsigns
+                             :dependencies {:radyz/telescope-gitsigns
+                                            {:dependencies {:lewis6991/gitsigns.nvim {}
+                                                            :nvim-telescope/telescope.nvim {}}}}}
+
 
    ; gist
    :mattn/gist-vim {:dependencies {:mattn/webapi-vim {}}}
@@ -129,7 +135,8 @@
                       :main :config.plugins.cmp}
 
    ; motion
-   :ggandor/leap.nvim {:main :config.plugins.leap}
+   ; :ggandor/leap.nvim {:main :config.plugins.leap}
+   :folke/flash.nvim {:config true}
 
    ; ui
    :gregsexton/MatchTag {}

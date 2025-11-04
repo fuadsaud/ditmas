@@ -10,6 +10,7 @@
    :config.diagnostic
    :config.filetypes
    :config.netrw
+   :config.commands
    :config.mappings])
 
 (each [_ module-name (ipairs modules)]

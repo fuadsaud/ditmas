@@ -3,16 +3,13 @@ local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local nfnl_core = autoload("nfnl.core")
 local cmp_lsp = autoload("cmp_nvim_lsp")
-local lspconfig = autoload("lspconfig")
 local lsp_format = autoload("lsp-format")
 local mason = autoload("mason")
 local mason_lspconfig = autoload("mason-lspconfig")
 local neodev = autoload("neodev")
-local null_ls = autoload("null-ls")
 local telescope_builtin = autoload("telescope.builtin")
 local telescope_themes = autoload("telescope.themes")
 local typescript = autoload("typescript")
-local typescript_null_ls_code_actions = autoload("typescript.extensions.null-ls.code-actions")
 local typescript_tools = autoload("typescript-tools")
 local format_ts_errors = autoload("format-ts-errors")
 local verbose_3f = false
@@ -224,21 +221,16 @@ end
 server__3econfig = {clojure_lsp = nfnl_core.merge(default_server_opts, {on_attach = _35_}), html = default_server_opts, cssls = default_server_opts, jsonls = default_server_opts, yamlls = default_server_opts, emmet_language_server = default_server_opts, cssmodules_ls = nfnl_core.merge(default_server_opts, {on_attach = _49_}), stylelint_lsp = nfnl_core.merge(default_server_opts, {settings = {stylelintplus = {autoFixOnFormat = true}}}), eslint = nfnl_core.merge(default_server_opts, {settings = {rulesCustomizations = {{rule = "prettier/prettier", severity = "off"}}}}), lua_ls = nfnl_core.merge(default_server_opts, {settings = {Lua = {diagnostics = {globals = {"vim"}}}}}), fennel_language_server = nfnl_core.merge(default_server_opts, {settings = {fennel = {workspace = {library = vim.api.nvim_list_runtime_paths()}, diagnostics = {globals = {"vim"}}}}}), bashls = default_server_opts, taplo = default_server_opts}
 local function setup_mason()
   mason.setup({})
-  return mason_lspconfig.setup({automatic_installation = true})
-end
-local function setup_null_ls()
-  null_ls.setup({sources = {null_ls.builtins.code_actions.gitsigns, null_ls.builtins.diagnostics.stylelint}, on_attach = default_server_opts.on_attach, debug = true})
+  mason_lspconfig.setup({automatic_installation = true})
   return log(string.format("config.plugins.lspconfig/config: setup finished for [%s]", "null-ls"))
 end
 local function setup_lspconfig()
   for server_name, config in pairs(server__3econfig) do
-    lspconfig[server_name].setup(config)
+    vim.lsp.config(server_name, config)
+    vim.lsp.enable(server_name)
     log(string.format("config.plugins.lspconfig/config: setup finished for [%s]", server_name))
   end
   return nil
-end
-local function setup_lsp_format()
-  return lsp_format.setup({exclude = {"ts_ls", "jsonls", "cssls"}})
 end
 local function setup_neodev()
   return neodev.setup({})
@@ -252,10 +244,10 @@ local function setup_typescript_tools()
     if (nil ~= result.diagnostics) then
       local updated_entries
       do
-        local tbl_21_ = {}
-        local i_22_ = 0
+        local tbl_26_ = {}
+        local i_27_ = 0
         for _, entry in ipairs(result.diagnostics) do
-          local val_23_
+          local val_28_
           do
             local formatter = format_ts_errors[entry.code]
             local function _51_(message)
@@ -265,15 +257,15 @@ local function setup_typescript_tools()
                 return message
               end
             end
-            val_23_ = nfnl_core.update(entry, "message", _51_)
+            val_28_ = nfnl_core.update(entry, "message", _51_)
           end
-          if (nil ~= val_23_) then
-            i_22_ = (i_22_ + 1)
-            tbl_21_[i_22_] = val_23_
+          if (nil ~= val_28_) then
+            i_27_ = (i_27_ + 1)
+            tbl_26_[i_27_] = val_28_
           else
           end
         end
-        updated_entries = tbl_21_
+        updated_entries = tbl_26_
       end
       return vim.lsp.diagnostic.on_publish_diagnostics(a, nfnl_core.assoc(result, "diagnostics", updated_entries), ctx, config)
     else
@@ -287,7 +279,6 @@ local function setup()
   setup_mason()
   setup_neodev()
   setup_lspconfig()
-  setup_typescript_tools()
-  return setup_null_ls()
+  return setup_typescript_tools()
 end
 return {setup = setup}
