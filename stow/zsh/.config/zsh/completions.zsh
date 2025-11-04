@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
 
-eval "$(gt completion)"
 eval "$(flyctl completion zsh)"
 eval "$(pulumi gen-completion zsh)"
 
