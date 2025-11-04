@@ -33,8 +33,7 @@ eastwood-report
 .prepl-port
 .nrepl-port
 **/.lsp/.cache
-/.clj-kondo/**
-!/.clj-kondo/.config
+/.clj-kondo/.cache
 /.cpcache
 .clerk
 
@@ -44,3 +43,7 @@ node_modules
 .env
 
 /worktree
+
+**/CLAUDE.local.md
+
+**/.claude/settings.local.json

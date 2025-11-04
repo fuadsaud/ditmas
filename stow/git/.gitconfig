@@ -18,13 +18,15 @@
   bc = switch --create
   brw = browse
   ci = commit --verbose
+  cin = ci --no-verify
   cia = ci --all
-  cinc = ci -m ':nail_care:'
+  cinc = ci -m '💅'
   cinos = commit --no-gpg-sign
   cinosa = cinos -a
   cinosm = cinos -m
   cinosam = cinos -am
   cim = ci --message
+  cinm = ci --message
   ciam = ci --all --message
   ; co = checkout
   cof = fz-checkout
@@ -54,6 +56,7 @@
   nau = update-index --no-assume-unchanged
   p  = push --verbose --progress
   pf = p --force-with-lease
+  pfn = pf --no-verify
   pm = prune-merged
   pn = p --no-verify
   pod = p origin --delete
@@ -95,10 +98,12 @@
   undo = reset HEAD~1
   unstage = reset HEAD
   untracked = ls-files --others --exclude-standard
-  wc = whatchanged --graph --abbrev-commit
+  wc = log --raw
   wip = ci --message '•••••<[WIP]>•••••' --no-verify
+  wt = worktree
   wta = worktree add
   wtr = worktree remove
+  wtm = worktree move
 [color]
   ui = auto
 [core]
