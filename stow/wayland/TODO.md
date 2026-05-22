@@ -48,6 +48,7 @@
 - [ ] Remove X11-only packages once stable
 
 ## Display manager
-- [ ] Install greetd + tuigreet
-- [ ] Configure greetd to offer both i3 and sway sessions
-- [ ] Disable xdm-archlinux once stable on Wayland
+- [ ] Install greetd + tuigreet (in packages list ✓)
+- [x] Configure greetd to offer both i3 and sway sessions
+- [x] dgreetd-install script handles enable/disable switchover
+- [ ] Run dgreetd-install on mexicali when ready to switch

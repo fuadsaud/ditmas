@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+sudo mkdir -p /etc/greetd
+sudo cp "${HOME}/.config/greetd/config.toml" /etc/greetd/config.toml
+sudo systemctl enable greetd
+sudo systemctl disable xdm-archlinux
