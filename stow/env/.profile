@@ -85,6 +85,12 @@ export PATH=$(tr -d $'\n ' <<< "
 # Set the default Less options.
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
 # Remove -X to enable it.
+if [[ "$OSTYPE" == darwin* ]]; then
+  export SSH_AUTH_SOCK="${HOME}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+else
+  export SSH_AUTH_SOCK="${HOME}/.1password/agent.sock"
+fi
+
 export LESS='-g -i -M -R -S -w -X -z-4'
 
 # Set the Less input preprocessor.
@@ -101,8 +107,3 @@ if [[ ! -d "$TMPDIR" ]]; then
   mkdir -p -m 700 "$TMPDIR"
 fi
 
-if [[ "$OSTYPE" == darwin* ]]; then
-  export SSH_AUTH_SOCK="${HOME}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-else
-  export SSH_AUTH_SOCK="${HOME}/.1password/agent.sock"
-fi
