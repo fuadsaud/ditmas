@@ -15,3 +15,5 @@ if status is-interactive
 end
 
 mise activate fish | source
+
+feh --bg-scale --zoom fill ~/Pictures/wallpaper
