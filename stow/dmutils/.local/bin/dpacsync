@@ -5,4 +5,5 @@ set -euo pipefail
 hostname=$(hostname)
 packages_file="${DITMAS_DIR}/hosts/${hostname}.d/arch/packages"
 
-xargs $PACMAN_BIN --sync --needed < "$packages_file"
+mapfile -t packages < "$packages_file"
+$PACMAN_BIN --sync --needed "${packages[@]}"
