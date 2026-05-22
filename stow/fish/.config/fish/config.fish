@@ -16,4 +16,4 @@ end
 
 mise activate fish | source
 
-feh --bg-scale --zoom fill ~/Pictures/wallpaper
+feh --bg-scale --zoom fill "$HOME/Pictures/Wallpapers/wallpaper"
