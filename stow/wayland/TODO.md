@@ -1,7 +1,7 @@
 # Wayland migration TODO
 
 ## Colors
-- [ ] Create ~/.config/sway/colors with $color0–$color15 from Monrovia theme
+- [x] Create ~/.config/sway/colors with $color0–$color15 from Monrovia theme
 
 ## Screenshot (maim → grim + slurp)
 - [x] Rewrite dscreenshot-fullscreen
