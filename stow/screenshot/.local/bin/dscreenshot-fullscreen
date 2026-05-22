@@ -4,6 +4,10 @@ set -euo pipefail
 
 file_location=$(dscreenshot-filename)
 
-maim "${file_location}"
+if [[ -n "${WAYLAND_DISPLAY:-}" ]]; then
+  grim "${file_location}"
+else
+  maim "${file_location}"
+fi
 
 dscreenshot-notify "${file_location}"

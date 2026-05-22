@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ -n "${WAYLAND_DISPLAY:-}" ]]; then
+  app_id=$(swaymsg -t get_tree | jq -r '.. | select(.focused? == true) | .app_id // .window_properties.class // ""' | head -1)
+  case "$app_id" in
+    kitty|Alacritty) wtype -M ctrl -M shift -k c -m shift -m ctrl ;;
+    *)               wtype -M ctrl -k c -m ctrl ;;
+  esac
+else
+  win="$(xprop -id $(xdotool getactivewindow) | grep "WM_CLASS(STRING)" | cut -d '"' -f 2)"
+  case "$win" in
+    'Alacritty') xdotool key --clearmodifiers ctrl+shift+c ;;
+    *)           xdotool key --clearmodifiers ctrl+c ;;
+  esac
+fi

@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-set -euo pipefail
-
-file_location=$(dscreenshot-filename)
-
-grim "${file_location}"
-
-dscreenshot-notify "${file_location}"

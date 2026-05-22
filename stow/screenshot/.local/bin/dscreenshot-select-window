@@ -4,6 +4,11 @@ set -euo pipefail
 
 file_location="$(dscreenshot-filename)"
 
-maim -st 9999999 | convert - \( +clone -background black -shadow 80x3+5+5 \) +swap -background none -layers merge +repage "${file_location}"
+if [[ -n "${WAYLAND_DISPLAY:-}" ]]; then
+  geometry=$(swaymsg -t get_tree | jq -r '.. | select(.focused? == true) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')
+  grim -g "$geometry" "${file_location}"
+else
+  maim -st 9999999 | convert - \( +clone -background black -shadow 80x3+5+5 \) +swap -background none -layers merge +repage "${file_location}"
+fi
 
 dscreenshot-notify "${file_location}"
