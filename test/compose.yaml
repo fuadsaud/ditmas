@@ -1,0 +1,15 @@
+services:
+  arch:
+    platform: linux/amd64
+    build:
+      context: .
+    hostname: mexicali
+    privileged: true
+    tmpfs:
+      - /run
+      - /run/lock
+      - /tmp
+    volumes:
+      - ..:/home/fuad/.ditmas
+    stdin_open: true
+    tty: true
