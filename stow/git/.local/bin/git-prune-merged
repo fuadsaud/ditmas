@@ -1,0 +1,77 @@
+#!/bin/bash
+set -euo pipefail
+
+DELETE_WORKTREES=false
+
+# Parse arguments
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --delete-worktrees|-w)
+      DELETE_WORKTREES=true
+      shift
+      ;;
+    *)
+      echo "Unknown option: $1"
+      echo "Usage: git prune-merged [--delete-worktrees|-w]"
+      exit 1
+      ;;
+  esac
+done
+
+# Get the default branch
+DEFAULT_BRANCH=$(git default-branch)
+
+# Get all merged branches, excluding:
+# - The current branch (marked with *)
+# - The default branch itself
+# Optionally exclude branches checked out in worktrees (marked with +)
+# Note: We allow empty results, so we don't exit on error if no branches match
+if [ "$DELETE_WORKTREES" = true ]; then
+  # Include worktree branches and strip the '+' marker
+  MERGED_BRANCHES=$(git branch --merged "$DEFAULT_BRANCH" | sed '/^\*/d' | grep -v "$DEFAULT_BRANCH" | sed 's/^[[:space:]]*//;s/^[+][ ]*//' || true)
+else
+  # Exclude worktree branches (marked with +)
+  MERGED_BRANCHES=$(git branch --merged "$DEFAULT_BRANCH" | sed -E '/^\*/d; /^\+/d' | grep -v "$DEFAULT_BRANCH" | sed 's/^[[:space:]]*//g' || true)
+fi
+
+if [ -z "$MERGED_BRANCHES" ]; then
+  echo "No merged branches to prune."
+  exit 0
+fi
+
+# Process each merged branch
+while IFS= read -r branch; do
+  # Skip empty lines
+  [ -z "$branch" ] && continue
+
+  echo "Processing branch: $branch"
+
+  # Find and remove any worktrees for this branch if flag is set
+  if [ "$DELETE_WORKTREES" = true ]; then
+    while IFS= read -r line; do
+      if [[ "$line" =~ ^worktree ]]; then
+        worktree_path="${line#worktree }"
+
+        # Get the branch ref for this worktree
+        branch_line=$(git worktree list --porcelain | grep -A 2 "^worktree $worktree_path" | grep "^branch " || true)
+
+        if [ -n "$branch_line" ]; then
+          worktree_branch="${branch_line#branch }"
+          # Extract just the branch name from refs/heads/...
+          worktree_branch_name="${worktree_branch#refs/heads/}"
+
+          if [ "$worktree_branch_name" = "$branch" ]; then
+            echo "  Removing worktree: $worktree_path"
+            git worktree remove "$worktree_path" || echo "  Warning: Failed to remove worktree $worktree_path"
+          fi
+        fi
+      fi
+    done < <(git worktree list --porcelain)
+  fi
+
+  # Delete the branch
+  echo "  Deleting branch: $branch"
+  git branch -d "$branch" || echo "  Warning: Failed to delete branch $branch"
+done <<< "$MERGED_BRANCHES"
+
+echo "Done!"

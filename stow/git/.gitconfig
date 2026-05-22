@@ -1,14 +1,8 @@
 [user]
   name = Fuad Saud
   email = fuadfsaud@gmail.com
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKbxja4iuYJ+bj51l99cotO6KoTNUcpgehYAI5ZOWLX1
-[gpg]
-  format = ssh
-[gpg "ssh"]
-  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-  allowedSignersFile = ~/.ssh/allowed_signers
-[commit]
-  gpgsign = true
+[include]
+  path = ~/.gitconfig.local
 [alias]
   a  = add --verbose
   af = fz-add
@@ -28,7 +22,7 @@
   cim = ci --message
   cinm = ci --message
   ciam = ci --all --message
-  ; co = checkout
+  co = checkout
   cof = fz-checkout
   conflicts = diff --name-only --diff-filter=U
   cp = cherry-pick
@@ -45,7 +39,7 @@
   fix = ci --fixup
   fixf = fz-fixup
   fixup = ci --fixup HEAD
-  foo = "!git switch $(git default-branch) && git fr && git pm"
+	foo = "!git switch $(git default-branch) && git fr && git pm; true"
   ft = fetch --verbose --tags
   fr = pull --rebase --verbose
   frm = "!git fr origin $(git default-branch)"
@@ -57,12 +51,11 @@
   p  = push --verbose --progress
   pf = p --force-with-lease
   pfn = pf --no-verify
-  pm = prune-merged
+  pm = prune-merged --delete-worktrees
   pn = p --no-verify
   pod = p origin --delete
   pprq = "!git p && hub prq"
   prq = pull-request
-  prune-merged = "!git branch --merged $(git default-branch) | grep -v \\* | grep -v $(git default-branch) | ifne xargs -rn 1 git branch -d"
   r  = rebase
   ra = rebase --abort
   rc = rebase --continue

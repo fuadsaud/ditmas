@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+pid_only=false
+port=""
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -p|--pid) pid_only=true; shift ;;
+    *) port="$1"; shift ;;
+  esac
+done
+
+if [[ -z "$port" ]]; then
+  echo "Usage: listening [-p|--pid] <port>" >&2
+  exit 1
+fi
+
+if $pid_only; then
+  lsof -t -nP -iTCP:"$port" -sTCP:LISTEN
+else
+  lsof -nP -iTCP:"$port" -sTCP:LISTEN
+fi

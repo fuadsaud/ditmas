@@ -49,11 +49,11 @@ function setup_personal_src_dir {
 }
 
 function setup_ditmas {
-  local repo_url="https://github.com/fuadsaud/ditmas"
+  # local repo_url="https://github.com/fuadsaud/ditmas"
 
-  rm -rf "${ditmas_dir}"
+  # rm -rf "${ditmas_dir}"
 
-  git clone --recurse-submodules -j8 "${repo_url}" "${ditmas_dir}"
+  # git clone --recurse-submodules -j8 "${repo_url}" "${ditmas_dir}"
 
   export PATH="$PATH:"
 
@@ -75,10 +75,10 @@ function setup_neovim {
 }
 
 os_post_install
-clear_dotfiles_and_dotdirs
+#clear_dotfiles_and_dotdirs
 setup_xdg_dirs
 setup_ditmas
-setup_personal_src_dir
+#setup_personal_src_dir
 setup_vim
 setup_neovim
 
