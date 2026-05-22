@@ -1,0 +1,202 @@
+@import "colors.css";
+
+/* ── Variables ──────────────────────────────────────────────────────── */
+:root {
+  --color0:  #1a1a1a;
+  --color1:  #cc6666;
+  --color2:  #b5bd68;
+  --color3:  #de935f;
+  --color4:  #81a2be;
+  --color5:  #b294bb;
+  --color6:  #8abeb7;
+  --color7:  #c5c8c6;
+  --color8:  #373b41;
+  --color9:  #cc6666;
+  --color10: #b5bd68;
+  --color11: #f0c674;
+  --color12: #81a2be;
+  --color13: #b294bb;
+  --color14: #8abeb7;
+  --color15: #ffffff;
+
+  --bar-bg:         rgba(0, 0, 0, 0.8);
+  --module-bg:      rgba(255, 255, 255, 0.05);
+  --module-border:  rgba(255, 255, 255, 0.08);
+  --text-color:     var(--color7);
+  --text-dim:       var(--color8);
+  --accent:         var(--color4);
+  --warning:        var(--color3);
+  --critical:       var(--color1);
+
+  --font-main:      "scientifica", "Siji", monospace;
+  --font-size:      12px;
+  --module-padding: 0 8px;
+  --bar-height:     24px;
+}
+
+/* ── Bar ─────────────────────────────────────────────────────────────── */
+* {
+  border: none;
+  border-radius: 0;
+  font-family: var(--font-main);
+  font-size: var(--font-size);
+  color: var(--text-color);
+  box-sizing: border-box;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: var(--bar-bg);
+  color: var(--text-color);
+}
+
+/* ── Sections ────────────────────────────────────────────────────────── */
+.modules-left,
+.modules-center,
+.modules-right {
+  padding: 0 4px;
+}
+
+/* ── Generic module ──────────────────────────────────────────────────── */
+#clock,
+#temperature,
+#battery,
+#custom-arch-updates,
+#custom-polypomo,
+#window,
+#custom-redshift,
+#custom-dnd,
+#custom-mic,
+#pulseaudio,
+#network,
+#workspaces,
+#custom-player-prev,
+#custom-player-play-pause,
+#custom-player-next,
+#custom-player-metadata {
+  background-color: var(--module-bg);
+  border: 1px solid var(--module-border);
+  padding: var(--module-padding);
+  margin: 3px 2px;
+}
+
+/* ── Workspaces ──────────────────────────────────────────────────────── */
+#workspaces button {
+  padding: 0 6px;
+  color: var(--text-dim);
+  background: transparent;
+  border: none;
+}
+
+#workspaces button:hover {
+  background: var(--module-bg);
+  color: var(--text-color);
+  box-shadow: none;
+}
+
+#workspaces button.focused {
+  color: var(--accent);
+}
+
+#workspaces button.urgent {
+  color: var(--critical);
+}
+
+/* ── Clock ───────────────────────────────────────────────────────────── */
+#clock {
+  color: var(--color7);
+}
+
+/* ── Temperature ─────────────────────────────────────────────────────── */
+#temperature {
+  color: var(--color6);
+}
+
+#temperature.critical {
+  color: var(--critical);
+}
+
+/* ── Battery ─────────────────────────────────────────────────────────── */
+#battery {
+  color: var(--color2);
+}
+
+#battery.warning {
+  color: var(--warning);
+}
+
+#battery.critical {
+  color: var(--critical);
+}
+
+#battery.charging {
+  color: var(--color2);
+}
+
+/* ── Pomodoro ─────────────────────────────────────────────────────────── */
+#custom-polypomo {
+  color: var(--color5);
+}
+
+/* ── Focused window ──────────────────────────────────────────────────── */
+#window {
+  color: var(--color7);
+  font-style: italic;
+}
+
+/* ── Redshift ─────────────────────────────────────────────────────────── */
+#custom-redshift {
+  color: var(--color3);
+}
+
+/* ── Do not disturb ──────────────────────────────────────────────────── */
+#custom-dnd {
+  color: var(--color5);
+}
+
+/* ── Microphone ───────────────────────────────────────────────────────── */
+#custom-mic {
+  color: var(--color6);
+}
+
+/* ── Volume ──────────────────────────────────────────────────────────── */
+#pulseaudio {
+  color: var(--color4);
+}
+
+#pulseaudio.muted {
+  color: var(--text-dim);
+}
+
+/* ── Network ─────────────────────────────────────────────────────────── */
+#network {
+  color: var(--color2);
+}
+
+#network.disconnected {
+  color: var(--critical);
+}
+
+/* ── Player ──────────────────────────────────────────────────────────── */
+#custom-player-prev,
+#custom-player-next {
+  color: var(--text-dim);
+  padding: 0 4px;
+}
+
+#custom-player-play-pause {
+  color: var(--accent);
+  padding: 0 6px;
+}
+
+#custom-player-metadata {
+  color: var(--color7);
+  min-width: 200px;
+}
+
+/* ── Tooltips ─────────────────────────────────────────────────────────── */
+tooltip {
+  background: var(--bar-bg);
+  border: 1px solid var(--module-border);
+  color: var(--text-color);
+}

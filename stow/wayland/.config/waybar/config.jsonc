@@ -1,0 +1,196 @@
+[
+  // ── Main bar (laptop display, bottom) ────────────────────────────────
+  {
+    "name": "main",
+    "output": "eDP-1",
+    "layer": "top",
+    "position": "bottom",
+    "height": 24,
+    "spacing": 4,
+
+    "modules-left": [
+      "clock",
+      "temperature",
+      "battery",
+      "custom/arch-updates",
+      "custom/polypomo"
+    ],
+    "modules-center": [
+      "sway/window"
+    ],
+    "modules-right": [
+      "custom/redshift",
+      "custom/dnd",
+      "custom/mic",
+      "pulseaudio",
+      "network",
+      "sway/workspaces"
+    ],
+
+    // ── Clock ─────────────────────────────────────────────────────────
+    "clock": {
+      "format": "{:%H:%M}",
+      "format-alt": "{:%a %b %d}",
+      "tooltip": false
+    },
+
+    // ── Temperature ───────────────────────────────────────────────────
+    "temperature": {
+      "critical-threshold": 80,
+      "format": "{icon} {temperatureC}°C",
+      "format-icons": ["", "", ""],
+      "tooltip": false
+    },
+
+    // ── Battery ───────────────────────────────────────────────────────
+    "battery": {
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "{icon} {capacity}%",
+      "format-charging": " {capacity}%",
+      "format-plugged": " {capacity}%",
+      "format-icons": ["", "", "", "", ""],
+      "tooltip": false
+    },
+
+    // ── Arch updates ──────────────────────────────────────────────────
+    "custom/arch-updates": {
+      "exec": "dpolybar-arch-updates",
+      "interval": 3600,
+      "tooltip": false
+    },
+
+    // ── Pomodoro ──────────────────────────────────────────────────────
+    "custom/polypomo": {
+      "exec": "polypomo",
+      "exec-if": "command -v polypomo",
+      "on-click": "polypomo toggle",
+      "on-click-right": "polypomo reset",
+      "return-type": "",
+      "tooltip": false
+    },
+
+    // ── Focused window title ───────────────────────────────────────────
+    "sway/window": {
+      "max-length": 60
+    },
+
+    // ── Redshift ──────────────────────────────────────────────────────
+    "custom/redshift": {
+      "exec": "dpolybar-redshift",
+      "on-click": "dpolybar-redshift toggle",
+      "interval": 5,
+      "tooltip": false
+    },
+
+    // ── Do not disturb ────────────────────────────────────────────────
+    "custom/dnd": {
+      "exec": "dpolybar-dnd",
+      "on-click": "dpolybar-dnd toggle",
+      "interval": 5,
+      "tooltip": false
+    },
+
+    // ── Microphone ────────────────────────────────────────────────────
+    "custom/mic": {
+      "exec": "dpolybar-mic",
+      "on-click": "dpolybar-mic toggle",
+      "interval": 5,
+      "tooltip": false
+    },
+
+    // ── Volume (PulseAudio / PipeWire) ────────────────────────────────
+    "pulseaudio": {
+      "format": "{icon} {volume}%",
+      "format-muted": " muted",
+      "format-icons": {
+        "default": ["", "", ""]
+      },
+      "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+      "on-click-right": "pavucontrol",
+      "tooltip": false
+    },
+
+    // ── Network ───────────────────────────────────────────────────────
+    "network": {
+      "format-wifi": " {essid} {signalStrength}%",
+      "format-ethernet": " {ifname}",
+      "format-disconnected": "⚠ disconnected",
+      "on-click": "networkmanager_dmenu",
+      "tooltip": false
+    },
+
+    // ── Workspaces ────────────────────────────────────────────────────
+    "sway/workspaces": {
+      "format": "{name}",
+      "disable-scroll": true
+    }
+  },
+
+  // ── Aux bar (external monitor, bottom) ───────────────────────────────
+  {
+    "name": "aux",
+    "output": "HDMI-A-2",
+    "layer": "top",
+    "position": "bottom",
+    "height": 24,
+    "spacing": 4,
+
+    "modules-left": [
+      "clock"
+    ],
+    "modules-center": [
+      "custom/player-prev",
+      "custom/player-play-pause",
+      "custom/player-next",
+      "custom/player-metadata"
+    ],
+    "modules-right": [
+      "sway/workspaces"
+    ],
+
+    // ── Clock ─────────────────────────────────────────────────────────
+    "clock": {
+      "format": "{:%H:%M}",
+      "format-alt": "{:%a %b %d}",
+      "tooltip": false
+    },
+
+    // ── Player controls ───────────────────────────────────────────────
+    "custom/player-prev": {
+      "exec": "echo ''",
+      "on-click": "playerctl previous",
+      "interval": "once",
+      "tooltip": false
+    },
+
+    "custom/player-play-pause": {
+      "exec": "dpolybar-player-status-pp",
+      "on-click": "playerctl play-pause",
+      "return-type": "",
+      "tooltip": false
+    },
+
+    "custom/player-next": {
+      "exec": "echo ''",
+      "on-click": "playerctl next",
+      "interval": "once",
+      "tooltip": false
+    },
+
+    "custom/player-metadata": {
+      "exec": "dpolybar-player-metadata-scroll",
+      "on-click": "playerctl play-pause",
+      "return-type": "",
+      "tooltip": false
+    },
+
+    // ── Workspaces ────────────────────────────────────────────────────
+    "sway/workspaces": {
+      "format": "{name}",
+      "disable-scroll": true
+    }
+  }
+]

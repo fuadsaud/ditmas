@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+file_location="$(dscreenshot-filename)"
+
+geometry=$(swaymsg -t get_tree | jq -r '.. | select(.focused? == true) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')
+
+grim -g "$geometry" "${file_location}"
+
+dscreenshot-notify "${file_location}"

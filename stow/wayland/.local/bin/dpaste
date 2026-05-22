@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+app_id=$(swaymsg -t get_tree | jq -r '.. | select(.focused? == true) | .app_id // .window_properties.class // ""' | head -1)
+
+case "$app_id" in
+  kitty|Alacritty) wtype -M ctrl -M shift -k v -m shift -m ctrl ;;
+  *)               wtype -M ctrl -k v -m ctrl ;;
+esac

@@ -4,34 +4,36 @@
 - [ ] Create ~/.config/sway/colors with $color0–$color15 from Monrovia theme
 
 ## Screenshot (maim → grim + slurp)
-- [ ] Rewrite dscreenshot-fullscreen
-- [ ] Rewrite dscreenshot-select-area
-- [ ] Rewrite dscreenshot-select-window
+- [x] Rewrite dscreenshot-fullscreen
+- [x] Rewrite dscreenshot-select-area
+- [x] Rewrite dscreenshot-select-window
 
 ## Clipboard (xclip → wl-clipboard)
-- [ ] Rewrite dcopy
-- [ ] Rewrite dpaste
+- [x] Rewrite dcopy
+- [x] Rewrite dpaste
 
 ## Display management (autorandr → kanshi)
-- [ ] Write kanshi config mirroring randr-mexicali layouts
+- [x] Write kanshi config mirroring randr-mexicali layouts
+- [ ] Verify connector names match actual hardware (eDP-1, HDMI-A-2, DP-1)
 
 ## Notifications
 - [ ] Verify dunst works on Wayland (it does via libnotify, but confirm)
 
 ## Screen color temperature (redshift → gammastep)
-- [ ] Install gammastep
-- [ ] Verify config format is compatible (it is)
+- [x] Write gammastep config
+- [ ] Verify geoclue2 works
 - [ ] Add gammastep to sway autostart
 
 ## Wallpaper (nitrogen → swaybg/swww)
-- [ ] Decide on swaybg (simple) vs swww (transitions)
-- [ ] Set wallpaper path in sway config
+- [ ] Set wallpaper path in sway config (currently ~/.config/wallpaper)
 
 ## Lock screen
-- [ ] Configure swaylock (colors, blur)
+- [x] Configure swaylock
 
 ## Status bar
-- [ ] Write waybar config mirroring polybar layout and scripts
+- [x] Write waybar config mirroring polybar layout
+- [x] Write dwaybar launcher script
+- [ ] Verify dpolybar-* scripts work under Wayland
 
 ## Key remapping (xcape → keyd)
 - [x] Determine xcape usage: CapsLock→Ctrl (hold) / Esc (tap) + ralt→Compose

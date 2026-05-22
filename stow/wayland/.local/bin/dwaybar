@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+CONFIG="${HOME}/.config/waybar/config.jsonc"
+STYLE="${HOME}/.config/waybar/style.css"
+
+# Kill any running instances
+killall -q waybar || true
+
+# Give processes a moment to die
+sleep 0.2
+
+# Launch main bar (laptop display)
+MONITOR=eDP-1 waybar -c "$CONFIG" -s "$STYLE" --bar main &
+
+# Launch aux bar (external monitor)
+MONITOR=HDMI-A-2 waybar -c "$CONFIG" -s "$STYLE" --bar aux &

@@ -16,8 +16,8 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
 # Clipboard / passthrough
 bindsym $mod+a exec wtype -M ctrl a -m ctrl
-bindsym $mod+c exec wl-copy
-bindsym $mod+v exec wl-paste
+bindsym $mod+c exec dcopy
+bindsym $mod+v exec dpaste
 
 # Display
 bindsym $mod+Shift+x exec kanshictl reload
@@ -26,4 +26,4 @@ bindsym $mod+Shift+x exec kanshictl reload
 exec swayidle -w timeout 300 'swaylock -f' before-sleep 'swaylock -f'
 exec kanshi
 exec swaybg -i ~/.config/wallpaper -m fill
-exec_always waybar
+exec_always dwaybar

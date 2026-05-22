@@ -1,0 +1,19 @@
+profile mobile {
+  output eDP-1 enable
+}
+
+profile mbp13-docked-samsung {
+  output HDMI-A-2 enable mode 1920x1080@60Hz position 0,0
+  output eDP-1 enable mode 2560x1600@59.97Hz position 1920,0 scale 2
+}
+
+profile docked-home-2-way {
+  output DP-1 enable mode 1920x1080@60Hz transform 90 position 0,0
+  output HDMI-A-2 enable mode 2560x1440@59.95Hz position 1080,0
+}
+
+profile docked-home-3-way {
+  output DP-1 enable mode 1920x1080@60Hz transform 90 position 0,0
+  output HDMI-A-2 enable mode 2560x1440@59.95Hz position 1080,0
+  output eDP-1 enable mode 2560x1600@59.97Hz position 3640,0 scale 2
+}
