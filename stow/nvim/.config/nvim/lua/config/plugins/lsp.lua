@@ -1,9 +1,8 @@
 -- [nfnl] fnl/config/plugins/lsp.fnl
 local _local_1_ = require("nfnl.module")
-local autoload = _local_1_["autoload"]
+local autoload = _local_1_.autoload
 local nfnl_core = autoload("nfnl.core")
 local cmp_lsp = autoload("cmp_nvim_lsp")
-local lsp_format = autoload("lsp-format")
 local mason = autoload("mason")
 local mason_lspconfig = autoload("mason-lspconfig")
 local neodev = autoload("neodev")

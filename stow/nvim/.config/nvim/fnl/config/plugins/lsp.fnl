@@ -1,7 +1,6 @@
 (local {: autoload} (require :nfnl.module))
 (local nfnl-core (autoload :nfnl.core))
 (local cmp_lsp (autoload :cmp_nvim_lsp))
-(local lsp-format (autoload :lsp-format))
 (local mason (autoload :mason))
 (local mason-lspconfig (autoload :mason-lspconfig))
 (local neodev (autoload :neodev))
@@ -25,8 +24,6 @@
 
                 (when (= client.name "eslint")
                   (tset client :server_capabilities :documentFormattingProvider true))
-
-                ; (lsp-format.on_attach client bufnr)
 
                 (let [buf-set-option (fn [opt val] (vim.api.nvim_buf_set_option bufnr opt val))
                       buf-set-keymap-fn (fn [mode mapping target-fn]

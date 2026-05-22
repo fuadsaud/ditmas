@@ -23,7 +23,6 @@
    :neovim/nvim-lspconfig {:main :config.plugins.lsp
                            :dependencies {:nvimtools/none-ls.nvim {:dependencies {:nvim-lua/plenary.nvim {}}}
                                           :jose-elias-alvarez/typescript.nvim {}
-                                          :lukas-reineke/lsp-format.nvim {}
                                           :davidosomething/format-ts-errors.nvim {}
                                           :pmizio/typescript-tools.nvim {:dependencies {:nvim-lua/plenary.nvim {}
                                                                                         :neovim/nvim-lspconfig {}}}}}
@@ -53,10 +52,9 @@
 
    ; projects
    :tpope/vim-projectionist {:main :config.plugins.projectionist}
-   :fuadsaud/rhizome.nvim {:main :config.plugins.rhizome}
-                           ; :dev true
-                           ; :dir "~/Sources/fuadsaud/rhizome.nvim"
-                           ; :name "rhizome.nvim"}
+   :fuadsaud/rhizome.nvim {:main :config.plugins.rhizome
+                           :dev true
+                           :name "rhizome.nvim"}
 
    ; syntax
    :sheerun/vim-polyglot {}
