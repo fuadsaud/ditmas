@@ -22,7 +22,7 @@
 ## Screen color temperature (redshift → gammastep)
 - [x] Write gammastep config
 - [ ] Verify geoclue2 works
-- [ ] Add gammastep to sway autostart
+- [x] Add gammastep to sway autostart
 
 ## Wallpaper (nitrogen → swaybg/swww)
 - [ ] Set wallpaper path in sway config (currently ~/.config/wallpaper)

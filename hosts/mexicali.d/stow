@@ -35,5 +35,7 @@ systemd
 tmux
 vim
 vscode
+wayland
+wm
 xorg
 xplatutils
