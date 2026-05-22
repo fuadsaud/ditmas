@@ -1,14 +1,5 @@
 #
-# Executes commands at login pre-zshrc.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-#
 # Browser
-#
-#
 #
 
 if [[ "$OSTYPE" == darwin* ]]; then
@@ -87,11 +78,6 @@ export PATH=$(tr -d $'\n ' <<< "
   $PATH
 ")
 
-export FPATH=$(tr -d $'\n ' <<< "
-  $(brew --prefix)/share/zsh/site-functions:
-  $FPATH
-")
-
 #
 # Less
 #
@@ -115,9 +101,6 @@ if [[ ! -d "$TMPDIR" ]]; then
   mkdir -p -m 700 "$TMPDIR"
 fi
 
-TMPPREFIX="${TMPDIR%/}/zsh"
-if [[ ! -d "$TMPPREFIX" ]]; then
-  mkdir -p "$TMPPREFIX"
+if [[ "$OSTYPE" == darwin* ]]; then
+  export SSH_AUTH_SOCK="~/.1password/agent.sock"
 fi
-
-export SSH_AUTH_SOCK="~/.1password/agent.sock"
