@@ -33,9 +33,11 @@
 ## Status bar
 - [ ] Write waybar config mirroring polybar layout and scripts
 
-## Key remapping (xcape → ?)
-- [ ] Determine if xcape is in use and what it does
-- [ ] Evaluate kanata as replacement if needed
+## Key remapping (xcape → keyd)
+- [x] Determine xcape usage: CapsLock→Ctrl (hold) / Esc (tap) + ralt→Compose
+- [x] Write keyd config (.config/keyd/default.conf)
+- [ ] Install keyd and enable keyd.service
+- [ ] Verify CapsLock and ralt behavior
 
 ## Packages
 - [ ] Add wayland stow to mexicali
