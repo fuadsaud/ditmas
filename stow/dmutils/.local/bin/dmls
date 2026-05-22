@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+exclude_host=""
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --exclude)
+      exclude_host="$2"
+      shift 2
+      ;;
+    *)
+      echo "Usage: dmls [--exclude <host>]" >&2
+      exit 1
+      ;;
+  esac
+done
+
+all_packages() {
+  ls "${DITMAS_DIR}/stow"
+}
+
+if [[ -n "$exclude_host" ]]; then
+  host_packages="${DITMAS_DIR}/hosts/${exclude_host}.d/stow"
+  if [[ ! -e "$host_packages" ]]; then
+    echo "dmls: no stow list for host '${exclude_host}'" >&2
+    exit 1
+  fi
+  all_packages | grep -vxF -f "$host_packages"
+else
+  all_packages
+fi
