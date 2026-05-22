@@ -25,7 +25,7 @@
 - [x] Add gammastep to sway autostart
 
 ## Wallpaper (nitrogen → swaybg/swww)
-- [ ] Set wallpaper path in sway config (currently ~/.config/wallpaper)
+- [x] Set wallpaper path in sway config (~/.config/wallpaper)
 
 ## Lock screen
 - [x] Configure swaylock
