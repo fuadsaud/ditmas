@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+packages_file="${DITMAS_DIR}/hosts/$(hostname).d/arch/packages"
+
+paru -Qqe | sort > "$packages_file"
