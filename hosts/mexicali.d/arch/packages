@@ -126,7 +126,5 @@ wl-clipboard
 wtype
 xdg-desktop-portal-wlr
 xf86-input-mtrack-git
-xorg-setxkbmap
-xorg-xkbcomp
 xorg-xwayland
 zsh
