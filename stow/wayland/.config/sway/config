@@ -20,7 +20,6 @@ bindsym $mod+v exec dpaste
 
 bindsym $mod+Shift+x exec kanshictl reload
 
-exec dunst
 exec gammastep
 exec swayidle -w timeout 300 'swaylock -f' before-sleep 'swaylock -f'
 exec kanshi

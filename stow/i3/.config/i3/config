@@ -18,8 +18,6 @@ set_from_resource $color15 color15 #000000
 
 include ~/.config/wm/config
 
-exec dunst
-
 # Backlight
 bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10

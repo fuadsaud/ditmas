@@ -161,5 +161,6 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 
+exec dunst
 exec playerctld daemon
 exec systemctl --user start autostart.target
