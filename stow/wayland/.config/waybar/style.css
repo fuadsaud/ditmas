@@ -65,6 +65,7 @@ window#waybar {
 
 #workspaces button label {
   color: #d3cbaf;
+  min-height: 20px;
 }
 
 #workspaces button:hover label {
