@@ -57,9 +57,10 @@ window#waybar {
 /* ── Workspaces ──────────────────────────────────────────────────────── */
 #workspaces button {
   padding: 0 6px;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.05);
   background-image: none;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 3px 2px;
 }
 
 #workspaces button label {
