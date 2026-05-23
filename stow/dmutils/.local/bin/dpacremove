@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+hostname=$(hostname)
+packages_file="${DITMAS_DIR}/hosts/${hostname}.d/arch/packages"
+
+to_remove=$(comm -23 <(pacman -Qqe | sort) <(sort "$packages_file"))
+
+if [[ -n "$to_remove" ]]; then
+  $PACMAN_BIN -Rns $to_remove
+fi
