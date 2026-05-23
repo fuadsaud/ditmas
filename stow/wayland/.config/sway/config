@@ -23,7 +23,7 @@ bindsym $mod+Shift+x exec kanshictl reload
 exec systemctl --user import-environment WAYLAND_DISPLAY DISPLAY
 exec /usr/bin/dunst
 exec gammastep
-exec swayidle -w timeout 300 'swaylock -f' before-sleep 'swaylock -f'
+exec swayidle -w timeout 300 'swaylock -f -i ~/.config/wallpaper --scaling fill' before-sleep 'swaylock -f -i ~/.config/wallpaper --scaling fill'
 exec kanshi
 exec [ -f ~/.config/wallpaper ] && swaybg -i ~/.config/wallpaper -m fill
 bar {
