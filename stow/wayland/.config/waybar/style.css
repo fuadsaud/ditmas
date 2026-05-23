@@ -110,6 +110,7 @@ window#waybar {
 
 #window {
   color: #d3cbaf;
+  font-family: "ProFont for Powerline", monospace;
   font-style: italic;
 }
 
