@@ -14,7 +14,7 @@
   border: none;
   border-radius: 0;
   font-family: "scientifica", "Siji", monospace;
-  font-size: 12px;
+  font-size: 18px;
   color: #d3cbaf;
   min-height: 0;
 }
@@ -57,7 +57,7 @@ window#waybar {
 /* ── Workspaces ──────────────────────────────────────────────────────── */
 #workspaces button {
   padding: 0 6px;
-  color: #375268;
+  color: #d3cbaf;
   background: transparent;
   border: none;
 }
@@ -139,7 +139,7 @@ window#waybar {
 }
 
 #pulseaudio.muted {
-  color: #375268;
+  color: #538798;
 }
 
 /* ── Network ─────────────────────────────────────────────────────────── */
@@ -154,7 +154,7 @@ window#waybar {
 /* ── Player ──────────────────────────────────────────────────────────── */
 #custom-player-prev,
 #custom-player-next {
-  color: #375268;
+  color: #538798;
   padding: 0 4px;
 }
 
