@@ -38,9 +38,8 @@ gettext
 git
 git-delta
 grep
-cage
 greetd
-regreet
+greetd-tuigreet
 grim
 groff
 gthumb
