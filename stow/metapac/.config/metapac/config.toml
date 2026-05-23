@@ -1,0 +1,8 @@
+enabled_backends = ["arch"]
+hostname_groups_enabled = true
+
+[hostname_groups]
+mexicali = ["mexicali"]
+
+[arch]
+package_manager = "paru"
