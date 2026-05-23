@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+sudo cp ~/.config/ly/config.ini /etc/ly/config.ini
+sudo systemctl enable ly.service
+sudo systemctl disable xdm-archlinux.service 2>/dev/null || true
+sudo systemctl disable greetd.service 2>/dev/null || true

@@ -1,6 +1,0 @@
-[terminal]
-vt = 1
-
-[default_session]
-command = "tuigreet --time --remember --default-session sway --sessions /usr/share/wayland-sessions:/usr/share/xsessions"
-user = "greeter"
