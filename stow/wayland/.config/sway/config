@@ -30,5 +30,5 @@ bindsym $mod+Shift+x exec kanshictl reload
 exec gammastep
 exec swayidle -w timeout 300 'swaylock -f' before-sleep 'swaylock -f'
 exec kanshi
-exec swaybg -i ~/.config/wallpaper -m fill
-exec_always dwaybar
+exec [ -f ~/.config/wallpaper ] && swaybg -i ~/.config/wallpaper -m fill
+exec_always waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/style.css
