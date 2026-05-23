@@ -2,4 +2,15 @@
 
 set -euo pipefail
 
-dls | xargs dstow --restow $@
+packages_dir="${DITMAS_DIR}/stow"
+
+desired=$(dls)
+all=$(ls "$packages_dir")
+
+to_unstow=$(comm -23 <(echo "$all" | sort) <(echo "$desired" | sort))
+
+if [[ -n "$to_unstow" ]]; then
+  echo "$to_unstow" | xargs dstow --delete
+fi
+
+echo "$desired" | xargs dstow --restow "$@"
