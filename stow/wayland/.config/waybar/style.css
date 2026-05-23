@@ -58,14 +58,13 @@ window#waybar {
 #workspaces button {
   padding: 0 6px;
   color: #d3cbaf;
-  background: transparent;
+  background-color: transparent;
   border: none;
 }
 
 #workspaces button:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.05);
   color: #d3cbaf;
-  box-shadow: none;
 }
 
 #workspaces button.focused {
