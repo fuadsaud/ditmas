@@ -17,38 +17,13 @@ function install_paru {
   fi
 }
 
-function install_packages {
-  local hostname; hostname="$(hostname)"
-  local arch_packages_file="${current_dir}/../../hosts/${hostname}.d/arch/packages"
-  mapfile -t arch_packages < <(cat "${arch_packages_file}")
-
-  yay -S --needed --noconfirm "${arch_packages[@]}"
-}
-
 function setup_docker {
   if command -v docker ; then
-    sudo systemctl enable docker
-
     sudo usermod --append --groups docker "${USER}"
   fi
 }
 
-function setup_gnome {
-  sudo systemctl enable gdm
-}
-
-function setup_redshift {
-  systemctl --user enable redshift
-}
-
-function setup_dropbox {
-  systemctl --user enable dropbox
-}
-
 install_paru
-install_packages
 setup_docker
-setup_gnome
-setup_redshift
 
 log 'arch post-installation finished'
