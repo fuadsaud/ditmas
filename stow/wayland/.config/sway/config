@@ -3,6 +3,8 @@ include ~/.config/sway/colors
 
 include ~/.config/wm/config
 
+for_window [app_id=".*"] border pixel 0
+
 # Input
 input type:touchpad {
   tap enabled

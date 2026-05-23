@@ -21,7 +21,6 @@ for_window [title=".*"] title_format %title
 # Borders and gaps
 #
 for_window [class=".*"]   border pixel 0
-for_window [app_id=".*"]  border pixel 0
 
 gaps inner 20
 smart_borders on
