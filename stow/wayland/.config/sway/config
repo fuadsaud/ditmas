@@ -20,12 +20,14 @@ bindsym $mod+v exec dpaste
 
 bindsym $mod+Shift+x exec kanshictl reload
 
+set $wallpaper ~/.config/wallpaper
+
 exec systemctl --user import-environment WAYLAND_DISPLAY DISPLAY
 exec /usr/bin/dunst
 exec gammastep
-exec swayidle -w timeout 300 'swaylock -f -i ~/.config/wallpaper --scaling fill' before-sleep 'swaylock -f -i ~/.config/wallpaper --scaling fill'
+exec swayidle -w timeout 300 'swaylock -f -i $wallpaper --scaling fill' before-sleep 'swaylock -f -i $wallpaper --scaling fill'
 exec kanshi
-exec [ -f ~/.config/wallpaper ] && swaybg -i ~/.config/wallpaper -m fill
+exec [ -f $wallpaper ] && swaybg -i $wallpaper -m fill
 bar {
     swaybar_command waybar
 }
