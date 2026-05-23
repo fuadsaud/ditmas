@@ -2,6 +2,11 @@
 
 ## Status bar
 - [ ] Module colors don't match polybar — revisit color assignments per module
+-
+
+## Menus
+- [ ] Better looks for rofi
+- [ ] Expore walker
 
 ## Display management
 - [ ] Verify kanshi connector names match actual hardware (eDP-1, HDMI-A-2, DP-1)
@@ -17,3 +22,4 @@
 
 ## Explore
 - [ ] Explore Hyprland as a sway replacement
+- [ ] Explore managing user-land daemons via systemd user services + presets instead of sway exec
