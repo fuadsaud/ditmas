@@ -1,51 +1,28 @@
-/* ── Variables ──────────────────────────────────────────────────────── */
-* {
-  --color0:  #1f2433;
-  --color1:  #8c3432;
-  --color2:  #7f4c60;
-  --color3:  #538798;
-  --color4:  #b55242;
-  --color5:  #9e7156;
-  --color6:  #60a195;
-  --color7:  #d3cbaf;
-  --color8:  #375268;
-  --color9:  #cb2656;
-  --color10: #a1617a;
-  --color11: #247dae;
-  --color12: #c77366;
-  --color13: #b8937c;
-  --color14: #232839;
-  --color15: #eeeadf;
-
-  --bar-bg:         rgba(0, 0, 0, 0.8);
-  --module-bg:      rgba(255, 255, 255, 0.05);
-  --module-border:  rgba(255, 255, 255, 0.08);
-  --text-color:     var(--color7);
-  --text-dim:       var(--color8);
-  --accent:         var(--color4);
-  --warning:        var(--color3);
-  --critical:       var(--color1);
-
-  --font-main:      "scientifica", "Siji", monospace;
-  --font-size:      12px;
-  --module-padding: 0 8px;
-  --bar-height:     24px;
-}
+/* Monrovia palette
+ * color0  #1f2433  color8  #375268
+ * color1  #8c3432  color9  #cb2656
+ * color2  #7f4c60  color10 #a1617a
+ * color3  #538798  color11 #247dae
+ * color4  #b55242  color12 #c77366
+ * color5  #9e7156  color13 #b8937c
+ * color6  #60a195  color14 #232839
+ * color7  #d3cbaf  color15 #eeeadf
+ */
 
 /* ── Bar ─────────────────────────────────────────────────────────────── */
 * {
   border: none;
   border-radius: 0;
-  font-family: var(--font-main);
-  font-size: var(--font-size);
-  color: var(--text-color);
+  font-family: "scientifica", "Siji", monospace;
+  font-size: 12px;
+  color: #d3cbaf;
   box-sizing: border-box;
   min-height: 0;
 }
 
 window#waybar {
-  background-color: var(--bar-bg);
-  color: var(--text-color);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #d3cbaf;
 }
 
 /* ── Sections ────────────────────────────────────────────────────────── */
@@ -72,129 +49,129 @@ window#waybar {
 #custom-player-play-pause,
 #custom-player-next,
 #custom-player-metadata {
-  background-color: var(--module-bg);
-  border: 1px solid var(--module-border);
-  padding: var(--module-padding);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0 8px;
   margin: 3px 2px;
 }
 
 /* ── Workspaces ──────────────────────────────────────────────────────── */
 #workspaces button {
   padding: 0 6px;
-  color: var(--text-dim);
+  color: #375268;
   background: transparent;
   border: none;
 }
 
 #workspaces button:hover {
-  background: var(--module-bg);
-  color: var(--text-color);
+  background: rgba(255, 255, 255, 0.05);
+  color: #d3cbaf;
   box-shadow: none;
 }
 
 #workspaces button.focused {
-  color: var(--accent);
+  color: #b55242;
 }
 
 #workspaces button.urgent {
-  color: var(--critical);
+  color: #8c3432;
 }
 
 /* ── Clock ───────────────────────────────────────────────────────────── */
 #clock {
-  color: var(--color7);
+  color: #d3cbaf;
 }
 
 /* ── Temperature ─────────────────────────────────────────────────────── */
 #temperature {
-  color: var(--color6);
+  color: #60a195;
 }
 
 #temperature.critical {
-  color: var(--critical);
+  color: #8c3432;
 }
 
 /* ── Battery ─────────────────────────────────────────────────────────── */
 #battery {
-  color: var(--color2);
+  color: #7f4c60;
 }
 
 #battery.warning {
-  color: var(--warning);
+  color: #538798;
 }
 
 #battery.critical {
-  color: var(--critical);
+  color: #8c3432;
 }
 
 #battery.charging {
-  color: var(--color2);
+  color: #7f4c60;
 }
 
 /* ── Pomodoro ─────────────────────────────────────────────────────────── */
 #custom-polypomo {
-  color: var(--color5);
+  color: #9e7156;
 }
 
 /* ── Focused window ──────────────────────────────────────────────────── */
 #window {
-  color: var(--color7);
+  color: #d3cbaf;
   font-style: italic;
 }
 
 /* ── Redshift ─────────────────────────────────────────────────────────── */
 #custom-redshift {
-  color: var(--color3);
+  color: #538798;
 }
 
 /* ── Do not disturb ──────────────────────────────────────────────────── */
 #custom-dnd {
-  color: var(--color5);
+  color: #9e7156;
 }
 
 /* ── Microphone ───────────────────────────────────────────────────────── */
 #custom-mic {
-  color: var(--color6);
+  color: #60a195;
 }
 
 /* ── Volume ──────────────────────────────────────────────────────────── */
 #pulseaudio {
-  color: var(--color4);
+  color: #b55242;
 }
 
 #pulseaudio.muted {
-  color: var(--text-dim);
+  color: #375268;
 }
 
 /* ── Network ─────────────────────────────────────────────────────────── */
 #network {
-  color: var(--color2);
+  color: #7f4c60;
 }
 
 #network.disconnected {
-  color: var(--critical);
+  color: #8c3432;
 }
 
 /* ── Player ──────────────────────────────────────────────────────────── */
 #custom-player-prev,
 #custom-player-next {
-  color: var(--text-dim);
+  color: #375268;
   padding: 0 4px;
 }
 
 #custom-player-play-pause {
-  color: var(--accent);
+  color: #b55242;
   padding: 0 6px;
 }
 
 #custom-player-metadata {
-  color: var(--color7);
+  color: #d3cbaf;
   min-width: 200px;
 }
 
 /* ── Tooltips ─────────────────────────────────────────────────────────── */
 tooltip {
-  background: var(--bar-bg);
-  border: 1px solid var(--module-border);
-  color: var(--text-color);
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #d3cbaf;
 }
