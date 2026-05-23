@@ -1,13 +1,10 @@
 1password-mac
 omega.local
-asdf
-alacritty
 assorted-scripts
 ellipsus
 bash
 clojure
 ctags
-direnv
 dmutils
 env
 fish
@@ -17,7 +14,6 @@ graphite
 idea
 karabiner
 kitty
-lein
 macutils
 mise
 nvim
