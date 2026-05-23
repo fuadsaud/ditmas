@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+sudo mkdir -p /etc/keyd
+sudo cp ~/.config/keyd/default.conf /etc/keyd/default.conf
+sudo systemctl enable --now keyd
