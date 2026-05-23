@@ -80,6 +80,7 @@ packages = [
   "nordvpn-bin",
   "noto-fonts",
   "noto-fonts-emoji",
+  "nwg-displays",
   "nwg-look",
   "openssh",
   "os-prober",
