@@ -36,6 +36,7 @@
 - [x] Write dwaybar launcher script
 - [ ] Verify dpolybar-* scripts work under Wayland (or drop them)
 - [ ] Workspace switcher text not visible (correct color, black bg, correct label — cause unknown)
+- [ ] Module colors don't match polybar — revisit color assignments per module
 
 ## Key remapping (xcape → keyd)
 - [x] Write keyd config (.config/keyd/default.conf)
