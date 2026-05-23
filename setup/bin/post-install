@@ -15,16 +15,6 @@ function os_post_install {
   "$os_post_install_script"
 }
 
-function setup_asdf {
-  asdf plugin add ruby
-  asdf plugin add nodejs
-  asdf plugin add java
-  asdf plugin add cloure
-  asdf plugin add babashka
-
-  asdf install
-}
-
 
 function clear_dotfiles_and_dotdirs {
   find "${HOME}" -maxdepth 1 -iname '.*' -exec rm -rf '{}' \;
