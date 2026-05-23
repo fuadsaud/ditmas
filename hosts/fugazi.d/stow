@@ -3,7 +3,6 @@ fugazi.local
 assorted-scripts
 bash
 clojure
-ctags
 dmutils
 env
 fish

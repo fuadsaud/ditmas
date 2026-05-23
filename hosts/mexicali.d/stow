@@ -3,7 +3,6 @@ bash
 metapac
 mexicali.local
 clojure
-ctags
 dmutils
 dunst
 env

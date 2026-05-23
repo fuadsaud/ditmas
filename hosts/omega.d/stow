@@ -4,7 +4,6 @@ assorted-scripts
 ellipsus
 bash
 clojure
-ctags
 dmutils
 env
 fish
