@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-set -euo pipefail
-
-hostname=$(hostname)
-packages_file="${DITMAS_DIR}/hosts/${hostname}.d/arch/packages"
-
-mapfile -t packages < "$packages_file"
-$PACMAN_BIN --sync --needed "${packages[@]}"
