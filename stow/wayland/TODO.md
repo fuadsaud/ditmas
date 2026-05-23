@@ -10,6 +10,9 @@
 ## Displays
 - [ ] Verify kanshi connector names match actual hardware (eDP-1, HDMI-A-2, DP-1)
 
+## Explore
+- [ ] Investigate nwg-shell (https://nwg-piotr.github.io/nwg-shell/) — sway companion toolkit (panel, launcher, displays, look, etc.)
+
 ## Window management
 - [ ] Explore Hyprland as a sway replacement
 
