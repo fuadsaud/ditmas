@@ -7,3 +7,9 @@ packages_file="${DITMAS_DIR}/hosts/${hostname}.d/arch/packages"
 
 mapfile -t packages < "$packages_file"
 $PACMAN_BIN --sync --needed "${packages[@]}"
+
+to_remove=$(comm -23 <(pacman -Qqe | sort) <(sort "$packages_file"))
+
+if [[ -n "$to_remove" ]]; then
+  $PACMAN_BIN -Rns $to_remove
+fi
