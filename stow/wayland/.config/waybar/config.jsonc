@@ -37,8 +37,8 @@
     // ── Temperature ───────────────────────────────────────────────────
     "temperature": {
       "critical-threshold": 80,
-      "format": "{icon} {temperatureC}°C",
-      "format-icons": ["", "", ""],
+      "format": "{temperatureC}°C",
+      "format-critical": "{temperatureC}°C",
       "tooltip": false
     },
 
@@ -48,10 +48,10 @@
         "warning": 30,
         "critical": 15
       },
-      "format": "{icon} {capacity}%",
-      "format-charging": " {capacity}%",
-      "format-plugged": " {capacity}%",
-      "format-icons": ["", "", "", "", ""],
+      "format": " {capacity}%",
+      "format-charging": " {capacity}%",
+      "format-plugged": " {capacity}%",
+      "format-icons": ["", "", ""],
       "tooltip": false
     },
 
@@ -103,11 +103,8 @@
 
     // ── Volume (PulseAudio / PipeWire) ────────────────────────────────
     "pulseaudio": {
-      "format": "{icon} {volume}%",
-      "format-muted": " muted",
-      "format-icons": {
-        "default": ["", "", ""]
-      },
+      "format": " {volume}%",
+      "format-muted": " muted",
       "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
       "on-click-right": "pavucontrol",
       "tooltip": false
@@ -115,9 +112,9 @@
 
     // ── Network ───────────────────────────────────────────────────────
     "network": {
-      "format-wifi": " {essid} {signalStrength}%",
-      "format-ethernet": " {ifname}",
-      "format-disconnected": "⚠ disconnected",
+      "format-wifi": " {essid} {signalStrength}%",
+      "format-ethernet": " {ifname}",
+      "format-disconnected": " disconnected",
       "on-click": "networkmanager_dmenu",
       "tooltip": false
     },
@@ -160,7 +157,7 @@
 
     // ── Player controls ───────────────────────────────────────────────
     "custom/player-prev": {
-      "exec": "echo ''",
+      "exec": "echo ''",
       "on-click": "playerctl previous",
       "interval": "once",
       "tooltip": false
@@ -174,7 +171,7 @@
     },
 
     "custom/player-next": {
-      "exec": "echo ''",
+      "exec": "echo ''",
       "on-click": "playerctl next",
       "interval": "once",
       "tooltip": false
