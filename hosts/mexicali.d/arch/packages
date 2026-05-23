@@ -10,10 +10,11 @@ base-devel
 bcwc-pcie-git
 binutils
 bison
-brightnessctl
 blueman
 bluez-utils
+brightnessctl
 broadcom-wl-dkms
+cage
 clang
 consolas-font
 dconf-editor
@@ -30,15 +31,14 @@ findutils
 firefox
 fish
 flex
-gawk
 gammastep
+gawk
 gcc
 gdm
 gettext
 git
 git-delta
 grep
-ly
 grim
 groff
 gthumb
@@ -58,8 +58,6 @@ lib32-gcc-libs
 lib32-glibc
 libtool
 libxcrypt-compat
-lightdm
-lightdm-gtk-greeter
 linux
 linux-firmware
 linux-headers
@@ -130,6 +128,7 @@ usbutils
 vim
 vlc
 vlc-plugins-all
+walker-bin
 watchexec
 waybar
 which
@@ -139,7 +138,6 @@ wtype
 xcape
 xclip
 xcwd-git
-xdm-archlinux
 xdg-desktop-portal-wlr
 xdotool
 xf86-input-mtrack-git
