@@ -9,7 +9,6 @@
  * color7  #d3cbaf  color15 #eeeadf
  */
 
-/* ── Bar ─────────────────────────────────────────────────────────────── */
 * {
   border: none;
   border-radius: 0;
@@ -24,14 +23,12 @@ window#waybar {
   color: #d3cbaf;
 }
 
-/* ── Sections ────────────────────────────────────────────────────────── */
 .modules-left,
 .modules-center,
 .modules-right {
   padding: 0 4px;
 }
 
-/* ── Generic module ──────────────────────────────────────────────────── */
 #clock,
 #temperature,
 #battery,
@@ -54,7 +51,6 @@ window#waybar {
   margin: 3px 2px;
 }
 
-/* ── Workspaces ──────────────────────────────────────────────────────── */
 #workspaces button {
   padding: 0 6px;
   background-color: rgba(255, 255, 255, 0.05);
@@ -80,12 +76,10 @@ window#waybar {
   color: #8c3432;
 }
 
-/* ── Clock ───────────────────────────────────────────────────────────── */
 #clock {
   color: #d3cbaf;
 }
 
-/* ── Temperature ─────────────────────────────────────────────────────── */
 #temperature {
   color: #60a195;
 }
@@ -94,7 +88,6 @@ window#waybar {
   color: #8c3432;
 }
 
-/* ── Battery ─────────────────────────────────────────────────────────── */
 #battery {
   color: #7f4c60;
 }
@@ -111,33 +104,27 @@ window#waybar {
   color: #7f4c60;
 }
 
-/* ── Pomodoro ─────────────────────────────────────────────────────────── */
 #custom-polypomo {
   color: #9e7156;
 }
 
-/* ── Focused window ──────────────────────────────────────────────────── */
 #window {
   color: #d3cbaf;
   font-style: italic;
 }
 
-/* ── Redshift ─────────────────────────────────────────────────────────── */
 #custom-redshift {
   color: #538798;
 }
 
-/* ── Do not disturb ──────────────────────────────────────────────────── */
 #custom-dnd {
   color: #9e7156;
 }
 
-/* ── Microphone ───────────────────────────────────────────────────────── */
 #custom-mic {
   color: #60a195;
 }
 
-/* ── Volume ──────────────────────────────────────────────────────────── */
 #pulseaudio {
   color: #b55242;
 }
@@ -146,7 +133,6 @@ window#waybar {
   color: #538798;
 }
 
-/* ── Network ─────────────────────────────────────────────────────────── */
 #network {
   color: #7f4c60;
 }
@@ -155,7 +141,6 @@ window#waybar {
   color: #8c3432;
 }
 
-/* ── Player ──────────────────────────────────────────────────────────── */
 #custom-player-prev,
 #custom-player-next {
   color: #538798;
@@ -172,7 +157,6 @@ window#waybar {
   min-width: 200px;
 }
 
-/* ── Tooltips ─────────────────────────────────────────────────────────── */
 tooltip {
   background: rgba(0, 0, 0, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.08);

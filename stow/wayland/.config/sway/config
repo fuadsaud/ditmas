@@ -1,32 +1,25 @@
-# Colors — populate ~/.config/sway/colors with set $color0 #... etc.
 include ~/.config/sway/colors
-
 include ~/.config/wm/config
 
 for_window [app_id=".*"] border pixel 0
 
 floating_modifier $mod normal
 
-# Input
 input type:touchpad {
   tap enabled
   natural_scroll enabled
   dwt enabled
 }
 
-# Backlight
 bindsym XF86MonBrightnessUp   exec brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
-# Clipboard / passthrough
 bindsym $mod+a exec wtype -M ctrl a -m ctrl
 bindsym $mod+c exec dcopy
 bindsym $mod+v exec dpaste
 
-# Display
 bindsym $mod+Shift+x exec kanshictl reload
 
-# Autostart
 exec gammastep
 exec swayidle -w timeout 300 'swaylock -f' before-sleep 'swaylock -f'
 exec kanshi

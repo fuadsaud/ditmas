@@ -17,9 +17,6 @@ client.background       $color14
 
 for_window [title=".*"] title_format %title
 
-# # #
-# Borders and gaps
-#
 for_window [class=".*"]   border pixel 0
 
 gaps inner 20
@@ -27,9 +24,6 @@ smart_borders on
 smart_borders no_gaps
 hide_edge_borders smart_no_gaps
 
-# # #
-# Workspaces
-#
 set $ws1  "1:"
 set $ws2  "2:"
 set $ws3  "3:"
@@ -71,9 +65,6 @@ bindsym $hypr+right move container to output right
 bindsym $hypr+up    move container to output up
 bindsym $hypr+down  move container to output down
 
-# # #
-# App → workspace assignments
-#
 assign [class=".*whatsapp.*"]                          $ws2
 assign [class="TelegramDesktop"]                       $ws2
 assign [instance="crx_jgeocpdicgmkeemopbanhokmhcgcflmi"] $ws2
@@ -86,9 +77,6 @@ for_window [class="1Password"]  floating enable
 for_window [app_id="1password"] floating enable
 for_window [class="zoom"]       floating enable, sticky enable
 
-# # #
-# Core keybindings
-#
 floating_modifier $mod
 
 bindsym $mod+q     kill
@@ -133,9 +121,6 @@ bindsym $mod+Control+space sticky toggle
 bindsym $mod+Prior focus parent
 bindsym $mod+Next  focus child
 
-# # #
-# Resize mode
-#
 mode "resize" {
   bindsym h resize shrink width  10 px or 10 ppt
   bindsym j resize grow   height 10 px or 10 ppt
@@ -154,9 +139,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# # #
-# Launching
-#
 bindsym $mod+Return      exec $TERMINAL
 bindsym $mod+slash       exec nautilus
 bindsym $mod+Shift+slash exec $WEB_BROWSER
@@ -166,16 +148,10 @@ bindsym $mod+Shift+v     exec rofi-clipster
 bindsym $mod+Shift+grave exec ddunst-test
 bindsym $mod+Shift+e     exec rofi -show power-menu
 
-# # #
-# Screenshots
-#
 bindsym --release Print       exec dscreenshot-fullscreen
 bindsym --release Shift+Print exec dscreenshot-select-area
 bindsym --release Mod1+Print  exec dscreenshot-select-window
 
-# # #
-# Media keys
-#
 bindsym XF86AudioRaiseVolume exec pamixer --unmute --increase 5
 bindsym XF86AudioLowerVolume exec pamixer --unmute --decrease 5
 bindsym XF86AudioMute        exec pamixer --toggle-mute
@@ -185,9 +161,6 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 
-# # #
-# Common autostart
-#
 exec dunst
 exec playerctld daemon
 exec systemctl --user start autostart.target
