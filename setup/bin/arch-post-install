@@ -17,13 +17,6 @@ function install_paru {
   fi
 }
 
-function setup_docker {
-  if command -v docker ; then
-    sudo usermod --append --groups docker "${USER}"
-  fi
-}
-
 install_paru
-setup_docker
 
 log 'arch post-installation finished'

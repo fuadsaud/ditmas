@@ -18,7 +18,7 @@ packages = [
   "consolas-font",
   "dconf-editor",
   "dialog",
-  { name = "docker", hooks = { after_sync = ["sudo", "systemctl", "enable", "docker"] } },
+  { name = "docker", hooks = { after_sync = ["sh", "-c", "sudo systemctl enable docker && sudo usermod --append --groups docker $USER"] } },
   "docker-compose",
   "dosfstools",
   "dunst",
