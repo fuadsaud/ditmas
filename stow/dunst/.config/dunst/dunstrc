@@ -18,7 +18,7 @@
     sort = yes
     idle_threshold = 120
 
-    font = ProFont for Powerline 18
+    font = ProFont for Powerline 11
     line_height = 0
     markup = full
     format = "<b>%s</b>\n\n%b"

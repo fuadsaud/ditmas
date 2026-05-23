@@ -1,6 +1,6 @@
 configuration {
   modi: "combi,drun,window,power-menu:rofi-power-menu,emoji:rofimoji";
-  font: "ProFont for Powerline 18";
+  font: "ProFont for Powerline 9";
   combi-modi: "window,drun";
 }
 
