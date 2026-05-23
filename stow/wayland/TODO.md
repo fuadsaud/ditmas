@@ -1,21 +1,19 @@
 # Wayland TODO
 
 ## Status bar
-- [ ] Workspace switcher text not visible (correct color, black bg, correct label — cause unknown)
 - [ ] Module colors don't match polybar — revisit color assignments per module
 
 ## Display management
 - [ ] Verify kanshi connector names match actual hardware (eDP-1, HDMI-A-2, DP-1)
 
-## Wallpaper
-- [ ] Set actual wallpaper file at ~/.config/wallpaper on mexicali
-
-## Key remapping (keyd)
-- [ ] Enable keyd.service on mexicali
-- [ ] Verify CapsLock and ralt behavior
-
 ## Packages
 - [ ] Remove X11-only packages once stable
+
+## Setup / systemd cleanup
+- [ ] Remove `setup_redshift` from arch-post-install (replaced by gammastep, no service needed)
+- [ ] Drop stow/redshift (X11-only, obsolete)
+- [ ] Replace stow/clipster with a Wayland clipboard history solution (cliphist + wl-clipboard)
+- [ ] Audit stow/systemd: autostart.target has no Wayland consumers; geoclue-agent only needed if gammastep uses geoclue
 
 ## Explore
 - [ ] Explore Hyprland as a sway replacement
