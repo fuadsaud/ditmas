@@ -5,6 +5,8 @@ include ~/.config/wm/config
 
 for_window [app_id=".*"] border pixel 0
 
+floating_modifier $mod normal
+
 # Input
 input type:touchpad {
   tap enabled

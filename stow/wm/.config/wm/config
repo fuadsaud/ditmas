@@ -89,7 +89,7 @@ for_window [class="zoom"]       floating enable, sticky enable
 # # #
 # Core keybindings
 #
-floating_modifier $mod normal
+floating_modifier $mod
 
 bindsym $mod+q     kill
 bindsym $mod+Tab   workspace back_and_forth
