@@ -2,7 +2,7 @@
 
 ## Status bar
 - [ ] Module colors don't match polybar — revisit color assignments per module
--
+- [ ] Check Siji codepoints around U+E218–E21D on mexicali to find wifi signal strength variants (`for cp in e218 e219 e21a e21b e21c e21d; do printf "U+$cp: \U$cp\n"; done`)
 
 ## Menus
 - [ ] Better looks for rofi
