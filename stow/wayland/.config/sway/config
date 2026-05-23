@@ -24,4 +24,6 @@ exec gammastep
 exec swayidle -w timeout 300 'swaylock -f' before-sleep 'swaylock -f'
 exec kanshi
 exec [ -f ~/.config/wallpaper ] && swaybg -i ~/.config/wallpaper -m fill
-exec_always dwaybar
+bar {
+    swaybar_command waybar
+}
