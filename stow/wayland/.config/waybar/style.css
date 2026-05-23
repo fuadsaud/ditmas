@@ -57,21 +57,23 @@ window#waybar {
 /* ── Workspaces ──────────────────────────────────────────────────────── */
 #workspaces button {
   padding: 0 6px;
-  color: #d3cbaf;
   background-color: transparent;
   border: none;
 }
 
-#workspaces button:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+#workspaces button label {
   color: #d3cbaf;
 }
 
-#workspaces button.focused {
+#workspaces button:hover label {
+  color: #d3cbaf;
+}
+
+#workspaces button.focused label {
   color: #b55242;
 }
 
-#workspaces button.urgent {
+#workspaces button.urgent label {
   color: #8c3432;
 }
 
