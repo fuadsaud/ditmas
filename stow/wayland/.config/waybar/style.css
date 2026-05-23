@@ -57,7 +57,8 @@ window#waybar {
 /* ── Workspaces ──────────────────────────────────────────────────────── */
 #workspaces button {
   padding: 0 6px;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: none;
   border: none;
 }
 
