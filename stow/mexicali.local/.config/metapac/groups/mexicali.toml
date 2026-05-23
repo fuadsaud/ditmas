@@ -125,6 +125,7 @@ packages = [
   "waybar",
   "which",
   "whois",
+  "cliphist",
   "wl-clipboard",
   "wtype",
   "xdg-desktop-portal-wlr",

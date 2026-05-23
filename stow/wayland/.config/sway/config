@@ -1,9 +1,163 @@
 include ~/.config/sway/colors
-include ~/.config/wm/config
 
-for_window [app_id=".*"] border pixel 0
+set $mod Mod4
+set $hypr Mod1+Mod4+Control+Shift
+
+font pango:Siji, ProFont for Powerline 18
+
+# class                 border   backgr.  text     indicator  child_border
+client.focused          $color14 $color14 $color5  $color6    $color13
+client.focused_inactive $color14 $color14 $color8  #484e50    $color14
+client.unfocused        $color14 $color14 $color8  #292d2e    $color14
+client.urgent           $color9  $color9  $color0  #900000    #900000
+client.placeholder      #ff0000  #ff0000  #ffffff  #000000    #ff0000
+client.background       $color14
+
+for_window [title=".*"] title_format %title
+for_window [class=".*"]   border pixel 0
+for_window [app_id=".*"]  border pixel 0
+
+gaps inner 20
+smart_borders on
+smart_borders no_gaps
+hide_edge_borders smart_no_gaps
+
+set $ws1  "1:"
+set $ws2  "2:"
+set $ws3  "3:"
+set $ws4  "4"
+set $ws5  "5:"
+set $ws6  "6:"
+set $ws7  "7:"
+set $ws8  "8"
+set $ws9  "9"
+set $ws10 "10:"
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+bindsym $mod+minus move workspace to output right
+bindsym $mod+plus  move workspace to output left
+
+bindsym $hypr+left  move container to output left
+bindsym $hypr+right move container to output right
+bindsym $hypr+up    move container to output up
+bindsym $hypr+down  move container to output down
+
+assign [class=".*whatsapp.*"]                          $ws2
+assign [class="TelegramDesktop"]                       $ws2
+assign [instance="crx_jgeocpdicgmkeemopbanhokmhcgcflmi"] $ws2
+for_window [class="Spotify"] move --no-auto-back-and-forth container to workspace $ws3
+assign [class="pocket-casts-linux"]                    $ws3
+assign [class="Ao"]                                    $ws5
+assign [class="Slack"]                                 $ws7
+
+for_window [class="1Password"]  floating enable
+for_window [app_id="1password"] floating enable
+for_window [class="zoom"]       floating enable, sticky enable
 
 floating_modifier $mod normal
+
+bindsym $mod+q     kill
+bindsym $mod+Tab   workspace back_and_forth
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+Control+h split h
+bindsym $mod+Control+v split v
+
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+Shift+space  floating toggle
+bindsym $mod+space        focus mode_toggle
+bindsym $mod+Control+space sticky toggle
+
+bindsym $mod+Prior focus parent
+bindsym $mod+Next  focus child
+
+mode "resize" {
+  bindsym h resize shrink width  10 px or 10 ppt
+  bindsym j resize grow   height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
+  bindsym l resize grow   width  10 px or 10 ppt
+
+  bindsym Left  resize shrink width  10 px or 10 ppt
+  bindsym Down  resize grow   height 10 px or 10 ppt
+  bindsym Up    resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow   width  10 px or 10 ppt
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+bindsym $mod+Return      exec $TERMINAL
+bindsym $mod+slash       exec nautilus
+bindsym $mod+Shift+slash exec $WEB_BROWSER
+bindsym $mod+d           exec rofi -show
+bindsym $mod+Shift+d     exec rofimoji --action copy
+bindsym $mod+Shift+v     exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
+bindsym $mod+Shift+grave exec ddunst-test
+bindsym $mod+Shift+e     exec rofi -show power-menu
+
+bindsym --release Print       exec dscreenshot-fullscreen
+bindsym --release Shift+Print exec dscreenshot-select-area
+bindsym --release Mod1+Print  exec dscreenshot-select-window
+
+bindsym XF86AudioRaiseVolume exec pamixer --unmute --increase 5
+bindsym XF86AudioLowerVolume exec pamixer --unmute --decrease 5
+bindsym XF86AudioMute        exec pamixer --toggle-mute
+bindsym XF86AudioMicMute     exec pamixer --toggle-mute --default-source
+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec playerctl next
 
 input type:touchpad {
   tap enabled
@@ -22,6 +176,7 @@ bindsym $mod+Shift+x exec kanshictl reload
 
 set $wallpaper ~/.config/wallpaper
 
+exec wl-paste --type text --watch cliphist store
 exec systemctl --user import-environment WAYLAND_DISPLAY DISPLAY
 exec /usr/bin/dunst
 exec gammastep
