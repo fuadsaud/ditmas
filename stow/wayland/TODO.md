@@ -22,7 +22,7 @@
 
 ## Hardware
 - [x] Keyboard backlight controls not working
-- [ ] Add wireless-regdb to metapac — missing causes wrong Wi-Fi channels/power for region
+- [x] Add wireless-regdb to metapac — missing causes wrong Wi-Fi channels/power for region
 - [ ] Investigate broadcom-wl driver — unmaintained, bypasses Spectre mitigations, causes ~1min Wi-Fi delay on boot; explore brcmfmac
 - [ ] Fix bluetooth permissions — /etc/bluetooth is 755, bluetoothd expects 555
 - [ ] Check external USB HDD — disconnected 19 times in 30s during boot log; cable/enclosure may be failing
