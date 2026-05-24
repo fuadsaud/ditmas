@@ -1,5 +1,5 @@
 (local {: autoload} (require :nfnl.module))
-(local treesitter (autoload :nvim-treesitter.configs))
+(local treesitter (autoload :nvim-treesitter))
 
 (fn setup []
   (treesitter.setup
