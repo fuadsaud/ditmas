@@ -168,8 +168,8 @@ input type:touchpad {
 bindsym XF86MonBrightnessUp   exec brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
-bindsym XF86KbdBrightnessUp   exec brightnessctl -d 'apple::kbd_backlight' set +10%
-bindsym XF86KbdBrightnessDown exec brightnessctl -d 'apple::kbd_backlight' set 10%-
+bindsym XF86KbdBrightnessUp   exec brightnessctl -d 'smc::kbd_backlight' set +10%
+bindsym XF86KbdBrightnessDown exec brightnessctl -d 'smc::kbd_backlight' set 10%-
 
 bindsym $mod+a exec wtype -M ctrl a -m ctrl
 bindsym $mod+c exec dcopy
