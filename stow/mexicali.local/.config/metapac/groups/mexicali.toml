@@ -23,6 +23,7 @@ packages = [
   "dosfstools",
   "dunst",
   "efibootmgr",
+  "evtest",
   "fakeroot",
   "file",
   "findutils",

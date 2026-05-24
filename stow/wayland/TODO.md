@@ -18,7 +18,7 @@
 - [ ] Explore managing user-land daemons via systemd user services + presets instead of sway exec
 - [ ] Get rid of gdm/gnome shell
 - [x] Investigate dpolybar-* references still being called 226 times from GDM session — old polybar scripts in session autostart
-- [ ] Extract device-specific sway config (touchpad, screen brightness) to mexicali include
+- [x] Extract device-specific sway config (touchpad, screen brightness) to mexicali include
 
 ## Hardware
 - [x] Keyboard backlight controls not working
