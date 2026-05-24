@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+set -euo pipefail
+brightnessctl -d 'smc::kbd_backlight' set 10%-
