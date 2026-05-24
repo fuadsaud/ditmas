@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+case "${1:-status}" in
+  status)
+    if [[ "$(pamixer --default-source --get-mute)" == "true" ]]; then
+      echo ""
+    else
+      echo ""
+    fi
+    ;;
+  toggle)
+    pamixer --default-source --toggle-mute
+    ;;
+esac

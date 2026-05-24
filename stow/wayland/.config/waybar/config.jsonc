@@ -18,7 +18,6 @@
       "sway/window"
     ],
     "modules-right": [
-      "custom/redshift",
       "custom/dnd",
       "custom/mic",
       "pulseaudio",
@@ -41,14 +40,14 @@
         "warning": 30,
         "critical": 15
       },
-      "format": " {capacity}%",
-      "format-charging": " {capacity}%",
-      "format-plugged": " {capacity}%",
-      "format-icons": ["", "", ""],
+      "format": " {capacity}%",
+      "format-charging": " {capacity}%",
+      "format-plugged": " {capacity}%",
+      "format-icons": ["", "", ""],
       "tooltip": false
     },
     "custom/arch-updates": {
-      "exec": "dpolybar-arch-updates",
+      "exec": "waybar-arch-updates",
       "interval": 3600,
       "tooltip": false
     },
@@ -63,35 +62,29 @@
     "sway/window": {
       "max-length": 60
     },
-    "custom/redshift": {
-      "exec": "dpolybar-redshift",
-      "on-click": "dpolybar-redshift toggle",
-      "interval": 5,
-      "tooltip": false
-    },
     "custom/dnd": {
-      "exec": "dpolybar-dnd",
-      "on-click": "dpolybar-dnd toggle",
+      "exec": "waybar-dnd",
+      "on-click": "waybar-dnd toggle",
       "interval": 5,
       "tooltip": false
     },
     "custom/mic": {
-      "exec": "dpolybar-mic",
-      "on-click": "dpolybar-mic toggle",
+      "exec": "waybar-mic",
+      "on-click": "waybar-mic toggle",
       "interval": 5,
       "tooltip": false
     },
     "pulseaudio": {
-      "format": " {volume}%",
-      "format-muted": " muted",
+      "format": " {volume}%",
+      "format-muted": " muted",
       "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
       "on-click-right": "pavucontrol",
       "tooltip": false
     },
     "network": {
-      "format-wifi": " {essid} {signalStrength}%",
-      "format-ethernet": " {ifname}",
-      "format-disconnected": " disconnected",
+      "format-wifi": " {essid} {signalStrength}%",
+      "format-ethernet": " {ifname}",
+      "format-disconnected": " disconnected",
       "on-click": "networkmanager_dmenu",
       "tooltip": false
     },
@@ -112,10 +105,7 @@
       "clock"
     ],
     "modules-center": [
-      "custom/player-prev",
-      "custom/player-play-pause",
-      "custom/player-next",
-      "custom/player-metadata"
+      "mpris"
     ],
     "modules-right": [
       "sway/workspaces"
@@ -125,31 +115,16 @@
       "format-alt": "{:%a %b %d}",
       "tooltip": false
     },
-    "custom/player-prev": {
-      "exec": "echo ''",
-      "on-click": "playerctl previous",
-      "interval": "once",
-      "tooltip": false
-    },
-
-    "custom/player-play-pause": {
-      "exec": "dpolybar-player-status-pp",
+    "mpris": {
+      "format": "{status_icon} {artist} - {title}",
+      "status-icons": {
+        "playing": "",
+        "paused": "",
+        "stopped": ""
+      },
       "on-click": "playerctl play-pause",
-      "return-type": "",
-      "tooltip": false
-    },
-
-    "custom/player-next": {
-      "exec": "echo ''",
-      "on-click": "playerctl next",
-      "interval": "once",
-      "tooltip": false
-    },
-
-    "custom/player-metadata": {
-      "exec": "dpolybar-player-metadata-scroll",
-      "on-click": "playerctl play-pause",
-      "return-type": "",
+      "on-click-middle": "playerctl previous",
+      "on-click-right": "playerctl next",
       "tooltip": false
     },
     "sway/workspaces": {

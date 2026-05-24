@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+case "${1:-status}" in
+  status)
+    if [[ "$(dunstctl is-paused)" == "true" ]]; then
+      echo ""
+    else
+      echo ""
+    fi
+    ;;
+  toggle)
+    dunstctl set-paused toggle
+    ;;
+esac
