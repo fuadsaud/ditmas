@@ -127,6 +127,7 @@ packages = [
   "which",
   "whois",
   "cliphist",
+  "wireless-regdb", # without this, kernel falls back to world regulatory domain (wrong channels/power for region)
   "wl-clipboard",
   "wtype",
   "xdg-desktop-portal-wlr",
