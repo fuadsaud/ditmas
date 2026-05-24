@@ -23,3 +23,9 @@
 ## Explore
 - [ ] Explore Hyprland as a sway replacement
 - [ ] Explore managing user-land daemons via systemd user services + presets instead of sway exec
+-
+-
+
+nvim plugin errors
+1password startup (ssh agent)
+dark mode
