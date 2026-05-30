@@ -4,7 +4,7 @@
 
     width = 500
     origin = bottom-right
-    offset = 50x130
+    offset = 10x10
 
     indicate_hidden = yes
     shrink = no
@@ -18,7 +18,7 @@
     sort = yes
     idle_threshold = 120
 
-    font = ProFont for Powerline 11
+    font = ProFont for Powerline 12
     line_height = 0
     markup = full
     format = "<b>%s</b>\n\n%b"
@@ -45,7 +45,7 @@
     always_run_script = true
     title = Dunst
     class = Dunst
-    corner_radius = 0
+    corner_radius = 10
     ignore_dbusclose = false
     force_xinerama = false
 

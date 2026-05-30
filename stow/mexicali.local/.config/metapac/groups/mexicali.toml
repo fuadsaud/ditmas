@@ -26,6 +26,8 @@ packages = [
   "dosfstools",
   "dunst",
   "efibootmgr",
+  "elephant",
+  "elephant-desktopapplications",
   "evtest",
   "fakeroot",
   "file",
@@ -143,4 +145,5 @@ packages = [
   "xf86-input-mtrack-git",
   "xorg-xwayland",
   "zsh",
+  "rsync",
 ]

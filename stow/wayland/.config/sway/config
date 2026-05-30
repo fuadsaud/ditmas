@@ -137,11 +137,13 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+Return      exec $TERMINAL
+bindsym $mod+Return      exec kitty
+# bindsym $mod+Return      exec $TERMINAL
 bindsym $mod+slash       exec nautilus
 bindsym $mod+Shift+slash exec $WEB_BROWSER
-bindsym $mod+d           exec rofi -show
-bindsym $mod+Shift+d     exec rofimoji --action copy
+bindsym $mod+d           exec rofi -show drun
+bindsym $mod+Shift+d     exec rofi -show window
+bindsym $mod+o           exec rofimoji --action copy
 bindsym $mod+Shift+v     exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
 bindsym $mod+Shift+grave exec ddunst-test
 bindsym $mod+Shift+e     exec rofi -show power-menu
