@@ -5,6 +5,8 @@ set $hypr Mod1+Mod4+Control+Shift
 
 font pango:Siji, ProFont for Powerline 18
 
+seat seat0 xcursor_theme default 96
+
 # class                 border   backgr.  text     indicator  child_border
 client.focused          $color14 $color14 $color5  $color6    $color13
 client.focused_inactive $color14 $color14 $color8  #484e50    $color14
